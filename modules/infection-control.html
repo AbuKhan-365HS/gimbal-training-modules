@@ -1,0 +1,1773 @@
+<!-- Infection Control Training: 365 Health Services -->
+<!-- Browser prototype. Gimbal script/style support is unverified. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infection Control | 365 Health Services</title>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <style>
+      #ic-training,
+      #ic-training * {
+        box-sizing: border-box;
+      }
+
+      #ic-training {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --mint: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        background: #ffffff;
+        border: 1px solid #dcebf0;
+        border-radius: 26px;
+        overflow: hidden;
+        box-shadow: 0 14px 40px rgba(23, 81, 153, 0.1);
+      }
+
+      #ic-training button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #ic-training button:focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      #ic-training .ic-head {
+        background: var(--mint);
+        padding: 22px 22px 26px;
+        position: relative;
+      }
+
+      #ic-training .ic-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      #ic-training .ic-brand {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+      }
+
+      #ic-training .ic-brand img {
+        display: block;
+        width: min(175px, 42vw);
+        max-height: 58px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #ic-training .ic-brand-fallback {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        color: var(--blue);
+      }
+
+      #ic-training .ic-skip {
+        background: #ffffff;
+        color: var(--blue);
+        border: 0;
+        border-radius: 999px;
+        padding: 11px 15px;
+        font-weight: 700;
+      }
+
+      #ic-training .ic-eyebrow {
+        margin: 23px 0 10px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+
+      #ic-training h1 {
+        font-size: clamp(28px, 7.3vw, 43px);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+        margin: 0;
+        font-weight: 800;
+        color: var(--blue);
+      }
+
+      #ic-training .ic-head p {
+        margin: 15px 0 0;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #27486b;
+      }
+
+      #ic-training .ic-content {
+        padding: 20px 20px 8px;
+        background: #ffffff;
+      }
+
+      #ic-training .ic-status {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+
+      #ic-training .ic-status strong {
+        color: var(--blue);
+      }
+
+      #ic-training .ic-progress {
+        height: 6px;
+        background: #e7eff5;
+        border-radius: 50px;
+        overflow: hidden;
+        margin-bottom: 21px;
+      }
+
+      #ic-training .ic-progress-fill {
+        height: 100%;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.25s ease;
+      }
+
+      #ic-training .ic-panel {
+        border: 1px solid #d5eaf0;
+        border-radius: 19px;
+        padding: 20px;
+        background: #f6fbfd;
+        min-height: 220px;
+      }
+
+      #ic-training .ic-panel-kicker {
+        font-size: 11px;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--sky);
+        margin: 0 0 8px;
+      }
+
+      #ic-training .ic-panel h2 {
+        margin: 0 0 14px;
+        font-size: clamp(21px, 5vw, 26px);
+        line-height: 1.18;
+        color: var(--blue);
+        letter-spacing: -0.02em;
+      }
+
+      #ic-training .ic-panel h3 {
+        font-size: 16px;
+        margin: 18px 0 8px;
+        color: var(--blue);
+      }
+
+      #ic-training .ic-panel p {
+        line-height: 1.57;
+        font-size: 15px;
+        margin: 0 0 12px;
+      }
+
+      #ic-training .ic-panel p:last-child {
+        margin-bottom: 0;
+      }
+
+      #ic-training .ic-list {
+        margin: 9px 0 0;
+        padding-left: 21px;
+      }
+
+      #ic-training .ic-list li {
+        padding-left: 3px;
+        margin: 0 0 10px;
+        font-size: 14px;
+        line-height: 1.47;
+      }
+
+      #ic-training .ic-list li::marker {
+        color: var(--sky);
+      }
+
+      #ic-training .ic-info {
+        border-left: 4px solid var(--sky);
+        border-radius: 9px;
+        background: #e6f5fb;
+        padding: 14px 15px;
+        margin: 13px 0;
+      }
+
+      #ic-training .ic-info strong {
+        color: var(--blue);
+      }
+
+      #ic-training .ic-info .ic-list {
+        margin-top: 9px;
+      }
+
+      /* Original five-step cycle recreated using CSS */
+
+      #ic-training .ic-cycle {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #ic-training .ic-cycle li {
+        position: relative;
+        display: flex;
+        gap: 13px;
+        padding: 11px 0 18px;
+        border-bottom: 1px solid #d5eaf0;
+        line-height: 1.45;
+        font-size: 14px;
+      }
+
+      #ic-training .ic-cycle li:last-child {
+        border: 0;
+        padding-bottom: 0;
+      }
+
+      #ic-training .ic-cycle-num {
+        flex: 0 0 34px;
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        background: var(--blue);
+        color: #ffffff;
+        font-weight: bold;
+        border-radius: 50%;
+      }
+
+      #ic-training .ic-cycle li:not(:last-child):after {
+        content: "↓";
+        position: absolute;
+        left: 12px;
+        bottom: -9px;
+        color: var(--pink);
+        font-size: 18px;
+        font-weight: bold;
+        background: #f6fbfd;
+      }
+
+      /* Inner carousels */
+
+      #ic-training .ic-slide-nav {
+        margin: 15px 0 8px;
+        padding: 11px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #eef7fb;
+        border-radius: 16px;
+        gap: 10px;
+      }
+
+      #ic-training .ic-arrow {
+        border: 1px solid #bad7e7;
+        background: #ffffff;
+        color: var(--blue);
+        border-radius: 50%;
+        height: 42px;
+        width: 42px;
+        flex: 0 0 42px;
+        font-size: 24px !important;
+      }
+
+      #ic-training .ic-arrow:disabled,
+      #ic-training .ic-main-button:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #ic-training .ic-slide-center {
+        text-align: center;
+        min-width: 0;
+      }
+
+      #ic-training .ic-slide-center strong {
+        display: block;
+        font-size: 12px;
+        color: var(--blue);
+      }
+
+      #ic-training .ic-slide-center small {
+        display: block;
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      #ic-training .ic-dots {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        margin-top: 7px;
+        flex-wrap: wrap;
+      }
+
+      #ic-training .ic-dot {
+        padding: 0;
+        border: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 99px;
+        background: #b9d6e5;
+      }
+
+      #ic-training .ic-dot[aria-current="true"] {
+        width: 22px;
+        background: var(--blue);
+      }
+
+      /* Main navigation */
+
+      #ic-training .ic-bottom {
+        position: sticky;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.97);
+        border-top: 1px solid #e6f0f4;
+        padding: 16px 20px 20px;
+        display: flex;
+        gap: 10px;
+      }
+
+      #ic-training .ic-main-button {
+        border: 0;
+        min-height: 52px;
+        border-radius: 999px;
+        font-weight: 800;
+        padding: 14px 18px;
+      }
+
+      #ic-training .ic-back {
+        width: 39%;
+        background: #e8f0f7;
+        color: var(--blue);
+      }
+
+      #ic-training .ic-next {
+        flex: 1;
+        background: var(--blue);
+        color: #ffffff;
+      }
+
+      #ic-training .ic-note {
+        font-size: 12px;
+        color: var(--muted);
+        text-align: center;
+        padding: 2px 20px 13px;
+      }
+
+      /* Narrow mobile displays */
+
+      @media (max-width: 390px) {
+        #ic-training {
+          border-radius: 16px;
+        }
+
+        #ic-training .ic-head {
+          padding: 17px 17px 21px;
+        }
+
+        #ic-training .ic-content {
+          padding: 16px 14px 8px;
+        }
+
+        #ic-training .ic-panel {
+          padding: 16px;
+        }
+
+        #ic-training .ic-bottom {
+          padding: 13px 14px 16px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #ic-training .ic-progress-fill {
+          transition: none;
+        }
+      }
+    </style>
+
+    <div
+      id="ic-training"
+      role="region"
+      aria-label="Infection Control and Standard Precautions training"
+    >
+      <div class="ic-head">
+        <div class="ic-top">
+          <div class="ic-brand">
+            <img
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'inline';
+              "
+            />
+            <span class="ic-brand-fallback" style="display: none">
+              365 HEALTH SERVICES
+            </span>
+          </div>
+
+          <button class="ic-skip" type="button" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="ic-eyebrow" id="ic-eyebrow"></div>
+        <h1 id="ic-heading"></h1>
+        <p id="ic-lead"></p>
+      </div>
+
+      <div class="ic-content">
+        <div class="ic-status" aria-live="polite">
+          <strong id="ic-screen-count"></strong>
+          <span id="ic-remaining"></span>
+        </div>
+
+        <div
+          class="ic-progress"
+          role="progressbar"
+          aria-label="Training progress"
+          aria-valuemin="1"
+          aria-valuemax="19"
+          id="ic-progress"
+        >
+          <div class="ic-progress-fill" id="ic-progress-fill"></div>
+        </div>
+
+        <div class="ic-panel" id="ic-panel" aria-live="polite"></div>
+
+        <div id="ic-inner-nav"></div>
+      </div>
+
+      <div class="ic-bottom">
+        <button
+          class="ic-main-button ic-back"
+          type="button"
+          data-action="back"
+          id="ic-back"
+        >
+          ← Back
+        </button>
+
+        <button
+          class="ic-main-button ic-next"
+          type="button"
+          data-action="next"
+          id="ic-next"
+        >
+          Next →
+        </button>
+      </div>
+
+      <div class="ic-note">
+        Use the slide arrows or swipe on a card to explore its details.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        const $ = (id) => document.getElementById(id);
+
+        const list = (items) =>
+          `<ul class="ic-list">
+      ${items.map((x) => `<li>${x}</li>`).join("")}
+    </ul>`;
+
+        const info = (heading, items) =>
+          `<div class="ic-info">
+      <strong>${heading}</strong>
+      ${list(items)}
+    </div>`;
+
+        const card = (title, html, label = "TRAINING CONTENT") => ({
+          title,
+          html,
+          label,
+        });
+
+        const screen = (
+          title,
+          lead,
+          cards,
+          label = "INFECTION PREVENTION",
+        ) => ({
+          title,
+          lead,
+          cards,
+          label,
+        });
+
+        // =================================================
+        // SCREEN 3: ORIGINAL CROSS-CONTAMINATION CYCLE
+        // =================================================
+
+        const cycle = [
+          "Pathogens (bacteria or viruses) are present in the intestinal tract.",
+          "Pathogens are deposited on toilet fixtures when the toilet is used.",
+          "A hand picks up pathogens from the fixture and transfers them to the sink.",
+          "A subsequent person touches the contaminated sink and carries pathogens on their hand.",
+          "Pathogens enter the body, potentially causing infection, and the cycle can repeat.",
+        ];
+
+        const cycleHtml = `
+    <ol class="ic-cycle">
+      ${cycle
+        .map(
+          (s, i) => `
+            <li>
+              <span class="ic-cycle-num">${i + 1}</span>
+              <span>${s}</span>
+            </li>
+          `,
+        )
+        .join("")}
+    </ol>
+  `;
+
+        // =================================================
+        // TRAINING SCREENS
+        // =================================================
+
+        const pages = [
+          // SCREEN 01
+          screen(
+            "Infection Control & Standard Precautions",
+
+            "The Administrator and Director of Clinical Services oversee the surveillance, identification, prevention, control, and investigation of infectious and communicable diseases.",
+
+            [
+              card(
+                "Our infection control program",
+
+                `<p>
+            365 Health Services follows applicable federal
+            and Pennsylvania standards for infection
+            prevention and control.
+          </p>` +
+                  info("Guidance and standards referenced in this program", [
+                    "Centers for Disease Control and Prevention (CDC)",
+                    "Occupational Safety and Health Administration (OSHA)",
+                    "Agency for Healthcare Research and Quality (AHRQ)",
+                    "Pennsylvania regulations and State Practice Acts",
+                    "Association for Professionals in Infection Control and Epidemiology (APIC)",
+                    "American Nurses Association (ANA)",
+                  ]),
+
+                "GETTING STARTED",
+              ),
+            ],
+
+            "WELCOME",
+          ),
+
+          // SCREEN 02
+          screen(
+            "Infection Control Compliance",
+
+            "How the agency manages infectious-disease reporting, employee education, and infection-prevention practices.",
+
+            [
+              card(
+                "Oversight and reporting",
+
+                `<p>
+            The Administrator and Director of Clinical
+            Services oversee staff education, training,
+            and compliance.
+          </p>` +
+                  list([
+                    "Report communicable diseases as required.",
+                    "Compile data for the agency’s Quality Assurance and Performance Improvement (QAPI) program.",
+                  ]),
+              ),
+
+              card(
+                "Annual policies and procedures",
+
+                `<p>
+            Infection prevention and control policies
+            are reviewed, developed, and implemented
+            annually, covering:
+          </p>` +
+                  list([
+                    "Compliance and staff education",
+                    "Sterilization and disinfection of reusable medical equipment and devices",
+                    "Aseptic transfer of supplies to and from patient homes",
+                    "Chemicals used to clean environmental surfaces",
+                  ]),
+              ),
+            ],
+
+            "PROGRAM RESPONSIBILITIES",
+          ),
+
+          // SCREEN 03
+          screen(
+            "How Infection Spreads",
+
+            "The invisible cross-contamination cycle: see how pathogens can travel from surfaces to hands and from person to person.",
+
+            [
+              card(
+                "Five-step contamination cycle",
+
+                cycleHtml +
+                  info("How to interrupt the cycle", [
+                    "Perform hand hygiene at appropriate moments.",
+                    "Use appropriate PPE and clean shared surfaces and equipment.",
+                  ]),
+
+                "ILLUSTRATED AS A TEXT FLOW",
+              ),
+            ],
+
+            "TRANSMISSION",
+          ),
+
+          // SCREEN 04
+          screen(
+            "Routes of Transmission",
+
+            "Different routes allow infections to move between people and their surroundings. Use the arrows to explore each route.",
+
+            [
+              card(
+                "Respiratory",
+
+                `<p>
+            Infectious material may spread when a
+            person <strong>coughs or sneezes</strong>.
+          </p>`,
+              ),
+
+              card(
+                "Fecal–oral",
+
+                `<p>
+            Fecal material may contaminate
+            <strong>hands, food, or the environment</strong>
+            and reach another person’s mouth.
+          </p>`,
+              ),
+
+              card(
+                "Vector-borne",
+
+                `<p>
+            Infections may be transmitted by insects
+            or other vectors.
+          </p>` +
+                  info("Examples in the source training", [
+                    "Typhus",
+                    "Malaria",
+                    "Rocky Mountain spotted fever",
+                    "Lyme disease",
+                  ]),
+              ),
+
+              card(
+                "Direct and indirect contact",
+
+                `<h3>Direct contact</h3>
+          <p>
+            Person-to-person or contact with a reservoir,
+            including skin-to-skin contact, kissing,
+            sexual activity, soil, or vegetation.
+          </p>
+
+          <h3>Indirect contact</h3>
+          <p>
+            Pathogens move through contaminated objects
+            or surfaces.
+          </p>`,
+              ),
+
+              card(
+                "Droplet transmission",
+
+                `<p>
+            Respiratory droplets can carry pathogens when
+            a person coughs, sneezes, or talks; some
+            medical procedures may generate droplets.
+          </p>` +
+                  info("Examples listed in the presentation", [
+                    "Diphtheria",
+                    "Pertussis (whooping cough)",
+                    "Meningococcal meningitis",
+                  ]),
+              ),
+
+              card(
+                "Airborne transmission",
+
+                `<p>
+            Small infectious particles can remain
+            suspended in the air, travel farther,
+            and be generated during certain procedures.
+          </p>` +
+                  info("Examples", ["Tuberculosis", "Measles (rubeola)"]) +
+                  `<p>
+            <strong>Presentation note:</strong>
+            Influenza may spread through several routes;
+            route-specific details require clinical review.
+          </p>`,
+              ),
+            ],
+
+            "TRANSMISSION",
+          ),
+
+          // SCREEN 05
+          screen(
+            "Pathogens",
+
+            "A pathogen is a disease-causing agent. Explore the main categories described in the presentation.",
+
+            [
+              card(
+                "Protozoa",
+
+                `<p>
+            Single-celled organisms, some of which are
+            parasites; examples include organisms
+            responsible for <strong>malaria</strong>
+            and <strong>amebic dysentery</strong>.
+          </p>`,
+              ),
+
+              card(
+                "Rickettsia",
+
+                `<p>
+            Bacteria often transmitted by arthropods,
+            associated with
+            <strong>Rocky Mountain spotted fever</strong>
+            and <strong>typhus</strong>.
+          </p>`,
+              ),
+
+              card(
+                "Fungi",
+
+                `<p>
+            Includes molds and yeasts; may cause
+            <strong>thrush</strong> and
+            <strong>athlete’s foot</strong>.
+          </p>`,
+              ),
+
+              card(
+                "Bacteria",
+
+                `<p>
+            May multiply in the body and cause disease
+            through tissue damage or toxins.
+          </p>` +
+                  info("Examples from the training", [
+                    "Diphtheria",
+                    "Gonorrhea",
+                    "Typhoid fever",
+                    "Tuberculosis",
+                    "Cholera",
+                    "Wound infections",
+                  ]),
+              ),
+
+              card(
+                "Viruses",
+
+                `<p>
+            Reproduce by entering host cells and
+            using cellular processes.
+          </p>` +
+                  info("Examples from the training", [
+                    "Polio",
+                    "Influenza",
+                    "HIV/AIDS",
+                    "Measles",
+                    "Mumps",
+                    "Common cold",
+                  ]),
+              ),
+            ],
+
+            "MICROORGANISMS",
+          ),
+
+          // SCREEN 06
+          screen(
+            "The Chain of Infection",
+
+            "Infections occur when a pathogen can survive, leave its source, spread, enter a new host, and establish infection.",
+
+            [
+              card(
+                "Reservoirs",
+
+                `<p>
+            A <strong>reservoir</strong> is where
+            a pathogen lives or survives.
+          </p>` +
+                  list([
+                    "People with infection, including those without symptoms",
+                    "Animals",
+                    "Non-animal sources, such as dust, lint, or soil",
+                  ]),
+              ),
+
+              card(
+                "Exit and transmission",
+
+                `<p>
+            Pathogens may leave through the intestinal,
+            respiratory, or genitourinary tract; blood;
+            or breaks in the skin. Animal bites
+            are another route.
+          </p>
+
+          <h3>Ways they spread</h3>` +
+                  list([
+                    "Direct contact with an infected person or infectious body material",
+                    "Indirect contact with contaminated dressings, food, needles, or other objects",
+                    "Vectors such as fleas and ticks",
+                  ]),
+              ),
+
+              card(
+                "Entry and susceptible hosts",
+
+                `<p>
+            Entry may occur through the mouth, respiratory
+            or genitourinary tract, bloodstream,
+            mucous membranes, or broken skin.
+          </p>
+
+          <p>
+            Susceptibility varies with age, immune health,
+            illness, medications, nutrition, stress, and
+            other factors. Infants, older adults,
+            pregnant people, and people with impaired
+            immunity may be at increased risk.
+          </p>`,
+              ),
+            ],
+
+            "TRANSMISSION",
+          ),
+
+          // SCREEN 07
+          screen(
+            "Prevention & Standard Precautions",
+
+            "Apply infection prevention practices during every episode of patient care.",
+
+            [
+              card(
+                "Personal hygiene habits",
+
+                `<p>
+            Good personal hygiene reduces the spread
+            of infection.
+          </p>` +
+                  list([
+                    "Do not provide care while experiencing signs or symptoms of infection; follow agency reporting rules.",
+                    "Bathe and maintain oral hygiene.",
+                    "Keep hair and facial hair well groomed.",
+                    "Wear clean clothing.",
+                  ]),
+              ),
+
+              card(
+                "Asepsis",
+
+                `<p>
+            <strong>Asepsis</strong> refers to preventing
+            contamination by pathogens. Aseptic techniques
+            protect patients and reduce transmission.
+          </p>` +
+                  list([
+                    "<strong>Cleaning:</strong> removes dirt and other impurities.",
+                    "<strong>Sanitizing:</strong> reduces the number of microorganisms.",
+                    "<strong>Disinfecting:</strong> inactivates many microorganisms on surfaces; effectiveness depends on the method.",
+                  ]),
+              ),
+
+              card(
+                "Standard precautions",
+
+                `<p>
+            Use standard precautions with
+            <strong>all patients</strong>, regardless
+            of whether an infection is known or suspected.
+          </p>
+
+          <p>
+            Treat blood and potentially infectious body
+            substances as possible sources of exposure.
+            Precautions protect patients, staff,
+            and the community.
+          </p>`,
+              ),
+
+              card(
+                "Six focus areas",
+
+                list([
+                  "Hand hygiene",
+                  "Environmental cleaning and disinfection",
+                  "Injection and medication safety",
+                  "Appropriate personal protective equipment (PPE)",
+                  "Minimizing potential exposure",
+                  "Reprocessing reusable medical equipment between patients and when soiled",
+                ]),
+              ),
+            ],
+
+            "PREVENTION",
+          ),
+
+          // SCREEN 08
+          screen(
+            "Hand Hygiene",
+
+            "Clean hands at the correct moments and use the correct method.",
+
+            [
+              card(
+                "When to clean your hands",
+
+                list([
+                  "Before patient contact",
+                  "Before an aseptic task, such as wound care or preparing an injection",
+                  "After patient contact or contact with objects near the patient",
+                  "After blood, body-fluid, or contaminated-surface contact",
+                  "When moving from a contaminated to a clean body site",
+                  "After removing PPE",
+                ]),
+              ),
+
+              card(
+                "Products and supplies",
+
+                `<p>
+            When hands are not visibly soiled,
+            <strong>alcohol-based hand rub</strong>
+            is generally preferred in healthcare settings.
+          </p>
+
+          <p>
+            Soap and water are needed in specific
+            circumstances. The agency must make supplies
+            available to support proper hand hygiene.
+          </p>`,
+              ),
+
+              card(
+                "Methods",
+
+                `<h3>Handwashing</h3>
+
+          <p>
+            Wet hands, apply soap, scrub all surfaces
+            for at least <strong>20 seconds</strong>,
+            rinse, and dry with a single-use towel.
+            Use the towel to shut off the faucet
+            when applicable.
+          </p>
+
+          <h3>Hand sanitizer</h3>
+
+          <p>
+            Apply sufficient product to cover all hand
+            surfaces and rub until dry, following product
+            instructions (the source presentation specifies
+            approximately 20–30 seconds).
+          </p>`,
+              ),
+            ],
+
+            "HAND HYGIENE",
+          ),
+
+          // SCREEN 09
+          screen(
+            "Gloves",
+
+            "Gloves provide a barrier but never replace hand hygiene.",
+
+            [
+              card(
+                "Safe glove use",
+
+                list([
+                  "Wear gloves when touching blood, body fluids, secretions, excretions, mucous membranes, or non-intact skin.",
+                  "Change gloves between tasks, even with the same patient, if contamination may occur.",
+                  "Remove gloves before touching clean items or surfaces and before moving to another patient.",
+                  "Perform hand hygiene immediately after removing gloves.",
+                ]),
+              ),
+            ],
+
+            "PERSONAL PROTECTION",
+          ),
+
+          // SCREEN 10
+          screen(
+            "Home Visits & Clinical Bags",
+
+            "Clean supplies and correctly managed clinical bags help prevent cross-contamination between patient homes.",
+
+            [
+              card(
+                "Transport and shared equipment",
+
+                list([
+                  "Maintain clean supplies during home visits.",
+                  "Transport reusable patient-care equipment in a suitable carrying case.",
+                  "Clean equipment before it is used in another patient’s home.",
+                ]),
+              ),
+
+              card(
+                "Supply management",
+
+                list([
+                  "Use appropriate clinical bag placement and technique.",
+                  "Clean the bag’s interior and exterior.",
+                  "Maintain supplies stored in the bag.",
+                  "Manage items removed from the bag safely.",
+                  "Follow agency cleaning protocols and supervisory guidance.",
+                ]),
+              ),
+
+              card(
+                "Clinical bag technique",
+
+                list([
+                  "Maintain the bag’s cleanliness and completeness.",
+                  "Select a suitable work area and stable surface.",
+                  "Keep the bag closed when not in use.",
+                  "Protect the cleanliness of its interior and contents.",
+                  "Follow agency policy about barriers when placing bags on surfaces.",
+                ]),
+              ),
+
+              card(
+                "After the visit",
+
+                list([
+                  "Clean the bag and contents if soiled; the source presentation calls for annual agency inspection.",
+                  "Prefer disposable equipment when appropriate and discard after care.",
+                  "Clean reusable items such as blood pressure cuffs or stethoscopes before returning them to the bag.",
+                  "If contaminated equipment cannot be cleaned in the home, bag and label it for transport to the designated area.",
+                ]),
+              ),
+            ],
+
+            "EQUIPMENT & SUPPLIES",
+          ),
+
+          // SCREEN 11
+          screen(
+            "Injection Safety & Sharps",
+
+            "Safe injection practices prevent the spread of infections through medication equipment.",
+
+            [
+              card(
+                "One patient, one set of supplies",
+
+                list([
+                  "Use aseptic technique when preparing and administering medication.",
+                  "Never reuse needles, lancets, or syringes between patients.",
+                  "Use single-dose medication vials for one patient only.",
+                  "Use IV bags, tubing, and infusion connectors for one patient only.",
+                ]),
+              ),
+
+              card(
+                "Avoid contamination",
+
+                list([
+                  "Treat a needle or syringe as contaminated once used with an IV infusion setup.",
+                  "Use a new needle and syringe every time a medication container is entered.",
+                  "Never share insulin pens, even when the needle is changed.",
+                  "Follow applicable laws and agency procedures for sharps disposal.",
+                ]),
+              ),
+
+              card(
+                "Disposing of sharps",
+
+                list([
+                  "Do not recap, bend, or remove used needles from syringes.",
+                  "Discard sharps immediately into an approved puncture-resistant, leak-resistant container.",
+                  "Keep sharps containers away from clean supplies.",
+                  "Do not fill above the manufacturer’s fill line (often around three-quarters full).",
+                  "Follow agency procedures for returning containers and educating patients and caregivers.",
+                ]),
+              ),
+            ],
+
+            "MEDICATION EQUIPMENT",
+          ),
+
+          // SCREEN 12
+          screen(
+            "Personal Protective Equipment",
+
+            "Choose PPE according to the expected exposure and the task being performed.",
+
+            [
+              card(
+                "What PPE does",
+
+                `<p>
+            Personal Protective Equipment provides a
+            barrier against potentially infectious material.
+            It can protect hands, skin, clothing, eyes,
+            nose, mouth, and respiratory tract.
+          </p>` +
+                  info("Common PPE", [
+                    "Gloves",
+                    "Fluid-resistant gowns",
+                    "Procedure masks",
+                    "Goggles or face shields",
+                  ]),
+              ),
+
+              card(
+                "Assess risk before care",
+
+                `<p>
+            Before any care activity, check the risk
+            of contact with body substances,
+            contaminated surfaces, splashes, or sprays.
+          </p>
+
+          <p>
+            Select clean gloves, a fluid-resistant gown,
+            and eye/face protection as appropriate
+            to the task and exposure risk.
+          </p>`,
+              ),
+
+              card(
+                "Facial protection",
+
+                `<p>
+            Wear a surgical or procedure mask with
+            eye protection when splashes or sprays
+            of blood, body fluids, secretions, or
+            excretions may reach the eyes,
+            nose, or mouth.
+          </p>`,
+              ),
+
+              card(
+                "Gowns and reducing exposure",
+
+                `<p>
+            Wear a protective gown when clothing
+            or skin may be contaminated by
+            splashes or sprays.
+          </p>
+
+          <p>
+            Remove a soiled gown promptly and perform
+            hand hygiene. Choose appropriate PPE based
+            on the nature of the exposure, material
+            durability, and the task.
+          </p>`,
+              ),
+            ],
+
+            "PERSONAL PROTECTION",
+          ),
+
+          // SCREEN 13
+          screen(
+            "Daily Protection Practices",
+
+            "Everyday behaviors can prevent contamination in the home and during travel.",
+
+            [
+              card(
+                "Respiratory hygiene",
+
+                list([
+                  "Cover nose and mouth with a tissue or mask when coughing or sneezing.",
+                  "Dispose of used tissues and masks correctly.",
+                  "Perform hand hygiene after touching respiratory secretions.",
+                ]),
+              ),
+
+              card(
+                "Clothing and uniforms",
+
+                list([
+                  "Hold potentially contaminated equipment and linens away from your clothing.",
+                  "Avoid wearing work clothes around the house or for unrelated activities, according to agency policy.",
+                  "Bring only necessary care supplies and the clinical bag into the patient’s area.",
+                ]),
+              ),
+
+              card(
+                "Reusable medical equipment",
+
+                `<p>
+            Examples include blood glucose monitors,
+            cuffs, pulse oximeters, thermometers,
+            stethoscopes, and therapy equipment.
+          </p>` +
+                  list([
+                    "Clean and disinfect when soiled and before another patient uses equipment.",
+                    "Separate clean and soiled equipment.",
+                    "Follow manufacturer instructions and agency requirements for transport, storage, and reprocessing.",
+                  ]),
+              ),
+            ],
+
+            "EVERYDAY HABITS",
+          ),
+
+          // SCREEN 14
+          screen(
+            "Environmental Cleaning & Waste",
+
+            "Follow agency-approved cleaning and waste-handling protocols to reduce exposure.",
+
+            [
+              card(
+                "Cleaning, disinfection, and sterilization",
+
+                `<p>
+            <strong>Cleaning</strong> removes soil;
+            <strong>disinfection</strong> inactivates
+            many disease-causing microorganisms;
+            <strong>sterilization</strong> is a validated
+            process intended to eliminate all forms
+            of microbial life.
+          </p>
+
+          <p>
+            The presentation lists bleach, alcohol,
+            hydrogen peroxide, and commercial
+            disinfectants.
+            <strong>
+              Use only approved products and concentrations
+              according to current labels and agency policy.
+            </strong>
+          </p>`,
+              ),
+
+              card(
+                "Environmental surfaces and linens",
+
+                list([
+                  "Use appropriate routines for environmental cleaning and disinfection.",
+                  "Wear gloves when indicated.",
+                  "Prepare and use cleaning solutions according to current instructions.",
+                  "Handle, transport, and process used linens to prevent contamination.",
+                  "Refer caregivers to the Patient Information Booklet.",
+                ]),
+              ),
+
+              card(
+                "Waste disposal",
+
+                list([
+                  "Dispose of materials soiled with blood or body fluids using agency-approved procedures.",
+                  "Contain contaminated dressings and supplies safely.",
+                  "Handle body fluids in ways that minimize splashing and spilling.",
+                  "Separate and secure contaminated laundry; wash as directed.",
+                  "Teach patients and caregivers correct disposal procedures.",
+                  "Use appropriate disposable resuscitation aids during CPR.",
+                ]),
+              ),
+            ],
+
+            "ENVIRONMENTAL PRACTICES",
+          ),
+
+          // SCREEN 15
+          screen(
+            "Tuberculosis Awareness",
+
+            "Recognize TB symptoms, understand how it spreads, and know what to do after exposure.",
+
+            [
+              card(
+                "What is TB?",
+
+                `<p>
+            Tuberculosis is caused by
+            <em>Mycobacterium tuberculosis</em>.
+            It usually affects the lungs but can
+            involve other organs.
+          </p>` +
+                  info("Possible symptoms", [
+                    "Persistent cough (three weeks or longer)",
+                    "Chest pain or coughing up blood",
+                    "Fever or night sweats",
+                    "Unexplained weight loss or fatigue",
+                  ]) +
+                  `<p>
+            Active pulmonary TB can spread through
+            the air when a person coughs, sneezes,
+            speaks, or sings. It is not spread through
+            handshakes or shared food.
+          </p>`,
+              ),
+
+              card(
+                "Pennsylvania community awareness",
+
+                `<p>
+            TB can affect communities across Pennsylvania.
+            People with weakened immunity and those in
+            congregate settings may face additional risk.
+          </p>
+
+          <p>
+            Early diagnosis and treatment help prevent
+            transmission. Health departments can provide
+            information about screening, testing,
+            and treatment programs.
+          </p>`,
+              ),
+
+              card(
+                "After possible exposure",
+
+                list([
+                  "Contact a healthcare provider or health department about testing, even without symptoms.",
+                  "Watch for persistent cough, fever, night sweats, or weight loss.",
+                  "Follow guidance about repeat tests, examination, chest X-ray, or treatment when indicated.",
+                  "Report work-related exposure according to agency protocols.",
+                ]),
+              ),
+            ],
+
+            "RESPIRATORY INFECTIONS",
+          ),
+
+          // SCREEN 16
+          screen(
+            "Exposure Control & Reporting",
+
+            "Understand exposure risk, safe work practices, and how incidents must be reported.",
+
+            [
+              card(
+                "Exposure control plan",
+
+                `<p>
+            Blood and body substance exposures are
+            reported and managed according to
+            applicable CDC and OSHA guidance.
+          </p>` +
+                  info("Risk categories described in the presentation", [
+                    "Class I: Higher exposure risk — nurses and home health aides",
+                    "Class II: Minimal potential exposure — social workers and therapists",
+                    "Class III: No presence in patient homes — office staff",
+                  ]),
+              ),
+
+              card(
+                "Work-practice controls",
+
+                list([
+                  "Handwashing and hand sanitizer",
+                  "Gloves and appropriate PPE",
+                  "Needle safety and sharps containers",
+                  "Safe specimen transport",
+                  "Hepatitis B vaccination and TB testing when indicated",
+                  "Immediate incident reporting",
+                ]),
+              ),
+
+              card(
+                "Incident reporting and confidentiality",
+
+                list([
+                  "Report patient infections to the physician under agency protocol.",
+                  "Report staff infections to the Administrator for direction.",
+                  "Keep employee and patient infectious-disease information confidential.",
+                  "Complete the incident report and submit it to the Administrator and Director of Clinical Services.",
+                ]),
+              ),
+            ],
+
+            "SAFETY & REPORTING",
+          ),
+
+          // SCREEN 17
+          screen(
+            "Medication Safety",
+
+            "Support safe medication practices and report problems promptly.",
+
+            [
+              card(
+                "Medication safety checklist",
+
+                list([
+                  "Know the patient’s medication names and relevant instructions.",
+                  "Report allergies or suspected side effects.",
+                  "Support correct medication use within the limits of your role and training.",
+                  "Use an approved medication chart or organizer when appropriate.",
+                  "Follow storage instructions and keep medications away from children and vulnerable adults.",
+                  "Dispose of expired or unwanted medications correctly; do not flush prescription medication down the toilet.",
+                  "Refer to the Patient Information Booklet and agency policy.",
+                ]),
+              ),
+            ],
+
+            "PATIENT SAFETY",
+          ),
+
+          // SCREEN 18
+          screen(
+            "OSHA: Right to Know",
+
+            "Employees have the right to information about hazardous chemicals in their workplace.",
+
+            [
+              card(
+                "Safety Data Sheets (SDS)",
+
+                `<p>
+            365 Health Services maintains information
+            about chemicals used at work and
+            corresponding Safety Data Sheets.
+          </p>` +
+                  info("An SDS provides", [
+                    "Chemical identification",
+                    "Hazard information and warnings",
+                    "Manufacturer or supplier identification and contact details",
+                    "Other safe-handling and emergency information",
+                  ]) +
+                  `<p>
+            Ask your supervisor where to access
+            the current SDS collection before using
+            an unfamiliar substance.
+          </p>`,
+              ),
+            ],
+
+            "WORKPLACE SAFETY",
+          ),
+
+          // SCREEN 19
+          screen(
+            "Ready for the Assessment?",
+
+            "You have reached the end of the Infection Control & Standard Precautions training overview.",
+
+            [
+              card(
+                "Next steps",
+
+                `<p>
+            Review any section again with
+            <strong>Back</strong>, or select
+            <strong>Start over</strong>
+            to return to the beginning.
+          </p>` +
+                  info("When you are ready", [
+                    "Continue with the questionnaire in Gimbal using its own controls.",
+                    "Ask your supervisor or clinical leadership if any policy is unclear.",
+                  ]),
+
+                "END OF TRAINING",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // =================================================
+        // NAVIGATION STATE
+        // =================================================
+
+        const root = $("ic-training");
+
+        // Remember the selected inner slide for each screen.
+        const cardPositions = Array(pages.length).fill(0);
+
+        let currentPage = 0;
+        let wasSkipped = false;
+        let startX = 0;
+        let startY = 0;
+
+        const esc = (s) =>
+          String(s)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+        // =================================================
+        // RENDER CURRENT SCREEN
+        // =================================================
+
+        function render() {
+          const page = pages[currentPage];
+          const cardIndex = cardPositions[currentPage];
+          const item = page.cards[cardIndex];
+
+          $("ic-eyebrow").textContent = page.label;
+          $("ic-heading").textContent = page.title;
+          $("ic-lead").textContent = page.lead;
+
+          $("ic-screen-count").textContent =
+            `Screen ${currentPage + 1} of ${pages.length}`;
+
+          const remaining = pages.length - currentPage - 1;
+
+          $("ic-remaining").textContent =
+            remaining === 0
+              ? "Last screen"
+              : `${remaining} screen${remaining === 1 ? "" : "s"} left`;
+
+          $("ic-progress-fill").style.width =
+            `${((currentPage + 1) / pages.length) * 100}%`;
+
+          $("ic-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          $("ic-progress").setAttribute("aria-valuemax", String(pages.length));
+
+          // Insert the current card's trusted training content.
+          $("ic-panel").innerHTML = `
+      <div class="ic-panel-kicker">
+        ${esc(item.label)}
+      </div>
+
+      <h2>${esc(item.title)}</h2>
+
+      ${item.html}
+    `;
+
+          // =================================================
+          // INNER CAROUSEL
+          // =================================================
+
+          const many = page.cards.length > 1;
+
+          $("ic-inner-nav").innerHTML = many
+            ? `
+        <nav
+          class="ic-slide-nav"
+          aria-label="Slides within this screen"
+        >
+          <button
+            class="ic-arrow"
+            type="button"
+            data-action="card-prev"
+            aria-label="Previous slide"
+            ${cardIndex === 0 ? "disabled" : ""}
+          >
+            ‹
+          </button>
+
+          <div class="ic-slide-center">
+            <strong>
+              Slide ${cardIndex + 1} of ${page.cards.length}
+            </strong>
+
+            <small>Swipe or use the arrows</small>
+
+            <div class="ic-dots">
+              ${page.cards
+                .map(
+                  (_, i) => `
+                    <button
+                      class="ic-dot"
+                      type="button"
+                      data-action="card-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === cardIndex}"
+                    ></button>
+                  `,
+                )
+                .join("")}
+            </div>
+          </div>
+
+          <button
+            class="ic-arrow"
+            type="button"
+            data-action="card-next"
+            aria-label="Next slide"
+            ${cardIndex === page.cards.length - 1 ? "disabled" : ""}
+          >
+            ›
+          </button>
+        </nav>
+      `
+            : "";
+
+          // =================================================
+          // OUTER NAVIGATION
+          // =================================================
+
+          $("ic-back").disabled = currentPage === 0;
+
+          $("ic-next").textContent =
+            currentPage === pages.length - 1 ? "Start over ↺" : "Next →";
+
+          const skip = root.querySelector('[data-action="skip"]');
+
+          skip.hidden = currentPage === pages.length - 1;
+
+          if (currentPage === pages.length - 1 && wasSkipped) {
+            $("ic-lead").textContent =
+              "You skipped ahead to the end. You can return to review the training before the assessment.";
+          }
+        }
+
+        // =================================================
+        // PAGE NAVIGATION
+        // =================================================
+
+        function goPage(i) {
+          if (i < 0 || i >= pages.length) return;
+
+          currentPage = i;
+
+          render();
+
+          root.scrollIntoView({
+            behavior: "auto",
+            block: "start",
+          });
+        }
+
+        // =================================================
+        // CAROUSEL NAVIGATION
+        // =================================================
+
+        function goCard(i) {
+          if (i < 0 || i >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          cardPositions[currentPage] = i;
+
+          render();
+        }
+
+        // =================================================
+        // BUTTON CLICK HANDLERS
+        // =================================================
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-action]");
+
+          if (!btn || !root.contains(btn) || btn.disabled) {
+            return;
+          }
+
+          const action = btn.dataset.action;
+
+          if (action === "skip") {
+            wasSkipped = true;
+            goPage(pages.length - 1);
+          }
+
+          if (action === "back") {
+            goPage(currentPage - 1);
+          }
+
+          if (action === "next") {
+            if (currentPage === pages.length - 1) {
+              wasSkipped = false;
+              cardPositions.fill(0);
+              goPage(0);
+            } else {
+              goPage(currentPage + 1);
+            }
+          }
+
+          if (action === "card-prev") {
+            goCard(cardPositions[currentPage] - 1);
+          }
+
+          if (action === "card-next") {
+            goCard(cardPositions[currentPage] + 1);
+          }
+
+          if (action === "card-jump") {
+            goCard(Number(btn.dataset.index));
+          }
+        });
+
+        // =================================================
+        // MOBILE SWIPE HANDLERS
+        // =================================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest("#ic-panel")) {
+              return;
+            }
+
+            startX = event.changedTouches[0].screenX;
+            startY = event.changedTouches[0].screenY;
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!event.target.closest("#ic-panel")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - startX;
+
+            const dy = event.changedTouches[0].screenY - startY;
+
+            // Ignore ordinary vertical scrolling.
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              goCard(cardPositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // Initial display.
+        render();
+      })();
+    </script>
+  </body>
+</html>

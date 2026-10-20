@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preventing Falls | 365 Health Services</title>
+
+    <style>
+      #fall-training,
+      #fall-training * {
+        box-sizing: border-box;
+      }
+
+      #fall-training {
+        --blue: #175199;
+        --cyan: #00a4ef;
+        --aqua: #cae6ea;
+        --pink: #ef2852;
+        --ink: #183451;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        border: 1px solid #dce9f0;
+        border-radius: 26px;
+        overflow: hidden;
+        background: white;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 0 14px 35px rgba(23, 81, 153, 0.1);
+      }
+
+      #fall-training button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #fall-training button:focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* HEADER */
+
+      #fall-training .ft-hero {
+        padding: 22px 23px 27px;
+        background: var(--aqua);
+      }
+
+      #fall-training .ft-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #fall-training .ft-logo {
+        width: min(178px, 44vw);
+        max-height: 58px;
+        object-fit: contain;
+      }
+
+      #fall-training .ft-skip {
+        background: #fff;
+        color: var(--blue);
+        border: 0;
+        border-radius: 99px;
+        padding: 11px 17px;
+        font-weight: 700;
+      }
+
+      #fall-training .ft-eyebrow {
+        margin: 24px 0 9px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+
+      #fall-training h1 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(29px, 7vw, 43px);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+        font-weight: 800;
+      }
+
+      #fall-training .ft-lead {
+        margin: 14px 0 0;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #2b4a69;
+      }
+
+      /* PROGRESS */
+
+      #fall-training .ft-main {
+        padding: 20px 20px 8px;
+      }
+
+      #fall-training .ft-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      #fall-training .ft-status strong {
+        color: var(--blue);
+      }
+
+      #fall-training .ft-track {
+        height: 6px;
+        border-radius: 99px;
+        background: #e5eff4;
+        overflow: hidden;
+        margin-bottom: 18px;
+      }
+
+      #fall-training .ft-fill {
+        height: 100%;
+        background: var(--cyan);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* CONTENT CARDS */
+
+      #fall-training .ft-card {
+        background: #f7fbfd;
+        border: 1px solid #d5eaf0;
+        border-radius: 18px;
+        padding: 21px;
+        min-height: 220px;
+      }
+
+      #fall-training .ft-card-label {
+        font-size: 11px;
+        color: var(--cyan);
+        letter-spacing: 0.11em;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+
+      #fall-training .ft-card h2 {
+        margin: 0 0 14px;
+        font-size: clamp(21px, 5vw, 26px);
+        line-height: 1.2;
+        color: var(--blue);
+      }
+
+      #fall-training .ft-card p {
+        margin: 0 0 12px;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      #fall-training .ft-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #fall-training .ft-list {
+        margin: 8px 0 0;
+        padding-left: 21px;
+      }
+
+      #fall-training .ft-list li {
+        font-size: 14px;
+        line-height: 1.48;
+        padding-left: 3px;
+        margin: 0 0 10px;
+      }
+
+      #fall-training .ft-list li::marker {
+        color: var(--cyan);
+      }
+
+      /* INFORMATION BOX */
+
+      #fall-training .ft-callout {
+        margin: 14px 0 0;
+        padding: 13px 14px;
+        background: #e8f6fa;
+        border-left: 4px solid var(--cyan);
+        border-radius: 9px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      #fall-training .ft-callout strong {
+        color: var(--blue);
+      }
+
+      #fall-training .ft-emphasis {
+        color: var(--pink);
+        font-weight: 800;
+      }
+
+      /* INNER CAROUSELS */
+
+      #fall-training .ft-carousel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin: 15px 0 9px;
+        padding: 10px;
+        background: #eef7fb;
+        border-radius: 15px;
+      }
+
+      #fall-training .ft-arrow {
+        flex: 0 0 43px;
+        width: 43px;
+        height: 43px;
+        background: white;
+        color: var(--blue);
+        border: 1px solid #c1d9e5;
+        border-radius: 50%;
+        font-size: 24px;
+      }
+
+      #fall-training button:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #fall-training .ft-carousel-center {
+        text-align: center;
+        min-width: 0;
+      }
+
+      #fall-training .ft-carousel-center strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #fall-training .ft-carousel-center small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        margin-top: 2px;
+      }
+
+      #fall-training .ft-dots {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 8px;
+      }
+
+      #fall-training .ft-dot {
+        padding: 0;
+        width: 8px;
+        height: 8px;
+        background: #b8d2df;
+        border: 0;
+        border-radius: 99px;
+      }
+
+      #fall-training .ft-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* MAIN NAVIGATION */
+
+      #fall-training .ft-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 19px;
+        border-top: 1px solid #e5eef3;
+        background: white;
+      }
+
+      #fall-training .ft-btn {
+        border: 0;
+        min-height: 52px;
+        border-radius: 99px;
+        font-weight: 800;
+        padding: 14px 18px;
+      }
+
+      #fall-training .ft-back {
+        width: 39%;
+        background: #e8f0f7;
+        color: var(--blue);
+      }
+
+      #fall-training .ft-next {
+        flex: 1;
+        background: var(--blue);
+        color: white;
+      }
+
+      #fall-training .ft-hint {
+        margin: 0;
+        padding: 0 18px 15px;
+        text-align: center;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 390px) {
+        #fall-training {
+          border-radius: 15px;
+        }
+
+        #fall-training .ft-hero {
+          padding: 18px 18px 23px;
+        }
+
+        #fall-training .ft-main {
+          padding: 16px 14px 8px;
+        }
+
+        #fall-training .ft-card {
+          padding: 17px;
+        }
+
+        #fall-training .ft-actions {
+          padding: 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #fall-training .ft-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="fall-training"
+      role="region"
+      aria-label="Preventing Falls in the Patient's Home training"
+    >
+      <!-- HEADER -->
+
+      <header class="ft-hero">
+        <div class="ft-top">
+          <img
+            class="ft-logo"
+            src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+            alt="365 Health Services"
+          />
+
+          <button class="ft-skip" type="button" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="ft-eyebrow" id="ft-eyebrow"></div>
+
+        <h1 id="ft-heading"></h1>
+
+        <p class="ft-lead" id="ft-lead"></p>
+      </header>
+
+      <!-- MAIN CONTENT -->
+
+      <main class="ft-main">
+        <div class="ft-status" aria-live="polite">
+          <strong id="ft-screen-count"></strong>
+          <span id="ft-remaining"></span>
+        </div>
+
+        <div
+          class="ft-track"
+          id="ft-progress"
+          role="progressbar"
+          aria-label="Training progress"
+          aria-valuemin="1"
+          aria-valuemax="9"
+        >
+          <div class="ft-fill" id="ft-fill"></div>
+        </div>
+
+        <section class="ft-card" id="ft-card" aria-live="polite"></section>
+
+        <div id="ft-carousel-host"></div>
+      </main>
+
+      <!-- MAIN NAVIGATION -->
+
+      <footer class="ft-actions">
+        <button
+          type="button"
+          class="ft-btn ft-back"
+          data-action="back"
+          id="ft-back"
+        >
+          ← Back
+        </button>
+
+        <button
+          type="button"
+          class="ft-btn ft-next"
+          data-action="next"
+          id="ft-next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <p class="ft-hint">
+        Use the small arrows or swipe a card to read additional slides.
+      </p>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ============================================
+        // HELPERS
+        // ============================================
+
+        const root = document.getElementById("fall-training");
+
+        const byId = (id) => document.getElementById(id);
+
+        const bullets = (items) => `
+        <ul class="ft-list">
+          ${items.map((s) => `<li>${s}</li>`).join("")}
+        </ul>
+      `;
+
+        const note = (heading, text) => `
+        <div class="ft-callout">
+          <strong>${heading}</strong>
+          <br>
+          ${text}
+        </div>
+      `;
+
+        const slide = (title, body, label = "KEY INFORMATION") => ({
+          title,
+          body,
+          label,
+        });
+
+        const page = (title, lead, slides, eyebrow) => ({
+          title,
+          lead,
+          slides,
+          eyebrow,
+        });
+
+        // ============================================
+        // TRAINING CONTENT
+        // ============================================
+
+        const pages = [
+          // ==========================================
+          // SCREEN 1 — WELCOME
+          // ==========================================
+
+          page(
+            "Preventing Falls in the Patient’s Home",
+
+            "A safer home starts with recognizing risks, reducing hazards, and knowing how to respond.",
+
+            [
+              slide(
+                "A safer home. Better care.",
+
+                `
+              <p>
+                Falls can cause serious injury,
+                particularly for older adults.
+                This training covers
+                <strong>risk factors, prevention,
+                assessment, teamwork, and incident
+                reporting</strong>.
+              </p>
+
+              ${note(
+                "Your role",
+                "Look for hazards, use safe practices within your role, and share safety concerns with the appropriate clinical team member.",
+              )}
+              `,
+
+                "WELCOME",
+              ),
+            ],
+
+            "WELCOME",
+          ),
+
+          // ==========================================
+          // SCREEN 2 — WHY FALLS MATTER
+          // ==========================================
+
+          page(
+            "Why Falls Matter",
+
+            "Older adults may face significant consequences after a fall. The presentation highlights the importance of prevention.",
+
+            [
+              slide(
+                "Falls and older adults",
+
+                bullets([
+                  "Falls rank among the top five causes of death from unintentional injuries in the United States, according to the source presentation.",
+
+                  "The presentation identifies falls as a leading cause of injury death among people age 65 and older.",
+
+                  "Risk generally increases with age.",
+                ]) +
+                  note(
+                    "Training statistics",
+                    "The original slide estimates that about one-third of adults over 65 fall each year. This historical estimate should be reviewed before publication.",
+                  ),
+
+                "WHY PREVENTION MATTERS",
+              ),
+
+              slide(
+                "A previous fall is a warning sign",
+
+                `
+              <p>
+                The presentation states that older
+                adults who have fallen before or who
+                frequently stumble are
+                <strong>2–3 times more likely</strong>
+                to fall within the next year.
+              </p>
+
+              ${note(
+                "Remember",
+                "A fall history deserves attention, even when a person appears well afterward.",
+              )}
+              `,
+
+                "KNOW THE RISK",
+              ),
+            ],
+
+            "FALL PREVENTION",
+          ),
+
+          // ==========================================
+          // SCREEN 3 — RISK FACTORS
+          // ==========================================
+
+          page(
+            "Recognizing Fall Risks",
+
+            "Falls often result from a combination of health conditions, medication effects, and surroundings.",
+
+            [
+              slide(
+                "History, senses & footwear",
+
+                bullets([
+                  "<strong>History of falling:</strong> two or more falls in the past six months.",
+
+                  "<strong>Vision loss:</strong> difficulty identifying objects, reduced depth perception, or adjusting to glare.",
+
+                  "<strong>Hearing loss.</strong>",
+
+                  "<strong>Foot pain or footwear problems.</strong>",
+                ]),
+
+                "PERSONAL FACTORS",
+              ),
+
+              slide(
+                "Medications & mobility",
+
+                bullets([
+                  "<strong>Medications:</strong> taking four or more, or medicines that cause drowsiness, dizziness, or low blood pressure.",
+
+                  "<strong>Balance and gait difficulties.</strong>",
+
+                  "<strong>High or low blood pressure</strong> that causes unsteadiness.",
+                ]),
+
+                "HEALTH & MOVEMENT",
+              ),
+
+              slide(
+                "Inside and outside the home",
+
+                bullets([
+                  "<strong>Indoor:</strong> clutter, spills, poor lighting, bathroom hazards, stairs, reaching, ladders, or pets underfoot.",
+
+                  "<strong>Outdoor:</strong> uneven walkways, gravel, debris, inadequate lighting, missing handrails, or pets.",
+
+                  "<strong>Weather and spills:</strong> snow, ice, water, or oil on walking surfaces.",
+                ]),
+
+                "ENVIRONMENT",
+              ),
+            ],
+
+            "IDENTIFY HAZARDS",
+          ),
+
+          // ==========================================
+          // SCREEN 4 — EVERYDAY FALL PREVENTION
+          // ==========================================
+
+          page(
+            "Everyday Fall Prevention",
+
+            "Many hazards can be reduced with simple adjustments to footwear, pathways, and household routines.",
+
+            [
+              slide(
+                "Be prepared & choose safe footwear",
+
+                bullets([
+                  "Keep large-print emergency numbers by the phone or in a visible location.",
+
+                  "Follow the agency's communication and emergency-response procedures.",
+
+                  "Wear supportive shoes with thin, non-slip soles.",
+
+                  "Keep walkways clear of snow and ice.",
+                ]),
+
+                "PREVENTION TIPS",
+              ),
+
+              slide(
+                "Remove common trip hazards",
+
+                bullets([
+                  "Remove papers, books, clothing, shoes, and other items from floors and stairs.",
+
+                  "Remove small throw rugs or secure them firmly with double-sided tape.",
+
+                  "Rearrange furniture to create clear pathways.",
+
+                  "Clean spills immediately.",
+
+                  "Watch for pets and keep cords and wires out of walking paths.",
+                ]),
+
+                "CLEAR THE PATH",
+              ),
+
+              slide(
+                "Make things easy to reach",
+
+                bullets([
+                  "Keep frequently used items in easy reach, approximately waist-high.",
+
+                  "Use a sturdy step stool with a hand bar when appropriate.",
+
+                  "Keep stairways, hallways, and entrances well lit.",
+                ]),
+
+                "EASIER ACCESS",
+              ),
+            ],
+
+            "HOME SAFETY",
+          ),
+
+          // ==========================================
+          // SCREEN 5 — HOME SAFETY
+          // ==========================================
+
+          page(
+            "Create a Safer Home",
+
+            "Focus on lighting, stairways, bathrooms, and movement habits.",
+
+            [
+              slide(
+                "Bedroom, lighting & stairs",
+
+                bullets([
+                  "Keep a lamp, flashlight, and extra batteries within reach of the bed.",
+
+                  "Use night-lights in bathrooms and hallways.",
+
+                  "Ensure carpet is firmly attached to steps.",
+
+                  "Repair or replace loose handrails.",
+                ]),
+
+                "AROUND THE HOME",
+              ),
+
+              slide(
+                "Bathroom safety",
+
+                bullets([
+                  "Install grab bars near the toilet and in tubs or showers.",
+
+                  "Use non-slip mats in the bathtub or shower.",
+
+                  "Use an elevated toilet seat or shower stool when needed.",
+                ]),
+
+                "BATHROOM SAFETY",
+              ),
+
+              slide(
+                "Daily patient habits",
+
+                bullets([
+                  "Have hearing and vision checked.",
+
+                  "Rise slowly after sitting or lying down.",
+                ]) +
+                  note(
+                    "Teaching tip",
+                    "Encourage patients and families to review the fall prevention guidance in the Patient Information Booklet.",
+                  ),
+
+                "SAFER MOVEMENT",
+              ),
+            ],
+
+            "PATIENT PRECAUTIONS",
+          ),
+
+          // ==========================================
+          // SCREEN 6 — FALL RISK ASSESSMENT
+          // ==========================================
+
+          page(
+            "Fall Risk Assessment",
+
+            "The presentation uses the MAHC-10 tool to identify patients who may benefit from additional fall-prevention support.",
+
+            [
+              slide(
+                "MAHC-10 screening",
+
+                `
+              <p>
+                The
+                <strong>
+                  MAHC-10 Fall Risk Assessment Tool
+                </strong>
+                is described in the presentation as a
+                validated tool.
+              </p>
+
+              ${bullets([
+                "A clinician completes the assessment on admission for each patient.",
+
+                "Patients with elevated risk who are not receiving physical or occupational therapy may be considered for referral for further assessment, assistance, and instruction.",
+              ])}
+
+              ${note(
+                "Scoring",
+                "Follow the agency-approved MAHC-10 scoring and referral criteria. The source slides contain different descriptions of the threshold.",
+              )}
+              `,
+
+                "ASSESSMENT TOOL",
+              ),
+
+              slide(
+                "Assessment elements 1–5",
+
+                bullets([
+                  "Age 65 or older",
+                  "Three or more coexisting diagnoses",
+                  "A fall within the previous three months",
+                  "Incontinence",
+                  "Visual impairment",
+                ]),
+
+                "RISK ELEMENTS",
+              ),
+
+              slide(
+                "Assessment elements 6–10",
+
+                bullets([
+                  "Impaired functional mobility",
+                  "Environmental hazards",
+                  "Polypharmacy: four or more prescriptions, of any type",
+                  "Pain that affects functional ability",
+                  "Cognitive impairment",
+                ]),
+
+                "RISK ELEMENTS",
+              ),
+            ],
+
+            "CLINICAL ASSESSMENT",
+          ),
+
+          // ==========================================
+          // SCREEN 7 — TEAM APPROACH
+          // ==========================================
+
+          page(
+            "Team-Based Fall Prevention",
+
+            "Preventing falls works best when staff, patients, families, and caregivers work together.",
+
+            [
+              slide(
+                "One coordinated team",
+
+                bullets([
+                  "Engage all relevant home-health team members when a patient has fall risks.",
+
+                  "Have the appropriate professionals assess the home to identify and reduce multiple risks.",
+
+                  "Work with the patient, family, and caregivers to improve overall safety.",
+                ]),
+
+                "TEAM APPROACH",
+              ),
+
+              slide(
+                "Each discipline contributes",
+
+                bullets([
+                  "<strong>Physical Therapist (PT):</strong> gait assistance and strengthening instruction.",
+
+                  "<strong>Occupational Therapist (OT):</strong> adaptive or assistive devices and related instruction.",
+
+                  "<strong>Home Health Aide:</strong> assistance with activities of daily living (ADLs), paired with OT teaching as needed.",
+
+                  "<strong>Registered Nurse (RN):</strong> medication evaluation and education.",
+                ]),
+
+                "ROLES",
+              ),
+
+              slide(
+                "Document progress",
+
+                `
+              <p>
+                Document the patient's overall progress
+                toward the goal of
+                <strong>reducing falls</strong>.
+              </p>
+
+              ${note(
+                "Team goal",
+                "Combine each professional's expertise with patient and family participation.",
+              )}
+              `,
+
+                "FOLLOW-THROUGH",
+              ),
+            ],
+
+            "CARE TEAM",
+          ),
+
+          // ==========================================
+          // SCREEN 8 — INCIDENT REPORTING
+          // ==========================================
+
+          page(
+            "Falls & Incident Reporting",
+
+            "Every reported fall helps the care team respond and identify opportunities to prevent future incidents.",
+
+            [
+              slide(
+                "Report every fall",
+
+                `
+              <p>
+                According to the presentation,
+                <strong>
+                  any patient fall—observed or
+                  unobserved—must be reported
+                  as an incident
+                </strong>
+                to the Director of Clinical Services
+                or Administrator.
+              </p>
+
+              ${note(
+                "Important",
+                "Follow current emergency-response and incident-reporting procedures when an injury or urgent situation occurs.",
+              )}
+              `,
+
+                "REPORTING",
+              ),
+
+              slide(
+                "Track trends and educate",
+
+                bullets([
+                  "Track the agency's progress toward reducing falls.",
+
+                  "Use incident trends to recognize recurring risks.",
+
+                  "Continue educating patients and their families about fall risk factors.",
+                ]),
+
+                "CONTINUOUS IMPROVEMENT",
+              ),
+            ],
+
+            "PATIENT SAFETY",
+          ),
+
+          // ==========================================
+          // SCREEN 9 — FINISH
+          // ==========================================
+
+          page(
+            "Questions? You're Ready to Continue.",
+
+            "You've reached the end of the fall-prevention overview.",
+
+            [
+              slide(
+                "Before the assessment",
+
+                `
+              <p>
+                You can use <strong>Back</strong> to
+                review the previous screen, or
+                <strong>Start over</strong> to return
+                to the beginning.
+              </p>
+
+              ${note(
+                "Next step",
+                "Continue to the questionnaire using Gimbal's own assessment controls. If you have questions about agency policy, ask your supervisor or clinical team.",
+              )}
+              `,
+
+                "END OF TRAINING",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ============================================
+        // NAVIGATION STATE
+        // ============================================
+
+        let currentPage = 0;
+        let skipped = false;
+
+        const selectedSlides = Array(pages.length).fill(0);
+
+        let touchX = null;
+        let touchY = null;
+
+        // ============================================
+        // RENDER SCREEN
+        // ============================================
+
+        function render() {
+          const item = pages[currentPage];
+          const n = selectedSlides[currentPage];
+          const active = item.slides[n];
+
+          const total = pages.length;
+          const remaining = total - currentPage - 1;
+
+          byId("ft-eyebrow").textContent = item.eyebrow;
+          byId("ft-heading").textContent = item.title;
+
+          byId("ft-lead").textContent =
+            skipped && currentPage === total - 1
+              ? "You skipped ahead. Return to the training if you'd like to review it before the assessment."
+              : item.lead;
+
+          // Main page counter
+
+          byId("ft-screen-count").textContent =
+            `Screen ${currentPage + 1} of ${total}`;
+
+          byId("ft-remaining").textContent = remaining
+            ? `${remaining} screen${remaining === 1 ? "" : "s"} left`
+            : "Final screen";
+
+          // Progress bar
+
+          byId("ft-fill").style.width = `${((currentPage + 1) / total) * 100}%`;
+
+          byId("ft-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          byId("ft-progress").setAttribute("aria-valuemax", String(total));
+
+          // Content card
+
+          byId("ft-card").innerHTML = `
+          <div class="ft-card-label">
+            ${active.label}
+          </div>
+
+          <h2>${active.title}</h2>
+
+          ${active.body}
+        `;
+
+          // ============================================
+          // INNER CAROUSEL
+          // ============================================
+
+          const count = item.slides.length;
+
+          byId("ft-carousel-host").innerHTML =
+            count > 1
+              ? `
+              <nav
+                class="ft-carousel"
+                aria-label="Topic slides"
+              >
+
+                <button
+                  class="ft-arrow"
+                  type="button"
+                  data-action="slide-back"
+                  aria-label="Previous topic slide"
+                  ${n === 0 ? "disabled" : ""}
+                >
+                  ‹
+                </button>
+
+                <div class="ft-carousel-center">
+
+                  <strong>
+                    Slide ${n + 1} of ${count}
+                  </strong>
+
+                  <small>
+                    Swipe or use arrows
+                  </small>
+
+                  <div class="ft-dots">
+                    ${item.slides
+                      .map(
+                        (_, i) => `
+                      <button
+                        class="ft-dot"
+                        type="button"
+                        data-action="slide-jump"
+                        data-index="${i}"
+                        aria-label="Go to slide ${i + 1}"
+                        aria-current="${i === n}"
+                      ></button>
+                    `,
+                      )
+                      .join("")}
+                  </div>
+
+                </div>
+
+                <button
+                  class="ft-arrow"
+                  type="button"
+                  data-action="slide-next"
+                  aria-label="Next topic slide"
+                  ${n === count - 1 ? "disabled" : ""}
+                >
+                  ›
+                </button>
+
+              </nav>
+            `
+              : "";
+
+          // Main buttons
+
+          byId("ft-back").disabled = currentPage === 0;
+
+          byId("ft-next").textContent =
+            currentPage === total - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === total - 1;
+        }
+
+        // ============================================
+        // MAIN PAGE NAVIGATION
+        // ============================================
+
+        function changePage(target) {
+          if (target < 0 || target >= pages.length) {
+            return;
+          }
+
+          currentPage = target;
+
+          render();
+
+          root.scrollIntoView({
+            block: "start",
+            behavior: "instant",
+          });
+        }
+
+        // ============================================
+        // INNER SLIDE NAVIGATION
+        // ============================================
+
+        function changeSlide(target) {
+          if (target < 0 || target >= pages[currentPage].slides.length) {
+            return;
+          }
+
+          selectedSlides[currentPage] = target;
+          render();
+        }
+
+        // ============================================
+        // BUTTON EVENT HANDLERS
+        // ============================================
+
+        root.addEventListener("click", (event) => {
+          const button = event.target.closest("button[data-action]");
+
+          if (!button || !root.contains(button) || button.disabled) {
+            return;
+          }
+
+          switch (button.dataset.action) {
+            case "skip":
+              skipped = true;
+              changePage(pages.length - 1);
+              break;
+
+            case "back":
+              changePage(currentPage - 1);
+              break;
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+                selectedSlides.fill(0);
+                changePage(0);
+              } else {
+                changePage(currentPage + 1);
+              }
+              break;
+
+            case "slide-back":
+              changeSlide(selectedSlides[currentPage] - 1);
+              break;
+
+            case "slide-next":
+              changeSlide(selectedSlides[currentPage] + 1);
+              break;
+
+            case "slide-jump":
+              changeSlide(Number(button.dataset.index));
+              break;
+          }
+        });
+
+        // ============================================
+        // SWIPE SUPPORT
+        // ============================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".ft-card")) {
+              return;
+            }
+
+            touchX = event.changedTouches[0].screenX;
+            touchY = event.changedTouches[0].screenY;
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (touchX === null || !event.target.closest(".ft-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchX;
+
+            const dy = event.changedTouches[0].screenY - touchY;
+
+            touchX = null;
+            touchY = null;
+
+            // Ignore vertical scrolling.
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              changeSlide(selectedSlides[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

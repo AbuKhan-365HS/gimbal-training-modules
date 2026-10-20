@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Gimbal Training | Preview</title>
+  </head>
+
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background: #f3f7fb;
+      font-family: Arial, Helvetica, sans-serif;
+    "
+  >
+    <header style="background: #175199; padding: 18px 24px; color: #ffffff">
+      <div style="font-size: 18px; font-weight: bold">
+        Training Module Preview
+      </div>
+
+      <div style="font-size: 12px; opacity: 0.8">
+        Local Development Environment
+      </div>
+    </header>
+
+    <main
+      id="module-preview"
+      style="
+        width: 100%;
+        max-width: 800px;
+        margin: 28px auto;
+        padding: 0 16px;
+        box-sizing: border-box;
+      "
+    >
+      Loading module...
+    </main>
+
+    <script>
+      const modulePath = "./modules/00-hello-world.html";
+
+      fetch(modulePath)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Module could not be loaded");
+          }
+
+          return response.text();
+        })
+        .then((html) => {
+          document.getElementById("module-preview").innerHTML = html;
+        })
+        .catch((error) => {
+          console.error(error);
+
+          document.getElementById("module-preview").textContent =
+            "Unable to load module.";
+        });
+    </script>
+  </body>
+</html>

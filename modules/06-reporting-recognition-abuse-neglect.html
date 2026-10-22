@@ -1,0 +1,2127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Abuse, Neglect & Exploitation | 365 Health Services</title>
+
+    <style>
+      /* =========================================
+       BASE & BRANDING
+    ========================================= */
+
+      #ane-guide,
+      #ane-guide * {
+        box-sizing: border-box;
+      }
+
+      #ane-guide {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        overflow: hidden;
+
+        background: white;
+        color: var(--ink);
+        border: 1px solid #d5e8ef;
+        border-radius: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+
+        box-shadow: 0 14px 35px rgba(23, 81, 153, 0.1);
+      }
+
+      #ane-guide button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #ane-guide :is(button, a, summary):focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+       HEADER
+    ========================================= */
+
+      #ane-guide .an-head {
+        background: var(--teal);
+        padding: 21px 22px 25px;
+      }
+
+      #ane-guide .an-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #ane-guide .an-logo {
+        display: block;
+        width: min(176px, 43vw);
+        max-height: 60px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #ane-guide .an-logo-fallback {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+      }
+
+      #ane-guide .an-skip {
+        border: 0;
+        background: white;
+        color: var(--blue);
+        border-radius: 999px;
+        padding: 11px 16px;
+        font-weight: 700;
+      }
+
+      #ane-guide .an-eyebrow {
+        color: var(--blue);
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 800;
+        margin: 21px 0 9px;
+      }
+
+      /* SHORTER HEADINGS */
+
+      #ane-guide h1 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(25px, 6vw, 34px);
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+      }
+
+      #ane-guide .an-lead {
+        color: #284967;
+        font-size: 14px;
+        line-height: 1.55;
+        margin: 13px 0 0;
+      }
+
+      /* =========================================
+       MAIN CONTENT & PROGRESS
+    ========================================= */
+
+      #ane-guide .an-main {
+        padding: 19px 19px 7px;
+      }
+
+      #ane-guide .an-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 9px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      #ane-guide .an-status strong {
+        color: var(--blue);
+      }
+
+      #ane-guide .an-track {
+        height: 6px;
+        border-radius: 999px;
+        background: #e6eef5;
+        overflow: hidden;
+        margin-bottom: 18px;
+      }
+
+      #ane-guide .an-fill {
+        height: 100%;
+        width: 0%;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* =========================================
+       CONTENT CARDS
+    ========================================= */
+
+      #ane-guide .an-card {
+        background: #f7fbfd;
+        border: 1px solid #d3e7ef;
+        border-radius: 18px;
+        padding: 19px;
+        min-height: 190px;
+      }
+
+      #ane-guide .an-kicker {
+        color: #007fb6;
+        font-size: 10px;
+        letter-spacing: 0.11em;
+        font-weight: 800;
+        margin: 0 0 8px;
+        text-transform: uppercase;
+      }
+
+      #ane-guide .an-card h2 {
+        color: var(--blue);
+        font-size: clamp(20px, 5vw, 25px);
+        line-height: 1.2;
+        margin: 0 0 13px;
+      }
+
+      #ane-guide .an-card h3 {
+        color: var(--blue);
+        font-size: 15px;
+        margin: 14px 0 7px;
+      }
+
+      #ane-guide .an-card p {
+        margin: 0 0 11px;
+        font-size: 14px;
+        line-height: 1.56;
+      }
+
+      #ane-guide .an-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #ane-guide .an-list {
+        padding-left: 20px;
+        margin: 10px 0 0;
+      }
+
+      #ane-guide .an-list li {
+        font-size: 13.5px;
+        line-height: 1.52;
+        margin-bottom: 9px;
+        padding-left: 3px;
+      }
+
+      #ane-guide .an-list li::marker {
+        color: var(--sky);
+      }
+
+      /* =========================================
+       INFORMATION CALLOUTS
+    ========================================= */
+
+      #ane-guide .an-callout {
+        background: #e7f5fb;
+        border-left: 4px solid var(--sky);
+        border-radius: 9px;
+        padding: 13px;
+        margin: 14px 0;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #ane-guide .an-callout strong {
+        color: var(--blue);
+      }
+
+      #ane-guide .an-alert {
+        background: #fff0f2;
+        border-left-color: var(--pink);
+        color: #713342;
+      }
+
+      #ane-guide .an-alert strong {
+        color: #aa2442;
+      }
+
+      /* =========================================
+       DEFINITION COMPONENT
+    ========================================= */
+
+      #ane-guide .an-definition {
+        background: white;
+        border: 1px solid #c8e3ec;
+        border-radius: 14px;
+        padding: 15px;
+        margin: 12px 0;
+      }
+
+      #ane-guide .an-definition small {
+        display: block;
+        font-weight: 800;
+        color: #0084bd;
+        letter-spacing: 0.1em;
+        font-size: 10px;
+        margin-bottom: 7px;
+      }
+
+      #ane-guide .an-definition strong {
+        display: block;
+        color: var(--blue);
+        font-size: 18px;
+        margin-bottom: 7px;
+      }
+
+      #ane-guide .an-definition p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       QUICK FACT COMPONENT
+    ========================================= */
+
+      #ane-guide .an-fact {
+        display: flex;
+        gap: 13px;
+        align-items: center;
+        background: #e8f5fb;
+        border-radius: 15px;
+        padding: 15px;
+        margin: 15px 0;
+      }
+
+      #ane-guide .an-fact-number {
+        flex: 0 0 85px;
+        font-size: 29px;
+        font-weight: 800;
+        line-height: 1;
+        color: var(--blue);
+        letter-spacing: -0.04em;
+      }
+
+      #ane-guide .an-fact div:last-child {
+        font-size: 12px;
+        line-height: 1.48;
+      }
+
+      /* =========================================
+       FIVE-STEP RESPONSE COMPONENT
+    ========================================= */
+
+      #ane-guide .an-steps {
+        margin: 13px 0;
+      }
+
+      #ane-guide .an-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        margin-bottom: 12px;
+      }
+
+      #ane-guide .an-step-number {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--blue);
+        color: white;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      #ane-guide .an-step div:last-child {
+        flex: 1;
+        font-size: 13px;
+        line-height: 1.5;
+        padding-top: 2px;
+      }
+
+      #ane-guide .an-step strong {
+        display: block;
+        color: var(--blue);
+        font-size: 14px;
+      }
+
+      /* =========================================
+       REPORTING CONTACTS
+    ========================================= */
+
+      #ane-guide .an-contact {
+        background: white;
+        padding: 16px;
+        border: 1px solid #c6dfec;
+        border-radius: 13px;
+        margin: 13px 0;
+      }
+
+      #ane-guide .an-contact strong {
+        display: block;
+        color: var(--blue);
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+
+      #ane-guide .an-contact p {
+        font-size: 13px;
+      }
+
+      #ane-guide .an-phone {
+        display: inline-block;
+        border-radius: 999px;
+        padding: 11px 15px;
+        color: white;
+        background: var(--blue);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 800;
+        margin-top: 6px;
+      }
+
+      #ane-guide .an-link {
+        display: inline-block;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+        color: var(--blue);
+        margin-top: 12px;
+      }
+
+      /* =========================================
+       INTERACTIVE PRACTICE QUESTIONS
+    ========================================= */
+
+      #ane-guide .an-quiz {
+        border-top: 1px solid #d0e5ec;
+        padding-top: 18px;
+        margin-top: 21px;
+      }
+
+      #ane-guide .an-quiz-label {
+        background: var(--teal);
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        border-radius: 999px;
+        display: inline-block;
+        padding: 6px 11px;
+        margin-bottom: 12px;
+      }
+
+      #ane-guide .an-question {
+        color: var(--blue);
+        font-weight: 800;
+        font-size: 15px;
+        line-height: 1.48;
+        margin-bottom: 13px;
+      }
+
+      #ane-guide .an-choices {
+        display: grid;
+        gap: 9px;
+      }
+
+      #ane-guide .an-choice {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1.5px solid #cbdde8;
+        background: white;
+        color: var(--ink);
+        text-align: left;
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      #ane-guide .an-choice-letter {
+        flex: 0 0 25px;
+        display: grid;
+        place-items: center;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        font-size: 11px;
+        background: #eaf1f7;
+        color: var(--blue);
+        font-weight: 800;
+      }
+
+      #ane-guide .an-choice-text {
+        flex: 1;
+      }
+
+      #ane-guide .an-choice-mark {
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      /* Correct answer = Green */
+
+      #ane-guide .an-choice.an-correct {
+        background: #e1f5e9;
+        border-color: #178653;
+        color: #155d3c;
+      }
+
+      #ane-guide .an-correct .an-choice-letter {
+        background: #178653;
+        color: white;
+      }
+
+      /* Incorrect answer = Red */
+
+      #ane-guide .an-choice.an-wrong {
+        background: #ffeaee;
+        border-color: #d23954;
+        color: #a4233d;
+      }
+
+      #ane-guide .an-wrong .an-choice-letter {
+        background: #d23954;
+        color: white;
+      }
+
+      #ane-guide .an-choice.an-muted {
+        opacity: 0.63;
+      }
+
+      #ane-guide .an-choice:disabled {
+        cursor: default;
+      }
+
+      #ane-guide .an-feedback {
+        font-size: 13px;
+        line-height: 1.5;
+        padding: 12px;
+        margin-top: 12px;
+        border-radius: 10px;
+      }
+
+      #ane-guide .an-feedback.good {
+        background: #e1f5e9;
+        color: #155d3c;
+      }
+
+      #ane-guide .an-feedback.bad {
+        background: #ffeaee;
+        color: #a4233d;
+      }
+
+      #ane-guide .an-retry {
+        margin-top: 11px;
+        color: var(--blue);
+        background: white;
+        border: 1px solid #bad5e3;
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* =========================================
+       INNER CAROUSELS
+    ========================================= */
+
+      #ane-guide .an-carousel {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        background: #eef7fa;
+        border-radius: 16px;
+        padding: 10px;
+        margin: 15px 0 9px;
+      }
+
+      #ane-guide .an-arrow {
+        background: white;
+        color: var(--blue);
+        border: 1px solid #bdd7e4;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        font-size: 24px;
+      }
+
+      #ane-guide .an-arrow:disabled,
+      #ane-guide .an-nav-button:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #ane-guide .an-carousel-center {
+        text-align: center;
+        min-width: 0;
+      }
+
+      #ane-guide .an-carousel-center strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #ane-guide .an-carousel-center small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        margin-top: 2px;
+      }
+
+      #ane-guide .an-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #ane-guide .an-dot {
+        background: #b8d5e3;
+        border: 0;
+        border-radius: 99px;
+        padding: 0;
+        width: 8px;
+        height: 8px;
+      }
+
+      #ane-guide .an-dot[aria-current="true"] {
+        width: 22px;
+        background: var(--blue);
+      }
+
+      /* =========================================
+       MAIN NAVIGATION
+    ========================================= */
+
+      #ane-guide .an-actions {
+        padding: 16px 20px 19px;
+        border-top: 1px solid #e6eef3;
+        display: flex;
+        gap: 10px;
+        background: white;
+      }
+
+      #ane-guide .an-nav-button {
+        border: 0;
+        min-height: 51px;
+        border-radius: 999px;
+        font-weight: 800;
+        padding: 13px 17px;
+      }
+
+      #ane-guide .an-back {
+        width: 39%;
+        background: #e8f0f7;
+        color: var(--blue);
+      }
+
+      #ane-guide .an-next {
+        flex: 1;
+        background: var(--blue);
+        color: white;
+      }
+
+      #ane-guide .an-footer {
+        color: var(--muted);
+        text-align: center;
+        font-size: 11px;
+        padding: 0 16px 15px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       MOBILE RESPONSIVENESS
+    ========================================= */
+
+      @media (max-width: 390px) {
+        #ane-guide {
+          border-radius: 15px;
+        }
+
+        #ane-guide .an-head {
+          padding: 17px 16px 21px;
+        }
+
+        #ane-guide .an-main {
+          padding: 15px 13px 7px;
+        }
+
+        #ane-guide .an-card {
+          padding: 16px;
+        }
+
+        #ane-guide .an-actions {
+          padding: 13px;
+        }
+
+        #ane-guide .an-fact-number {
+          flex-basis: 72px;
+          font-size: 26px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #ane-guide .an-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="ane-guide"
+      role="region"
+      aria-label="Abuse, Neglect and Exploitation Training"
+    >
+      <!-- HEADER -->
+
+      <header class="an-head">
+        <div class="an-top">
+          <div>
+            <img
+              class="an-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+
+            <span class="an-logo-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button type="button" class="an-skip" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="an-eyebrow" id="an-eyebrow"></div>
+
+        <h1 id="an-title"></h1>
+
+        <p class="an-lead" id="an-lead"></p>
+      </header>
+
+      <!-- MAIN CONTENT -->
+
+      <main class="an-main">
+        <div class="an-status" aria-live="polite">
+          <strong id="an-page-count"></strong>
+          <span id="an-remaining"></span>
+        </div>
+
+        <div
+          id="an-progress"
+          class="an-track"
+          role="progressbar"
+          aria-label="Training screen position"
+          aria-valuemin="1"
+          aria-valuemax="9"
+        >
+          <div class="an-fill" id="an-fill"></div>
+        </div>
+
+        <section id="an-card" class="an-card" aria-live="polite"></section>
+
+        <div id="an-carousel-host"></div>
+      </main>
+
+      <!-- NAVIGATION -->
+
+      <footer class="an-actions">
+        <button
+          id="an-back"
+          class="an-nav-button an-back"
+          type="button"
+          data-action="back"
+        >
+          ← Back
+        </button>
+
+        <button
+          id="an-next"
+          class="an-nav-button an-next"
+          type="button"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="an-footer">
+        Swipe a card or use the arrows to explore each topic. Practice questions
+        are ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ========================================
+        // COMPONENT HELPERS
+        // ========================================
+
+        const root = document.getElementById("ane-guide");
+
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        const list = (entries) => `
+        <ul class="an-list">
+          ${entries.map((x) => `<li>${x}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (title, text, urgent = false) => `
+        <div class="an-callout ${urgent ? "an-alert" : ""}">
+          <strong>${title}</strong>
+          <br>
+          ${text}
+        </div>
+      `;
+
+        const def = (term, meaning) => `
+        <div class="an-definition">
+          <small>KEY DEFINITION</small>
+          <strong>${term}</strong>
+          <p>${meaning}</p>
+        </div>
+      `;
+
+        const fact = (number, text) => `
+        <div class="an-fact">
+          <span class="an-fact-number">
+            ${number}
+          </span>
+          <div>${text}</div>
+        </div>
+      `;
+
+        const steps = (items) => `
+        <div class="an-steps">
+          ${items
+            .map(
+              (s, i) => `
+            <div class="an-step">
+              <span class="an-step-number">
+                ${i + 1}
+              </span>
+
+              <div>
+                <strong>${s[0]}</strong>
+                ${s[1]}
+              </div>
+            </div>
+          `,
+            )
+            .join("")}
+        </div>
+      `;
+
+        const contact = (title, number, tel, text, link, label) => `
+        <div class="an-contact">
+          <strong>${title}</strong>
+
+          <p>${text}</p>
+
+          <a class="an-phone" href="tel:${tel}">
+            Call ${number}
+          </a>
+
+          <br>
+
+          <a
+            class="an-link"
+            href="${link}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${label} ↗
+          </a>
+        </div>
+      `;
+
+        const quiz = (number, question, answers, correct, explanation) => ({
+          number,
+          question,
+          answers,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          body,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          body,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ========================================
+        // TRAINING CONTENT
+        //
+        // Source: 365 Health Services
+        // Abuse / Neglect / Exploitation
+        // September 2021 presentation.
+        //
+        // Reporting guidance incorporates
+        // newer Pennsylvania official sources.
+        //
+        // Agency review required before use.
+        // ========================================
+
+        const pages = [
+          // ======================================
+          // SCREEN 1 — INTRODUCTION
+          // ======================================
+
+          page(
+            "Abuse, Neglect & Exploitation",
+
+            "Learn to recognize warning signs, protect adults and children, and report concerns without delay.",
+
+            [
+              card(
+                "Recognize. Protect. Report.",
+
+                `
+              <p>
+                Abuse can be physical, emotional,
+                sexual or financial. Neglect and
+                exploitation can be just as harmful.
+              </p>
+
+              ${fact(
+                "1 in 10",
+                "The CDC estimates that about one in ten older adults living at home experiences abuse, neglect or exploitation. <em>Source: CDC, 2024.</em>",
+              )}
+
+              ${info(
+                "Your responsibility",
+                "Notice warning signs, respond to immediate danger, and report reasonable concerns. You do not need to prove that abuse occurred.",
+              )}
+
+              <p>
+                This guide covers
+                <strong>adult and child protection</strong>,
+                recognizing indicators and Pennsylvania
+                reporting pathways.
+              </p>
+              `,
+
+                "WELCOME",
+              ),
+            ],
+
+            "RECOGNIZE · PREVENT · REPORT",
+          ),
+
+          // ======================================
+          // SCREEN 2 — DEFINITIONS
+          // ======================================
+
+          page(
+            "Know the Definitions",
+
+            "The words matter: different kinds of harm require recognition and reporting.",
+
+            [
+              card(
+                "Abuse & Mistreatment",
+
+                `
+              ${def(
+                "Abuse",
+                "Intentional harm or harmful conduct that causes physical pain, injury, fear or emotional distress. Sexual abuse and certain serious acts or failures to act can also qualify under law.",
+              )}
+
+              ${def(
+                "Mistreatment",
+                "Treating a person wrongly, harshly or in a degrading way. Examples include humiliating, threatening or rough treatment.",
+              )}
+
+              ${info(
+                "Remember",
+                "Abuse may occur without a visible injury. The legal definitions can vary by the adult or child protection law involved.",
+              )}
+              `,
+
+                "BASIC TERMS",
+              ),
+
+              card(
+                "Neglect & Caregiver",
+
+                `
+              ${def(
+                "Neglect",
+                "Failure by a responsible caregiver to provide necessary food, water, clothing, shelter, healthcare or supervision, placing a person at risk of harm.",
+              )}
+
+              ${def(
+                "Caregiver",
+                "A person responsible for some or all of another person's care, including an agency employee, relative or other individual providing agreed care.",
+              )}
+
+              ${def(
+                "Abandonment",
+                "Desertion of a person by a caregiver responsible for providing needed support.",
+              )}
+              `,
+
+                "BASIC TERMS",
+              ),
+
+              card(
+                "Exploitation & Self-Neglect",
+
+                `
+              ${def(
+                "Financial exploitation",
+                "Improper use, taking or control of someone's money, property or benefits for another person's advantage—often through pressure or deception.",
+              )}
+
+              ${def(
+                "Self-neglect",
+                "A person failing to meet their own essential needs in ways that seriously threaten their health or safety.",
+              )}
+
+              ${info(
+                "Important distinction",
+                "An adult's informed choice to refuse care does not automatically mean self-neglect or incapacity. Report serious concerns without assuming the person has lost decision-making rights.",
+              )}
+              `,
+
+                "RELATED TERMS",
+              ),
+            ],
+
+            "FOUNDATIONS",
+          ),
+
+          // ======================================
+          // SCREEN 3 — UNDERSTANDING RISK
+          // ======================================
+
+          page(
+            "Understanding Risk",
+
+            "Know what increases vulnerability—and what you can do to help prevent harm.",
+
+            [
+              card(
+                "Who may be at greater risk?",
+
+                `
+              <p>
+                Abuse can happen to anyone,
+                regardless of age, gender, income
+                or background.
+              </p>
+
+              ${list([
+                "People with disabilities, serious illness or cognitive impairment may rely heavily on others for care.",
+
+                "Isolation and limited social support can make mistreatment harder to notice.",
+
+                "An abusive person may be a relative, partner, caregiver or someone the client trusts.",
+
+                "Fear, dependence or communication barriers may prevent someone from speaking up.",
+              ])}
+
+              ${info(
+                "Key point",
+                "Risk factors are not proof of abuse. Focus on the person's safety and actual signs or disclosures.",
+              )}
+              `,
+
+                "VULNERABILITY",
+              ),
+
+              card(
+                "Prevention starts with attention",
+
+                `
+              ${list([
+                "Get to know the client, their needs and usual behaviors.",
+
+                "Notice changes in their surroundings, care and relationships.",
+
+                "Listen privately and respectfully when someone raises a concern.",
+
+                "Recognize caregiver stress, isolation, substance misuse or financial dependence as possible risk factors—not excuses for abuse.",
+
+                "Share concerns and seek protective help through appropriate reporting channels.",
+              ])}
+
+              ${info(
+                "Remember",
+                "You don't need to determine a motive or confront a suspected abuser. Your role is to protect and report.",
+              )}
+              `,
+
+                "PREVENTION",
+              ),
+            ],
+
+            "WHO MAY BE AFFECTED",
+          ),
+
+          // ======================================
+          // SCREEN 4 — WARNING SIGNS
+          // ======================================
+
+          page(
+            "Spot the Signs",
+
+            "Different forms of abuse leave different clues. Swipe through all five categories.",
+
+            [
+              card(
+                "Physical Abuse",
+
+                `
+              ${def(
+                "Physical abuse",
+                "Using force or harmful restraint to injure, frighten or control someone.",
+              )}
+
+              ${list([
+                "Unexplained bruises, burns, fractures, welts or scars",
+
+                "Marks suggesting restraint or rough handling",
+
+                "Broken eyeglasses or repeated unexplained injuries",
+
+                "Unexplained over- or under-medication",
+
+                "A caregiver who prevents the client from speaking privately",
+              ])}
+
+              ${info(
+                "Observe, don't conclude",
+                "Note the actual injury, the person's words and the circumstances. A sign alone does not prove abuse.",
+              )}
+              `,
+
+                "WARNING SIGNS",
+
+                quiz(
+                  1,
+
+                  "A client has new bruises and seems frightened when a relative enters the room. What is the best response?",
+
+                  [
+                    "Assume the relative caused the bruises and confront them.",
+
+                    "Note the observations, check safety and promptly report the concern.",
+
+                    "Ignore the bruises because there is no proof.",
+                  ],
+
+                  1,
+
+                  "Unexplained injuries plus fear can warrant reporting. Record objective facts; do not attempt your own investigation.",
+                ),
+              ),
+
+              card(
+                "Emotional Abuse",
+
+                `
+              ${def(
+                "Emotional abuse",
+                "Threats, humiliation, intimidation or other conduct that causes fear or emotional harm.",
+              )}
+
+              ${list([
+                "Insulting, mocking or threatening the person",
+
+                "Humiliating them or mocking their beliefs",
+
+                "Controlling or intimidating behavior",
+
+                "Sudden withdrawal, distress or fear around a caregiver",
+
+                "Deliberate isolation or persistent degrading treatment",
+              ])}
+              `,
+
+                "WARNING SIGNS",
+              ),
+
+              card(
+                "Sexual Abuse",
+
+                `
+              ${def(
+                "Sexual abuse",
+                "Unwanted sexual contact, coercion or other sexual conduct without valid consent.",
+              )}
+
+              ${list([
+                "Unexplained genital pain, injuries or bleeding",
+
+                "Torn or bloodstained underwear",
+
+                "Concerning genital infections or disclosures",
+
+                "Fear or distress during intimate care",
+
+                "Inappropriate touching or sexual conduct",
+              ])}
+
+              ${info(
+                "Urgent concern",
+                "Protect safety, seek necessary medical help and follow immediate reporting requirements. Avoid repeated questioning.",
+                true,
+              )}
+              `,
+
+                "WARNING SIGNS",
+              ),
+
+              card(
+                "Financial Abuse",
+
+                `
+              ${def(
+                "Financial abuse",
+                "Stealing, misusing or improperly controlling a person's money or property.",
+              )}
+
+              ${list([
+                "Missing cash, jewelry, property or benefits",
+
+                "Checks or accounts used without permission",
+
+                "Unusual withdrawals or abrupt changes in finances",
+
+                "Pressure to sign documents or transfer property",
+
+                "Refusing to give someone access to their own money",
+              ])}
+
+              ${info(
+                "Remember",
+                "People can be exploited by relatives, caregivers or others. Do not access or investigate private financial accounts yourself.",
+              )}
+              `,
+
+                "WARNING SIGNS",
+              ),
+
+              card(
+                "Neglect",
+
+                `
+              ${def(
+                "Neglect",
+                "Failure to provide essential care or supervision when responsible for doing so.",
+              )}
+
+              ${list([
+                "Dehydration, malnutrition or unexplained weight loss",
+
+                "Untreated pressure injuries or medical problems",
+
+                "Unsafe, dirty surroundings or repeatedly soiled linens",
+
+                "Inadequate clothing, heat, water or essential supplies",
+
+                "Needed glasses, mobility aids or other supports kept out of reach",
+              ])}
+
+              ${info(
+                "Consider the whole picture",
+                "A difficult living environment is not automatically caregiver neglect. Record what you see and report significant unmet needs or danger.",
+              )}
+              `,
+
+                "WARNING SIGNS",
+              ),
+            ],
+
+            "ADULT WARNING SIGNS",
+          ),
+
+          // ======================================
+          // SCREEN 5 — PROTECTING CHILDREN
+          // ======================================
+
+          page(
+            "Protecting Children",
+
+            "Children may show physical and behavioral signs. A disclosure or reasonable suspicion calls for action.",
+
+            [
+              card(
+                "Child Abuse & Neglect",
+
+                `
+              ${def(
+                "Child abuse",
+                "Under Pennsylvania law, certain acts or failures to act that cause or risk serious physical, sexual or mental harm to a person under age 18.",
+              )}
+
+              ${def(
+                "Child neglect",
+                "Serious failures to provide necessary supervision, food, shelter, education or medical care that endanger a child; legal standards depend on the circumstances.",
+              )}
+
+              ${info(
+                "Remember",
+                "You do not need certainty or proof before making a report when the mandated-reporting threshold is met.",
+              )}
+              `,
+
+                "DEFINITIONS",
+              ),
+
+              card(
+                "Physical Signs & Behavior",
+
+                `
+              ${list([
+                "Unexplained bruises, burns, fractures or patterned injuries",
+
+                "Pain, soreness or difficulty moving without a clear explanation",
+
+                "Fear of an adult, of going home or of physical contact",
+
+                "Sudden withdrawal, aggression or pronounced behavior changes",
+
+                "A child reporting being hit or hurt",
+              ])}
+
+              ${info(
+                "Key point",
+                "Injury patterns and behavior raise concerns; they do not by themselves establish what happened.",
+              )}
+              `,
+
+                "RECOGNITION",
+              ),
+
+              card(
+                "Signs of Child Neglect",
+
+                `
+              ${list([
+                "Persistent hunger or poor access to necessities",
+
+                "Inadequate supervision or abandonment",
+
+                "Unmet medical needs or serious hygiene concerns",
+
+                "Clothing inappropriate for conditions",
+
+                "A child describing being left without care",
+              ])}
+
+              ${info(
+                "Stay factual",
+                "Consider specific circumstances rather than assuming poverty alone is neglect. Report reasonable concerns through the proper process.",
+              )}
+              `,
+
+                "RECOGNITION",
+              ),
+
+              card(
+                "Sexual & Emotional Harm",
+
+                `
+              <h3>Possible sexual abuse indicators</h3>
+
+              ${list([
+                "Unexplained genital injuries or bleeding",
+
+                "Age-inappropriate sexual knowledge or behaviors that raise concern",
+
+                "Disclosures, marked fear of someone or sudden distress",
+              ])}
+
+              <h3>Possible emotional abuse indicators</h3>
+
+              ${list([
+                "Persistent threats, terrorizing or humiliation",
+
+                "Severe withdrawal, fear or emotional distress",
+
+                "Statements indicating persistent degrading or frightening treatment",
+              ])}
+
+              ${info(
+                "How to respond",
+                "Remain calm, listen without leading questions, avoid promising secrecy and follow immediate reporting requirements.",
+              )}
+              `,
+
+                "RECOGNITION",
+              ),
+            ],
+
+            "CHILD SAFETY",
+          ),
+
+          // ======================================
+          // SCREEN 6 — YOUR RESPONSIBILITY
+          // ======================================
+
+          page(
+            "Your Responsibility",
+
+            "Protect the person first, then report promptly and describe what you actually know.",
+
+            [
+              card(
+                "Five Steps to Respond",
+
+                `
+              ${steps([
+                [
+                  "Check safety",
+                  "If there is immediate danger or a medical emergency, call 911 and follow emergency procedures.",
+                ],
+
+                [
+                  "Listen calmly",
+                  "Take disclosures seriously; don't challenge or repeatedly question the person.",
+                ],
+
+                [
+                  "Report directly when required",
+                  "Contact the appropriate protective service without waiting for permission.",
+                ],
+
+                [
+                  "Notify the agency",
+                  "Follow agency reporting instructions without substituting them for legally required direct reports.",
+                ],
+
+                [
+                  "Document facts",
+                  "Record what was observed, the person's exact words when possible, and actions taken.",
+                ],
+              ])}
+
+              ${info(
+                "No investigation required",
+                "Report reasonable suspicion. Protective services and law enforcement determine what happened.",
+              )}
+              `,
+
+                "RESPONSE FLOW",
+              ),
+
+              card(
+                "What Facts Should You Record?",
+
+                `
+              ${list([
+                "<strong>Who:</strong> person affected, witnesses and alleged person involved, if known",
+
+                "<strong>What:</strong> what you observed or were told—use exact words when possible",
+
+                "<strong>When:</strong> date, time and when you learned about it",
+
+                "<strong>Where:</strong> incident location and the person's current location",
+
+                "<strong>Safety:</strong> injuries, immediate danger and any protective action taken",
+              ])}
+
+              ${info(
+                "Use objective language",
+                "Write 'I saw two bruises on the forearm' rather than 'The family member abused the client.'",
+              )}
+              `,
+
+                "OBJECTIVE REPORTING",
+
+                quiz(
+                  2,
+
+                  "A client asks you not to report suspected abuse because they fear upsetting the family. What should you do?",
+
+                  [
+                    "Promise to keep it secret and take no action.",
+
+                    "Investigate the family yourself before telling anyone.",
+
+                    "Listen respectfully, explain reporting duties and make the required report while protecting safety.",
+                  ],
+
+                  2,
+
+                  "Do not promise secrecy or delay mandatory reporting. Explain your role and take steps to protect the person.",
+                ),
+              ),
+            ],
+
+            "ACT ON CONCERNS",
+          ),
+
+          // ======================================
+          // SCREEN 7 — REPORTING ADULT ABUSE
+          // ======================================
+
+          page(
+            "Reporting Adult Abuse",
+
+            "Pennsylvania provides a statewide 24-hour hotline for older adults and qualifying adults with disabilities.",
+
+            [
+              card(
+                "Where to Report",
+
+                `
+              ${contact(
+                "PA Protective Services Hotline",
+
+                "1-800-490-8505",
+
+                "+18004908505",
+
+                "For suspected abuse, neglect, exploitation or abandonment of adults 60+ and adults 18–59 who qualify under the Adult Protective Services Act. Available 24/7.",
+
+                "https://www.pa.gov/agencies/dhs/report-abuse/adult-protective-services",
+
+                "PA DHS guidance",
+              )}
+
+              ${info(
+                "Mandated reporters",
+                "Covered staff must meet legal reporting duties immediately. Don't wait for the end of a shift or assume a supervisor's notification replaces a required direct report.",
+                true,
+              )}
+
+              <p>
+                Also inform the agency through its
+                current reporting process. For an
+                immediate emergency, call <strong>911</strong>.
+              </p>
+              `,
+
+                "ADULT PROTECTIVE SERVICES",
+              ),
+
+              card(
+                "Additional Reporting Duties",
+
+                `
+              <p>
+                For qualifying adults
+                <strong>18–59</strong>, Pennsylvania
+                DHS guidance requires mandated reporters
+                to make an immediate oral hotline report
+                and follow with an approved written report
+                <strong>within 48 hours</strong>.
+              </p>
+
+              <p>
+                Certain serious incidents—such as
+                sexual abuse, serious injury or
+                suspicious death—can trigger additional
+                reports to law enforcement and
+                state agencies.
+              </p>
+
+              ${info(
+                "Older adults 60+",
+                "Different reporting requirements and supplemental notifications may apply under the Older Adults Protective Services Act. Follow the current agency reporting protocol and legal requirements.",
+              )}
+
+              ${info(
+                "Good-faith reports",
+                "State protections support people who report suspected abuse in good faith. Do not make knowingly false reports.",
+              )}
+
+              <a
+                class="an-link"
+                href="https://www.pa.gov/agencies/aging/report-elder-abuse"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PA Department of Aging — reporting information ↗
+              </a>
+              `,
+
+                "LEGAL RESPONSIBILITIES",
+              ),
+            ],
+
+            "ADULT PROTECTIVE SERVICES",
+          ),
+
+          // ======================================
+          // SCREEN 8 — REPORTING CHILD ABUSE
+          // ======================================
+
+          page(
+            "Reporting Child Abuse",
+
+            "Pennsylvania mandated reporters must make the required report directly and immediately.",
+
+            [
+              card(
+                "Report Directly to ChildLine",
+
+                `
+              ${contact(
+                "PA ChildLine",
+
+                "1-800-932-0313",
+
+                "+18009320313",
+
+                "Report suspected child abuse immediately by phone. Mandated reporters can also submit reports through Pennsylvania's Child Welfare Portal.",
+
+                "https://www.pa.gov/services/dhs/report-child-abuse-or-neglect-as-a-mandated-reporter",
+
+                "Official mandated-reporter guidance",
+              )}
+
+              <a
+                class="an-link"
+                href="https://www.compass.dhs.pa.gov/cwis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open the PA Child Welfare Portal ↗
+              </a>
+
+              ${list([
+                "Make the report yourself when the law requires you to act as a mandated reporter.",
+
+                "After reporting, notify the appropriate person at your agency without unnecessary delay.",
+
+                "If a child is in immediate danger, call <strong>911</strong>.",
+              ])}
+
+              ${info(
+                "Written follow-up",
+                "After a telephone report, mandated reporters must submit the required written report within 48 hours. A confirmed electronic report through the official portal satisfies the separate reporting step.",
+              )}
+              `,
+
+                "MANDATORY CHILD REPORTING",
+              ),
+
+              card(
+                "What ChildLine May Ask",
+
+                `
+              ${list([
+                "<strong>Who:</strong> child's and caregivers' identities, if known",
+
+                "<strong>What:</strong> suspected harm, injuries or disclosure",
+
+                "<strong>When:</strong> when the event occurred or you learned about it",
+
+                "<strong>Where:</strong> child's current location and suspected incident location",
+
+                "<strong>Safety:</strong> whether the child faces immediate danger or the alleged person has access to them",
+              ])}
+
+              ${info(
+                "You can still report",
+                "You do not need all the answers or proof before contacting ChildLine.",
+              )}
+              `,
+
+                "REPORTING DETAILS",
+
+                quiz(
+                  3,
+
+                  "A child tells you a caregiver has hurt them. You have reasonable cause to suspect child abuse. What's the appropriate next step?",
+
+                  [
+                    "Wait to see if it happens again.",
+
+                    "Immediately report to ChildLine or through the official portal, ensure safety and then notify the agency.",
+
+                    "Only tell a supervisor and assume the supervisor will file for you.",
+                  ],
+
+                  1,
+
+                  "Mandated reporters must make the required direct report immediately. A supervisor's notification is not a replacement.",
+                ),
+              ),
+            ],
+
+            "CHILDLINE",
+          ),
+
+          // ======================================
+          // SCREEN 9 — FINAL REVIEW
+          // ======================================
+
+          page(
+            "Protect. Report. Prevent.",
+
+            "You have reached the end of this training overview.",
+
+            [
+              card(
+                "Five Rules to Remember",
+
+                `
+              ${list([
+                "<strong>Recognize:</strong> Know the forms of abuse, neglect and exploitation.",
+
+                "<strong>Notice:</strong> Take injuries, changes and disclosures seriously.",
+
+                "<strong>Protect:</strong> Address immediate danger first.",
+
+                "<strong>Report:</strong> Follow direct and timely protective-services reporting requirements.",
+
+                "<strong>Document:</strong> State observable facts; do not investigate or decide guilt.",
+              ])}
+
+              ${fact(
+                "24/7",
+                "Pennsylvania's statewide adult protective-services hotline and ChildLine accept reports around the clock.",
+              )}
+
+              ${info(
+                "When in doubt",
+                "Ask for guidance without delaying an urgent or mandatory report. Continue to the assessment through Gimbal's own controls.",
+              )}
+
+              <p>
+                Use <strong>Back</strong> to review
+                or <strong>Start over</strong>
+                to revisit the guide.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ========================================
+        // NAVIGATION STATE
+        // ========================================
+
+        let currentPage = 0;
+        let skipped = false;
+        let touchStart = null;
+
+        const positions = Array(pages.length).fill(0);
+
+        const responses = {};
+
+        const quizKey = () => `${currentPage}:${positions[currentPage]}`;
+
+        // ========================================
+        // RENDER PRACTICE QUESTIONS
+        // ========================================
+
+        function renderQuiz(q) {
+          const selected = responses[quizKey()];
+          const answered = selected !== undefined;
+
+          const choices = q.answers
+            .map((answer, i) => {
+              const cls = !answered
+                ? ""
+                : i === q.correct
+                  ? "an-correct"
+                  : i === selected
+                    ? "an-wrong"
+                    : "an-muted";
+
+              const mark = answered
+                ? i === q.correct
+                  ? "✓"
+                  : i === selected
+                    ? "✕"
+                    : ""
+                : "";
+
+              return `
+            <button
+              type="button"
+              class="an-choice ${cls}"
+              data-action="choose"
+              data-index="${i}"
+              ${answered ? "disabled" : ""}
+            >
+              <span class="an-choice-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="an-choice-text">
+                ${answer}
+              </span>
+
+              <span class="an-choice-mark">
+                ${mark}
+              </span>
+            </button>
+          `;
+            })
+            .join("");
+
+          const feedback = !answered
+            ? ""
+            : `
+            <div
+              class="an-feedback ${selected === q.correct ? "good" : "bad"}"
+              role="status"
+            >
+              <strong>
+                ${
+                  selected === q.correct
+                    ? "✓ Correct!"
+                    : "✕ Not quite — the correct answer is green."
+                }
+              </strong>
+
+              <br>
+
+              ${q.explanation}
+            </div>
+
+            <button
+              class="an-retry"
+              type="button"
+              data-action="retry"
+            >
+              Try again ↻
+            </button>
+          `;
+
+          return `
+          <div class="an-quiz">
+
+            <span class="an-quiz-label">
+              PRACTICE CHECK ${q.number} OF 3
+            </span>
+
+            <div class="an-question">
+              ${q.question}
+            </div>
+
+            <div class="an-choices">
+              ${choices}
+            </div>
+
+            ${feedback}
+          </div>
+        `;
+        }
+
+        // ========================================
+        // RENDER CURRENT SCREEN
+        // ========================================
+
+        function render() {
+          const p = pages[currentPage];
+          const idx = positions[currentPage];
+          const c = p.cards[idx];
+
+          const remaining = pages.length - currentPage - 1;
+
+          // Header
+
+          $("an-eyebrow").textContent = p.eyebrow;
+          $("an-title").textContent = p.title;
+
+          $("an-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. Return to review the training before your assessment."
+              : p.lead;
+
+          // Main progress
+
+          $("an-page-count").textContent =
+            `Screen ${currentPage + 1} of ${pages.length}`;
+
+          $("an-remaining").textContent = remaining
+            ? `${remaining} screen${remaining === 1 ? "" : "s"} left`
+            : "Final screen";
+
+          $("an-fill").style.width =
+            `${((currentPage + 1) / pages.length) * 100}%`;
+
+          $("an-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          // Current content card
+
+          $("an-card").innerHTML = `
+          <div class="an-kicker">
+            ${c.label}
+          </div>
+
+          <h2>${c.title}</h2>
+
+          ${c.body}
+
+          ${c.practice ? renderQuiz(c.practice) : ""}
+        `;
+
+          // ====================================
+          // INNER CAROUSEL
+          // ====================================
+
+          const total = p.cards.length;
+
+          $("an-carousel-host").innerHTML =
+            total < 2
+              ? ""
+              : `
+              <nav
+                class="an-carousel"
+                aria-label="Slides in this screen"
+              >
+
+                <button
+                  class="an-arrow"
+                  type="button"
+                  data-action="slide-back"
+                  aria-label="Previous slide"
+                  ${idx === 0 ? "disabled" : ""}
+                >
+                  ‹
+                </button>
+
+                <div class="an-carousel-center">
+
+                  <strong>
+                    Slide ${idx + 1} of ${total}
+                  </strong>
+
+                  <small>
+                    Swipe or use arrows
+                  </small>
+
+                  <div class="an-dots">
+                    ${p.cards
+                      .map(
+                        (_, i) => `
+                      <button
+                        class="an-dot"
+                        type="button"
+                        data-action="jump"
+                        data-index="${i}"
+                        aria-label="Go to slide ${i + 1}"
+                        aria-current="${i === idx}"
+                      ></button>
+                    `,
+                      )
+                      .join("")}
+                  </div>
+
+                </div>
+
+                <button
+                  class="an-arrow"
+                  type="button"
+                  data-action="slide-next"
+                  aria-label="Next slide"
+                  ${idx === total - 1 ? "disabled" : ""}
+                >
+                  ›
+                </button>
+
+              </nav>
+            `;
+
+          // Main navigation
+
+          $("an-back").disabled = currentPage === 0;
+
+          $("an-next").textContent =
+            currentPage === pages.length - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === pages.length - 1;
+        }
+
+        // ========================================
+        // MAIN SCREEN NAVIGATION
+        // ========================================
+
+        function goPage(i) {
+          if (i < 0 || i >= pages.length) {
+            return;
+          }
+
+          currentPage = i;
+
+          render();
+
+          root.scrollIntoView({
+            behavior: "auto",
+            block: "start",
+          });
+        }
+
+        // ========================================
+        // CAROUSEL NAVIGATION
+        // ========================================
+
+        function goSlide(i) {
+          if (i < 0 || i >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          positions[currentPage] = i;
+
+          render();
+        }
+
+        // ========================================
+        // BUTTON HANDLERS
+        // ========================================
+
+        root.addEventListener("click", (event) => {
+          const b = event.target.closest("button[data-action]");
+
+          if (!b || !root.contains(b) || b.disabled) {
+            return;
+          }
+
+          switch (b.dataset.action) {
+            // Skip to final screen
+
+            case "skip":
+              skipped = true;
+              goPage(pages.length - 1);
+              break;
+
+            // Previous screen
+
+            case "back":
+              goPage(currentPage - 1);
+              break;
+
+            // Next screen or restart
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+                positions.fill(0);
+
+                Object.keys(responses).forEach((k) => delete responses[k]);
+
+                goPage(0);
+              } else {
+                goPage(currentPage + 1);
+              }
+              break;
+
+            // Previous carousel slide
+
+            case "slide-back":
+              goSlide(positions[currentPage] - 1);
+              break;
+
+            // Next carousel slide
+
+            case "slide-next":
+              goSlide(positions[currentPage] + 1);
+              break;
+
+            // Jump to carousel slide
+
+            case "jump":
+              goSlide(Number(b.dataset.index));
+              break;
+
+            // ==================================
+            // PRACTICE ANSWER SELECTION
+            // ==================================
+
+            case "choose":
+              if (responses[quizKey()] === undefined) {
+                responses[quizKey()] = Number(b.dataset.index);
+
+                render();
+              }
+              break;
+
+            // Retry question
+
+            case "retry":
+              delete responses[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        // ========================================
+        // MOBILE SWIPE SUPPORT
+        // ========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".an-card")) {
+              return;
+            }
+
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart || !event.target.closest(".an-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore ordinary vertical scrolling
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              goSlide(positions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ========================================
+        // INITIALIZE
+        // ========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

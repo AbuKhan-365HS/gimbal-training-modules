@@ -1,0 +1,1601 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HIPAA & Confidentiality | 365 Health Services</title>
+    <style>
+      #hipaa-guide,
+      #hipaa-guide * {
+        box-sizing: border-box;
+      }
+      #hipaa-guide {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        overflow: hidden;
+        color: var(--ink);
+        background: #fff;
+        border: 1px solid #d8eaf0;
+        border-radius: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+      }
+      #hipaa-guide button {
+        font: inherit;
+        cursor: pointer;
+      }
+      #hipaa-guide button:focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+      #hipaa-guide .hg-head {
+        background: var(--teal);
+        padding: 22px 22px 26px;
+      }
+      #hipaa-guide .hg-top {
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #hipaa-guide .hg-logo {
+        display: block;
+        width: min(180px, 44vw);
+        height: auto;
+        max-height: 60px;
+        object-fit: contain;
+        object-position: left;
+      }
+      #hipaa-guide .hg-logo-fallback {
+        color: var(--blue);
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: 0.05em;
+      }
+      #hipaa-guide .hg-skip {
+        background: white;
+        color: var(--blue);
+        border: 0;
+        padding: 11px 17px;
+        border-radius: 99px;
+        font-weight: 700;
+      }
+      #hipaa-guide .hg-eyebrow {
+        margin: 25px 0 9px;
+        font-size: 11px;
+        color: var(--blue);
+        letter-spacing: 0.14em;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      #hipaa-guide h1 {
+        font-size: clamp(28px, 7vw, 42px);
+        letter-spacing: -0.035em;
+        line-height: 1.1;
+        margin: 0;
+        color: var(--blue);
+      }
+      #hipaa-guide .hg-lead {
+        margin: 15px 0 0;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #284c6b;
+      }
+      #hipaa-guide .hg-main {
+        padding: 20px 20px 8px;
+      }
+      #hipaa-guide .hg-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      #hipaa-guide .hg-status strong {
+        color: var(--blue);
+      }
+      #hipaa-guide .hg-progress {
+        background: #e6eff4;
+        border-radius: 99px;
+        height: 6px;
+        margin-bottom: 19px;
+        overflow: hidden;
+      }
+      #hipaa-guide .hg-fill {
+        background: var(--sky);
+        height: 100%;
+        border-radius: 99px;
+        transition: width 0.2s ease;
+      }
+      #hipaa-guide .hg-card {
+        background: #f7fbfd;
+        border: 1px solid #d3e8ee;
+        border-radius: 19px;
+        padding: 20px;
+        min-height: 200px;
+      }
+      #hipaa-guide .hg-kicker {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        font-weight: 800;
+        color: #007fb7;
+        margin-bottom: 9px;
+        text-transform: uppercase;
+      }
+      #hipaa-guide .hg-card h2 {
+        font-size: clamp(21px, 5vw, 26px);
+        line-height: 1.2;
+        margin: 0 0 14px;
+        color: var(--blue);
+      }
+      #hipaa-guide .hg-card h3 {
+        font-size: 16px;
+        color: var(--blue);
+        margin: 15px 0 8px;
+      }
+      #hipaa-guide .hg-card p {
+        margin: 0 0 12px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      #hipaa-guide .hg-card p:last-child {
+        margin-bottom: 0;
+      }
+      #hipaa-guide .hg-list {
+        margin: 10px 0 0;
+        padding-left: 20px;
+      }
+      #hipaa-guide .hg-list li {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        padding-left: 2px;
+      }
+      #hipaa-guide .hg-list li::marker {
+        color: var(--sky);
+      }
+      #hipaa-guide .hg-callout {
+        border-left: 4px solid var(--sky);
+        background: #e6f5fb;
+        border-radius: 9px;
+        padding: 13px 14px;
+        font-size: 13px;
+        line-height: 1.55;
+        margin: 14px 0 0;
+      }
+      #hipaa-guide .hg-callout strong {
+        color: var(--blue);
+      }
+      #hipaa-guide .hg-principle {
+        background: white;
+        border: 1px solid #cde7ee;
+        border-radius: 13px;
+        padding: 15px;
+        margin: 13px 0;
+      }
+      #hipaa-guide .hg-principle-label {
+        color: #0087c2;
+        letter-spacing: 0.09em;
+        font-size: 10px;
+        font-weight: 800;
+        margin-bottom: 7px;
+      }
+      #hipaa-guide .hg-principle strong {
+        font-size: 18px;
+        color: var(--blue);
+      }
+      #hipaa-guide .hg-principle p {
+        margin: 7px 0 0;
+        font-size: 13px;
+      }
+      #hipaa-guide .hg-number-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin-top: 10px;
+      }
+      #hipaa-guide .hg-right {
+        background: #fff;
+        border: 1px solid #d1e4ec;
+        border-radius: 11px;
+        padding: 12px;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+      #hipaa-guide .hg-right b {
+        display: block;
+        color: var(--blue);
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+
+      /* PRACTICE QUESTIONS */
+
+      #hipaa-guide .hg-quiz {
+        margin-top: 20px;
+        border-top: 1px solid #d1e4eb;
+        padding-top: 19px;
+      }
+      #hipaa-guide .hg-quiz-tag {
+        display: inline-block;
+        border-radius: 99px;
+        background: var(--teal);
+        color: var(--blue);
+        padding: 6px 10px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+      }
+      #hipaa-guide .hg-question {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: var(--blue);
+        margin: 0 0 13px;
+      }
+      #hipaa-guide .hg-choices {
+        display: grid;
+        gap: 9px;
+      }
+      #hipaa-guide .hg-choice {
+        width: 100%;
+        border: 1.5px solid #cbdfe8;
+        background: white;
+        color: var(--ink);
+        text-align: left;
+        padding: 12px 13px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      #hipaa-guide .hg-letter {
+        width: 25px;
+        height: 25px;
+        flex: 0 0 25px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #e8f1f5;
+        color: var(--blue);
+        font-weight: 800;
+        font-size: 11px;
+      }
+      #hipaa-guide .hg-choice-text {
+        flex: 1;
+      }
+      #hipaa-guide .hg-mark {
+        font-size: 19px;
+        font-weight: 800;
+      }
+      #hipaa-guide .hg-choice.hg-correct {
+        background: #e1f6e9;
+        border-color: #16834e;
+        color: #175d3d;
+      }
+      #hipaa-guide .hg-choice.hg-correct .hg-letter {
+        background: #16834e;
+        color: white;
+      }
+      #hipaa-guide .hg-choice.hg-wrong {
+        background: #ffeaed;
+        border-color: #d23853;
+        color: #a2253b;
+      }
+      #hipaa-guide .hg-choice.hg-wrong .hg-letter {
+        background: #d23853;
+        color: white;
+      }
+      #hipaa-guide .hg-choice.hg-dim {
+        opacity: 0.6;
+      }
+      #hipaa-guide .hg-choice:disabled {
+        cursor: default;
+      }
+      #hipaa-guide .hg-feedback {
+        padding: 13px;
+        margin-top: 12px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      #hipaa-guide .hg-feedback.good {
+        background: #e1f6e9;
+        color: #175d3d;
+      }
+      #hipaa-guide .hg-feedback.bad {
+        background: #ffeaed;
+        color: #a2253b;
+      }
+      #hipaa-guide .hg-retry {
+        margin-top: 11px;
+        border: 1px solid #bbd6e3;
+        background: #fff;
+        color: var(--blue);
+        border-radius: 99px;
+        padding: 9px 15px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* INNER CAROUSEL */
+
+      #hipaa-guide .hg-carousel {
+        background: #eef7fa;
+        margin: 15px 0 9px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px;
+      }
+      #hipaa-guide .hg-arrow {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        border: 1px solid #bfd9e5;
+        border-radius: 50%;
+        background: #fff;
+        color: var(--blue);
+        font-size: 24px;
+      }
+      #hipaa-guide .hg-arrow:disabled,
+      #hipaa-guide .hg-nav-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+      #hipaa-guide .hg-middle {
+        text-align: center;
+        min-width: 0;
+      }
+      #hipaa-guide .hg-middle strong {
+        display: block;
+        font-size: 12px;
+        color: var(--blue);
+      }
+      #hipaa-guide .hg-middle small {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      #hipaa-guide .hg-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+      #hipaa-guide .hg-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 99px;
+        border: 0;
+        background: #b9d5e2;
+        padding: 0;
+      }
+      #hipaa-guide .hg-dot[aria-current="true"] {
+        width: 22px;
+        background: var(--blue);
+      }
+
+      /* MAIN NAVIGATION */
+
+      #hipaa-guide .hg-actions {
+        padding: 16px 20px 18px;
+        border-top: 1px solid #e5edf1;
+        display: flex;
+        gap: 10px;
+        background: #fff;
+      }
+      #hipaa-guide .hg-nav-btn {
+        min-height: 52px;
+        border: 0;
+        border-radius: 99px;
+        padding: 14px 18px;
+        font-weight: 800;
+      }
+      #hipaa-guide .hg-back {
+        background: #e8eff6;
+        color: var(--blue);
+        width: 39%;
+      }
+      #hipaa-guide .hg-next {
+        background: var(--blue);
+        color: #fff;
+        flex: 1;
+      }
+      #hipaa-guide .hg-footer {
+        text-align: center;
+        font-size: 11px;
+        line-height: 1.5;
+        color: var(--muted);
+        padding: 0 20px 15px;
+      }
+
+      @media (max-width: 390px) {
+        #hipaa-guide {
+          border-radius: 15px;
+        }
+        #hipaa-guide .hg-head {
+          padding: 17px 17px 22px;
+        }
+        #hipaa-guide .hg-main {
+          padding: 16px 14px 8px;
+        }
+        #hipaa-guide .hg-card {
+          padding: 16px;
+        }
+        #hipaa-guide .hg-actions {
+          padding: 14px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #hipaa-guide .hg-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="hipaa-guide"
+      role="region"
+      aria-label="HIPAA and Confidentiality training"
+    >
+      <header class="hg-head">
+        <div class="hg-top">
+          <div>
+            <img
+              class="hg-logo"
+              alt="365 Health Services"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+            <span class="hg-logo-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button type="button" class="hg-skip" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div id="hg-eyebrow" class="hg-eyebrow"></div>
+        <h1 id="hg-title"></h1>
+        <p id="hg-lead" class="hg-lead"></p>
+      </header>
+
+      <main class="hg-main">
+        <div class="hg-status" aria-live="polite">
+          <strong id="hg-page"></strong>
+          <span id="hg-remaining"></span>
+        </div>
+
+        <div
+          id="hg-progress"
+          class="hg-progress"
+          role="progressbar"
+          aria-label="Training progress"
+          aria-valuemin="1"
+          aria-valuemax="8"
+        >
+          <div class="hg-fill" id="hg-fill"></div>
+        </div>
+
+        <section id="hg-card" class="hg-card" aria-live="polite"></section>
+
+        <div id="hg-carousel-host"></div>
+      </main>
+
+      <footer class="hg-actions">
+        <button
+          id="hg-back"
+          class="hg-nav-btn hg-back"
+          type="button"
+          data-action="back"
+        >
+          ← Back
+        </button>
+
+        <button
+          id="hg-next"
+          class="hg-nav-btn hg-next"
+          type="button"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="hg-footer">
+        Swipe cards or use the small arrows to read more. Practice questions are
+        ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ========================================
+        // HELPERS
+        // ========================================
+
+        const root = document.getElementById("hipaa-guide");
+        const el = (id) => document.getElementById(id);
+
+        const list = (items) => `
+    <ul class="hg-list">
+      ${items.map((x) => `<li>${x}</li>`).join("")}
+    </ul>
+  `;
+
+        const tip = (heading, body) => `
+    <div class="hg-callout">
+      <strong>${heading}</strong><br>${body}
+    </div>
+  `;
+
+        const principle = (heading, body) => `
+    <div class="hg-principle">
+      <div class="hg-principle-label">
+        PRIVACY PRINCIPLE
+      </div>
+      <strong>${heading}</strong>
+      <p>${body}</p>
+    </div>
+  `;
+
+        const practice = (question, options, correct, explain, number) => ({
+          question,
+          options,
+          correct,
+          explain,
+          number,
+        });
+
+        const card = (title, body, label = "KEY INFORMATION", quiz = null) => ({
+          title,
+          body,
+          label,
+          quiz,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // Based on 365 Health Services' HIPAA presentation.
+        // Updated federal explanations follow HHS guidance.
+        // Agency-specific procedures require confirmation.
+
+        const pages = [
+          // ========================================
+          // SCREEN 1 — HIPAA INTRODUCTION
+          // ========================================
+
+          page(
+            "HIPAA & Confidentiality",
+
+            "Protecting client information is part of providing safe, respectful home healthcare.",
+
+            [
+              card(
+                "What is HIPAA?",
+
+                `
+          <p>
+            <strong>HIPAA</strong> stands for the
+            Health Insurance Portability and
+            Accountability Act of 1996.
+            Its Privacy Rule sets federal standards
+            for protecting identifiable health information.
+          </p>
+
+          ${list([
+            "Protect the privacy of patient health information.",
+            "Give patients rights over how their information is used and disclosed.",
+            "Require appropriate safeguards for covered organizations.",
+          ])}
+
+          ${tip(
+            "Our responsibility",
+            "365 Health Services' presentation identifies the agency as a HIPAA covered entity. Workers must follow its privacy policies and training.",
+          )}
+          `,
+
+                "WELCOME",
+              ),
+
+              card(
+                "Why confidentiality matters",
+
+                `
+          <p>
+            Clients trust the care team with sensitive
+            information. Privacy isn't just about
+            paperwork—it also applies to conversations,
+            mobile devices, records, and daily activities
+            in the home.
+          </p>
+
+          ${principle(
+            "Privacy builds trust",
+            "Only access, discuss, or share patient information for an authorized work purpose and according to agency procedures.",
+          )}
+
+          <p>
+            Privacy violations may lead to complaints,
+            workplace discipline, civil enforcement,
+            and in some circumstances criminal penalties.
+          </p>
+          `,
+
+                "WHY IT MATTERS",
+              ),
+            ],
+
+            "GETTING STARTED",
+          ),
+
+          // ========================================
+          // SCREEN 2 — PROTECTED HEALTH INFORMATION
+          // ========================================
+
+          page(
+            "What Is Protected Health Information?",
+
+            "Learn to recognize PHI in records, conversations, and everyday home visits.",
+
+            [
+              card(
+                "Recognizing PHI",
+
+                `
+          <p>
+            <strong>Protected Health Information (PHI)</strong>
+            is individually identifiable health information
+            held or disclosed by a covered entity or business
+            associate, subject to HIPAA's rules.
+          </p>
+
+          ${list([
+            "Patient name or medical record number",
+            "Dates of birth, admission, discharge, or death",
+            "Health conditions, care plans, medications, or treatment information linked to a person",
+            "Identifiers or combinations of details that could identify someone",
+          ])}
+
+          ${principle(
+            "Removing a name isn't enough",
+            "Other identifiers—such as a record number or identifying dates—may still make health information identifiable.",
+          )}
+          `,
+
+                "RECOGNIZE PHI",
+
+                practice(
+                  "A care note has no patient name, but it includes a birth date and medical record number. Is it necessarily de-identified?",
+
+                  [
+                    "Yes. Removing the name is always enough.",
+                    "No. Other details may still identify the patient.",
+                    "Yes, as long as it stays on paper.",
+                  ],
+
+                  1,
+
+                  "A name is only one possible identifier. Other details can still make a person identifiable.",
+
+                  1,
+                ),
+              ),
+
+              card(
+                "PHI exists in many forms",
+
+                `
+          <p>
+            HIPAA protections can apply to identifiable
+            health information shared:
+          </p>
+
+          ${list([
+            "<strong>Verbally:</strong> conversations, phone calls, or reports",
+            "<strong>In writing:</strong> care notes, charts, printed documents",
+            "<strong>Electronically:</strong> apps, messages, photos, and digital records",
+          ])}
+
+          ${tip(
+            "Remember",
+            "A private conversation can disclose PHI just as easily as an email or a printed record.",
+          )}
+          `,
+
+                "HOW INFORMATION APPEARS",
+              ),
+            ],
+
+            "IDENTIFY INFORMATION",
+          ),
+
+          // ========================================
+          // SCREEN 3 — SHARING INFORMATION
+          // ========================================
+
+          page(
+            "When Can Information Be Shared?",
+
+            "Understand permitted uses, the minimum necessary rule, and when a separate authorization is needed.",
+
+            [
+              card(
+                "Treatment, payment & operations",
+
+                `
+          <p>
+            HIPAA generally permits covered entities
+            to use and disclose PHI for
+            <strong>
+              treatment, payment, and healthcare operations
+            </strong>
+            without a separate HIPAA authorization,
+            subject to applicable limits.
+          </p>
+
+          ${list([
+            "<strong>Treatment:</strong> coordinating and delivering patient care",
+            "<strong>Payment:</strong> eligible billing and reimbursement activities",
+            "<strong>Operations:</strong> permitted quality improvement, audits, training, and administration",
+          ])}
+
+          ${tip(
+            "Important",
+            "A permitted purpose does not mean every employee may access every record. Follow your assigned role and agency access policies.",
+          )}
+          `,
+
+                "PERMITTED PURPOSES",
+              ),
+
+              card(
+                "The minimum necessary rule",
+
+                `
+          ${principle(
+            "Minimum necessary",
+            "For uses and disclosures where the standard applies, reasonably limit PHI to what is needed for the intended purpose.",
+          )}
+
+          <p>
+            This standard has exceptions, including
+            <strong>
+              disclosures to or requests by a healthcare
+              provider for treatment
+            </strong>.
+            Agency role-based access policies still apply.
+          </p>
+
+          ${tip(
+            "Example",
+            "A scheduling task usually doesn't require an employee to read a patient's entire clinical history.",
+          )}
+          `,
+
+                "SHARE RESPONSIBLY",
+
+                practice(
+                  "A caller says they're a patient's relative and asks for a full medical history. Their identity and authority haven't been verified. What should you do?",
+
+                  [
+                    "Provide the details because they say they are family.",
+                    "Verify and follow agency disclosure procedures before sharing anything.",
+                    "Send the complete chart to avoid missing details.",
+                  ],
+
+                  1,
+
+                  "Family involvement does not automatically authorize unrestricted disclosure. Verify identity and follow the applicable permission and agency rules.",
+
+                  2,
+                ),
+              ),
+
+              card(
+                "When is authorization required?",
+
+                `
+          <p>
+            Many uses or disclosures outside HIPAA's
+            permissions require a
+            <strong>valid written authorization</strong>.
+            The authorization identifies what information
+            may be shared and with whom.
+          </p>
+
+          ${list([
+            "Don't assume a caller or relative is automatically entitled to the whole record.",
+            "Route unfamiliar requests to the agency's designated privacy or records contact.",
+            "Psychotherapy notes have special protections and generally require authorization, with limited exceptions.",
+          ])}
+
+          ${tip(
+            "Remember",
+            "Not every disclosure outside treatment needs authorization—some are permitted or required by law. When unsure, check the agency process before sharing.",
+          )}
+          `,
+
+                "AUTHORIZATION",
+              ),
+            ],
+
+            "SHARING INFORMATION",
+          ),
+
+          // ========================================
+          // SCREEN 4 — SAFEGUARDS
+          // ========================================
+
+          page(
+            "Protecting Patient Information",
+
+            "Prevent accidental disclosures through careful habits and secure handling.",
+
+            [
+              card(
+                "Who can access PHI?",
+
+                `
+          <p>
+            Covered entities must establish policies
+            about who may access or disclose PHI
+            and what safeguards apply.
+          </p>
+
+          ${list([
+            "Use only the access needed for your assigned work.",
+            "Don't look at records out of curiosity.",
+            "Discuss patient information in appropriate private settings.",
+            "Follow approved procedures when communicating with supervisors or other authorized workers.",
+          ])}
+
+          ${tip(
+            "Stop and check",
+            "If you aren't sure whether a request is authorized, don't guess—ask the designated agency contact.",
+          )}
+          `,
+
+                "ROLE-BASED ACCESS",
+              ),
+
+              card(
+                "Three kinds of safeguards",
+
+                `
+          ${list([
+            "<strong>Administrative:</strong> policies, training, assigned responsibilities, and reporting procedures.",
+            "<strong>Physical:</strong> securing paperwork, devices, and workspaces from unauthorized viewing.",
+            "<strong>Technical:</strong> secure accounts, appropriate permissions, and approved systems.",
+          ])}
+
+          ${principle(
+            "Privacy is part of your routine",
+            "Don't share passwords, leave records visible, or send patient information through unapproved channels.",
+          )}
+          `,
+
+                "SAFETY PRACTICES",
+              ),
+            ],
+
+            "SAFEGUARDS",
+          ),
+
+          // ========================================
+          // SCREEN 5 — CLIENT RIGHTS
+          // ========================================
+
+          page(
+            "Understanding Client Rights",
+
+            "HIPAA gives patients rights related to their protected health information.",
+
+            [
+              card(
+                "Notice of Privacy Practices",
+
+                `
+          <p>
+            Patients must receive information about
+            the organization's privacy practices
+            and their rights. The presentation says
+            365 provides its privacy notice upon admission.
+          </p>
+
+          ${list([
+            "The notice describes common uses and disclosures.",
+            "It explains patient rights and complaint options.",
+            "Providers generally must make a good-faith effort to obtain acknowledgment of receipt.",
+          ])}
+
+          ${tip(
+            "Important distinction",
+            "HIPAA does not require a patient to sign the acknowledgment. If they decline, the provider documents its good-faith effort.",
+          )}
+          `,
+
+                "PATIENT NOTICES",
+              ),
+
+              card(
+                "Six rights highlighted by 365",
+
+                `
+          <div class="hg-number-grid">
+
+            <div class="hg-right">
+              <b>1. Notice</b>
+              Receive privacy information.
+            </div>
+
+            <div class="hg-right">
+              <b>2. Access</b>
+              Request records.
+            </div>
+
+            <div class="hg-right">
+              <b>3. Restrictions</b>
+              Ask to limit sharing.
+            </div>
+
+            <div class="hg-right">
+              <b>4. Amendment</b>
+              Request a correction.
+            </div>
+
+            <div class="hg-right">
+              <b>5. Authorization</b>
+              Revoke or limit permission.
+            </div>
+
+            <div class="hg-right">
+              <b>6. Accounting</b>
+              Request a record of certain disclosures.
+            </div>
+
+          </div>
+
+          ${tip(
+            "Also important",
+            "Patients can request certain confidential communications and complain about potential privacy violations without retaliation.",
+          )}
+          `,
+
+                "PATIENT RIGHTS",
+              ),
+            ],
+
+            "KNOW YOUR RIGHTS",
+          ),
+
+          // ========================================
+          // SCREEN 6 — ACCESS & AMENDMENTS
+          // ========================================
+
+          page(
+            "Accessing & Correcting Records",
+
+            "Recognize patient requests and send them through the approved agency process.",
+
+            [
+              card(
+                "Requesting clinical records",
+
+                `
+          <p>
+            Patients generally have a right to inspect
+            and obtain copies of health information
+            in their designated record set,
+            with limited exceptions.
+          </p>
+
+          ${list([
+            "A request must be processed within applicable HIPAA time limits.",
+            "Only certain reasonable, cost-based copying fees may be charged.",
+            "Direct requests to the agency's designated records or privacy contact; don't release records independently.",
+          ])}
+
+          ${tip(
+            "Agency process to confirm",
+            "The original 365 presentation routes record-copy requests to the Executive Director. Confirm that this remains the current role before publishing.",
+          )}
+          `,
+
+                "RIGHT TO ACCESS",
+              ),
+
+              card(
+                "Restrictions & amendments",
+
+                `
+          <h3>Requesting restrictions</h3>
+
+          <p>
+            A patient may ask the agency to limit uses
+            or disclosures.
+            <strong>
+              Most requested restrictions do not have
+              to be accepted
+            </strong>,
+            although specific exceptions exist.
+          </p>
+
+          <h3>Requesting an amendment</h3>
+
+          <p>
+            A patient may ask to correct inaccurate
+            or incomplete information.
+            If an amendment is denied, HIPAA provides
+            a process for a written disagreement.
+          </p>
+
+          ${tip(
+            "Your role",
+            "Listen respectfully and direct formal privacy requests to the correct agency contact. The original deck names the Executive Director for amendments; verify the current workflow.",
+          )}
+          `,
+
+                "PATIENT REQUESTS",
+              ),
+            ],
+
+            "RECORD REQUESTS",
+          ),
+
+          // ========================================
+          // SCREEN 7 — AUTHORIZATIONS & REQUESTS
+          // ========================================
+
+          page(
+            "Authorizations & Privacy Requests",
+
+            "Know how permissions can change and where to direct requests or complaints.",
+
+            [
+              card(
+                "Authorization & revocation",
+
+                `
+          <p>
+            When an authorization is required,
+            it specifies the information, recipients,
+            purpose, and other required details.
+          </p>
+
+          ${list([
+            "Patients can generally revoke an authorization in writing.",
+            "Revocation does not undo disclosures already made in reasonable reliance on a valid authorization.",
+            "Some records, including psychotherapy notes, have special disclosure rules.",
+            "Parent or guardian access to a minor's records can also be affected by Pennsylvania law.",
+          ])}
+
+          ${tip(
+            "DCW action",
+            "Never promise that a revocation immediately reverses past disclosures. Refer the person to the agency's privacy contact.",
+          )}
+          `,
+
+                "PERMISSIONS",
+              ),
+
+              card(
+                "Accounting of disclosures",
+
+                `
+          <p>
+            Patients can request an accounting of
+            <strong>certain disclosures</strong>
+            made in the preceding six years.
+          </p>
+
+          <p>
+            Not every use, access, or disclosure
+            appears on the accounting.
+            For example, many treatment, payment,
+            and healthcare operations disclosures
+            are excluded.
+          </p>
+
+          ${tip(
+            "Agency process to confirm",
+            "The original deck directs accounting requests to the Executive Director. Confirm the current routing before publication.",
+          )}
+          `,
+
+                "DISCLOSURE HISTORY",
+              ),
+
+              card(
+                "What if someone has a concern?",
+
+                `
+          <p>
+            Clients may raise concerns with the agency
+            or file a complaint with the U.S.
+            Department of Health and Human Services
+            Office for Civil Rights (OCR).
+            Retaliation for a HIPAA complaint is prohibited.
+          </p>
+
+          ${list([
+            "Listen without dismissing the concern.",
+            "Do not share records or promise an outcome yourself.",
+            "Pass the request or complaint to the designated privacy contact promptly.",
+          ])}
+
+          ${tip(
+            "Remember",
+            "You help protect patient rights by recognizing requests and routing them appropriately.",
+          )}
+          `,
+
+                "REQUESTS & COMPLAINTS",
+
+                practice(
+                  "A patient asks you for a copy of their complete clinical record. What should you do?",
+
+                  [
+                    "Send photos of the record from your personal phone.",
+                    "Tell the patient they are not allowed to access it.",
+                    "Explain that the request should go through the agency's approved records process and help route it.",
+                  ],
+
+                  2,
+
+                  "Patients generally have access rights, but DCWs should follow the agency's approved records-request workflow rather than releasing documents personally.",
+
+                  3,
+                ),
+              ),
+            ],
+
+            "PRIVACY REQUESTS",
+          ),
+
+          // ========================================
+          // SCREEN 8 — FINAL REVIEW
+          // ========================================
+
+          page(
+            "Protect Privacy. Build Trust.",
+
+            "You've reached the end of the HIPAA & Confidentiality overview.",
+
+            [
+              card(
+                "Five rules to remember",
+
+                `
+          ${list([
+            "<strong>Recognize PHI.</strong> A name is not the only identifying detail.",
+            "<strong>Access only for work.</strong> Follow role-based permissions.",
+            "<strong>Share appropriately.</strong> Verify recipients and follow the minimum necessary rule where it applies.",
+            "<strong>Protect every format.</strong> Conversations, paper, and digital records all matter.",
+            "<strong>Respect patient rights.</strong> Route formal requests, concerns, and complaints through approved channels.",
+          ])}
+
+          ${principle(
+            "When in doubt, don't guess",
+            "Stop before sharing information and contact the agency's designated privacy or records team.",
+          )}
+
+          <p>
+            Use <strong>Back</strong> to review or
+            <strong>Start over</strong> to revisit
+            the guide. Continue to the questionnaire
+            through Gimbal's own controls.
+          </p>
+          `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ========================================
+        // NAVIGATION STATE
+        // ========================================
+
+        let currentPage = 0;
+        let skipped = false;
+
+        const cardPositions = Array(pages.length).fill(0);
+        const answers = {};
+
+        let touchStart = null;
+
+        const key = () => `${currentPage}:${cardPositions[currentPage]}`;
+
+        // ========================================
+        // RENDER PRACTICE QUESTIONS
+        // ========================================
+
+        function renderQuiz(q) {
+          const chosen = answers[key()];
+          const answered = chosen !== undefined;
+
+          const options = q.options
+            .map((text, i) => {
+              const cls = !answered
+                ? ""
+                : i === q.correct
+                  ? "hg-correct"
+                  : i === chosen
+                    ? "hg-wrong"
+                    : "hg-dim";
+
+              const mark =
+                answered && i === q.correct
+                  ? "✓"
+                  : answered && i === chosen
+                    ? "✕"
+                    : "";
+
+              return `
+        <button
+          type="button"
+          class="hg-choice ${cls}"
+          data-action="choose"
+          data-choice="${i}"
+          ${answered ? "disabled" : ""}
+        >
+          <span class="hg-letter">
+            ${String.fromCharCode(65 + i)}
+          </span>
+
+          <span class="hg-choice-text">
+            ${text}
+          </span>
+
+          <span class="hg-mark">${mark}</span>
+        </button>
+      `;
+            })
+            .join("");
+
+          const feedback = !answered
+            ? ""
+            : `
+      <div
+        class="hg-feedback ${chosen === q.correct ? "good" : "bad"}"
+        role="status"
+      >
+        <strong>
+          ${
+            chosen === q.correct
+              ? "✓ Correct!"
+              : "✕ Not quite — the correct choice is green."
+          }
+        </strong>
+
+        <br>
+        ${q.explain}
+      </div>
+
+      <button
+        class="hg-retry"
+        data-action="retry"
+        type="button"
+      >
+        Try again ↻
+      </button>
+    `;
+
+          return `
+      <div class="hg-quiz">
+        <span class="hg-quiz-tag">
+          PRACTICE CHECK ${q.number} OF 3
+        </span>
+
+        <div class="hg-question">
+          ${q.question}
+        </div>
+
+        <div class="hg-choices">
+          ${options}
+        </div>
+
+        ${feedback}
+      </div>
+    `;
+        }
+
+        // ========================================
+        // RENDER CURRENT SCREEN
+        // ========================================
+
+        function render() {
+          const p = pages[currentPage];
+          const index = cardPositions[currentPage];
+          const c = p.cards[index];
+
+          const remaining = pages.length - currentPage - 1;
+
+          el("hg-eyebrow").textContent = p.eyebrow;
+          el("hg-title").textContent = p.title;
+
+          el("hg-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. You can return to review the training before your assessment."
+              : p.lead;
+
+          el("hg-page").textContent =
+            `Screen ${currentPage + 1} of ${pages.length}`;
+
+          el("hg-remaining").textContent = remaining
+            ? `${remaining} screen${remaining === 1 ? "" : "s"} left`
+            : "Final screen";
+
+          el("hg-fill").style.width =
+            `${((currentPage + 1) / pages.length) * 100}%`;
+
+          el("hg-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          // ----------------------------------------
+          // CURRENT CONTENT CARD
+          // ----------------------------------------
+
+          el("hg-card").innerHTML = `
+      <div class="hg-kicker">
+        ${c.label}
+      </div>
+
+      <h2>${c.title}</h2>
+
+      ${c.body}
+
+      ${c.quiz ? renderQuiz(c.quiz) : ""}
+    `;
+
+          // ----------------------------------------
+          // INNER CAROUSEL
+          // ----------------------------------------
+
+          const count = p.cards.length;
+
+          el("hg-carousel-host").innerHTML =
+            count < 2
+              ? ""
+              : `
+        <nav
+          class="hg-carousel"
+          aria-label="Slides in current section"
+        >
+
+          <button
+            type="button"
+            class="hg-arrow"
+            data-action="slide-back"
+            aria-label="Previous slide"
+            ${index === 0 ? "disabled" : ""}
+          >
+            ‹
+          </button>
+
+          <div class="hg-middle">
+            <strong>
+              Slide ${index + 1} of ${count}
+            </strong>
+
+            <small>Swipe or use arrows</small>
+
+            <div class="hg-dots">
+              ${p.cards
+                .map(
+                  (_, i) => `
+                <button
+                  type="button"
+                  class="hg-dot"
+                  data-action="slide-jump"
+                  data-index="${i}"
+                  aria-current="${i === index}"
+                  aria-label="Slide ${i + 1}"
+                ></button>
+              `,
+                )
+                .join("")}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="hg-arrow"
+            data-action="slide-next"
+            aria-label="Next slide"
+            ${index === count - 1 ? "disabled" : ""}
+          >
+            ›
+          </button>
+
+        </nav>
+      `;
+
+          // ----------------------------------------
+          // MAIN NAVIGATION
+          // ----------------------------------------
+
+          el("hg-back").disabled = currentPage === 0;
+
+          el("hg-next").textContent =
+            currentPage === pages.length - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === pages.length - 1;
+        }
+
+        // ========================================
+        // MAIN SCREEN NAVIGATION
+        // ========================================
+
+        function goPage(i) {
+          if (i < 0 || i >= pages.length) return;
+
+          currentPage = i;
+          render();
+
+          root.scrollIntoView({
+            behavior: "auto",
+            block: "start",
+          });
+        }
+
+        // ========================================
+        // INNER CAROUSEL NAVIGATION
+        // ========================================
+
+        function goSlide(i) {
+          if (i < 0 || i >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          cardPositions[currentPage] = i;
+          render();
+        }
+
+        // ========================================
+        // BUTTON CLICK HANDLERS
+        // ========================================
+
+        root.addEventListener("click", (event) => {
+          const button = event.target.closest("button[data-action]");
+
+          if (!button || !root.contains(button) || button.disabled) {
+            return;
+          }
+
+          switch (button.dataset.action) {
+            case "skip":
+              skipped = true;
+              goPage(pages.length - 1);
+              break;
+
+            case "back":
+              goPage(currentPage - 1);
+              break;
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+                cardPositions.fill(0);
+
+                Object.keys(answers).forEach((k) => delete answers[k]);
+
+                goPage(0);
+              } else {
+                goPage(currentPage + 1);
+              }
+              break;
+
+            case "slide-back":
+              goSlide(cardPositions[currentPage] - 1);
+              break;
+
+            case "slide-next":
+              goSlide(cardPositions[currentPage] + 1);
+              break;
+
+            case "slide-jump":
+              goSlide(Number(button.dataset.index));
+              break;
+
+            // --------------------------------------
+            // PRACTICE ANSWER SELECTION
+            // --------------------------------------
+
+            case "choose":
+              if (answers[key()] === undefined) {
+                answers[key()] = Number(button.dataset.choice);
+
+                render();
+              }
+              break;
+
+            // --------------------------------------
+            // RETRY PRACTICE QUESTION
+            // --------------------------------------
+
+            case "retry":
+              delete answers[key()];
+              render();
+              break;
+          }
+        });
+
+        // ========================================
+        // MOBILE SWIPE SUPPORT
+        // ========================================
+
+        root.addEventListener(
+          "touchstart",
+          (e) => {
+            if (!e.target.closest(".hg-card")) return;
+
+            touchStart = {
+              x: e.changedTouches[0].screenX,
+              y: e.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (e) => {
+            if (!touchStart || !e.target.closest(".hg-card")) {
+              return;
+            }
+
+            const dx = e.changedTouches[0].screenX - touchStart.x;
+
+            const dy = e.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore vertical scrolling.
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              goSlide(cardPositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // INITIAL DISPLAY
+        render();
+      })();
+    </script>
+  </body>
+</html>

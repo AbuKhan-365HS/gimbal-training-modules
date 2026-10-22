@@ -1,0 +1,1414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Safe Transfer & Ambulation | 365 Health Services</title>
+
+    <style>
+      /* All styles are scoped so the guide can sit inside a larger page. */
+      #transfer-guide,
+      #transfer-guide * {
+        box-sizing: border-box;
+      }
+      #transfer-guide {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 1px solid #d3e6ee;
+        border-radius: 24px;
+        background: #fff;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+      }
+      #transfer-guide button {
+        font: inherit;
+        cursor: pointer;
+      }
+      #transfer-guide :is(button, a):focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+      #transfer-guide .st-header {
+        padding: 21px 21px 24px;
+        background: var(--teal);
+      }
+      #transfer-guide .st-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      #transfer-guide .st-logo {
+        display: block;
+        width: min(178px, 44vw);
+        max-height: 60px;
+        object-fit: contain;
+        object-position: left;
+      }
+      #transfer-guide .st-logo-fallback {
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 800;
+      }
+      #transfer-guide .st-skip {
+        background: #fff;
+        color: var(--blue);
+        border: 0;
+        border-radius: 999px;
+        padding: 10px 16px;
+        font-size: 13px;
+        font-weight: 800;
+      }
+      #transfer-guide .st-eyebrow {
+        margin: 22px 0 9px;
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      #transfer-guide h1 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(25px, 5.8vw, 33px);
+        letter-spacing: -0.035em;
+        line-height: 1.13;
+      }
+      #transfer-guide .st-lead {
+        margin: 12px 0 0;
+        color: #2b4c68;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      #transfer-guide .st-main {
+        padding: 19px 19px 9px;
+      }
+      #transfer-guide .st-status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+      #transfer-guide .st-status strong {
+        color: var(--blue);
+      }
+      #transfer-guide .st-track {
+        background: #e5eff4;
+        height: 6px;
+        border-radius: 99px;
+        overflow: hidden;
+        margin-bottom: 19px;
+      }
+      #transfer-guide .st-fill {
+        background: var(--sky);
+        width: 0;
+        height: 100%;
+        border-radius: 99px;
+        transition: width 0.2s ease;
+      }
+      #transfer-guide .st-card {
+        background: #f7fbfd;
+        border: 1px solid #d4e8ef;
+        border-radius: 19px;
+        padding: 19px;
+        min-height: 190px;
+      }
+      #transfer-guide .st-kicker {
+        margin-bottom: 9px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: #0087bc;
+      }
+      #transfer-guide .st-card h2 {
+        margin: 0 0 13px;
+        color: var(--blue);
+        font-size: clamp(21px, 4.9vw, 25px);
+        line-height: 1.2;
+      }
+      #transfer-guide .st-card h3 {
+        margin: 15px 0 7px;
+        font-size: 15px;
+        color: var(--blue);
+      }
+      #transfer-guide .st-card p {
+        margin: 0 0 11px;
+        font-size: 13.5px;
+        line-height: 1.56;
+      }
+      #transfer-guide .st-card p:last-child {
+        margin-bottom: 0;
+      }
+      #transfer-guide .st-list {
+        margin: 11px 0 0;
+        padding-left: 19px;
+      }
+      #transfer-guide .st-list li {
+        margin-bottom: 9px;
+        padding-left: 3px;
+        font-size: 13.5px;
+        line-height: 1.5;
+      }
+      #transfer-guide .st-list li::marker {
+        color: var(--sky);
+      }
+      #transfer-guide .st-info {
+        margin: 14px 0;
+        padding: 13px 14px;
+        background: #e6f5fb;
+        border-left: 4px solid var(--sky);
+        border-radius: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      #transfer-guide .st-info strong {
+        color: var(--blue);
+      }
+      #transfer-guide .st-danger {
+        background: #fff0f3;
+        border-left-color: var(--pink);
+        color: #743142;
+      }
+      #transfer-guide .st-danger strong {
+        color: #af2545;
+      }
+      #transfer-guide .st-definition {
+        background: #fff;
+        border: 1px solid #cae2ec;
+        border-radius: 13px;
+        padding: 14px;
+        margin: 13px 0;
+      }
+      #transfer-guide .st-definition small {
+        display: block;
+        color: #0083b9;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        margin-bottom: 6px;
+      }
+      #transfer-guide .st-definition strong {
+        display: block;
+        font-size: 18px;
+        color: var(--blue);
+        margin-bottom: 6px;
+      }
+      #transfer-guide .st-definition p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* 2 x 2 transfer safety checks */
+      #transfer-guide .st-check-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin: 14px 0;
+      }
+      #transfer-guide .st-check-card {
+        background: white;
+        border: 1px solid #cce4ec;
+        border-radius: 13px;
+        padding: 13px;
+      }
+      #transfer-guide .st-check-num {
+        display: block;
+        color: #0088c3;
+        font-size: 11px;
+        font-weight: 800;
+        margin-bottom: 7px;
+      }
+      #transfer-guide .st-check-card strong {
+        display: block;
+        color: var(--blue);
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+      #transfer-guide .st-check-card span:last-child {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      /* Before / During / After: compact process */
+      #transfer-guide .st-phases {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+        margin: 14px 0;
+      }
+      #transfer-guide .st-phase {
+        background: #fff;
+        border: 1px solid #cce4ec;
+        border-radius: 12px;
+        padding: 11px 9px;
+        text-align: center;
+      }
+      #transfer-guide .st-phase b {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+      #transfer-guide .st-phase span {
+        display: block;
+        font-size: 11px;
+        line-height: 1.43;
+        color: var(--muted);
+      }
+
+      /* Device movement sequence */
+      #transfer-guide .st-sequence {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin: 14px 0 10px;
+      }
+      #transfer-guide .st-seq-step {
+        border: 1px solid #cee4ed;
+        background: #fff;
+        border-radius: 13px;
+        text-align: center;
+        padding: 13px 7px;
+      }
+      #transfer-guide .st-seq-num {
+        width: 27px;
+        height: 27px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        margin: 0 auto 8px;
+        background: var(--blue);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      #transfer-guide .st-seq-step strong {
+        display: block;
+        font-size: 12px;
+        line-height: 1.35;
+        color: var(--blue);
+      }
+      #transfer-guide .st-seq-step small {
+        display: block;
+        color: var(--muted);
+        font-size: 10px;
+        margin-top: 5px;
+        line-height: 1.35;
+      }
+
+      /* Compact Do / Don't comparison */
+      #transfer-guide .st-compare {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin: 14px 0;
+      }
+      #transfer-guide .st-compare-col {
+        padding: 12px;
+        border: 1px solid #d2e4eb;
+        border-radius: 12px;
+        background: #fff;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      #transfer-guide .st-compare-col.good {
+        border-left: 4px solid #198754;
+      }
+      #transfer-guide .st-compare-col.bad {
+        border-left: 4px solid var(--pink);
+      }
+      #transfer-guide .st-compare-col strong {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 6px;
+        color: var(--blue);
+      }
+
+      /* 4 practice checks */
+      #transfer-guide .st-quiz {
+        border-top: 1px solid #d1e6ed;
+        margin-top: 20px;
+        padding-top: 19px;
+      }
+      #transfer-guide .st-quiz-tag {
+        display: inline-block;
+        padding: 6px 10px;
+        margin-bottom: 12px;
+        border-radius: 99px;
+        background: var(--teal);
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+      }
+      #transfer-guide .st-question {
+        margin-bottom: 13px;
+        font-size: 15px;
+        line-height: 1.48;
+        font-weight: 800;
+        color: var(--blue);
+      }
+      #transfer-guide .st-choices {
+        display: grid;
+        gap: 9px;
+      }
+      #transfer-guide .st-choice {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 12px;
+        width: 100%;
+        border: 1.5px solid #ccdee7;
+        border-radius: 12px;
+        background: #fff;
+        text-align: left;
+        color: var(--ink);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      #transfer-guide .st-choice-letter {
+        flex: 0 0 25px;
+        display: grid;
+        place-items: center;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #e8f1f5;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+      }
+      #transfer-guide .st-choice-text {
+        flex: 1;
+      }
+      #transfer-guide .st-choice-mark {
+        font-size: 18px;
+        font-weight: 800;
+      }
+      #transfer-guide .st-choice.st-correct {
+        background: #e1f5e9;
+        border-color: #188653;
+        color: #155b3c;
+      }
+      #transfer-guide .st-correct .st-choice-letter {
+        background: #188653;
+        color: #fff;
+      }
+      #transfer-guide .st-choice.st-wrong {
+        background: #ffeaed;
+        border-color: #d23954;
+        color: #9c263b;
+      }
+      #transfer-guide .st-wrong .st-choice-letter {
+        background: #d23954;
+        color: #fff;
+      }
+      #transfer-guide .st-choice.st-muted {
+        opacity: 0.61;
+      }
+      #transfer-guide .st-choice:disabled {
+        cursor: default;
+      }
+      #transfer-guide .st-feedback {
+        margin-top: 12px;
+        padding: 13px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      #transfer-guide .st-feedback.good {
+        background: #e1f5e9;
+        color: #155b3c;
+      }
+      #transfer-guide .st-feedback.bad {
+        background: #ffeaed;
+        color: #9c263b;
+      }
+      #transfer-guide .st-retry {
+        margin-top: 11px;
+        padding: 9px 14px;
+        border: 1px solid #bad5e3;
+        background: #fff;
+        color: var(--blue);
+        border-radius: 99px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* Inner carousel */
+      #transfer-guide .st-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 11px;
+        margin: 15px 0 9px;
+        background: #eef7fa;
+        border-radius: 16px;
+      }
+      #transfer-guide .st-arrow {
+        flex: 0 0 42px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid #bdd8e5;
+        background: #fff;
+        color: var(--blue);
+        font-size: 24px;
+      }
+      #transfer-guide .st-arrow:disabled,
+      #transfer-guide .st-nav:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+      #transfer-guide .st-carousel-middle {
+        min-width: 0;
+        text-align: center;
+      }
+      #transfer-guide .st-carousel-middle strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+      #transfer-guide .st-carousel-middle small {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      #transfer-guide .st-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+      #transfer-guide .st-dot {
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border: 0;
+        background: #b9d5e2;
+        border-radius: 99px;
+      }
+      #transfer-guide .st-dot[aria-current="true"] {
+        background: var(--blue);
+        width: 22px;
+      }
+
+      /* Bottom navigation */
+      #transfer-guide .st-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 19px 18px;
+        background: #fff;
+        border-top: 1px solid #e5edf2;
+      }
+      #transfer-guide .st-nav {
+        min-height: 52px;
+        border: 0;
+        border-radius: 999px;
+        padding: 13px 17px;
+        font-weight: 800;
+      }
+      #transfer-guide .st-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+      #transfer-guide .st-next {
+        flex: 1;
+        background: var(--blue);
+        color: #fff;
+      }
+      #transfer-guide .st-footnote {
+        padding: 0 18px 16px;
+        font-size: 11px;
+        line-height: 1.5;
+        text-align: center;
+        color: var(--muted);
+      }
+      #transfer-guide .st-reference {
+        display: block;
+        margin-top: 7px;
+        color: var(--blue);
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+
+      @media (max-width: 390px) {
+        #transfer-guide {
+          border-radius: 15px;
+        }
+        #transfer-guide .st-header {
+          padding: 17px 16px 22px;
+        }
+        #transfer-guide .st-main {
+          padding: 15px 13px 8px;
+        }
+        #transfer-guide .st-card {
+          padding: 16px;
+        }
+        #transfer-guide .st-actions {
+          padding: 13px;
+        }
+        #transfer-guide .st-check-card {
+          padding: 11px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #transfer-guide .st-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="transfer-guide"
+      role="region"
+      aria-label="Safe Transfer and Ambulation Training"
+    >
+      <header class="st-header">
+        <div class="st-top">
+          <div>
+            <img
+              class="st-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+            <span class="st-logo-fallback" hidden>365 HEALTH SERVICES</span>
+          </div>
+          <button type="button" class="st-skip" data-action="skip">
+            Skip →
+          </button>
+        </div>
+        <div class="st-eyebrow" id="st-eyebrow"></div>
+        <h1 id="st-heading"></h1>
+        <p class="st-lead" id="st-lead"></p>
+      </header>
+
+      <main class="st-main">
+        <div class="st-status" aria-live="polite">
+          <strong id="st-page-count"></strong>
+          <span id="st-remaining"></span>
+        </div>
+        <div
+          class="st-track"
+          id="st-progress"
+          role="progressbar"
+          aria-label="Training screen position"
+          aria-valuemin="1"
+          aria-valuemax="10"
+        >
+          <div class="st-fill" id="st-fill"></div>
+        </div>
+        <section class="st-card" id="st-card" aria-live="polite"></section>
+        <div id="st-carousel-host"></div>
+      </main>
+
+      <footer class="st-actions">
+        <button
+          type="button"
+          class="st-nav st-back"
+          id="st-back"
+          data-action="back"
+        >
+          ← Back
+        </button>
+        <button
+          type="button"
+          class="st-nav st-next"
+          id="st-next"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+      <div class="st-footnote">
+        Use the slide arrows or swipe to read each card. Practice questions are
+        ungraded. This overview does not replace supervised skills training.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+        const root = document.getElementById("transfer-guide");
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        // Reusable pieces: content is authored here, with no external library.
+        const bullets = (items) =>
+          `<ul class="st-list">${items.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+        const note = (title, content, danger = false) => `
+      <div class="st-info ${danger ? "st-danger" : ""}"><strong>${title}</strong><div>${content}</div></div>`;
+        const definition = (term, meaning) => `
+      <div class="st-definition"><small>KEY DEFINITION</small><strong>${term}</strong><p>${meaning}</p></div>`;
+        const checks = (items) =>
+          `<div class="st-check-grid">${items
+            .map(
+              (item, i) => `
+      <div class="st-check-card"><span class="st-check-num">0${i + 1}</span><strong>${item[0]}</strong><span>${item[1]}</span></div>`,
+            )
+            .join("")}</div>`;
+        const phases = (items) =>
+          `<div class="st-phases">${items
+            .map(
+              (item) => `
+      <div class="st-phase"><b>${item[0]}</b><span>${item[1]}</span></div>`,
+            )
+            .join("")}</div>`;
+        const sequence = (items) =>
+          `<div class="st-sequence">${items
+            .map(
+              (item, i) => `
+      <div class="st-seq-step"><span class="st-seq-num">${i + 1}</span><strong>${item[0]}</strong><small>${item[1]}</small></div>`,
+            )
+            .join("")}</div>`;
+        const compare = (good, bad) => `<div class="st-compare">
+      <div class="st-compare-col good"><strong>✓ DO</strong>${good}</div>
+      <div class="st-compare-col bad"><strong>✕ DON'T</strong>${bad}</div></div>`;
+        const practice = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+        const card = (title, body, label = "KEY INFORMATION", quiz = null) => ({
+          title,
+          body,
+          label,
+          quiz,
+        });
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        /*
+       Content is adapted from the 365 Health Services Safe Transfer &
+       Ambulation presentation (44 pages). Clinical safeguards have been
+       added or revised against OSHA, FDA and MedlinePlus guidance.
+       The agency must clinically approve before production use.
+    */
+        const pages = [
+          // SCREEN 1 — 1 card
+          page(
+            "Move Safely",
+            "Safe movement protects the client and the caregiver. Always choose the support appropriate to the individual care plan.",
+            [
+              card(
+                "The right transfer is the safe one",
+                `
+          <p><strong>Transfer</strong> means helping a person move from one surface to another—for example, bed to wheelchair.</p>
+          <p><strong>Ambulation</strong> means walking, with or without assistance or a mobility device.</p>
+          ${note("The golden rule", "Never attempt a transfer or lift beyond your training, the client's current abilities, or the available equipment and assistance.")}
+          ${bullets([
+            "Follow the current care plan and explain the movement before starting.",
+            "Support independence when it is safe, rather than doing every movement for the client.",
+            "Watch for dizziness, weakness, pain or other changes throughout the activity.",
+          ])}
+          <p>This guide reinforces safety decisions. Hands-on instruction and competency validation are still required for physical transfer techniques and mechanical lifts.</p>
+        `,
+                "WELCOME",
+              ),
+            ],
+            "SAFE MOVEMENT",
+          ),
+
+          // SCREEN 2 — 2 cards
+          page(
+            "Body Mechanics",
+            "Good posture and movement habits reduce strain—but cannot make an unsafe manual lift safe.",
+            [
+              card(
+                "Stability & Alignment",
+                `
+          ${definition("Body mechanics", "Using posture, balance, alignment and coordinated movement to reduce unnecessary physical strain.")}
+          ${bullets([
+            "Stand with feet comfortably apart and one foot slightly forward when appropriate.",
+            "Keep your movement close to your body and avoid reaching or twisting under load.",
+            "Bend at the hips and knees as appropriate, and turn your feet rather than twisting your trunk.",
+            "Move smoothly, communicate with the client and team, and keep a stable stance.",
+          ])}
+          ${note("Important", "Strong muscles and good technique do not replace safe equipment or the assistance required by the care plan.")}
+        `,
+                "BODY POSITION",
+              ),
+              card(
+                "Protect Your Back",
+                `
+          ${compare(
+            "Use recommended transfer aids, adjust the work area and ask for trained help when required.",
+            "Manually hoist a dependent client because you think your posture is strong enough.",
+          )}
+          ${bullets([
+            "Reduce awkward reaching by adjusting work height when possible.",
+            "Use approved repositioning devices to reduce dragging and friction.",
+            "Never try to catch or lift a falling adult with your back or arms.",
+            "Stop if the movement cannot be completed safely.",
+          ])}
+          ${note("OSHA principle", "Safe patient handling depends on hazard assessment and suitable lifting or transfer devices—not body mechanics alone.")}
+        `,
+                "PREVENT INJURY",
+              ),
+            ],
+            "MOVE SMARTER",
+          ),
+
+          // SCREEN 3 — 2 cards
+          page(
+            "Before Any Transfer",
+            "A safe transfer starts with the right plan, person, equipment and space.",
+            [
+              card(
+                "The Four-Point Safety Check",
+                `
+          ${checks([
+            [
+              "Care Plan",
+              "Is this transfer method permitted and within your training?",
+            ],
+            [
+              "Client",
+              "Can the person follow instructions and bear weight as required?",
+            ],
+            [
+              "Equipment",
+              "Is the correct, inspected device and trained help available?",
+            ],
+            [
+              "Environment",
+              "Is the route clear, with stable surfaces and suitable space?",
+            ],
+          ])}
+          ${note("Stop rule", "If any required condition is missing or the client's ability has changed, do not improvise. Contact the appropriate agency or clinical staff.", true)}
+        `,
+                "SAFETY CHECKLIST",
+              ),
+              card(
+                "Prepare the Space & Client",
+                `
+          ${bullets([
+            "Explain the planned move, provide privacy, and perform hand hygiene as appropriate.",
+            "Position the wheelchair or other receiving surface as taught; secure its brakes before a transfer.",
+            "Move footrests or obstacles out of the transfer path as appropriate.",
+            "Confirm safe footwear and a clear, well-lit route.",
+            "Check that the equipment and number of helpers match the care plan.",
+          ])}
+          ${note("Before you move", "A wheelchair must not roll away during the transfer. Secure the receiving surface according to the approved procedure.")}
+        `,
+                "SETUP",
+                practice(
+                  1,
+                  "You are preparing a bed-to-wheelchair transfer, but the wheelchair brakes are not locked. What should you do?",
+                  [
+                    "Begin quickly before the chair shifts.",
+                    "Have the client hold the wheelchair steady.",
+                    "Stop and secure the wheelchair brakes before an authorized transfer.",
+                  ],
+                  2,
+                  "A moving receiving surface creates a fall risk. Confirm safe setup before proceeding.",
+                ),
+              ),
+            ],
+            "BEFORE YOU MOVE",
+          ),
+
+          // SCREEN 4 — 3 cards
+          page(
+            "Positioning in Bed",
+            "Repositioning supports comfort, skin protection and alignment. Use the prescribed method and assistance.",
+            [
+              card(
+                "Reposition Safely",
+                `
+          ${bullets([
+            "Explain the change and preserve the client's privacy and comfort.",
+            "Use the bed's approved height adjustment and positioning features as directed.",
+            "Follow the individualized repositioning schedule; the original presentation mentions two-hour turns, but timing must reflect the care plan.",
+            "Use enough trained staff and recommended equipment for the client's level of dependence.",
+            "Observe pain, breathing, skin concerns or distress during and after the move.",
+          ])}
+          ${note("Do not manually drag", "For a highly dependent person, use the approved slide sheet, friction-reducing device or mechanical equipment rather than pulling on their arms or shoulders.", true)}
+        `,
+                "BED MOBILITY",
+              ),
+              card(
+                "Support & Pressure Protection",
+                `
+          ${bullets([
+            "Maintain comfortable head, neck, trunk and limb alignment according to the care plan.",
+            "Use prescribed pillows, wedges, supports or pressure-relieving equipment.",
+            "Keep linens smooth, clean and dry to limit discomfort and skin damage.",
+            "Protect vulnerable pressure areas such as heels, hips, sacrum and elbows.",
+            "Use side rails only as permitted by the care plan and facility or agency policy; they can present entrapment and restraint risks.",
+          ])}
+          ${note("Report changes", "New redness, skin breakdown, swelling, pain or reduced tolerance of position should be reported to the clinical team.")}
+        `,
+                "POSITIONING",
+              ),
+              card(
+                "Turning & Slide Sheets",
+                `
+          ${definition("Draw / slide sheet", "A handling aid placed under a person to assist approved repositioning, with the number of helpers and technique determined by the care plan and equipment instructions.")}
+          ${phases([
+            ["Before", "Check the plan, equipment, bed height and helpers."],
+            [
+              "During",
+              "Move together using the trained technique; avoid dragging.",
+            ],
+            ["After", "Check comfort, alignment, skin and bed safety."],
+          ])}
+          ${note("Not a stand-alone procedure", "A brief web guide cannot teach the hands-on techniques for rolling, lifting or repositioning a fully dependent client. Use supervised training and the approved care plan.")}
+        `,
+                "ASSISTED REPOSITIONING",
+              ),
+            ],
+            "BED SAFETY",
+          ),
+
+          // SCREEN 5 — 3 cards
+          page(
+            "Bed & Chair Transfers",
+            "Match the transfer method to weight-bearing ability, equipment and the level of help required.",
+            [
+              card(
+                "Know the Assistance Level",
+                `
+          ${definition("Weight-bearing ability", "How much of their own body weight a client can safely support during standing and movement.")}
+          ${bullets([
+            "A client who walks with help may need supervision or stabilization—not lifting.",
+            "A client who cannot walk may still have some weight-bearing ability; confirm the actual care plan.",
+            "A client who cannot safely bear weight generally requires an appropriate mechanical or other clinically approved transfer method.",
+            "A gait belt helps stabilize some ambulatory clients when approved; it is not a device for lifting a person.",
+          ])}
+          ${note("If weight-bearing changes", "Do not force a standing pivot or attempt to physically lift the client. Stop and request a reassessment or appropriate equipment.", true)}
+        `,
+                "ASSISTANCE LEVEL",
+                practice(
+                  2,
+                  "A client cannot support their own weight during an attempted standing transfer. What is the safest next step?",
+                  [
+                    "Lift under their arms and finish the transfer.",
+                    "Stop, keep them safely supported and request the prescribed assistance or equipment.",
+                    "Ask the client to try harder while you hold them up.",
+                  ],
+                  1,
+                  "A standing transfer may be unsafe when weight-bearing is insufficient. Stop and use the care plan's appropriate method.",
+                ),
+              ),
+              card(
+                "Bed to Wheelchair",
+                `
+          ${phases([
+            [
+              "Before",
+              "Check the care plan; position and secure bed and chair.",
+            ],
+            [
+              "During",
+              "Use the trained assistance level; monitor balance and symptoms.",
+            ],
+            [
+              "After",
+              "Position comfortably; check footrests and wheelchair safety.",
+            ],
+          ])}
+          ${bullets([
+            "Confirm the wheelchair is positioned appropriately and its brakes are engaged.",
+            "Check that feet and footrests are managed safely during transfer.",
+            "Allow the client to adjust to sitting or standing rather than rushing.",
+            "Never assume an untrained one-person transfer is safe.",
+          ])}
+        `,
+                "BED → CHAIR",
+              ),
+              card(
+                "Wheelchair to Bed",
+                `
+          ${phases([
+            [
+              "Before",
+              "Clear obstacles, arrange equipment and confirm safe bed height.",
+            ],
+            [
+              "During",
+              "Follow the care plan and approved device or assisted transfer.",
+            ],
+            [
+              "After",
+              "Reposition for comfort and secure the bed as instructed.",
+            ],
+          ])}
+          ${bullets([
+            "Position the receiving surface and secure wheelchair brakes before an authorized move.",
+            "Use trained assistants or a compatible transfer device when required.",
+            "Keep the client informed and watch for discomfort, weakness or dizziness.",
+            "Finish with a safe bed height and client access to needed items.",
+          ])}
+          ${note("Key distinction", "A person who is fully dependent should not be manually lifted between bed and chair using the generic steps in an old presentation.")}
+        `,
+                "CHAIR → BED",
+              ),
+            ],
+            "SAFE TRANSFERS",
+          ),
+
+          // SCREEN 6 — 2 cards
+          page(
+            "Walking Safely",
+            "Support safe ambulation without trying to carry the client's weight.",
+            [
+              card(
+                "Assisting With Walking",
+                `
+          ${bullets([
+            "Tell the client where they are going and how you will assist.",
+            "Use the gait belt or other prescribed support only if trained and authorized.",
+            "Stay on the side specified in the care plan; support balance without pulling on an arm.",
+            "Encourage appropriate footwear, good lighting and a clear path.",
+            "Watch for fatigue, shortness of breath, dizziness and unsteadiness.",
+          ])}
+          ${note("If the client starts falling", "Follow your fall-response training. Do not try to catch or lift the full body weight; protect yourself, obtain help and assess the client for injury.", true)}
+        `,
+                "SUPPORTED AMBULATION",
+              ),
+              card(
+                "Standing & Sitting",
+                `
+          ${bullets([
+            "Use a stable chair with suitable armrests where the care plan recommends it.",
+            "Assist the client to use the chair's supports for rising when prescribed; do not pull them up by the arms.",
+            "Once safely standing, the client can position and use the prescribed mobility aid.",
+            "Before sitting, bring the client close enough to feel the chair behind their legs, as trained.",
+            "Make sure they are safely seated before releasing support.",
+          ])}
+          ${compare(
+            "Push from stable armrests or the approved support as trained.",
+            "Pull up on an unstable walker or cane as the primary way to stand.",
+          )}
+        `,
+                "SIT ↔ STAND",
+              ),
+            ],
+            "AMBULATION",
+          ),
+
+          // SCREEN 7 — 3 cards
+          page(
+            "Canes & Walkers",
+            "Devices improve stability when fitted and used for the client's specific needs.",
+            [
+              card(
+                "Using a Walker",
+                `
+          ${definition("Walker", "A mobility device that provides a broad base of support. Standard and wheeled walkers have different operating techniques.")}
+          ${sequence([
+            ["Walker", "Advance as prescribed"],
+            ["Weaker leg", "Step forward"],
+            ["Stronger leg", "Step through"],
+          ])}
+          ${bullets([
+            "Check the device is the correct type, appropriately fitted and in safe condition.",
+            "Follow the clinician-taught sequence and weight-bearing restrictions.",
+            "A standard walker may be lifted; wheeled walkers use different instructions. Do not assume all walkers must be picked up.",
+            "Keep all appropriate tips or wheels firmly supported before stepping.",
+          ])}
+        `,
+                "WALKER BASICS",
+              ),
+              card(
+                "Using a Cane",
+                `
+          ${definition("Cane", "A mobility aid that can improve balance or take some weight off a weaker or painful leg when suitable for the person.")}
+          <p>For the usual one-sided weakness pattern, the cane is held in the hand <strong>opposite the weaker leg</strong>.</p>
+          ${sequence([
+            ["Cane", "Move forward"],
+            ["Weaker leg", "Moves with cane"],
+            ["Stronger leg", "Steps through"],
+          ])}
+          ${note("Clinical clarification", "The original slides listed a different level-walking sequence. This standard sequence follows MedlinePlus; always follow the individualized PT instructions.")}
+        `,
+                "CANE BASICS",
+                practice(
+                  3,
+                  "A client has a weaker left leg and uses a cane for that weakness. Which is the usual level-ground pattern?",
+                  [
+                    "Hold the cane in the right hand; advance the cane with the weaker left leg, then step with the stronger leg.",
+                    "Hold the cane in the left hand and always move the stronger leg first.",
+                    "Move the cane after both legs have stepped.",
+                  ],
+                  0,
+                  "The cane usually goes in the hand opposite the weaker leg and advances together with that leg. Follow the prescribed method.",
+                ),
+              ),
+              card(
+                "Steps, Curbs & Turns",
+                `
+          ${sequence([
+            ["Going up", "Stronger leg first"],
+            ["Going down", "Cane + weaker leg first"],
+            ["Then", "Bring other leg to step"],
+          ])}
+          ${bullets([
+            "Use the prescribed handrail and device instructions.",
+            "Do not attempt stairs unless the clinician has assessed and trained the client and caregiver for that activity.",
+            "Avoid twisting or sudden turns; allow time to regain balance.",
+            "Crutches, rolling walkers and other devices require their own training and instructions.",
+          ])}
+          ${note("Memory aid", "For many standard cane techniques: up with the stronger leg, down with the weaker leg and cane. This is not a substitute for individualized stair training.")}
+        `,
+                "STAIRS & TURNS",
+              ),
+            ],
+            "MOBILITY DEVICES",
+          ),
+
+          // SCREEN 8 — 4 cards
+          page(
+            "Mechanical Lifts",
+            "A patient lift can reduce the need for hazardous manual lifting—but only when used with the right sling, trained staff and model instructions.",
+            [
+              card(
+                "What Is a Hoyer Lift?",
+                `
+          ${definition("Mechanical patient lift", "A device that helps transfer someone with limited mobility between a bed, wheelchair, chair or other suitable surface.")}
+          ${bullets([
+            "Common full-body lifts can be manual hydraulic or battery-powered.",
+            "Typical parts include a base, mast, boom, spreader bar or cradle, and compatible sling.",
+            "A sit-to-stand lift is a different device and generally requires some weight-bearing ability.",
+            "The specific model, sling and amount of assistance must match the client's care plan.",
+          ])}
+          ${note("Training required", "Never learn lift operation from this guide alone. Use the correct manufacturer's manual, supervised training and agency competency validation.", true)}
+        `,
+                "LIFT BASICS",
+              ),
+              card(
+                "Inspect Lift & Sling",
+                `
+          ${checks([
+            ["Compatibility", "Approved lift, sling type and size?"],
+            ["Condition", "No tears, fraying or damaged attachments?"],
+            ["Capacity", "Weight limits not exceeded?"],
+            ["Staffing", "Trained assistants as required by care plan/manual?"],
+          ])}
+          ${note("Never use damaged equipment", "A sling with torn fabric, frayed straps or damaged seams must be removed from use and reported.", true)}
+        `,
+                "PRE-USE INSPECTION",
+                practice(
+                  4,
+                  "You notice fraying on the sling just before a mechanical lift transfer. What should you do?",
+                  [
+                    "Use it once if the client is light enough.",
+                    "Cover the damage with tape and proceed.",
+                    "Do not use the sling. Keep the client safe, report the defect and obtain approved replacement equipment.",
+                  ],
+                  2,
+                  "The FDA advises inspecting slings and not using them when fabric, straps or seams show damage.",
+                ),
+              ),
+              card(
+                "Before → During → After",
+                `
+          ${phases([
+            [
+              "Before",
+              "Check the plan, staff, lift, sling, weight limit and space.",
+            ],
+            [
+              "During",
+              "Follow model-specific attachment and lifting steps; monitor the client.",
+            ],
+            [
+              "After",
+              "Lower onto the secured receiving surface and check comfort.",
+            ],
+          ])}
+          ${bullets([
+            "Explain the movement and reassure the client.",
+            "Follow the manufacturer's sling attachment and base positioning requirements.",
+            "Keep the receiving wheelchair or bed appropriately secured.",
+            "Stop immediately for equipment problems, unsafe movement or client distress.",
+          ])}
+        `,
+                "TRANSFER STAGES",
+              ),
+              card(
+                "Know When to Stop",
+                `
+          ${bullets([
+            "Wrong sling, uncertain attachment or unknown load capacity",
+            "Damaged, uncharged or malfunctioning equipment",
+            "Missing trained assistant or inadequate space",
+            "Client distress, unsafe position or unexpected movement",
+            "Any instruction that conflicts with the lift model's manual or the care plan",
+          ])}
+          ${note("Important brake distinction", "Wheelchair and receiving-surface brakes are not the same as patient-lift caster brakes. Some Hoyer models instruct that lift casters remain unlocked during lifting. Follow the exact device manual; do not apply the 2021 slide's blanket lift-brake instruction.", true)}
+          <a class="st-reference" target="_blank" rel="noopener noreferrer"
+             href="https://www.fda.gov/medical-devices/general-hospital-devices-and-supplies/patient-lifts">FDA: Patient Lift Safety Guidance ↗</a>
+        `,
+                "STOP CONDITIONS",
+              ),
+            ],
+            "LIFT SAFETY",
+          ),
+
+          // SCREEN 9 — 2 cards
+          page(
+            "Stop & Report",
+            "A change in condition or an unsafe setup can turn a routine transfer into an emergency.",
+            [
+              card(
+                "Watch for Warning Signs",
+                `
+          ${bullets([
+            "New dizziness, faintness or sudden weakness",
+            "Unusual sweating, paleness or changes in skin color",
+            "New pain, breathlessness or reduced alertness",
+            "Loss of balance or inability to bear weight as expected",
+          ])}
+          ${note("Stop the movement", "Return the client to a safe supported position if possible, stay with them and follow the care plan and reporting procedures.")}
+          ${note("Emergency signs", "If the client faints, has severe trouble breathing, shows possible stroke symptoms or is in immediate danger, activate emergency response (911) without waiting for a supervisor.", true)}
+        `,
+                "RECOGNIZE DISTRESS",
+              ),
+              card(
+                "Finish & Document",
+                `
+          ${bullets([
+            "Confirm the client is comfortably and safely positioned.",
+            "Perform hand hygiene when appropriate.",
+            "Record the assistance and equipment used according to agency policy.",
+            "Report any fall, near-fall, dizziness, pain, equipment defect or unusual change.",
+            "Document observations and notifications accurately—never invent completed care.",
+          ])}
+          ${note("Factual example", "'Client reported dizziness while sitting at edge of bed. Transfer paused. Client supported in safe position. Supervisor notified at 10:20 AM.'")}
+        `,
+                "DOCUMENTATION",
+              ),
+            ],
+            "CLIENT MONITORING",
+          ),
+
+          // SCREEN 10 — 1 card
+          page(
+            "Safety First",
+            "You've completed the Safe Transfer & Ambulation overview.",
+            [
+              card(
+                "Five Things to Remember",
+                `
+          ${bullets([
+            "<strong>Plan:</strong> Use the correct transfer method and number of trained helpers.",
+            "<strong>Prepare:</strong> Check the client, equipment and environment before moving.",
+            "<strong>Protect:</strong> Use safe body mechanics alongside appropriate assistive equipment.",
+            "<strong>Observe:</strong> Stop for dizziness, distress or unexpected loss of support.",
+            "<strong>Report:</strong> Document care and promptly communicate changes or equipment problems.",
+          ])}
+          ${note("The most important rule", "Never improvise a lift or transfer that exceeds your training, the care plan or available equipment.")}
+          <p>Use <strong>Back</strong> to review, or <strong>Start over</strong> to revisit the guide. Continue to the questionnaire through Gimbal's own controls.</p>
+        `,
+                "FINAL REVIEW",
+              ),
+            ],
+            "FINISH",
+          ),
+        ];
+
+        // =========================================
+        // INTERACTIVITY: MAIN SCREENS, CAROUSEL, QUIZZES
+        // =========================================
+        let currentPage = 0;
+        let skipped = false;
+        let touchStart = null;
+        const slidePositions = Array(pages.length).fill(0);
+        const quizAnswers = {};
+        const quizKey = () => `${currentPage}:${slidePositions[currentPage]}`;
+
+        function renderQuiz(q) {
+          const chosen = quizAnswers[quizKey()];
+          const answered = chosen !== undefined;
+          const choices = q.options
+            .map((option, i) => {
+              const cls = !answered
+                ? ""
+                : i === q.correct
+                  ? "st-correct"
+                  : i === chosen
+                    ? "st-wrong"
+                    : "st-muted";
+              const mark = !answered
+                ? ""
+                : i === q.correct
+                  ? "✓"
+                  : i === chosen
+                    ? "✕"
+                    : "";
+              return `<button type="button" class="st-choice ${cls}" data-action="choose" data-index="${i}" ${answered ? "disabled" : ""}>
+          <span class="st-choice-letter">${String.fromCharCode(65 + i)}</span>
+          <span class="st-choice-text">${option}</span><span class="st-choice-mark">${mark}</span>
+        </button>`;
+            })
+            .join("");
+          const feedback = !answered
+            ? ""
+            : `<div class="st-feedback ${chosen === q.correct ? "good" : "bad"}" role="status">
+        <strong>${chosen === q.correct ? "✓ Correct!" : "✕ Not quite — the correct answer is green."}</strong>
+        <div style="margin-top:6px">${q.explanation}</div></div>
+        <button type="button" class="st-retry" data-action="retry">Try again ↻</button>`;
+          return `<div class="st-quiz"><div class="st-quiz-tag">PRACTICE CHECK ${q.number} OF 4</div>
+        <div class="st-question">${q.question}</div><div class="st-choices">${choices}</div>${feedback}</div>`;
+        }
+
+        function render() {
+          const p = pages[currentPage];
+          const slideIndex = slidePositions[currentPage];
+          const active = p.cards[slideIndex];
+          const remaining = pages.length - currentPage - 1;
+          $("st-eyebrow").textContent = p.eyebrow;
+          $("st-heading").textContent = p.title;
+          $("st-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. You can return to review the training before the assessment."
+              : p.lead;
+          $("st-page-count").textContent =
+            `Screen ${currentPage + 1} of ${pages.length}`;
+          $("st-remaining").textContent = remaining
+            ? `${remaining} screen${remaining === 1 ? "" : "s"} left`
+            : "Final screen";
+          $("st-fill").style.width =
+            `${((currentPage + 1) / pages.length) * 100}%`;
+          $("st-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+          $("st-card").innerHTML =
+            `<div class="st-kicker">${active.label}</div><h2>${active.title}</h2>
+        ${active.body}${active.quiz ? renderQuiz(active.quiz) : ""}`;
+
+          const count = p.cards.length;
+          $("st-carousel-host").innerHTML =
+            count < 2
+              ? ""
+              : `
+        <nav class="st-carousel" aria-label="Slides in current section">
+          <button type="button" class="st-arrow" aria-label="Previous slide" data-action="slide-back" ${slideIndex === 0 ? "disabled" : ""}>‹</button>
+          <div class="st-carousel-middle"><strong>Slide ${slideIndex + 1} of ${count}</strong>
+            <small>Swipe or use arrows</small>
+            <div class="st-dots">${p.cards.map((_, i) => `<button type="button" class="st-dot" data-action="slide-jump" data-index="${i}" aria-label="Go to slide ${i + 1}" aria-current="${i === slideIndex}"></button>`).join("")}</div>
+          </div>
+          <button type="button" class="st-arrow" aria-label="Next slide" data-action="slide-next" ${slideIndex === count - 1 ? "disabled" : ""}>›</button>
+        </nav>`;
+          $("st-back").disabled = currentPage === 0;
+          $("st-next").textContent =
+            currentPage === pages.length - 1 ? "Start over ↻" : "Next →";
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === pages.length - 1;
+        }
+
+        function goPage(index) {
+          if (index < 0 || index >= pages.length) return;
+          currentPage = index;
+          render();
+          root.scrollIntoView({ block: "start", behavior: "auto" });
+        }
+        function goSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) return;
+          slidePositions[currentPage] = index;
+          render();
+        }
+
+        root.addEventListener("click", (event) => {
+          const button = event.target.closest("button[data-action]");
+          if (!button || !root.contains(button) || button.disabled) return;
+          switch (button.dataset.action) {
+            case "skip":
+              skipped = true;
+              goPage(pages.length - 1);
+              break;
+            case "back":
+              goPage(currentPage - 1);
+              break;
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+                slidePositions.fill(0);
+                Object.keys(quizAnswers).forEach((k) => delete quizAnswers[k]);
+                goPage(0);
+              } else goPage(currentPage + 1);
+              break;
+            case "slide-back":
+              goSlide(slidePositions[currentPage] - 1);
+              break;
+            case "slide-next":
+              goSlide(slidePositions[currentPage] + 1);
+              break;
+            case "slide-jump":
+              goSlide(Number(button.dataset.index));
+              break;
+            case "choose":
+              if (quizAnswers[quizKey()] === undefined) {
+                quizAnswers[quizKey()] = Number(button.dataset.index);
+                render();
+              }
+              break;
+            case "retry":
+              delete quizAnswers[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".st-card")) return;
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart) return;
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+            touchStart = null;
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3)
+              goSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+          },
+          { passive: true },
+        );
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

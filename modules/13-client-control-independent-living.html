@@ -1,0 +1,1709 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Control & Independent Living | 365 Health Services</title>
+
+    <style>
+      /* =========================================
+       BASE & BRANDING
+    ========================================= */
+
+      #independence-guide,
+      #independence-guide * {
+        box-sizing: border-box;
+      }
+
+      #independence-guide {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: white;
+        color: var(--ink);
+        border: 1px solid #d7e8ef;
+        border-radius: 24px;
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #independence-guide button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #independence-guide :is(button, a):focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+       HEADER
+    ========================================= */
+
+      #independence-guide .ic-header {
+        background: var(--teal);
+        padding: 21px 22px 25px;
+      }
+
+      #independence-guide .ic-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #independence-guide .ic-logo {
+        display: block;
+        width: min(176px, 43vw);
+        max-height: 59px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #independence-guide .ic-logo-fallback {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--blue);
+      }
+
+      #independence-guide .ic-skip {
+        border: 0;
+        background: white;
+        color: var(--blue);
+        font-weight: 800;
+        padding: 11px 16px;
+        border-radius: 999px;
+      }
+
+      #independence-guide .ic-eyebrow {
+        margin: 23px 0 9px;
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        color: var(--blue);
+      }
+
+      #independence-guide h1 {
+        color: var(--blue);
+        font-size: clamp(25px, 6vw, 34px);
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+        margin: 0;
+      }
+
+      #independence-guide .ic-lead {
+        font-size: 14px;
+        line-height: 1.55;
+        color: #294967;
+        margin: 13px 0 0;
+      }
+
+      /* =========================================
+       MAIN CONTENT & PROGRESS
+    ========================================= */
+
+      #independence-guide .ic-main {
+        padding: 19px 19px 8px;
+      }
+
+      #independence-guide .ic-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+
+      #independence-guide .ic-status strong {
+        color: var(--blue);
+      }
+
+      #independence-guide .ic-progress {
+        height: 6px;
+        border-radius: 999px;
+        background: #e7eff4;
+        overflow: hidden;
+        margin-bottom: 19px;
+      }
+
+      #independence-guide .ic-fill {
+        height: 100%;
+        width: 0;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* =========================================
+       CONTENT CARD
+    ========================================= */
+
+      #independence-guide .ic-card {
+        min-height: 190px;
+        border-radius: 19px;
+        padding: 20px;
+        background: #f7fbfd;
+        border: 1px solid #d5e8ef;
+      }
+
+      #independence-guide .ic-kicker {
+        color: #0087c2;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+
+      #independence-guide .ic-card h2 {
+        margin: 0 0 13px;
+        color: var(--blue);
+        font-size: clamp(21px, 5vw, 25px);
+        line-height: 1.2;
+      }
+
+      #independence-guide .ic-card h3 {
+        color: var(--blue);
+        font-size: 15px;
+        margin: 15px 0 8px;
+      }
+
+      #independence-guide .ic-card p {
+        margin: 0 0 11px;
+        font-size: 14px;
+        line-height: 1.56;
+      }
+
+      #independence-guide .ic-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #independence-guide .ic-list {
+        padding-left: 19px;
+        margin: 10px 0 0;
+      }
+
+      #independence-guide .ic-list li {
+        font-size: 13.5px;
+        line-height: 1.52;
+        padding-left: 3px;
+        margin-bottom: 9px;
+      }
+
+      #independence-guide .ic-list li::marker {
+        color: var(--sky);
+      }
+
+      /* =========================================
+       INFORMATION CALLOUTS
+    ========================================= */
+
+      #independence-guide .ic-info {
+        border-left: 4px solid var(--sky);
+        background: #e7f5fb;
+        padding: 13px 14px;
+        margin: 14px 0;
+        border-radius: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #independence-guide .ic-info strong {
+        color: var(--blue);
+      }
+
+      #independence-guide .ic-note {
+        background: #fff1f3;
+        border-left-color: var(--pink);
+        color: #733440;
+      }
+
+      #independence-guide .ic-note strong {
+        color: #ad2644;
+      }
+
+      /* =========================================
+       DEFINITION COMPONENT
+    ========================================= */
+
+      #independence-guide .ic-definition {
+        background: white;
+        border: 1px solid #cce3eb;
+        border-radius: 14px;
+        padding: 15px;
+        margin: 12px 0;
+      }
+
+      #independence-guide .ic-definition small {
+        display: block;
+        color: #0087c2;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        margin-bottom: 7px;
+      }
+
+      #independence-guide .ic-definition strong {
+        display: block;
+        color: var(--blue);
+        font-size: 18px;
+        margin-bottom: 7px;
+      }
+
+      #independence-guide .ic-definition p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       THREE-STEP PHILOSOPHY
+    ========================================= */
+
+      #independence-guide .ic-pillars {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin: 15px 0;
+      }
+
+      #independence-guide .ic-pillar {
+        padding: 13px 7px;
+        text-align: center;
+        border: 1px solid #cde3ec;
+        background: white;
+        border-radius: 13px;
+      }
+
+      #independence-guide .ic-pillar b {
+        display: block;
+        color: var(--blue);
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+
+      #independence-guide .ic-pillar small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.4;
+      }
+
+      /* =========================================
+       FEATURE GRIDS
+    ========================================= */
+
+      #independence-guide .ic-feature-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin: 13px 0;
+      }
+
+      #independence-guide .ic-feature {
+        background: white;
+        padding: 13px 11px;
+        border: 1px solid #cde3ec;
+        border-radius: 13px;
+      }
+
+      #independence-guide .ic-feature strong {
+        color: var(--blue);
+        font-size: 13px;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      #independence-guide .ic-feature span {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.45;
+        display: block;
+      }
+
+      /* =========================================
+       CLIENT CONTROL MEASUREMENT
+    ========================================= */
+
+      #independence-guide .ic-question-card {
+        background: white;
+        border: 1px solid #cce3ec;
+        border-radius: 14px;
+        padding: 15px;
+        margin: 10px 0;
+      }
+
+      #independence-guide .ic-question-card strong {
+        font-size: 14px;
+        line-height: 1.45;
+        color: var(--blue);
+        display: block;
+      }
+
+      #independence-guide .ic-question-card small {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       PRACTICE QUESTIONS
+    ========================================= */
+
+      #independence-guide .ic-quiz {
+        margin-top: 20px;
+        border-top: 1px solid #d1e5eb;
+        padding-top: 19px;
+      }
+
+      #independence-guide .ic-quiz-tag {
+        display: inline-block;
+        background: var(--teal);
+        color: var(--blue);
+        border-radius: 99px;
+        padding: 6px 11px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+      }
+
+      #independence-guide .ic-quiz-question {
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.5;
+        margin-bottom: 13px;
+      }
+
+      #independence-guide .ic-choices {
+        display: grid;
+        gap: 9px;
+      }
+
+      #independence-guide .ic-choice {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 10px;
+        padding: 12px;
+        background: white;
+        color: var(--ink);
+        border: 1.5px solid #cbdfe8;
+        border-radius: 12px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      #independence-guide .ic-letter {
+        background: #eaf1f7;
+        color: var(--blue);
+        flex: 0 0 25px;
+        width: 25px;
+        height: 25px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      #independence-guide .ic-choice-text {
+        flex: 1;
+      }
+
+      #independence-guide .ic-mark {
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      /* Correct = green */
+
+      #independence-guide .ic-choice.ic-correct {
+        background: #e1f5e9;
+        border-color: #168653;
+        color: #155c3b;
+      }
+
+      #independence-guide .ic-correct .ic-letter {
+        background: #168653;
+        color: white;
+      }
+
+      /* Incorrect = red */
+
+      #independence-guide .ic-choice.ic-wrong {
+        background: #ffeaed;
+        border-color: #d23954;
+        color: #a5233a;
+      }
+
+      #independence-guide .ic-wrong .ic-letter {
+        background: #d23954;
+        color: white;
+      }
+
+      #independence-guide .ic-choice.ic-muted {
+        opacity: 0.6;
+      }
+
+      #independence-guide .ic-choice:disabled {
+        cursor: default;
+      }
+
+      #independence-guide .ic-feedback {
+        margin-top: 13px;
+        padding: 13px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #independence-guide .ic-feedback.good {
+        background: #e1f5e9;
+        color: #155c3b;
+      }
+
+      #independence-guide .ic-feedback.bad {
+        background: #ffeaed;
+        color: #a5233a;
+      }
+
+      #independence-guide .ic-retry {
+        border: 1px solid #bed7e3;
+        background: white;
+        color: var(--blue);
+        padding: 9px 15px;
+        margin-top: 11px;
+        border-radius: 99px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* =========================================
+       INNER CAROUSEL
+    ========================================= */
+
+      #independence-guide .ic-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 9px;
+        background: #eef7fb;
+        border-radius: 16px;
+        padding: 11px;
+        margin: 15px 0 9px;
+      }
+
+      #independence-guide .ic-arrow {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        color: var(--blue);
+        border-radius: 50%;
+        background: white;
+        border: 1px solid #bdd8e5;
+        font-size: 24px;
+      }
+
+      #independence-guide .ic-arrow:disabled,
+      #independence-guide .ic-nav:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #independence-guide .ic-carousel-mid {
+        text-align: center;
+        min-width: 0;
+      }
+
+      #independence-guide .ic-carousel-mid strong {
+        font-size: 12px;
+        color: var(--blue);
+        display: block;
+      }
+
+      #independence-guide .ic-carousel-mid small {
+        font-size: 11px;
+        color: var(--muted);
+        display: block;
+        margin-top: 3px;
+      }
+
+      #independence-guide .ic-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #independence-guide .ic-dot {
+        border: 0;
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border-radius: 99px;
+        background: #b9d5e2;
+      }
+
+      #independence-guide .ic-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* =========================================
+       MAIN NAVIGATION
+    ========================================= */
+
+      #independence-guide .ic-actions {
+        display: flex;
+        gap: 10px;
+        border-top: 1px solid #e5edf2;
+        padding: 16px 20px 18px;
+        background: white;
+      }
+
+      #independence-guide .ic-nav {
+        min-height: 52px;
+        border: 0;
+        border-radius: 99px;
+        padding: 14px 18px;
+        font-weight: 800;
+      }
+
+      #independence-guide .ic-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+
+      #independence-guide .ic-next {
+        flex: 1;
+        background: var(--blue);
+        color: white;
+      }
+
+      #independence-guide .ic-footer {
+        color: var(--muted);
+        font-size: 11px;
+        text-align: center;
+        line-height: 1.5;
+        padding: 0 18px 15px;
+      }
+
+      /* =========================================
+       MOBILE RESPONSIVENESS
+    ========================================= */
+
+      @media (max-width: 390px) {
+        #independence-guide {
+          border-radius: 15px;
+        }
+
+        #independence-guide .ic-header {
+          padding: 17px 16px 22px;
+        }
+
+        #independence-guide .ic-main {
+          padding: 16px 14px 8px;
+        }
+
+        #independence-guide .ic-card {
+          padding: 16px;
+        }
+
+        #independence-guide .ic-actions {
+          padding: 13px;
+        }
+
+        #independence-guide .ic-feature {
+          padding: 11px 9px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #independence-guide .ic-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="independence-guide"
+      role="region"
+      aria-label="Client Control and Independent Living Training"
+    >
+      <!-- HEADER -->
+
+      <header class="ic-header">
+        <div class="ic-top">
+          <div>
+            <img
+              class="ic-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+
+            <span class="ic-logo-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button class="ic-skip" type="button" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="ic-eyebrow" id="ic-eyebrow"></div>
+
+        <h1 id="ic-heading"></h1>
+
+        <p class="ic-lead" id="ic-lead"></p>
+      </header>
+
+      <!-- MAIN CONTENT -->
+
+      <main class="ic-main">
+        <div class="ic-status" aria-live="polite">
+          <strong id="ic-screen-count"></strong>
+          <span id="ic-card-count"></span>
+        </div>
+
+        <div
+          id="ic-progress"
+          class="ic-progress"
+          role="progressbar"
+          aria-label="Training progress"
+          aria-valuemin="1"
+          aria-valuemax="9"
+        >
+          <div id="ic-fill" class="ic-fill"></div>
+        </div>
+
+        <section id="ic-card" class="ic-card" aria-live="polite"></section>
+
+        <div id="ic-carousel-host"></div>
+      </main>
+
+      <!-- MAIN NAVIGATION -->
+
+      <footer class="ic-actions">
+        <button
+          id="ic-back"
+          class="ic-nav ic-back"
+          type="button"
+          data-action="back"
+        >
+          ← Back
+        </button>
+
+        <button
+          id="ic-next"
+          class="ic-nav ic-next"
+          type="button"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="ic-footer">
+        Use Next to move through every card, or swipe and use the slide arrows.
+        Practice checks are ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ========================================
+        // HELPERS
+        // ========================================
+
+        const root = document.getElementById("independence-guide");
+
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        const bullets = (items) => `
+        <ul class="ic-list">
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (title, text, caution = false) => `
+        <div class="ic-info ${caution ? "ic-note" : ""}">
+          <strong>${title}</strong>
+          <div>${text}</div>
+        </div>
+      `;
+
+        const definition = (term, meaning) => `
+        <div class="ic-definition">
+          <small>KEY DEFINITION</small>
+          <strong>${term}</strong>
+          <p>${meaning}</p>
+        </div>
+      `;
+
+        const pillars = (items) => `
+        <div class="ic-pillars">
+          ${items
+            .map(
+              (item) => `
+            <div class="ic-pillar">
+              <b>${item[0]}</b>
+              <small>${item[1]}</small>
+            </div>
+          `,
+            )
+            .join("")}
+        </div>
+      `;
+
+        const features = (items) => `
+        <div class="ic-feature-grid">
+          ${items
+            .map(
+              (item) => `
+            <div class="ic-feature">
+              <strong>${item[0]}</strong>
+              <span>${item[1]}</span>
+            </div>
+          `,
+            )
+            .join("")}
+        </div>
+      `;
+
+        const measure = (question, explanation) => `
+        <div class="ic-question-card">
+          <strong>${question}</strong>
+          <small>${explanation}</small>
+        </div>
+      `;
+
+        const quiz = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          content,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          content,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ========================================
+        // TRAINING CONTENT
+        //
+        // Based on the 365 Health Services
+        // Client Control and the Independent
+        // Living Philosophy presentation.
+        //
+        // Agency clinical and compliance approval
+        // is required before production use.
+        // ========================================
+
+        const pages = [
+          // ======================================
+          // SCREEN 1 — INTRODUCTION
+          // ======================================
+
+          page(
+            "Your Life, Your Choice",
+
+            "The client is at the center of care. Our job is to help them live as independently as possible.",
+
+            [
+              card(
+                "The Client Leads",
+
+                `
+              ${definition(
+                "Client Control",
+                "Meaningful involvement, authority and influence in decisions about the services a person receives.",
+              )}
+
+              <p>
+                People use home care services to stay
+                in their homes, maintain independence,
+                and receive assistance in ways that
+                work for them.
+              </p>
+
+              ${pillars([
+                ["Ask", "Learn their choices"],
+                ["Respect", "Listen without judgment"],
+                ["Support", "Help within the care plan"],
+              ])}
+
+              ${info(
+                "The main idea",
+                "Clients are experts on their own preferences, routines and goals. Treat them as individuals first—not just people receiving services.",
+              )}
+              `,
+
+                "WELCOME",
+              ),
+            ],
+
+            "CLIENT CONTROL & INDEPENDENCE",
+          ),
+
+          // ======================================
+          // SCREEN 2 — CLIENT CONTROL
+          // ======================================
+
+          page(
+            "Client Control",
+
+            "Clients should participate in planning their services and have a voice in how care is delivered.",
+
+            [
+              // CARD 1
+
+              card(
+                "A Say in the Care Plan",
+
+                `
+              <p>
+                Client control means involving
+                the person in their own
+                <strong>plan of care</strong>,
+                whenever appropriate, and listening
+                to their choices.
+              </p>
+
+              ${bullets([
+                "Ask about preferred routines and what help the client wants.",
+
+                "Include the client in discussions about services and goals through the agency's care-planning process.",
+
+                "Respect cultural preferences, privacy, communication needs and personal dignity.",
+
+                "Help communicate requested changes to the appropriate agency staff or service coordinator.",
+              ])}
+
+              ${info(
+                "The boundary",
+                "A client's request matters, but a DCW cannot independently change authorized hours, clinical instructions, or the approved care plan.",
+              )}
+              `,
+
+                "PERSON-CENTERED PLANNING",
+
+                quiz(
+                  1,
+
+                  "A client wants bathing assistance at a different time than their current approved schedule. What should you do?",
+
+                  [
+                    "Change the authorized hours yourself without telling anyone.",
+
+                    "Listen to their preference and help communicate the requested change through the agency's process.",
+
+                    "Tell the client they are not allowed to express preferences.",
+                  ],
+
+                  1,
+
+                  "Clients should have a voice in their services. Changes that require approval must go through the appropriate care-planning process.",
+                ),
+              ),
+
+              // CARD 2
+
+              card(
+                "What Clients Should Know",
+
+                `
+              <p>
+                The original presentation explains
+                that clients should be involved
+                in decisions about:
+              </p>
+
+              ${features([
+                ["What", "Which services and supports they need"],
+                ["When", "Scheduling and when care will be provided"],
+                ["Who", "The people providing their services"],
+                [
+                  "Qualifications",
+                  "The training and competencies of their caregivers",
+                ],
+              ])}
+
+              ${info(
+                "Put it into practice",
+                "Answer reasonable questions honestly. If you don't know the answer, connect the client with the appropriate office staff rather than guessing.",
+              )}
+              `,
+
+                "INFORMED CHOICE",
+              ),
+            ],
+
+            "PARTICIPATION & CHOICE",
+          ),
+
+          // ======================================
+          // SCREEN 3 — INDEPENDENT LIVING
+          // ======================================
+
+          page(
+            "Independent Living",
+
+            "Independent living is about self-direction, equal rights, and being able to participate in everyday life.",
+
+            [
+              // CARD 1
+
+              card(
+                "Living on Their Terms",
+
+                `
+              ${definition(
+                "Independent Living Philosophy",
+                "The idea that older adults and people with disabilities should have meaningful control over their lives, choices, support and community participation.",
+              )}
+
+              ${definition(
+                "Aging in Place",
+                "Living in one's own home and community as needs change, supported by appropriate services when needed.",
+              )}
+
+              ${features([
+                [
+                  "Civil rights",
+                  "Equal dignity, opportunity and participation",
+                ],
+                [
+                  "Community living",
+                  "Age or disability alone should not determine where someone lives",
+                ],
+                [
+                  "Daily-life support",
+                  "Needing help with routines does not mean someone is incapable",
+                ],
+                [
+                  "Self-help",
+                  "People participate in identifying and expressing their needs",
+                ],
+              ])}
+
+              ${info(
+                "Important",
+                "The presentation uses the terms deinstitutionalization and de-medicalization. These support community living and ordinary daily-life assistance; they do not mean a client should be denied necessary medical care.",
+              )}
+              `,
+
+                "CORE PRINCIPLES",
+              ),
+
+              // CARD 2
+
+              card(
+                "Decisions, Rights & Advocacy",
+
+                `
+              <p>
+                The independent living philosophy
+                respects the person's ability to make
+                informed choices about care and daily life.
+              </p>
+
+              ${bullets([
+                "Support clients in expressing their needs and preferences.",
+
+                "Respect appropriate choices about accepting or refusing care or treatment.",
+
+                "Recognize that advance directives can communicate healthcare wishes.",
+
+                "Advocate by helping a client raise concerns or participate in decisions—not by choosing for them.",
+
+                "Recognize authorized decision-makers when applicable, and follow clinical and agency guidance.",
+              ])}
+
+              ${info(
+                "Do not decide medical capacity",
+                "A DCW should not independently determine whether a person has decision-making capacity, interpret an advance directive, or override the client's wishes. Refer questions to the responsible clinical team.",
+                true,
+              )}
+              `,
+
+                "SELF-DIRECTION",
+              ),
+            ],
+
+            "CHOICE & RIGHTS",
+          ),
+
+          // ======================================
+          // SCREEN 4 — EVERYDAY INDEPENDENCE
+          // ======================================
+
+          page(
+            "Everyday Independence",
+
+            "Help with tasks without taking away what a client can safely do themselves.",
+
+            [
+              // CARD 1
+
+              card(
+                "Support With Daily Life",
+
+                `
+              <p>
+                Depending on the assigned role and
+                care plan, DCWs may provide
+                assistance with:
+              </p>
+
+              ${features([
+                ["Meals", "Meal preparation"],
+                ["Home", "Housekeeping and laundry"],
+                ["Connection", "Companionship"],
+                ["Errands", "Shopping and approved errands"],
+                ["Reminders", "Medication reminders when authorized"],
+                ["Preferences", "Following the client's usual routines"],
+              ])}
+
+              ${info(
+                "A simple example",
+                "Ask how the client prefers their meals or laundry to be handled instead of assuming your way is best.",
+              )}
+              `,
+
+                "EVERYDAY SUPPORT",
+              ),
+
+              // CARD 2
+
+              card(
+                "Support With Personal Care",
+
+                `
+              <p>
+                Authorized personal care activities
+                may include:
+              </p>
+
+              ${features([
+                ["Hygiene", "Bathing, shaving and grooming"],
+                ["Clothing", "Dressing and personal appearance"],
+                ["Skin & mouth", "Hair, skin and oral care"],
+                ["Mobility", "Walking and transfers as trained"],
+                ["Daily needs", "Toileting and feeding assistance"],
+                ["Medications", "Approved help with self-administration"],
+              ])}
+
+              ${info(
+                "Protect independence",
+                "Offer the level of assistance needed. Let the client perform safe steps they prefer and can do themselves.",
+              )}
+
+              ${info(
+                "Stay within your role",
+                "Medication assistance, transfers and personal care must follow the approved care plan, training and agency policies. A reminder is not permission to administer medication.",
+                true,
+              )}
+              `,
+
+                "PERSONAL CARE",
+              ),
+            ],
+
+            "SUPPORT WITHOUT TAKING OVER",
+          ),
+
+          // ======================================
+          // SCREEN 5 — RESPECT IN ACTION
+          // ======================================
+
+          page(
+            "Respect in Action",
+
+            "We measure client control by asking who is actually making the decisions.",
+
+            [
+              card(
+                "Two Questions That Matter",
+
+                `
+              ${measure(
+                "Is the client involved in shaping their care?",
+                "Do their views, preferences and concerns influence the support they receive?",
+              )}
+
+              ${measure(
+                "Who makes the decisions?",
+                "Does the client have a meaningful say—or are staff and the agency deciding everything for them?",
+              )}
+
+              ${info(
+                "Your daily approach",
+                "Ask before helping. Offer choices. Speak directly to the client. Respect privacy, dignity and individual preferences.",
+              )}
+              `,
+
+                "CHECK YOUR APPROACH",
+
+                quiz(
+                  2,
+
+                  "A client wants to button their own shirt, even though it takes longer. They can do so safely. What should you do?",
+
+                  [
+                    "Take over because finishing quickly is more important.",
+
+                    "Tell them they must dress without any support from now on.",
+
+                    "Allow time, respect their choice, and offer assistance if they want it.",
+                  ],
+
+                  2,
+
+                  "Supporting independence means helping when needed without taking over safe activities the client wishes to do themselves.",
+                ),
+              ),
+            ],
+
+            "DIGNITY & RESPECT",
+          ),
+
+          // ======================================
+          // SCREEN 6 — FINAL REVIEW
+          // ======================================
+
+          page(
+            "Client Comes First",
+
+            "You've reached the end of the Client Control & Independent Living guide.",
+
+            [
+              card(
+                "Five Things to Remember",
+
+                `
+              ${bullets([
+                "<strong>Listen:</strong> Clients know their own routines, needs and preferences.",
+
+                "<strong>Include:</strong> Involve the client in care planning and decisions.",
+
+                "<strong>Respect:</strong> Protect dignity, choices, privacy and rights.",
+
+                "<strong>Support:</strong> Help with tasks without unnecessarily taking over.",
+
+                "<strong>Communicate:</strong> Refer changes, refusals, safety concerns and questions through appropriate agency channels.",
+              ])}
+
+              ${info(
+                "The guiding principle",
+                "The client's life belongs to the client. Our role is to make safe, respectful support possible.",
+              )}
+
+              <p>
+                Use <strong>Back</strong> to review
+                or <strong>Start over</strong>
+                to revisit the guide.
+                Continue to the questionnaire
+                with Gimbal's own controls.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ========================================
+        // NAVIGATION STATE
+        // ========================================
+
+        let currentPage = 0;
+
+        const slidePositions = pages.map(() => 0);
+
+        const quizAnswers = {};
+
+        let skipped = false;
+        let touchStart = null;
+
+        const totalCards = pages.reduce((n, p) => n + p.cards.length, 0);
+
+        const key = () => `${currentPage}:${slidePositions[currentPage]}`;
+
+        const currentGlobalCard = () =>
+          1 +
+          pages.slice(0, currentPage).reduce((n, p) => n + p.cards.length, 0) +
+          slidePositions[currentPage];
+
+        // ========================================
+        // RENDER PRACTICE QUESTIONS
+        // ========================================
+
+        function renderQuiz(q) {
+          const selected = quizAnswers[key()];
+          const answered = selected !== undefined;
+
+          const options = q.options
+            .map((option, i) => {
+              const cls = !answered
+                ? ""
+                : i === q.correct
+                  ? "ic-correct"
+                  : i === selected
+                    ? "ic-wrong"
+                    : "ic-muted";
+
+              const mark = !answered
+                ? ""
+                : i === q.correct
+                  ? "✓"
+                  : i === selected
+                    ? "✕"
+                    : "";
+
+              return `
+            <button
+              class="ic-choice ${cls}"
+              type="button"
+              data-action="answer"
+              data-index="${i}"
+              ${answered ? "disabled" : ""}
+            >
+              <span class="ic-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="ic-choice-text">
+                ${option}
+              </span>
+
+              <span class="ic-mark">
+                ${mark}
+              </span>
+            </button>
+          `;
+            })
+            .join("");
+
+          const feedback = !answered
+            ? ""
+            : `
+          <div
+            class="ic-feedback ${selected === q.correct ? "good" : "bad"}"
+            role="status"
+          >
+            <strong>
+              ${
+                selected === q.correct
+                  ? "✓ Correct!"
+                  : "✕ Not quite — the correct answer is green."
+              }
+            </strong>
+
+            <div style="margin-top:6px;">
+              ${q.explanation}
+            </div>
+          </div>
+
+          <button
+            class="ic-retry"
+            type="button"
+            data-action="retry"
+          >
+            Try again ↻
+          </button>
+        `;
+
+          return `
+          <div class="ic-quiz">
+
+            <span class="ic-quiz-tag">
+              PRACTICE CHECK ${q.number} OF 2
+            </span>
+
+            <div class="ic-quiz-question">
+              ${q.question}
+            </div>
+
+            <div class="ic-choices">
+              ${options}
+            </div>
+
+            ${feedback}
+
+          </div>
+        `;
+        }
+
+        // ========================================
+        // RENDER CURRENT SCREEN
+        // ========================================
+
+        function render() {
+          const p = pages[currentPage];
+          const localIndex = slidePositions[currentPage];
+          const active = p.cards[localIndex];
+          const number = currentGlobalCard();
+
+          // Header
+
+          $("ic-eyebrow").textContent = p.eyebrow;
+          $("ic-heading").textContent = p.title;
+
+          $("ic-lead").textContent =
+            skipped && currentPage === pages.length - 1
+              ? "You skipped ahead. You can review earlier screens before the questionnaire."
+              : p.lead;
+
+          // Progress
+
+          $("ic-screen-count").textContent =
+            `Screen ${currentPage + 1} of ${pages.length}`;
+
+          $("ic-card-count").textContent = `Card ${number} of ${totalCards}`;
+
+          $("ic-fill").style.width = `${(number / totalCards) * 100}%`;
+
+          $("ic-progress").setAttribute("aria-valuenow", String(number));
+
+          $("ic-progress").setAttribute("aria-valuemax", String(totalCards));
+
+          // Card content
+
+          $("ic-card").innerHTML = `
+          <div class="ic-kicker">
+            ${active.label}
+          </div>
+
+          <h2>${active.title}</h2>
+
+          ${active.content}
+
+          ${active.practice ? renderQuiz(active.practice) : ""}
+        `;
+
+          // ====================================
+          // INNER CAROUSEL
+          // ====================================
+
+          const count = p.cards.length;
+
+          $("ic-carousel-host").innerHTML =
+            count < 2
+              ? ""
+              : `
+            <nav
+              class="ic-carousel"
+              aria-label="Content cards in current screen"
+            >
+
+              <button
+                type="button"
+                class="ic-arrow"
+                data-action="slide-back"
+                aria-label="Previous card"
+                ${localIndex === 0 ? "disabled" : ""}
+              >
+                ‹
+              </button>
+
+              <div class="ic-carousel-mid">
+
+                <strong>
+                  Slide ${localIndex + 1} of ${count}
+                </strong>
+
+                <small>
+                  Swipe or use arrows
+                </small>
+
+                <div class="ic-dots">
+                  ${p.cards
+                    .map(
+                      (_, i) => `
+                    <button
+                      type="button"
+                      class="ic-dot"
+                      data-action="slide-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === localIndex}"
+                    ></button>
+                  `,
+                    )
+                    .join("")}
+                </div>
+
+              </div>
+
+              <button
+                type="button"
+                class="ic-arrow"
+                data-action="slide-next"
+                aria-label="Next card"
+                ${localIndex === count - 1 ? "disabled" : ""}
+              >
+                ›
+              </button>
+
+            </nav>
+          `;
+
+          // Main buttons
+
+          $("ic-back").disabled = currentPage === 0 && localIndex === 0;
+
+          $("ic-next").textContent =
+            currentPage === pages.length - 1 && localIndex === count - 1
+              ? "Start over ↻"
+              : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === pages.length - 1;
+        }
+
+        // ========================================
+        // SCROLL HELPER
+        // ========================================
+
+        function showTop() {
+          root.scrollIntoView({
+            block: "start",
+            behavior: "auto",
+          });
+        }
+
+        // ========================================
+        // CAROUSEL NAVIGATION
+        // ========================================
+
+        function goSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          slidePositions[currentPage] = index;
+
+          render();
+          showTop();
+        }
+
+        // ========================================
+        // MAIN NEXT NAVIGATION
+        // ========================================
+
+        function advance() {
+          if (
+            slidePositions[currentPage] <
+            pages[currentPage].cards.length - 1
+          ) {
+            // Move to next card in this screen
+
+            slidePositions[currentPage]++;
+          } else if (currentPage < pages.length - 1) {
+            // Move to first card of next screen
+
+            currentPage++;
+            slidePositions[currentPage] = 0;
+          } else {
+            // Restart entire guide
+
+            currentPage = 0;
+            slidePositions.fill(0);
+
+            Object.keys(quizAnswers).forEach((k) => delete quizAnswers[k]);
+
+            skipped = false;
+          }
+
+          render();
+          showTop();
+        }
+
+        // ========================================
+        // MAIN BACK NAVIGATION
+        // ========================================
+
+        function goBack() {
+          if (slidePositions[currentPage] > 0) {
+            // Previous card in same screen
+
+            slidePositions[currentPage]--;
+          } else if (currentPage > 0) {
+            // Last card of previous screen
+
+            currentPage--;
+
+            slidePositions[currentPage] = pages[currentPage].cards.length - 1;
+          } else {
+            return;
+          }
+
+          render();
+          showTop();
+        }
+
+        // ========================================
+        // BUTTON HANDLERS
+        // ========================================
+
+        root.addEventListener("click", (event) => {
+          const button = event.target.closest("button[data-action]");
+
+          if (!button || !root.contains(button) || button.disabled) {
+            return;
+          }
+
+          switch (button.dataset.action) {
+            // SKIP
+
+            case "skip":
+              skipped = true;
+              currentPage = pages.length - 1;
+              slidePositions[currentPage] = 0;
+              render();
+              showTop();
+              break;
+
+            // MAIN BACK
+
+            case "back":
+              goBack();
+              break;
+
+            // MAIN NEXT
+
+            case "next":
+              advance();
+              break;
+
+            // PREVIOUS CAROUSEL CARD
+
+            case "slide-back":
+              goSlide(slidePositions[currentPage] - 1);
+              break;
+
+            // NEXT CAROUSEL CARD
+
+            case "slide-next":
+              goSlide(slidePositions[currentPage] + 1);
+              break;
+
+            // JUMP TO CAROUSEL CARD
+
+            case "slide-jump":
+              goSlide(Number(button.dataset.index));
+              break;
+
+            // ====================================
+            // PRACTICE ANSWER
+            // ====================================
+
+            case "answer":
+              if (quizAnswers[key()] === undefined) {
+                quizAnswers[key()] = Number(button.dataset.index);
+
+                render();
+              }
+              break;
+
+            // RETRY PRACTICE QUESTION
+
+            case "retry":
+              delete quizAnswers[key()];
+              render();
+              break;
+          }
+        });
+
+        // ========================================
+        // MOBILE SWIPE SUPPORT
+        // ========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".ic-card")) {
+              return;
+            }
+
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore vertical scrolling
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              goSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ========================================
+        // INITIALIZE
+        // ========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

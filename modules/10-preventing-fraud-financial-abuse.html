@@ -1,0 +1,2140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Fraud & Financial Abuse Prevention | 365 Health Services</title>
+
+    <style>
+      /* =========================================
+       BASE & BRANDING
+    ========================================= */
+
+      #fraud-guide,
+      #fraud-guide * {
+        box-sizing: border-box;
+      }
+
+      #fraud-guide {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: #ffffff;
+        color: var(--ink);
+        border: 1px solid #d6e8ee;
+        border-radius: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+      }
+
+      #fraud-guide button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #fraud-guide button:focus-visible,
+      #fraud-guide a:focus-visible,
+      #fraud-guide summary:focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+       HEADER
+    ========================================= */
+
+      #fraud-guide .fa-header {
+        background: var(--teal);
+        padding: 21px 22px 25px;
+      }
+
+      #fraud-guide .fa-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      #fraud-guide .fa-logo {
+        display: block;
+        width: min(176px, 43vw);
+        max-height: 58px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #fraud-guide .fa-logo-fallback {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      #fraud-guide .fa-skip {
+        border: 0;
+        background: #ffffff;
+        color: var(--blue);
+        border-radius: 999px;
+        padding: 11px 16px;
+        font-weight: 700;
+      }
+
+      #fraud-guide .fa-eyebrow {
+        margin: 23px 0 9px;
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      #fraud-guide h1 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(25px, 6vw, 34px);
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+      }
+
+      #fraud-guide .fa-lead {
+        margin: 13px 0 0;
+        color: #294967;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      /* =========================================
+       PROGRESS
+    ========================================= */
+
+      #fraud-guide .fa-main {
+        padding: 19px 19px 8px;
+      }
+
+      #fraud-guide .fa-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      #fraud-guide .fa-status strong {
+        color: var(--blue);
+      }
+
+      #fraud-guide .fa-progress {
+        height: 6px;
+        background: #e7eff4;
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 19px;
+      }
+
+      #fraud-guide .fa-fill {
+        height: 100%;
+        width: 0%;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* =========================================
+       CONTENT CARDS
+    ========================================= */
+
+      #fraud-guide .fa-card {
+        background: #f7fbfd;
+        border: 1px solid #d4e9f0;
+        border-radius: 19px;
+        padding: 20px;
+        min-height: 190px;
+      }
+
+      #fraud-guide .fa-kicker {
+        color: #0086c0;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+
+      #fraud-guide .fa-card h2 {
+        margin: 0 0 14px;
+        color: var(--blue);
+        font-size: clamp(21px, 5vw, 25px);
+        line-height: 1.2;
+      }
+
+      #fraud-guide .fa-card h3 {
+        margin: 16px 0 8px;
+        color: var(--blue);
+        font-size: 15px;
+      }
+
+      #fraud-guide .fa-card p {
+        margin: 0 0 12px;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      #fraud-guide .fa-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #fraud-guide .fa-list {
+        padding-left: 20px;
+        margin: 10px 0 0;
+      }
+
+      #fraud-guide .fa-list li {
+        margin-bottom: 9px;
+        padding-left: 3px;
+        font-size: 13.5px;
+        line-height: 1.5;
+      }
+
+      #fraud-guide .fa-list li::marker {
+        color: var(--sky);
+      }
+
+      /* =========================================
+       DEFINITION CARDS
+    ========================================= */
+
+      #fraud-guide .fa-definition {
+        margin: 12px 0;
+        padding: 15px;
+        background: #ffffff;
+        border: 1px solid #cae3ed;
+        border-radius: 14px;
+      }
+
+      #fraud-guide .fa-definition small {
+        display: block;
+        margin-bottom: 7px;
+        color: #0086c0;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+
+      #fraud-guide .fa-definition strong {
+        display: block;
+        color: var(--blue);
+        font-size: 17px;
+        margin-bottom: 7px;
+      }
+
+      #fraud-guide .fa-definition p {
+        margin: 0;
+        font-size: 13px;
+      }
+
+      /* =========================================
+       INFORMATION & WARNING CALLOUTS
+    ========================================= */
+
+      #fraud-guide .fa-info {
+        padding: 13px 14px;
+        margin: 14px 0;
+        background: #e7f5fb;
+        border-left: 4px solid var(--sky);
+        border-radius: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #fraud-guide .fa-info strong {
+        color: var(--blue);
+      }
+
+      #fraud-guide .fa-danger {
+        background: #fff0f3;
+        border-left-color: var(--pink);
+        color: #743343;
+      }
+
+      #fraud-guide .fa-danger strong {
+        color: #ac2543;
+      }
+
+      /* =========================================
+       SCAM SPOTLIGHT GRID
+    ========================================= */
+
+      #fraud-guide .fa-scam-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin: 15px 0;
+      }
+
+      #fraud-guide .fa-scam {
+        background: #ffffff;
+        border: 1px solid #cce4ec;
+        border-radius: 14px;
+        padding: 14px 12px;
+        min-width: 0;
+      }
+
+      #fraud-guide .fa-scam-icon {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 11px;
+        border-radius: 10px;
+        background: #e2f3fa;
+        color: var(--blue);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      #fraud-guide .fa-scam strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--blue);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      #fraud-guide .fa-scam p {
+        color: var(--muted);
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      /* =========================================
+       VISIT VERIFICATION COMPARISON
+    ========================================= */
+
+      #fraud-guide .fa-visit-comparison {
+        padding: 16px;
+        margin: 15px 0;
+        background: #ffffff;
+        border: 1px solid #cee4ec;
+        border-radius: 15px;
+      }
+
+      #fraud-guide .fa-visit-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 9px;
+      }
+
+      #fraud-guide .fa-visit-label span {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      #fraud-guide .fa-visit-label strong {
+        color: var(--blue);
+        font-size: 18px;
+      }
+
+      #fraud-guide .fa-bar-track {
+        width: 100%;
+        height: 12px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: #e1edf5;
+        margin-bottom: 19px;
+      }
+
+      #fraud-guide .fa-bar {
+        height: 100%;
+        border-radius: inherit;
+        background: var(--blue);
+      }
+
+      #fraud-guide .fa-bar.claimed {
+        background: var(--pink);
+      }
+
+      #fraud-guide .fa-visit-warning {
+        background: #fff0f3;
+        border-radius: 10px;
+        padding: 12px;
+        color: #813345;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       RESPONSE STEPS
+    ========================================= */
+
+      #fraud-guide .fa-steps {
+        margin: 15px 0;
+      }
+
+      #fraud-guide .fa-step {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 15px;
+        align-items: flex-start;
+      }
+
+      #fraud-guide .fa-step-number {
+        flex: 0 0 32px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: var(--blue);
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      #fraud-guide .fa-step-body {
+        flex: 1;
+        min-width: 0;
+        padding-top: 2px;
+      }
+
+      #fraud-guide .fa-step-body strong {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--blue);
+        font-size: 14px;
+      }
+
+      #fraud-guide .fa-step-body p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       EXPANDABLE CONTACTS
+    ========================================= */
+
+      #fraud-guide .fa-contact {
+        margin: 11px 0;
+        background: #ffffff;
+        border: 1px solid #cce3ed;
+        border-radius: 13px;
+        overflow: hidden;
+      }
+
+      #fraud-guide .fa-contact summary {
+        cursor: pointer;
+        padding: 15px;
+        color: var(--blue);
+        font-size: 13px;
+        line-height: 1.45;
+        font-weight: 800;
+      }
+
+      #fraud-guide .fa-contact[open] summary {
+        border-bottom: 1px solid #dceaf0;
+      }
+
+      #fraud-guide .fa-contact-body {
+        padding: 14px 15px 16px;
+      }
+
+      #fraud-guide .fa-contact-body p {
+        font-size: 13px;
+      }
+
+      #fraud-guide .fa-phone {
+        display: inline-block;
+        padding: 11px 15px;
+        margin: 5px 0 10px;
+        background: var(--blue);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      #fraud-guide .fa-external {
+        display: inline-block;
+        font-size: 12px;
+        color: var(--blue);
+        overflow-wrap: anywhere;
+      }
+
+      /* =========================================
+       INTERACTIVE PRACTICE QUESTIONS
+    ========================================= */
+
+      #fraud-guide .fa-quiz {
+        padding-top: 19px;
+        margin-top: 21px;
+        border-top: 1px solid #d0e4ec;
+      }
+
+      #fraud-guide .fa-quiz-tag {
+        display: inline-block;
+        padding: 6px 11px;
+        margin-bottom: 12px;
+        border-radius: 999px;
+        background: var(--teal);
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      #fraud-guide .fa-question {
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+
+      #fraud-guide .fa-choices {
+        display: grid;
+        gap: 9px;
+      }
+
+      #fraud-guide .fa-choice {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        width: 100%;
+        padding: 13px;
+        text-align: left;
+        background: #ffffff;
+        color: var(--ink);
+        border: 1.5px solid #cbdee8;
+        border-radius: 12px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      #fraud-guide .fa-letter {
+        flex: 0 0 25px;
+        width: 25px;
+        height: 25px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #eaf1f7;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      #fraud-guide .fa-choice-text {
+        flex: 1;
+      }
+
+      #fraud-guide .fa-choice-mark {
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      /* CORRECT = GREEN */
+
+      #fraud-guide .fa-choice.fa-correct {
+        background: #e1f5e9;
+        border-color: #168653;
+        color: #155c3b;
+      }
+
+      #fraud-guide .fa-correct .fa-letter {
+        background: #168653;
+        color: #ffffff;
+      }
+
+      /* INCORRECT = RED */
+
+      #fraud-guide .fa-choice.fa-wrong {
+        background: #ffeaed;
+        border-color: #d23954;
+        color: #a5233a;
+      }
+
+      #fraud-guide .fa-wrong .fa-letter {
+        background: #d23954;
+        color: #ffffff;
+      }
+
+      #fraud-guide .fa-choice.fa-muted {
+        opacity: 0.6;
+      }
+
+      #fraud-guide .fa-choice:disabled {
+        cursor: default;
+      }
+
+      #fraud-guide .fa-feedback {
+        padding: 13px;
+        margin-top: 13px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #fraud-guide .fa-feedback.good {
+        background: #e1f5e9;
+        color: #155c3b;
+      }
+
+      #fraud-guide .fa-feedback.bad {
+        background: #ffeaed;
+        color: #a5233a;
+      }
+
+      #fraud-guide .fa-retry {
+        margin-top: 11px;
+        padding: 9px 15px;
+        background: #ffffff;
+        color: var(--blue);
+        border: 1px solid #bdd6e3;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* =========================================
+       INNER CAROUSEL
+    ========================================= */
+
+      #fraud-guide .fa-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 11px;
+        margin: 15px 0 9px;
+        background: #eef7fb;
+        border-radius: 16px;
+      }
+
+      #fraud-guide .fa-arrow {
+        flex: 0 0 43px;
+        width: 43px;
+        height: 43px;
+        border: 1px solid #bdd7e4;
+        border-radius: 50%;
+        background: #ffffff;
+        color: var(--blue);
+        font-size: 24px;
+      }
+
+      #fraud-guide .fa-arrow:disabled,
+      #fraud-guide .fa-nav-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #fraud-guide .fa-carousel-middle {
+        min-width: 0;
+        text-align: center;
+      }
+
+      #fraud-guide .fa-carousel-middle strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #fraud-guide .fa-carousel-middle small {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      #fraud-guide .fa-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #fraud-guide .fa-dot {
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border: 0;
+        border-radius: 999px;
+        background: #b9d5e2;
+      }
+
+      #fraud-guide .fa-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* =========================================
+       MAIN NAVIGATION
+    ========================================= */
+
+      #fraud-guide .fa-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 19px;
+        background: #ffffff;
+        border-top: 1px solid #e6eef3;
+      }
+
+      #fraud-guide .fa-nav-btn {
+        min-height: 52px;
+        border: 0;
+        border-radius: 999px;
+        padding: 14px 18px;
+        font-weight: 800;
+      }
+
+      #fraud-guide .fa-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+
+      #fraud-guide .fa-next {
+        flex: 1;
+        background: var(--blue);
+        color: #ffffff;
+      }
+
+      #fraud-guide .fa-footer {
+        padding: 0 20px 15px;
+        color: var(--muted);
+        font-size: 11px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       MOBILE RESPONSIVENESS
+    ========================================= */
+
+      @media (max-width: 390px) {
+        #fraud-guide {
+          border-radius: 15px;
+        }
+
+        #fraud-guide .fa-header {
+          padding: 17px 16px 22px;
+        }
+
+        #fraud-guide .fa-main {
+          padding: 16px 14px 8px;
+        }
+
+        #fraud-guide .fa-card {
+          padding: 16px;
+        }
+
+        #fraud-guide .fa-actions {
+          padding: 14px;
+        }
+
+        #fraud-guide .fa-scam {
+          padding: 12px 10px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #fraud-guide .fa-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="fraud-guide"
+      role="region"
+      aria-label="Fraud and Financial Abuse Prevention Training"
+    >
+      <!-- HEADER -->
+
+      <header class="fa-header">
+        <div class="fa-top">
+          <div>
+            <img
+              class="fa-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+
+            <span class="fa-logo-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button class="fa-skip" type="button" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="fa-eyebrow" id="fa-eyebrow"></div>
+
+        <h1 id="fa-heading"></h1>
+
+        <p class="fa-lead" id="fa-lead"></p>
+      </header>
+
+      <!-- MAIN CONTENT -->
+
+      <main class="fa-main">
+        <div class="fa-status" aria-live="polite">
+          <strong id="fa-count"></strong>
+          <span id="fa-remaining"></span>
+        </div>
+
+        <div
+          id="fa-progress"
+          class="fa-progress"
+          role="progressbar"
+          aria-label="Training screen position"
+          aria-valuemin="1"
+          aria-valuemax="7"
+        >
+          <div class="fa-fill" id="fa-fill"></div>
+        </div>
+
+        <section id="fa-card" class="fa-card" aria-live="polite"></section>
+
+        <div id="fa-carousel-host"></div>
+      </main>
+
+      <!-- NAVIGATION -->
+
+      <footer class="fa-actions">
+        <button
+          type="button"
+          id="fa-back"
+          class="fa-nav-btn fa-back"
+          data-action="back"
+        >
+          ← Back
+        </button>
+
+        <button
+          type="button"
+          id="fa-next"
+          class="fa-nav-btn fa-next"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="fa-footer">
+        Swipe cards or use the arrows to explore each topic. Practice questions
+        are ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ==========================================
+        // HELPERS
+        // ==========================================
+
+        const root = document.getElementById("fraud-guide");
+
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        const bullets = (items) => `
+        <ul class="fa-list">
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (heading, text, urgent = false) => `
+        <div class="fa-info ${urgent ? "fa-danger" : ""}">
+          <strong>${heading}</strong>
+          <div>${text}</div>
+        </div>
+      `;
+
+        const definition = (term, text) => `
+        <div class="fa-definition">
+          <small>KEY DEFINITION</small>
+          <strong>${term}</strong>
+          <p>${text}</p>
+        </div>
+      `;
+
+        const scam = (icon, title, description) => `
+        <div class="fa-scam">
+
+          <span class="fa-scam-icon" aria-hidden="true">
+            ${icon}
+          </span>
+
+          <strong>${title}</strong>
+          <p>${description}</p>
+
+        </div>
+      `;
+
+        const scamGrid = (items) => `
+        <div class="fa-scam-grid">
+          ${items.map((item) => scam(...item)).join("")}
+        </div>
+      `;
+
+        const visitComparison = () => `
+        <div class="fa-visit-comparison">
+
+          <div class="fa-visit-label">
+            <span>Care actually provided</span>
+            <strong>4 hours</strong>
+          </div>
+
+          <div class="fa-bar-track">
+            <div
+              class="fa-bar"
+              style="width:50%;"
+            ></div>
+          </div>
+
+          <div class="fa-visit-label">
+            <span>Visit falsely recorded</span>
+            <strong style="color:#b62443;">
+              8 hours
+            </strong>
+          </div>
+
+          <div class="fa-bar-track">
+            <div
+              class="fa-bar claimed"
+              style="width:100%;"
+            ></div>
+          </div>
+
+          <div class="fa-visit-warning">
+            <strong>4-hour discrepancy.</strong>
+            Knowingly recording 8 hours to obtain
+            payment for only 4 hours of care
+            may constitute fraud.
+          </div>
+
+        </div>
+      `;
+
+        const steps = (items) => `
+        <div class="fa-steps">
+
+          ${items
+            .map(
+              (item, i) => `
+            <div class="fa-step">
+
+              <span class="fa-step-number">
+                ${i + 1}
+              </span>
+
+              <div class="fa-step-body">
+                <strong>${item[0]}</strong>
+                <p>${item[1]}</p>
+              </div>
+
+            </div>
+          `,
+            )
+            .join("")}
+
+        </div>
+      `;
+
+        const contact = (title, description, phone, tel, url) => `
+        <details class="fa-contact">
+
+          <summary>
+            ${title}
+          </summary>
+
+          <div class="fa-contact-body">
+
+            <p>${description}</p>
+
+            <a
+              class="fa-phone"
+              href="tel:${tel}"
+            >
+              Call ${phone}
+            </a>
+
+            <br>
+
+            <a
+              class="fa-external"
+              href="${url}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Official reporting information ↗
+            </a>
+
+          </div>
+
+        </details>
+      `;
+
+        const quiz = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          content,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          content,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ==========================================
+        // TRAINING CONTENT
+        //
+        // Based on:
+        // 365 Health Services
+        // Fraud & Financial Abuse Prevention
+        // September 2021 presentation.
+        //
+        // Reporting contacts verified against
+        // Pennsylvania DHS and Medicare guidance.
+        //
+        // Agency compliance approval required
+        // before production deployment.
+        // ==========================================
+
+        const pages = [
+          // ========================================
+          // SCREEN 1 — INTRODUCTION
+          // ========================================
+
+          page(
+            "Protect Client Finances",
+
+            "Learn to recognize financial exploitation, prevent fraudulent care records, and report concerns.",
+
+            [
+              card(
+                "Fraud & Financial Abuse",
+
+                `
+              ${definition(
+                "Financial Exploitation",
+                "Improperly taking, using or controlling someone's money, benefits, belongings or property for another person's advantage.",
+              )}
+
+              ${definition(
+                "Fraud",
+                "Intentional deception for an improper or unlawful benefit, such as knowingly billing for care that was never provided.",
+              )}
+
+              ${definition(
+                "Coercion",
+                "Using threats, pressure or manipulation to make someone act against their free choice.",
+              )}
+
+              ${info(
+                "Why DCWs matter",
+                "You spend time in clients' homes and may notice changes in belongings, household conditions, behavior or care records before others do.",
+              )}
+
+              <p>
+                Financial abuse can affect older adults
+                and younger clients with disabilities.
+                Your role is to
+                <strong>notice, protect and report</strong>,
+                not to investigate independently.
+              </p>
+              `,
+
+                "GETTING STARTED",
+              ),
+            ],
+
+            "FRAUD PREVENTION",
+          ),
+
+          // ========================================
+          // SCREEN 2 — HOW ABUSE HAPPENS
+          // ========================================
+
+          page(
+            "How Abuse Happens",
+
+            "Financial exploitation can involve theft, misuse of accounts, pressure, or deceptive documents.",
+
+            [
+              // CARD 1
+
+              card(
+                "Theft & Account Misuse",
+
+                `
+              <p>
+                Financial abuse may include taking
+                money, property or benefits without
+                proper permission.
+              </p>
+
+              ${bullets([
+                "Taking cash, jewelry, personal property or other belongings.",
+
+                "Using a client's credit card, ATM card or bank account improperly.",
+
+                "Cashing checks without authorization.",
+
+                "Stealing benefit or pension payments.",
+
+                "Keeping money or change from client errands without authorization.",
+
+                "Using a client's funds to pay someone else's expenses.",
+              ])}
+
+              ${info(
+                "Important",
+                "Access to someone's money does not automatically mean permission to spend it for personal benefit.",
+              )}
+              `,
+
+                "FINANCIAL EXPLOITATION",
+              ),
+
+              // CARD 2
+
+              card(
+                "Deception & Coercion",
+
+                `
+              <p>
+                Financial exploitation can happen
+                even when a document appears
+                to have been signed voluntarily.
+              </p>
+
+              ${bullets([
+                "Forging a client's signature.",
+
+                "Pressuring someone to change a will or deed.",
+
+                "Using deception to obtain power of attorney.",
+
+                "Manipulating someone into transferring ownership of property.",
+
+                "Promising lifelong care in exchange for assets and intentionally failing to deliver it.",
+              ])}
+
+              ${info(
+                "Remember",
+                "A signature alone does not establish valid consent if the person was deceived or coerced.",
+              )}
+
+              ${info(
+                "Your responsibility",
+                "Do not pressure clients to sign financial documents or independently decide whether a document is legally valid. Report concerning circumstances.",
+              )}
+              `,
+
+                "PRESSURE & MANIPULATION",
+
+                quiz(
+                  1,
+
+                  "A relative pressures a client to sign over ownership of their home. The client appears frightened. What should you do?",
+
+                  [
+                    "Tell the client the relative is probably entitled to the house.",
+
+                    "Observe and document the concerning behavior, ensure safety, and promptly report suspected exploitation.",
+
+                    "Sign the documents as a witness to help the family.",
+                  ],
+
+                  1,
+
+                  "Pressure to transfer property may indicate coercion or exploitation. Respect the client's rights, avoid making legal conclusions, and follow the reporting process.",
+                ),
+              ),
+
+              // CARD 3
+
+              card(
+                "Who May Be Vulnerable?",
+
+                `
+              <p>
+                Anyone can experience financial abuse.
+                Certain circumstances may make someone
+                more dependent on others.
+              </p>
+
+              ${bullets([
+                "Physical or cognitive disabilities.",
+
+                "Social isolation or loneliness.",
+
+                "Limited familiarity with financial matters.",
+
+                "Dependence on someone else for daily care or money management.",
+
+                "Communication barriers or fear of losing support.",
+              ])}
+
+              <h3>Who might exploit someone?</h3>
+
+              <p>
+                An exploiter could be a relative,
+                caregiver, trusted professional,
+                businessperson, romantic partner
+                or stranger.
+              </p>
+
+              ${info(
+                "Important distinction",
+                "A person's financial difficulties, unemployment or substance-use history do not prove they are abusive. Look for conduct, evidence and disclosures—not stereotypes.",
+              )}
+              `,
+
+                "UNDERSTANDING RISK",
+              ),
+            ],
+
+            "FINANCIAL EXPLOITATION",
+          ),
+
+          // ========================================
+          // SCREEN 3 — COMMON SCAMS
+          // ========================================
+
+          page(
+            "Common Scams",
+
+            "Recognize deceptive offers and pressure tactics that may target clients.",
+
+            [
+              // CARD 1
+
+              card(
+                "Calls, Messages & Impersonation",
+
+                `
+              <p>
+                Scammers may use phone calls,
+                letters, messages or unexpected visits
+                to obtain money and private information.
+              </p>
+
+              ${scamGrid([
+                [
+                  "✉",
+                  "Lottery Scams",
+                  "A supposed prize requires an upfront payment.",
+                ],
+                [
+                  "☎",
+                  "Grandparent Scams",
+                  "Someone pretends a family member urgently needs money.",
+                ],
+                [
+                  "♙",
+                  "Utility Impersonation",
+                  "A fake worker requests payment or entry to the home.",
+                ],
+                [
+                  "♥",
+                  "Charity Scams",
+                  "A caller pressures someone to donate to a false charity.",
+                ],
+              ])}
+
+              ${info(
+                "Common warning sign",
+                "Unexpected urgency, secrecy, threats or demands for immediate payment are reasons to be cautious.",
+              )}
+              `,
+
+                "SCAM SPOTLIGHT",
+              ),
+
+              // CARD 2
+
+              card(
+                "Property & Relationship Scams",
+
+                `
+              ${scamGrid([
+                [
+                  "⌂",
+                  "Home Repair",
+                  "A contractor pressures a client into unnecessary or overpriced work.",
+                ],
+                [
+                  "♥",
+                  "Romance Scams",
+                  "Someone builds a false relationship to request money.",
+                ],
+                [
+                  "$",
+                  "Predatory Lending",
+                  "Pressure to accept high-cost or unaffordable loans.",
+                ],
+                [
+                  "✎",
+                  "Document Fraud",
+                  "Deception or pressure to sign over money, rights or property.",
+                ],
+              ])}
+
+              ${info(
+                "Property risk",
+                "An unaffordable loan secured by a home may place the client's housing at risk.",
+              )}
+
+              <p>
+                Scammers may be strangers, acquaintances
+                or people the client already trusts.
+                Report concerning situations without
+                independently confronting the individual.
+              </p>
+              `,
+
+                "SCAM SPOTLIGHT",
+              ),
+            ],
+
+            "SCAM AWARENESS",
+          ),
+
+          // ========================================
+          // SCREEN 4 — WARNING SIGNS
+          // ========================================
+
+          page(
+            "Spot the Warning Signs",
+
+            "Financial exploitation may first appear as unusual changes in a client's home, behavior, or finances.",
+
+            [
+              // CARD 1
+
+              card(
+                "Financial & Household Clues",
+
+                `
+              ${bullets([
+                "Money, jewelry or personal belongings suddenly missing.",
+
+                "Unexplained lifestyle or spending changes.",
+
+                "Eviction notices or utility shut-off notices.",
+
+                "Suspicious signatures on checks or documents.",
+
+                "Unexpected financial transfers or ATM withdrawals the client says they did not authorize.",
+
+                "Bills not being paid despite available funds.",
+              ])}
+
+              ${info(
+                "Important",
+                "A warning sign is not proof of financial abuse. Report what you actually observe or what the client tells you.",
+              )}
+              `,
+
+                "FINANCIAL INDICATORS",
+              ),
+
+              // CARD 2
+
+              card(
+                "Behavior & Relationship Clues",
+
+                `
+              <p>
+                Caregivers may also notice emotional
+                or interpersonal changes that suggest
+                someone is being pressured.
+              </p>
+
+              ${bullets([
+                "The client suddenly becomes fearful around someone managing their money.",
+
+                "Another person repeatedly pressures the client to make financial decisions.",
+
+                "The client seems isolated from trusted contacts.",
+
+                "An individual prevents the client from speaking freely.",
+
+                "The client reports missing funds, unwanted purchases or unfamiliar documents.",
+              ])}
+
+              ${info(
+                "Respect client autonomy",
+                "Clients generally retain the right to make their own financial decisions. Unusual purchases or gifts do not automatically constitute exploitation.",
+              )}
+
+              ${info(
+                "Do not investigate",
+                "Never search private bank accounts, take financial documents, or confront a suspected exploiter independently.",
+              )}
+              `,
+
+                "BEHAVIORAL INDICATORS",
+              ),
+            ],
+
+            "RECOGNIZING CONCERNS",
+          ),
+
+          // ========================================
+          // SCREEN 5 — HOME CARE FRAUD
+          // ========================================
+
+          page(
+            "Fraud in Home Care",
+
+            "Accurate visit records, honest timesheets, and proper use of client funds protect everyone.",
+
+            [
+              // CARD 1
+
+              card(
+                "False Timesheets & EVV",
+
+                `
+              <p>
+                A home care provider must not
+                knowingly document or bill for
+                services that were not provided.
+              </p>
+
+              <h3>Example: Visit Time Discrepancy</h3>
+
+              ${visitComparison()}
+
+              ${bullets([
+                "Never knowingly report care that was not provided.",
+
+                "Do not ask a client to confirm false visit times.",
+
+                "Do not record work performed by someone else as your own.",
+
+                "Follow agency procedures when EVV or documentation contains an error.",
+
+                "Use the approved correction process rather than fabricating information.",
+              ])}
+
+              ${info(
+                "Fraud versus error",
+                "Not every mismatch is deliberate fraud. An honest recording mistake should be corrected. Knowingly falsifying information to obtain payment is a much more serious concern.",
+              )}
+              `,
+
+                "DOCUMENTATION INTEGRITY",
+
+                quiz(
+                  2,
+
+                  "A caregiver is asked to confirm an eight-hour shift even though only four hours of care were provided. What should they do?",
+
+                  [
+                    "Confirm eight hours because the schedule originally listed eight.",
+
+                    "Ask the client to sign and correct it only if questioned.",
+
+                    "Refuse to knowingly certify false hours and follow the agency's documentation and reporting procedures.",
+                  ],
+
+                  2,
+
+                  "Visit records must reflect care actually provided. Knowingly false documentation may lead to fraudulent payment claims.",
+                ),
+              ),
+
+              // CARD 2
+
+              card(
+                "Billing & Client Money",
+
+                `
+              <p>
+                Fraud can also occur when healthcare
+                providers submit incorrect claims
+                intentionally to receive payment.
+              </p>
+
+              ${bullets([
+                "Billing for services never provided.",
+
+                "Knowingly submitting false dates or times of service.",
+
+                "Billing a more expensive service than the one actually provided.",
+
+                "Knowingly submitting duplicate or otherwise false claims.",
+              ])}
+
+              <h3>Medicare & Medicaid</h3>
+
+              <p>
+                Clients can review their Medicare
+                Summary Notices or other plan statements
+                to identify unfamiliar billed services.
+              </p>
+
+              ${info(
+                "A Medicare Summary Notice is not a bill",
+                "It lists covered services and claims processed by Original Medicare. Clients can seek assistance when something appears inaccurate.",
+              )}
+
+              <h3>Caregiver financial boundaries</h3>
+
+              ${bullets([
+                "Do not keep change from errands without authorization.",
+
+                "Do not use client funds or belongings for personal expenses.",
+
+                "Follow agency rules for handling money, purchases, receipts and financial assistance.",
+              ])}
+
+              ${info(
+                "Remember",
+                "A DCW does not need to audit insurance claims independently. Report suspected billing irregularities through appropriate channels.",
+              )}
+              `,
+
+                "FINANCIAL INTEGRITY",
+              ),
+            ],
+
+            "CARE & ACCOUNTABILITY",
+          ),
+
+          // ========================================
+          // SCREEN 6 — RESPOND & REPORT
+          // ========================================
+
+          page(
+            "Respond & Report",
+
+            "When financial exploitation or fraud is suspected, take the concern seriously and report it appropriately.",
+
+            [
+              // CARD 1
+
+              card(
+                "What Should You Do?",
+
+                `
+              ${steps([
+                [
+                  "Listen and observe",
+                  "Take the client's concern seriously. Stay calm and avoid accusing anyone.",
+                ],
+                [
+                  "Protect immediate safety",
+                  "If the client is in immediate danger, call 911 and follow emergency procedures.",
+                ],
+                [
+                  "Document factual details",
+                  "Record what you observed, what was reported to you, and relevant dates and circumstances.",
+                ],
+                [
+                  "Report promptly",
+                  "Notify the agency and make any separately required protective-services or regulatory reports.",
+                ],
+                [
+                  "Cooperate with follow-up",
+                  "Provide accurate information and avoid conducting an independent investigation.",
+                ],
+              ])}
+
+              ${info(
+                "Reporting obligation",
+                "Notifying a supervisor does not replace an independently required protective-services report. Follow the applicable Pennsylvania reporting rules and current agency procedures.",
+                true,
+              )}
+
+              ${info(
+                "Good-faith reporting",
+                "Applicable laws provide protections for qualifying reports made in good faith. Do not knowingly make false accusations.",
+              )}
+              `,
+
+                "YOUR RESPONSE",
+
+                quiz(
+                  3,
+
+                  "A client tells you money is missing from their bank account and suspects someone they depend on. What should you do?",
+
+                  [
+                    "Access the client's online banking to investigate.",
+
+                    "Listen, assess safety, document the concern, and report through the appropriate channels.",
+
+                    "Confront the suspected individual and demand repayment.",
+                  ],
+
+                  1,
+
+                  "Take the concern seriously, protect the client, report appropriately, and avoid investigating or confronting someone yourself.",
+                ),
+              ),
+
+              // CARD 2
+
+              card(
+                "Reporting Resources",
+
+                `
+              <p>
+                Different concerns may require different
+                reporting channels. Select a contact
+                to view the official information.
+              </p>
+
+              ${contact(
+                "PA Protective Services",
+                "Report suspected abuse, neglect or financial exploitation of older adults and qualifying adults with disabilities. The statewide hotline accepts reports 24/7.",
+                "1-800-490-8505",
+                "+18004908505",
+                "https://www.pa.gov/agencies/dhs/report-abuse",
+              )}
+
+              ${contact(
+                "PA Medicaid Provider Fraud",
+                "Report suspected fraudulent or abusive provider practices involving Pennsylvania Medical Assistance services.",
+                "1-866-379-8477",
+                "+18663798477",
+                "https://www.pa.gov/agencies/dhs/report-fraud/medicaid-provider-compliance-hotline",
+              )}
+
+              ${contact(
+                "Medicare Fraud",
+                "Report suspected Medicare fraud, including concerns about services billed but not received.",
+                "1-800-633-4227",
+                "+18006334227",
+                "https://www.medicare.gov/basics/reporting-medicare-fraud-and-abuse",
+              )}
+
+              ${info(
+                "Agency reporting",
+                "Follow 365 Health Services' current internal reporting procedure as well as any direct reporting duties required by law.",
+              )}
+
+              <p>
+                Never delay emergency assistance
+                while trying to complete an ordinary
+                incident or fraud report.
+              </p>
+              `,
+
+                "OFFICIAL CONTACTS",
+              ),
+            ],
+
+            "REPORTING",
+          ),
+
+          // ========================================
+          // SCREEN 7 — FINAL REVIEW
+          // ========================================
+
+          page(
+            "Protect. Notice. Report.",
+
+            "You've completed the Fraud & Financial Abuse Prevention overview.",
+
+            [
+              card(
+                "Five Things to Remember",
+
+                `
+              ${bullets([
+                "<strong>Recognize exploitation.</strong> Theft, deception, coercion and misuse of client funds can all cause harm.",
+
+                "<strong>Know the warning signs.</strong> Notice missing belongings, concerning financial changes and signs of pressure.",
+
+                "<strong>Protect client finances.</strong> Never misuse money, property or financial access.",
+
+                "<strong>Document honestly.</strong> Record actual visits and services. Never knowingly falsify timesheets or EVV.",
+
+                "<strong>Report concerns.</strong> Follow the appropriate protective-services, agency and fraud-reporting procedures.",
+              ])}
+
+              ${info(
+                "The most important message",
+                "You do not need to prove fraud to raise a reasonable concern. Report the facts and let the appropriate authorities investigate.",
+              )}
+
+              <p>
+                Use <strong>Back</strong> to review
+                or <strong>Start over</strong>
+                to revisit the guide.
+              </p>
+
+              <p>
+                Continue to the questionnaire
+                using Gimbal's own controls.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ==========================================
+        // NAVIGATION STATE
+        // ==========================================
+
+        let currentPage = 0;
+        let skipped = false;
+        let touchStart = null;
+
+        const slidePositions = Array(pages.length).fill(0);
+
+        const quizAnswers = {};
+
+        const quizKey = () => `${currentPage}:${slidePositions[currentPage]}`;
+
+        // ==========================================
+        // RENDER PRACTICE QUESTIONS
+        // ==========================================
+
+        function renderQuiz(q) {
+          const selected = quizAnswers[quizKey()];
+          const answered = selected !== undefined;
+
+          const choices = q.options
+            .map((option, i) => {
+              let cls = "";
+              let mark = "";
+
+              if (answered) {
+                if (i === q.correct) {
+                  cls = "fa-correct";
+                  mark = "✓";
+                } else if (i === selected) {
+                  cls = "fa-wrong";
+                  mark = "✕";
+                } else {
+                  cls = "fa-muted";
+                }
+              }
+
+              return `
+            <button
+              type="button"
+              class="fa-choice ${cls}"
+              data-action="choose"
+              data-choice="${i}"
+              ${answered ? "disabled" : ""}
+            >
+
+              <span class="fa-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="fa-choice-text">
+                ${option}
+              </span>
+
+              <span class="fa-choice-mark">
+                ${mark}
+              </span>
+
+            </button>
+          `;
+            })
+            .join("");
+
+          const feedback = !answered
+            ? ""
+            : `
+          <div
+            class="fa-feedback ${selected === q.correct ? "good" : "bad"}"
+            role="status"
+          >
+
+            <strong>
+              ${
+                selected === q.correct
+                  ? "✓ Correct!"
+                  : "✕ Not quite — the correct answer is green."
+              }
+            </strong>
+
+            <div style="margin-top:6px;">
+              ${q.explanation}
+            </div>
+
+          </div>
+
+          <button
+            type="button"
+            class="fa-retry"
+            data-action="retry"
+          >
+            Try again ↻
+          </button>
+        `;
+
+          return `
+          <div class="fa-quiz">
+
+            <span class="fa-quiz-tag">
+              PRACTICE CHECK ${q.number} OF 3
+            </span>
+
+            <div class="fa-question">
+              ${q.question}
+            </div>
+
+            <div class="fa-choices">
+              ${choices}
+            </div>
+
+            ${feedback}
+
+          </div>
+        `;
+        }
+
+        // ==========================================
+        // RENDER CURRENT SCREEN
+        // ==========================================
+
+        function render() {
+          const p = pages[currentPage];
+          const slideIndex = slidePositions[currentPage];
+          const active = p.cards[slideIndex];
+
+          const total = pages.length;
+          const remaining = total - currentPage - 1;
+
+          // Header
+
+          $("fa-eyebrow").textContent = p.eyebrow;
+          $("fa-heading").textContent = p.title;
+
+          $("fa-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. You can return to review the guide before your assessment."
+              : p.lead;
+
+          // Progress
+
+          $("fa-count").textContent = `Screen ${currentPage + 1} of ${total}`;
+
+          $("fa-remaining").textContent =
+            remaining === 0
+              ? "Final screen"
+              : `${remaining} screen${remaining === 1 ? "" : "s"} left`;
+
+          $("fa-fill").style.width = `${((currentPage + 1) / total) * 100}%`;
+
+          $("fa-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          // Content
+
+          $("fa-card").innerHTML = `
+          <div class="fa-kicker">
+            ${active.label}
+          </div>
+
+          <h2>${active.title}</h2>
+
+          ${active.content}
+
+          ${active.practice ? renderQuiz(active.practice) : ""}
+        `;
+
+          // ========================================
+          // INNER CAROUSEL
+          // ========================================
+
+          const count = p.cards.length;
+
+          if (count > 1) {
+            $("fa-carousel-host").innerHTML = `
+            <nav
+              class="fa-carousel"
+              aria-label="Content slides"
+            >
+
+              <button
+                type="button"
+                class="fa-arrow"
+                data-action="slide-back"
+                aria-label="Previous slide"
+                ${slideIndex === 0 ? "disabled" : ""}
+              >
+                ‹
+              </button>
+
+              <div class="fa-carousel-middle">
+
+                <strong>
+                  Slide ${slideIndex + 1} of ${count}
+                </strong>
+
+                <small>
+                  Swipe or use arrows
+                </small>
+
+                <div class="fa-dots">
+
+                  ${p.cards
+                    .map(
+                      (_, i) => `
+                    <button
+                      type="button"
+                      class="fa-dot"
+                      data-action="slide-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === slideIndex}"
+                    ></button>
+                  `,
+                    )
+                    .join("")}
+
+                </div>
+
+              </div>
+
+              <button
+                type="button"
+                class="fa-arrow"
+                data-action="slide-next"
+                aria-label="Next slide"
+                ${slideIndex === count - 1 ? "disabled" : ""}
+              >
+                ›
+              </button>
+
+            </nav>
+          `;
+          } else {
+            $("fa-carousel-host").innerHTML = "";
+          }
+
+          // Main navigation
+
+          $("fa-back").disabled = currentPage === 0;
+
+          $("fa-next").textContent =
+            currentPage === total - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === total - 1;
+        }
+
+        // ==========================================
+        // MAIN PAGE NAVIGATION
+        // ==========================================
+
+        function goPage(index) {
+          if (index < 0 || index >= pages.length) {
+            return;
+          }
+
+          currentPage = index;
+          render();
+
+          root.scrollIntoView({
+            block: "start",
+            behavior: "auto",
+          });
+        }
+
+        // ==========================================
+        // CAROUSEL NAVIGATION
+        // ==========================================
+
+        function goSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          slidePositions[currentPage] = index;
+          render();
+        }
+
+        // ==========================================
+        // BUTTON HANDLERS
+        // ==========================================
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-action]");
+
+          if (!btn || !root.contains(btn) || btn.disabled) {
+            return;
+          }
+
+          switch (btn.dataset.action) {
+            // SKIP
+
+            case "skip":
+              skipped = true;
+              goPage(pages.length - 1);
+              break;
+
+            // BACK
+
+            case "back":
+              goPage(currentPage - 1);
+              break;
+
+            // NEXT OR RESTART
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+
+                slidePositions.fill(0);
+
+                Object.keys(quizAnswers).forEach(
+                  (key) => delete quizAnswers[key],
+                );
+
+                goPage(0);
+              } else {
+                goPage(currentPage + 1);
+              }
+              break;
+
+            // PREVIOUS INNER SLIDE
+
+            case "slide-back":
+              goSlide(slidePositions[currentPage] - 1);
+              break;
+
+            // NEXT INNER SLIDE
+
+            case "slide-next":
+              goSlide(slidePositions[currentPage] + 1);
+              break;
+
+            // JUMP TO INNER SLIDE
+
+            case "slide-jump":
+              goSlide(Number(btn.dataset.index));
+              break;
+
+            // ====================================
+            // PRACTICE ANSWER
+            // ====================================
+
+            case "choose": {
+              const key = quizKey();
+
+              if (quizAnswers[key] !== undefined) {
+                return;
+              }
+
+              quizAnswers[key] = Number(btn.dataset.choice);
+
+              render();
+              break;
+            }
+
+            // RETRY
+
+            case "retry":
+              delete quizAnswers[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        // ==========================================
+        // MOBILE SWIPE SUPPORT
+        // ==========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".fa-card")) {
+              return;
+            }
+
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart || !event.target.closest(".fa-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore vertical scrolling
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              goSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ==========================================
+        // INITIALIZE
+        // ==========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

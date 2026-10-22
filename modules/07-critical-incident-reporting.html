@@ -1,0 +1,1724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Critical Incident Reporting | 365 Health Services</title>
+
+    <style>
+      /* =========================================
+       BASE & BRANDING
+    ========================================= */
+
+      #incident-guide,
+      #incident-guide * {
+        box-sizing: border-box;
+      }
+
+      #incident-guide {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: #ffffff;
+        color: var(--ink);
+        border: 1px solid #d6e8ee;
+        border-radius: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+      }
+
+      #incident-guide button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #incident-guide button:focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+       HEADER
+    ========================================= */
+
+      #incident-guide .ir-header {
+        background: var(--teal);
+        padding: 22px 22px 25px;
+      }
+
+      #incident-guide .ir-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      #incident-guide .ir-logo {
+        display: block;
+        width: min(176px, 43vw);
+        max-height: 58px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #incident-guide .ir-fallback {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      #incident-guide .ir-skip {
+        background: white;
+        color: var(--blue);
+        border: 0;
+        border-radius: 999px;
+        padding: 11px 16px;
+        font-weight: 700;
+      }
+
+      #incident-guide .ir-eyebrow {
+        margin: 23px 0 9px;
+        color: var(--blue);
+        font-size: 11px;
+        letter-spacing: 0.13em;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      #incident-guide h1 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(25px, 6vw, 34px);
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+      }
+
+      #incident-guide .ir-lead {
+        margin: 13px 0 0;
+        color: #294967;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      /* =========================================
+       PROGRESS
+    ========================================= */
+
+      #incident-guide .ir-main {
+        padding: 20px 20px 8px;
+      }
+
+      #incident-guide .ir-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      #incident-guide .ir-status strong {
+        color: var(--blue);
+      }
+
+      #incident-guide .ir-track {
+        height: 6px;
+        background: #e7eff4;
+        border-radius: 99px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      #incident-guide .ir-fill {
+        width: 0%;
+        height: 100%;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* =========================================
+       CONTENT CARD
+    ========================================= */
+
+      #incident-guide .ir-card {
+        min-height: 190px;
+        background: #f7fbfd;
+        border: 1px solid #d4e9f0;
+        border-radius: 19px;
+        padding: 20px;
+      }
+
+      #incident-guide .ir-kicker {
+        color: #0086c0;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+
+      #incident-guide .ir-card h2 {
+        margin: 0 0 14px;
+        color: var(--blue);
+        font-size: clamp(21px, 5vw, 25px);
+        line-height: 1.2;
+      }
+
+      #incident-guide .ir-card h3 {
+        color: var(--blue);
+        font-size: 15px;
+        margin: 15px 0 8px;
+      }
+
+      #incident-guide .ir-card p {
+        font-size: 14px;
+        line-height: 1.55;
+        margin: 0 0 12px;
+      }
+
+      #incident-guide .ir-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #incident-guide .ir-list {
+        margin: 10px 0 0;
+        padding-left: 20px;
+      }
+
+      #incident-guide .ir-list li {
+        font-size: 13.5px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        padding-left: 3px;
+      }
+
+      #incident-guide .ir-list li::marker {
+        color: var(--sky);
+      }
+
+      /* =========================================
+       INFORMATION & SAFETY CALLOUTS
+    ========================================= */
+
+      #incident-guide .ir-info {
+        margin: 14px 0;
+        padding: 13px 14px;
+        background: #e7f5fb;
+        border-left: 4px solid var(--sky);
+        border-radius: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #incident-guide .ir-info strong {
+        color: var(--blue);
+      }
+
+      #incident-guide .ir-urgent {
+        background: #fff0f3;
+        border-left-color: var(--pink);
+        color: #763343;
+      }
+
+      #incident-guide .ir-urgent strong {
+        color: #ac2543;
+      }
+
+      /* =========================================
+       DEFINITION CARD
+    ========================================= */
+
+      #incident-guide .ir-definition {
+        margin: 13px 0;
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid #c9e4ed;
+        border-radius: 14px;
+      }
+
+      #incident-guide .ir-definition small {
+        display: block;
+        color: #0086c0;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      #incident-guide .ir-definition strong {
+        display: block;
+        color: var(--blue);
+        font-size: 19px;
+        margin-bottom: 8px;
+      }
+
+      #incident-guide .ir-definition p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      /* =========================================
+       INCIDENT CATEGORY TILES
+    ========================================= */
+
+      #incident-guide .ir-category-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin: 12px 0;
+      }
+
+      #incident-guide .ir-category {
+        padding: 14px 12px;
+        min-height: 75px;
+        background: #ffffff;
+        border: 1px solid #cee4ec;
+        border-radius: 12px;
+      }
+
+      #incident-guide .ir-category span {
+        display: block;
+        color: var(--sky);
+        font-size: 17px;
+        margin-bottom: 9px;
+      }
+
+      #incident-guide .ir-category strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      /* =========================================
+       STEP-BY-STEP RESPONSE FLOW
+    ========================================= */
+
+      #incident-guide .ir-steps {
+        margin: 14px 0;
+      }
+
+      #incident-guide .ir-step {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        align-items: flex-start;
+      }
+
+      #incident-guide .ir-step-num {
+        flex: 0 0 32px;
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        background: var(--blue);
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 800;
+        border-radius: 50%;
+      }
+
+      #incident-guide .ir-step-body {
+        flex: 1;
+        padding-top: 2px;
+      }
+
+      #incident-guide .ir-step-body strong {
+        display: block;
+        color: var(--blue);
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      #incident-guide .ir-step-body p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       INCIDENT REPORT CHECKLIST
+    ========================================= */
+
+      #incident-guide .ir-checklist {
+        list-style: none;
+        margin: 12px 0;
+        padding: 0;
+      }
+
+      #incident-guide .ir-checklist li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 0;
+        padding: 11px 0;
+        border-bottom: 1px solid #dceaf0;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      #incident-guide .ir-checklist li:last-child {
+        border: 0;
+      }
+
+      #incident-guide .ir-check {
+        flex: 0 0 19px;
+        width: 19px;
+        height: 19px;
+        display: grid;
+        place-items: center;
+        border: 2px solid var(--sky);
+        color: var(--blue);
+        background: white;
+        border-radius: 5px;
+        font-weight: 800;
+        font-size: 11px;
+      }
+
+      /* =========================================
+       DOCUMENTATION EXAMPLES
+    ========================================= */
+
+      #incident-guide .ir-example {
+        margin: 12px 0;
+        padding: 14px;
+        background: white;
+        border: 1px solid #d1e4ed;
+        border-radius: 12px;
+      }
+
+      #incident-guide .ir-example.good {
+        border-left: 4px solid #178653;
+      }
+
+      #incident-guide .ir-example.bad {
+        border-left: 4px solid var(--pink);
+      }
+
+      #incident-guide .ir-example-label {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        margin-bottom: 7px;
+      }
+
+      #incident-guide .ir-example.good .ir-example-label {
+        color: #167246;
+      }
+
+      #incident-guide .ir-example.bad .ir-example-label {
+        color: #b02b48;
+      }
+
+      #incident-guide .ir-example p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       PRACTICE QUESTIONS
+    ========================================= */
+
+      #incident-guide .ir-quiz {
+        margin-top: 20px;
+        padding-top: 19px;
+        border-top: 1px solid #d0e5ec;
+      }
+
+      #incident-guide .ir-quiz-tag {
+        display: inline-block;
+        background: var(--teal);
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        padding: 6px 11px;
+        border-radius: 999px;
+        margin-bottom: 12px;
+      }
+
+      #incident-guide .ir-question {
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+
+      #incident-guide .ir-choices {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      #incident-guide .ir-choice {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        width: 100%;
+        text-align: left;
+        padding: 13px;
+        background: white;
+        color: var(--ink);
+        border: 1.5px solid #cbdee8;
+        border-radius: 12px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      #incident-guide .ir-letter {
+        flex: 0 0 25px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #eaf1f7;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      #incident-guide .ir-choice-text {
+        flex: 1;
+      }
+
+      #incident-guide .ir-choice-mark {
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      #incident-guide .ir-choice.ir-correct {
+        background: #e1f5e9;
+        border-color: #178653;
+        color: #155c3b;
+      }
+
+      #incident-guide .ir-correct .ir-letter {
+        background: #178653;
+        color: white;
+      }
+
+      #incident-guide .ir-choice.ir-wrong {
+        background: #ffeaed;
+        border-color: #d23954;
+        color: #a5233a;
+      }
+
+      #incident-guide .ir-wrong .ir-letter {
+        background: #d23954;
+        color: white;
+      }
+
+      #incident-guide .ir-choice.ir-muted {
+        opacity: 0.6;
+      }
+
+      #incident-guide .ir-choice:disabled {
+        cursor: default;
+      }
+
+      #incident-guide .ir-feedback {
+        padding: 13px;
+        margin-top: 13px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #incident-guide .ir-feedback.good {
+        background: #e1f5e9;
+        color: #155c3b;
+      }
+
+      #incident-guide .ir-feedback.bad {
+        background: #ffeaed;
+        color: #a5233a;
+      }
+
+      #incident-guide .ir-retry {
+        margin-top: 11px;
+        padding: 9px 15px;
+        border: 1px solid #bdd6e3;
+        border-radius: 999px;
+        background: white;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* =========================================
+       INNER CAROUSELS
+    ========================================= */
+
+      #incident-guide .ir-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 15px 0 9px;
+        padding: 11px;
+        background: #eef7fb;
+        border-radius: 16px;
+      }
+
+      #incident-guide .ir-arrow {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        border: 1px solid #bdd7e4;
+        background: white;
+        color: var(--blue);
+        border-radius: 50%;
+        font-size: 24px;
+      }
+
+      #incident-guide .ir-arrow:disabled,
+      #incident-guide .ir-nav-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #incident-guide .ir-carousel-center {
+        min-width: 0;
+        text-align: center;
+      }
+
+      #incident-guide .ir-carousel-center strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #incident-guide .ir-carousel-center small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        margin-top: 3px;
+      }
+
+      #incident-guide .ir-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #incident-guide .ir-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 0;
+        border-radius: 999px;
+        background: #b9d5e2;
+      }
+
+      #incident-guide .ir-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* =========================================
+       MAIN NAVIGATION
+    ========================================= */
+
+      #incident-guide .ir-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 19px;
+        background: white;
+        border-top: 1px solid #e6eef3;
+      }
+
+      #incident-guide .ir-nav-btn {
+        min-height: 52px;
+        border: 0;
+        border-radius: 999px;
+        padding: 14px 18px;
+        font-weight: 800;
+      }
+
+      #incident-guide .ir-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+
+      #incident-guide .ir-next {
+        flex: 1;
+        background: var(--blue);
+        color: white;
+      }
+
+      #incident-guide .ir-footer {
+        color: var(--muted);
+        padding: 0 20px 15px;
+        text-align: center;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       MOBILE
+    ========================================= */
+
+      @media (max-width: 390px) {
+        #incident-guide {
+          border-radius: 15px;
+        }
+
+        #incident-guide .ir-header {
+          padding: 17px 16px 22px;
+        }
+
+        #incident-guide .ir-main {
+          padding: 16px 14px 8px;
+        }
+
+        #incident-guide .ir-card {
+          padding: 16px;
+        }
+
+        #incident-guide .ir-actions {
+          padding: 14px;
+        }
+
+        #incident-guide .ir-category {
+          padding: 12px 10px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #incident-guide .ir-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="incident-guide"
+      role="region"
+      aria-label="Critical Incident Reporting Training"
+    >
+      <!-- HEADER -->
+
+      <header class="ir-header">
+        <div class="ir-top">
+          <div>
+            <img
+              class="ir-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+
+            <span class="ir-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button type="button" class="ir-skip" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="ir-eyebrow" id="ir-eyebrow"></div>
+
+        <h1 id="ir-heading"></h1>
+
+        <p class="ir-lead" id="ir-lead"></p>
+      </header>
+
+      <!-- MAIN CONTENT -->
+
+      <main class="ir-main">
+        <div class="ir-status" aria-live="polite">
+          <strong id="ir-count"></strong>
+          <span id="ir-remaining"></span>
+        </div>
+
+        <div
+          id="ir-progress"
+          class="ir-track"
+          role="progressbar"
+          aria-label="Training screen position"
+          aria-valuemin="1"
+          aria-valuemax="5"
+        >
+          <div class="ir-fill" id="ir-fill"></div>
+        </div>
+
+        <section id="ir-card" class="ir-card" aria-live="polite"></section>
+
+        <div id="ir-carousel-host"></div>
+      </main>
+
+      <!-- NAVIGATION -->
+
+      <footer class="ir-actions">
+        <button
+          type="button"
+          id="ir-back"
+          class="ir-nav-btn ir-back"
+          data-action="back"
+        >
+          ← Back
+        </button>
+
+        <button
+          type="button"
+          id="ir-next"
+          class="ir-nav-btn ir-next"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="ir-footer">
+        Swipe or use the arrows to read additional slides. Practice questions
+        are ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ==========================================
+        // HELPERS
+        // ==========================================
+
+        const root = document.getElementById("incident-guide");
+
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        const bullets = (items) => `
+        <ul class="ir-list">
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (heading, content, urgent = false) => `
+        <div class="ir-info ${urgent ? "ir-urgent" : ""}">
+          <strong>${heading}</strong>
+          <div>${content}</div>
+        </div>
+      `;
+
+        const definition = (term, description) => `
+        <div class="ir-definition">
+          <small>KEY DEFINITION</small>
+          <strong>${term}</strong>
+          <p>${description}</p>
+        </div>
+      `;
+
+        const category = (symbol, title) => `
+        <div class="ir-category">
+          <span aria-hidden="true">${symbol}</span>
+          <strong>${title}</strong>
+        </div>
+      `;
+
+        const steps = (items) => `
+        <div class="ir-steps">
+          ${items
+            .map(
+              (step, i) => `
+            <div class="ir-step">
+              <span class="ir-step-num">
+                ${i + 1}
+              </span>
+
+              <div class="ir-step-body">
+                <strong>${step[0]}</strong>
+                <p>${step[1]}</p>
+              </div>
+            </div>
+          `,
+            )
+            .join("")}
+        </div>
+      `;
+
+        const checklist = (items) => `
+        <ul class="ir-checklist">
+          ${items
+            .map(
+              (item) => `
+            <li>
+              <span class="ir-check" aria-hidden="true">✓</span>
+              <span>${item}</span>
+            </li>
+          `,
+            )
+            .join("")}
+        </ul>
+      `;
+
+        const example = (good, description) => `
+        <div class="ir-example ${good ? "good" : "bad"}">
+          <div class="ir-example-label">
+            ${good ? "✓ FACTUAL DOCUMENTATION" : "✕ AVOID ASSUMPTIONS"}
+          </div>
+          <p>${description}</p>
+        </div>
+      `;
+
+        const quiz = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          content,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          content,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ==========================================
+        // TRAINING CONTENT
+        //
+        // Source: 365 Health Services
+        // Critical Incident Reporting (2021)
+        //
+        // Reporting deadlines and roles must be
+        // confirmed against current program rules.
+        // ==========================================
+
+        const pages = [
+          // ========================================
+          // SCREEN 1 — INTRODUCTION
+          // ========================================
+
+          page(
+            "Critical Incidents",
+
+            "Recognize serious events, protect the client, and report concerns through the correct channels.",
+
+            [
+              card(
+                "What is a critical incident?",
+
+                `
+              ${definition(
+                "Critical Incident",
+                "An event that jeopardizes a client's health and/or welfare.",
+              )}
+
+              <p>
+                Clients have the right to report
+                alleged critical incidents at any time.
+              </p>
+
+              ${info(
+                "No retaliation",
+                "Clients must not be threatened with termination, loss of services, or other retaliation because they report an incident.",
+              )}
+
+              <p>
+                Your responsibility is to
+                <strong>recognize, respond, report,
+                and document</strong> appropriately.
+              </p>
+              `,
+
+                "GETTING STARTED",
+              ),
+            ],
+
+            "PATIENT SAFETY",
+          ),
+
+          // ========================================
+          // SCREEN 2 — INCIDENT TYPES
+          // ========================================
+
+          page(
+            "What Must Be Reported?",
+
+            "Know the types of events that may meet critical incident reporting criteria.",
+
+            [
+              card(
+                "Health & Personal Safety",
+
+                `
+              <div class="ir-category-grid">
+
+                ${category("✚", "Death or serious injury")}
+
+                ${category("▣", "Unplanned hospitalization")}
+
+                ${category("!", "Abuse or neglect")}
+
+                ${category("$", "Exploitation")}
+
+              </div>
+
+              ${info(
+                "Recognize serious harm",
+                "Abuse may be physical, psychological, sexual, or verbal. Neglect and exploitation are also important reporting categories.",
+              )}
+
+              <p>
+                The specific reporting category depends
+                on the circumstances. For example,
+                a routine, planned hospital visit is
+                not automatically a critical incident.
+              </p>
+              `,
+
+                "INCIDENT CATEGORIES",
+              ),
+
+              card(
+                "Service & Provider Concerns",
+
+                `
+              <div class="ir-category-grid">
+
+                ${category("!", "Staff or provider misconduct")}
+
+                ${category("↯", "Unsafe service interruption")}
+
+                ${category("+", "Medication errors causing harm or medical intervention")}
+
+                ${category("◇", "Preventable incidents")}
+
+                ${category("$", "Program fraud or financial abuse")}
+
+              </div>
+
+              ${info(
+                "Service interruptions",
+                "A missed visit may become a critical incident when the client cannot receive needed care and their health or safety is placed at risk.",
+              )}
+              `,
+
+                "INCIDENT CATEGORIES",
+
+                quiz(
+                  1,
+
+                  "A caregiver cannot attend a visit. No backup is available, and the client cannot safely manage alone. What should happen?",
+
+                  [
+                    "Wait until the next scheduled visit.",
+
+                    "Promptly address the client's safety needs and report the potentially critical service interruption.",
+
+                    "Ignore the absence because missed visits are never critical incidents.",
+                  ],
+
+                  1,
+
+                  "A missed service that puts a client's health or welfare at risk may qualify as a critical incident. Protect the client and report promptly.",
+                ),
+              ),
+            ],
+
+            "RECOGNIZING INCIDENTS",
+          ),
+
+          // ========================================
+          // SCREEN 3 — RESPOND & REPORT
+          // ========================================
+
+          page(
+            "Respond & Report",
+
+            "When an incident happens, focus on safety first and communicate promptly.",
+
+            [
+              card(
+                "Four Steps to Respond",
+
+                `
+              ${steps([
+                [
+                  "Protect the client",
+                  "Check immediate safety. Call 911 when emergency assistance is needed.",
+                ],
+
+                [
+                  "Notify the agency",
+                  "Report the incident promptly to the agency's designated contact using its current procedures.",
+                ],
+
+                [
+                  "Follow reporting requirements",
+                  "Ensure applicable protective-services and other mandated reports are made without delay.",
+                ],
+
+                [
+                  "Cooperate with follow-up",
+                  "Follow authorized instructions about further care, physician contact, family notification, and incident review.",
+                ],
+              ])}
+
+              ${info(
+                "Don't wait for a deadline",
+                "Report concerns as soon as possible. Immediate danger or mandatory protective-services reporting may require action before routine internal documentation.",
+                true,
+              )}
+              `,
+
+                "IMMEDIATE RESPONSE",
+              ),
+
+              card(
+                "Who Needs to Be Notified?",
+
+                `
+              <p>
+                Depending on the incident and the
+                client's program, reporting may involve:
+              </p>
+
+              ${bullets([
+                "365 Health Services and the designated incident-reporting contact",
+
+                "The client's service coordinator or appropriate Managed Care Organization",
+
+                "Pennsylvania Office of Long-Term Living (OLTL)",
+
+                "Adult or Older Adult Protective Services for applicable abuse, neglect, or exploitation concerns",
+
+                "Law enforcement, emergency responders, or other authorities when required",
+              ])}
+
+              ${info(
+                "Client rights",
+                "A client who is uncomfortable reporting to the agency may use applicable external reporting channels, including OLTL.",
+              )}
+
+              <p>
+                The 2021 presentation also discusses
+                Pennsylvania's disability-rights
+                organization as a possible contact
+                when requested by the client.
+              </p>
+
+              ${info(
+                "Reporting timelines",
+                "The original presentation describes 24-hour internal and 48-hour external reporting windows. Current requirements vary by program and incident type. Follow the latest agency and regulatory procedures.",
+              )}
+              `,
+
+                "REPORTING CHANNELS",
+              ),
+            ],
+
+            "IMMEDIATE ACTION",
+          ),
+
+          // ========================================
+          // SCREEN 4 — DOCUMENTATION
+          // ========================================
+
+          page(
+            "Document the Facts",
+
+            "An incident report should describe what happened, who was involved, and what actions were taken.",
+
+            [
+              card(
+                "Incident Report Checklist",
+
+                `
+              <p>
+                The Incident Report Form should include:
+              </p>
+
+              ${checklist([
+                "<strong>Client details:</strong> identifying and contact information required by the form",
+
+                "<strong>Date, time & location:</strong> when and where the incident occurred",
+
+                "<strong>Witnesses:</strong> people who saw or were involved in the event",
+
+                "<strong>Incident type:</strong> select the appropriate category",
+
+                "<strong>Description:</strong> what occurred and any observed injuries",
+
+                "<strong>Notifications:</strong> who was contacted, when, and how",
+
+                "<strong>Follow-up:</strong> medical attention, hospital visits, physician orders, or other action taken",
+              ])}
+
+              ${info(
+                "Remember",
+                "Include accurate observations, relevant statements, and the actions taken. Do not guess about causes or assign blame without evidence.",
+              )}
+              `,
+
+                "INCIDENT DOCUMENTATION",
+
+                quiz(
+                  2,
+
+                  "A client falls during a visit. Which incident report is more appropriate?",
+
+                  [
+                    '"The caregiver was careless and caused the fall."',
+
+                    '"The client fell because they never listen."',
+
+                    '"At approximately 10:15 AM, I observed the client fall near the bedroom doorway. I called for assistance and notified the agency."',
+                  ],
+
+                  2,
+
+                  "Document what you observed, the time and location, and the response. Avoid unsupported conclusions about fault.",
+                ),
+              ),
+
+              card(
+                "What Happens Next?",
+
+                `
+              <p>
+                After a report, authorized agency
+                personnel may coordinate follow-up,
+                review records, and determine
+                appropriate protective measures.
+              </p>
+
+              ${bullets([
+                "Follow authorized directions concerning the client's care and safety.",
+
+                "Cooperate with requests for factual information.",
+
+                "Maintain confidentiality during incident review.",
+
+                "Do not conduct an independent investigation or confront an alleged person involved.",
+              ])}
+
+              ${info(
+                "When an employee is involved",
+                "Management may temporarily reassign staff, restrict client contact, or suspend an employee during an investigation, subject to current agency policy. These are management decisions, not automatic findings of misconduct.",
+              )}
+              `,
+
+                "AGENCY FOLLOW-UP",
+              ),
+            ],
+
+            "ACCURATE REPORTING",
+          ),
+
+          // ========================================
+          // SCREEN 5 — FINAL REVIEW
+          // ========================================
+
+          page(
+            "Safety Comes First",
+
+            "You've reached the end of the Critical Incident Reporting guide.",
+
+            [
+              card(
+                "Four Rules to Remember",
+
+                `
+              ${steps([
+                [
+                  "Protect",
+                  "Address immediate danger and seek emergency assistance when needed.",
+                ],
+
+                [
+                  "Report",
+                  "Notify the appropriate people promptly and follow any direct mandatory-reporting duties.",
+                ],
+
+                [
+                  "Document",
+                  "Record accurate facts, observations, notifications, and actions.",
+                ],
+
+                [
+                  "Follow through",
+                  "Cooperate with the agency's approved incident-management process.",
+                ],
+              ])}
+
+              ${info(
+                "One final reminder",
+                "A client must be able to report a critical incident without retaliation or threats to their services.",
+              )}
+
+              <p>
+                Use <strong>Back</strong> to review
+                or <strong>Start over</strong>
+                to revisit the guide.
+              </p>
+
+              <p>
+                Continue to the assessment through
+                Gimbal's own questionnaire controls.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ==========================================
+        // NAVIGATION STATE
+        // ==========================================
+
+        let currentPage = 0;
+        let skipped = false;
+        let touchStart = null;
+
+        const slidePositions = Array(pages.length).fill(0);
+
+        const quizAnswers = {};
+
+        function quizKey() {
+          return `${currentPage}:${slidePositions[currentPage]}`;
+        }
+
+        // ==========================================
+        // RENDER PRACTICE QUESTIONS
+        // ==========================================
+
+        function renderQuiz(q) {
+          const selected = quizAnswers[quizKey()];
+          const answered = selected !== undefined;
+
+          const options = q.options
+            .map((option, i) => {
+              let cls = "";
+              let mark = "";
+
+              if (answered) {
+                if (i === q.correct) {
+                  cls = "ir-correct";
+                  mark = "✓";
+                } else if (i === selected) {
+                  cls = "ir-wrong";
+                  mark = "✕";
+                } else {
+                  cls = "ir-muted";
+                }
+              }
+
+              return `
+            <button
+              type="button"
+              class="ir-choice ${cls}"
+              data-action="choose"
+              data-choice="${i}"
+              ${answered ? "disabled" : ""}
+            >
+
+              <span class="ir-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="ir-choice-text">
+                ${option}
+              </span>
+
+              <span class="ir-choice-mark">
+                ${mark}
+              </span>
+
+            </button>
+          `;
+            })
+            .join("");
+
+          let feedback = "";
+
+          if (answered) {
+            const correct = selected === q.correct;
+
+            feedback = `
+            <div
+              class="ir-feedback ${correct ? "good" : "bad"}"
+              role="status"
+            >
+              <strong>
+                ${
+                  correct
+                    ? "✓ Correct!"
+                    : "✕ Not quite — the correct answer is green."
+                }
+              </strong>
+
+              <div style="margin-top:6px;">
+                ${q.explanation}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="ir-retry"
+              data-action="retry"
+            >
+              Try again ↻
+            </button>
+          `;
+          }
+
+          return `
+          <div class="ir-quiz">
+
+            <span class="ir-quiz-tag">
+              PRACTICE CHECK ${q.number} OF 2
+            </span>
+
+            <div class="ir-question">
+              ${q.question}
+            </div>
+
+            <div class="ir-choices">
+              ${options}
+            </div>
+
+            ${feedback}
+
+          </div>
+        `;
+        }
+
+        // ==========================================
+        // RENDER CURRENT SCREEN
+        // ==========================================
+
+        function render() {
+          const pageData = pages[currentPage];
+          const slideIndex = slidePositions[currentPage];
+          const active = pageData.cards[slideIndex];
+
+          const total = pages.length;
+          const remaining = total - currentPage - 1;
+
+          // Header
+
+          $("ir-eyebrow").textContent = pageData.eyebrow;
+
+          $("ir-heading").textContent = pageData.title;
+
+          $("ir-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. You can return to review the guide before the assessment."
+              : pageData.lead;
+
+          // Progress
+
+          $("ir-count").textContent = `Screen ${currentPage + 1} of ${total}`;
+
+          $("ir-remaining").textContent =
+            remaining === 0
+              ? "Final screen"
+              : `${remaining} screen${remaining === 1 ? "" : "s"} left`;
+
+          $("ir-fill").style.width = `${((currentPage + 1) / total) * 100}%`;
+
+          $("ir-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          // Content
+
+          $("ir-card").innerHTML = `
+          <div class="ir-kicker">
+            ${active.label}
+          </div>
+
+          <h2>${active.title}</h2>
+
+          ${active.content}
+
+          ${active.practice ? renderQuiz(active.practice) : ""}
+        `;
+
+          // ========================================
+          // INNER CAROUSEL
+          // ========================================
+
+          const count = pageData.cards.length;
+
+          if (count > 1) {
+            $("ir-carousel-host").innerHTML = `
+            <nav
+              class="ir-carousel"
+              aria-label="Content slides"
+            >
+
+              <button
+                type="button"
+                class="ir-arrow"
+                data-action="slide-back"
+                aria-label="Previous slide"
+                ${slideIndex === 0 ? "disabled" : ""}
+              >
+                ‹
+              </button>
+
+              <div class="ir-carousel-center">
+
+                <strong>
+                  Slide ${slideIndex + 1} of ${count}
+                </strong>
+
+                <small>
+                  Swipe or use arrows
+                </small>
+
+                <div class="ir-dots">
+
+                  ${pageData.cards
+                    .map(
+                      (_, i) => `
+                    <button
+                      type="button"
+                      class="ir-dot"
+                      data-action="slide-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === slideIndex}"
+                    ></button>
+                  `,
+                    )
+                    .join("")}
+
+                </div>
+
+              </div>
+
+              <button
+                type="button"
+                class="ir-arrow"
+                data-action="slide-next"
+                aria-label="Next slide"
+                ${slideIndex === count - 1 ? "disabled" : ""}
+              >
+                ›
+              </button>
+
+            </nav>
+          `;
+          } else {
+            $("ir-carousel-host").innerHTML = "";
+          }
+
+          // Main navigation
+
+          $("ir-back").disabled = currentPage === 0;
+
+          $("ir-next").textContent =
+            currentPage === total - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === total - 1;
+        }
+
+        // ==========================================
+        // MAIN PAGE NAVIGATION
+        // ==========================================
+
+        function changePage(index) {
+          if (index < 0 || index >= pages.length) {
+            return;
+          }
+
+          currentPage = index;
+          render();
+
+          root.scrollIntoView({
+            behavior: "auto",
+            block: "start",
+          });
+        }
+
+        // ==========================================
+        // INNER SLIDE NAVIGATION
+        // ==========================================
+
+        function changeSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          slidePositions[currentPage] = index;
+          render();
+        }
+
+        // ==========================================
+        // BUTTON EVENTS
+        // ==========================================
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-action]");
+
+          if (!btn || !root.contains(btn) || btn.disabled) {
+            return;
+          }
+
+          switch (btn.dataset.action) {
+            // SKIP
+
+            case "skip":
+              skipped = true;
+              changePage(pages.length - 1);
+              break;
+
+            // BACK
+
+            case "back":
+              changePage(currentPage - 1);
+              break;
+
+            // NEXT / RESTART
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+
+                slidePositions.fill(0);
+
+                Object.keys(quizAnswers).forEach(
+                  (key) => delete quizAnswers[key],
+                );
+
+                changePage(0);
+              } else {
+                changePage(currentPage + 1);
+              }
+              break;
+
+            // PREVIOUS CAROUSEL SLIDE
+
+            case "slide-back":
+              changeSlide(slidePositions[currentPage] - 1);
+              break;
+
+            // NEXT CAROUSEL SLIDE
+
+            case "slide-next":
+              changeSlide(slidePositions[currentPage] + 1);
+              break;
+
+            // JUMP TO SLIDE
+
+            case "slide-jump":
+              changeSlide(Number(btn.dataset.index));
+              break;
+
+            // ====================================
+            // PRACTICE ANSWER
+            // ====================================
+
+            case "choose": {
+              const key = quizKey();
+
+              if (quizAnswers[key] !== undefined) {
+                return;
+              }
+
+              quizAnswers[key] = Number(btn.dataset.choice);
+
+              render();
+              break;
+            }
+
+            // RETRY PRACTICE
+
+            case "retry":
+              delete quizAnswers[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        // ==========================================
+        // MOBILE SWIPE SUPPORT
+        // ==========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".ir-card")) {
+              return;
+            }
+
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart || !event.target.closest(".ir-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore vertical scrolling
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              changeSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ==========================================
+        // INITIALIZE
+        // ==========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

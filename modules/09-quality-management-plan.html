@@ -1,0 +1,1710 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Quality Management | 365 Health Services</title>
+
+    <style>
+      /* =========================================
+       BASE & BRANDING
+    ========================================= */
+
+      #qm-guide,
+      #qm-guide * {
+        box-sizing: border-box;
+      }
+
+      #qm-guide {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        overflow: hidden;
+
+        background: #ffffff;
+        color: var(--ink);
+        border: 1px solid #d6e8ee;
+        border-radius: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+      }
+
+      #qm-guide button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #qm-guide :is(button, a):focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+       HEADER
+    ========================================= */
+
+      #qm-guide .qm-header {
+        background: var(--teal);
+        padding: 22px 22px 25px;
+      }
+
+      #qm-guide .qm-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #qm-guide .qm-logo {
+        display: block;
+        width: min(176px, 43vw);
+        max-height: 58px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #qm-guide .qm-logo-fallback {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--blue);
+      }
+
+      #qm-guide .qm-skip {
+        border: 0;
+        background: white;
+        color: var(--blue);
+        border-radius: 999px;
+        padding: 11px 16px;
+        font-weight: 700;
+      }
+
+      #qm-guide .qm-eyebrow {
+        margin: 23px 0 9px;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      #qm-guide h1 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(25px, 6vw, 34px);
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+      }
+
+      #qm-guide .qm-lead {
+        margin: 13px 0 0;
+        color: #294967;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      /* =========================================
+       MAIN CONTENT & PROGRESS
+    ========================================= */
+
+      #qm-guide .qm-main {
+        padding: 19px 19px 8px;
+      }
+
+      #qm-guide .qm-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      #qm-guide .qm-status strong {
+        color: var(--blue);
+      }
+
+      #qm-guide .qm-progress {
+        height: 6px;
+        background: #e7eff4;
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 19px;
+      }
+
+      #qm-guide .qm-fill {
+        width: 0%;
+        height: 100%;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* =========================================
+       CONTENT CARDS
+    ========================================= */
+
+      #qm-guide .qm-card {
+        background: #f7fbfd;
+        border: 1px solid #d4e9f0;
+        border-radius: 19px;
+        padding: 20px;
+        min-height: 190px;
+      }
+
+      #qm-guide .qm-kicker {
+        color: #0086c0;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+
+      #qm-guide .qm-card h2 {
+        margin: 0 0 14px;
+        color: var(--blue);
+        font-size: clamp(21px, 5vw, 25px);
+        line-height: 1.2;
+      }
+
+      #qm-guide .qm-card h3 {
+        margin: 15px 0 8px;
+        color: var(--blue);
+        font-size: 15px;
+      }
+
+      #qm-guide .qm-card p {
+        margin: 0 0 12px;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      #qm-guide .qm-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #qm-guide .qm-list {
+        padding-left: 20px;
+        margin: 10px 0 0;
+      }
+
+      #qm-guide .qm-list li {
+        margin-bottom: 9px;
+        padding-left: 3px;
+        font-size: 13.5px;
+        line-height: 1.52;
+      }
+
+      #qm-guide .qm-list li::marker {
+        color: var(--sky);
+      }
+
+      /* =========================================
+       INFORMATION CALLOUT
+    ========================================= */
+
+      #qm-guide .qm-info {
+        margin: 14px 0;
+        padding: 13px 14px;
+        background: #e7f5fb;
+        border-left: 4px solid var(--sky);
+        border-radius: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #qm-guide .qm-info strong {
+        color: var(--blue);
+      }
+
+      /* =========================================
+       QUALITY IMPROVEMENT CYCLE
+    ========================================= */
+
+      #qm-guide .qm-cycle {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin: 17px 0 10px;
+      }
+
+      #qm-guide .qm-cycle-item {
+        background: white;
+        border: 1px solid #cce4ec;
+        border-radius: 14px;
+        padding: 13px;
+        min-width: 0;
+      }
+
+      #qm-guide .qm-cycle-heading {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      #qm-guide .qm-cycle-num {
+        display: grid;
+        place-items: center;
+        flex: 0 0 27px;
+        width: 27px;
+        height: 27px;
+        background: var(--blue);
+        color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      #qm-guide .qm-cycle-heading strong {
+        font-size: 14px;
+        color: var(--blue);
+      }
+
+      #qm-guide .qm-cycle-item p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      #qm-guide .qm-cycle-repeat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 9px;
+        background: #e8f5fb;
+        border-radius: 999px;
+        padding: 10px;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      #qm-guide .qm-cycle-repeat span {
+        color: var(--sky);
+        font-size: 21px;
+        line-height: 1;
+      }
+
+      /* =========================================
+       FACT CHIPS
+    ========================================= */
+
+      #qm-guide .qm-fact {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #e8f5fb;
+        border: 1px solid #d0e7ef;
+        border-radius: 15px;
+        padding: 16px;
+        margin: 15px 0;
+      }
+
+      #qm-guide .qm-fact-number {
+        color: var(--blue);
+        font-size: 31px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        flex-shrink: 0;
+      }
+
+      #qm-guide .qm-fact-text {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       RESPONSIBILITY COMPONENT
+    ========================================= */
+
+      #qm-guide .qm-responsibility {
+        background: white;
+        border: 1px solid #cbe4ed;
+        border-radius: 14px;
+        padding: 15px;
+        margin: 14px 0;
+      }
+
+      #qm-guide .qm-responsibility small {
+        display: block;
+        color: #0086c0;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        margin-bottom: 7px;
+      }
+
+      #qm-guide .qm-responsibility strong {
+        display: block;
+        color: var(--blue);
+        font-size: 17px;
+        margin-bottom: 7px;
+      }
+
+      #qm-guide .qm-responsibility p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       STEPS
+    ========================================= */
+
+      #qm-guide .qm-steps {
+        margin: 14px 0;
+      }
+
+      #qm-guide .qm-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 15px;
+      }
+
+      #qm-guide .qm-step-num {
+        display: grid;
+        place-items: center;
+        flex: 0 0 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--blue);
+        color: white;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      #qm-guide .qm-step-body {
+        flex: 1;
+        padding-top: 3px;
+      }
+
+      #qm-guide .qm-step-body strong {
+        display: block;
+        color: var(--blue);
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      #qm-guide .qm-step-body p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       PRACTICE QUESTION
+    ========================================= */
+
+      #qm-guide .qm-quiz {
+        margin-top: 20px;
+        padding-top: 19px;
+        border-top: 1px solid #d0e4ec;
+      }
+
+      #qm-guide .qm-quiz-tag {
+        display: inline-block;
+        background: var(--teal);
+        color: var(--blue);
+        border-radius: 999px;
+        padding: 6px 11px;
+        margin-bottom: 12px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+      }
+
+      #qm-guide .qm-question {
+        font-size: 15px;
+        color: var(--blue);
+        font-weight: 800;
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+
+      #qm-guide .qm-choices {
+        display: grid;
+        gap: 9px;
+      }
+
+      #qm-guide .qm-choice {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        width: 100%;
+        text-align: left;
+        padding: 13px;
+        border: 1.5px solid #cbdee8;
+        border-radius: 12px;
+        background: white;
+        color: var(--ink);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      #qm-guide .qm-letter {
+        display: grid;
+        place-items: center;
+        flex: 0 0 25px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #eaf1f7;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      #qm-guide .qm-choice-text {
+        flex: 1;
+      }
+
+      #qm-guide .qm-choice-mark {
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      /* Correct = green */
+
+      #qm-guide .qm-choice.qm-correct {
+        background: #e1f5e9;
+        border-color: #168653;
+        color: #155c3b;
+      }
+
+      #qm-guide .qm-correct .qm-letter {
+        background: #168653;
+        color: white;
+      }
+
+      /* Incorrect = red */
+
+      #qm-guide .qm-choice.qm-wrong {
+        background: #ffeaed;
+        border-color: #d23954;
+        color: #a5233a;
+      }
+
+      #qm-guide .qm-wrong .qm-letter {
+        background: #d23954;
+        color: white;
+      }
+
+      #qm-guide .qm-choice.qm-muted {
+        opacity: 0.6;
+      }
+
+      #qm-guide .qm-choice:disabled {
+        cursor: default;
+      }
+
+      #qm-guide .qm-feedback {
+        padding: 13px;
+        margin-top: 13px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #qm-guide .qm-feedback.good {
+        background: #e1f5e9;
+        color: #155c3b;
+      }
+
+      #qm-guide .qm-feedback.bad {
+        background: #ffeaed;
+        color: #a5233a;
+      }
+
+      #qm-guide .qm-retry {
+        margin-top: 11px;
+        padding: 9px 15px;
+        background: white;
+        color: var(--blue);
+        border: 1px solid #bdd6e3;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* =========================================
+       CAROUSEL
+    ========================================= */
+
+      #qm-guide .qm-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 15px 0 9px;
+        padding: 11px;
+        background: #eef7fb;
+        border-radius: 16px;
+      }
+
+      #qm-guide .qm-arrow {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        border: 1px solid #bdd7e4;
+        background: white;
+        color: var(--blue);
+        border-radius: 50%;
+        font-size: 24px;
+      }
+
+      #qm-guide .qm-arrow:disabled,
+      #qm-guide .qm-nav-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #qm-guide .qm-carousel-middle {
+        min-width: 0;
+        text-align: center;
+      }
+
+      #qm-guide .qm-carousel-middle strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #qm-guide .qm-carousel-middle small {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      #qm-guide .qm-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #qm-guide .qm-dot {
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border: 0;
+        background: #b9d5e2;
+        border-radius: 999px;
+      }
+
+      #qm-guide .qm-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* =========================================
+       MAIN NAVIGATION
+    ========================================= */
+
+      #qm-guide .qm-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 19px;
+        border-top: 1px solid #e6eef3;
+        background: white;
+      }
+
+      #qm-guide .qm-nav-btn {
+        min-height: 52px;
+        border: 0;
+        border-radius: 999px;
+        padding: 14px 18px;
+        font-weight: 800;
+      }
+
+      #qm-guide .qm-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+
+      #qm-guide .qm-next {
+        flex: 1;
+        background: var(--blue);
+        color: white;
+      }
+
+      #qm-guide .qm-footer {
+        padding: 0 20px 15px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       MOBILE RESPONSIVENESS
+    ========================================= */
+
+      @media (max-width: 390px) {
+        #qm-guide {
+          border-radius: 15px;
+        }
+
+        #qm-guide .qm-header {
+          padding: 17px 16px 22px;
+        }
+
+        #qm-guide .qm-main {
+          padding: 16px 14px 8px;
+        }
+
+        #qm-guide .qm-card {
+          padding: 16px;
+        }
+
+        #qm-guide .qm-actions {
+          padding: 14px;
+        }
+
+        #qm-guide .qm-cycle-item {
+          padding: 11px;
+        }
+
+        #qm-guide .qm-fact-number {
+          font-size: 27px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #qm-guide .qm-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="qm-guide"
+      role="region"
+      aria-label="Quality Management Plan Training"
+    >
+      <!-- HEADER -->
+
+      <header class="qm-header">
+        <div class="qm-top">
+          <div>
+            <img
+              class="qm-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+
+            <span class="qm-logo-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button type="button" class="qm-skip" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="qm-eyebrow" id="qm-eyebrow"></div>
+
+        <h1 id="qm-heading"></h1>
+
+        <p class="qm-lead" id="qm-lead"></p>
+      </header>
+
+      <!-- MAIN CONTENT -->
+
+      <main class="qm-main">
+        <div class="qm-status" aria-live="polite">
+          <strong id="qm-count"></strong>
+          <span id="qm-remaining"></span>
+        </div>
+
+        <div
+          id="qm-progress"
+          class="qm-progress"
+          role="progressbar"
+          aria-label="Training screen position"
+          aria-valuemin="1"
+          aria-valuemax="5"
+        >
+          <div class="qm-fill" id="qm-fill"></div>
+        </div>
+
+        <section id="qm-card" class="qm-card" aria-live="polite"></section>
+
+        <div id="qm-carousel-host"></div>
+      </main>
+
+      <!-- NAVIGATION -->
+
+      <footer class="qm-actions">
+        <button
+          type="button"
+          id="qm-back"
+          class="qm-nav-btn qm-back"
+          data-action="back"
+        >
+          ← Back
+        </button>
+
+        <button
+          type="button"
+          id="qm-next"
+          class="qm-nav-btn qm-next"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="qm-footer">
+        Swipe or use the arrows to explore each topic. The practice question is
+        ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ==========================================
+        // HELPERS
+        // ==========================================
+
+        const root = document.getElementById("qm-guide");
+
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        const bullets = (items) => `
+        <ul class="qm-list">
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (heading, text) => `
+        <div class="qm-info">
+          <strong>${heading}</strong>
+          <div>${text}</div>
+        </div>
+      `;
+
+        const responsibility = (heading, text) => `
+        <div class="qm-responsibility">
+          <small>YOUR RESPONSIBILITY</small>
+          <strong>${heading}</strong>
+          <p>${text}</p>
+        </div>
+      `;
+
+        const cycle = (items) => `
+        <div class="qm-cycle">
+
+          ${items
+            .map(
+              (item, index) => `
+            <div class="qm-cycle-item">
+
+              <div class="qm-cycle-heading">
+                <span class="qm-cycle-num">
+                  ${index + 1}
+                </span>
+
+                <strong>${item[0]}</strong>
+              </div>
+
+              <p>${item[1]}</p>
+
+            </div>
+          `,
+            )
+            .join("")}
+
+        </div>
+
+        <div class="qm-cycle-repeat">
+          <span aria-hidden="true">↻</span>
+          Continuous improvement
+        </div>
+      `;
+
+        const fact = (number, text) => `
+        <div class="qm-fact">
+          <span class="qm-fact-number">
+            ${number}
+          </span>
+
+          <div class="qm-fact-text">
+            ${text}
+          </div>
+        </div>
+      `;
+
+        const steps = (items) => `
+        <div class="qm-steps">
+
+          ${items
+            .map(
+              (item, index) => `
+            <div class="qm-step">
+
+              <span class="qm-step-num">
+                ${index + 1}
+              </span>
+
+              <div class="qm-step-body">
+                <strong>${item[0]}</strong>
+                <p>${item[1]}</p>
+              </div>
+
+            </div>
+          `,
+            )
+            .join("")}
+
+        </div>
+      `;
+
+        const quiz = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          content,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          content,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ==========================================
+        // TRAINING CONTENT
+        //
+        // Source: 365 Health Services
+        // Quality Management Plan
+        // September 2021.
+        //
+        // Management should confirm the current
+        // survey and record-review requirements.
+        // ==========================================
+
+        const pages = [
+          // ========================================
+          // SCREEN 1 — INTRODUCTION
+          // ========================================
+
+          page(
+            "Quality Matters",
+
+            "Learn how 365 Health Services evaluates care, identifies problems, and improves services.",
+
+            [
+              card(
+                "What is Quality Management?",
+
+                `
+              <p>
+                <strong>Quality Management (QM)</strong>
+                is the agency's process for evaluating
+                services against applicable standards
+                and identifying opportunities for
+                improvement.
+              </p>
+
+              <p>
+                When problems are found, the agency
+                reviews them and makes necessary
+                changes to its care and operations.
+              </p>
+
+              <h3>The Quality Improvement Cycle</h3>
+
+              ${cycle([
+                ["Listen", "Collect client and family feedback."],
+
+                ["Review", "Evaluate records, complaints and incidents."],
+
+                ["Improve", "Address problems and update practices."],
+
+                ["Repeat", "Monitor results and continue improving."],
+              ])}
+
+              ${info(
+                "The goal",
+                "Provide reliable, safe, and high-quality care that meets client needs.",
+              )}
+              `,
+
+                "QUALITY MANAGEMENT",
+              ),
+            ],
+
+            "GETTING STARTED",
+          ),
+
+          // ========================================
+          // SCREEN 2 — MEASURING QUALITY
+          // ========================================
+
+          page(
+            "How We Measure Quality",
+
+            "The agency reviews feedback, records, and complaints to identify opportunities for improvement.",
+
+            [
+              // CARD 1
+
+              card(
+                "Client Satisfaction Surveys",
+
+                `
+              <p>
+                Satisfaction surveys help the agency
+                understand how clients and their
+                families feel about services.
+              </p>
+
+              ${bullets([
+                "The September 2021 plan describes annual surveys for clients and families.",
+
+                "It also describes surveys at the time of discharge or transfer.",
+
+                "Responses help identify concerns, service strengths and areas needing attention.",
+              ])}
+
+              ${responsibility(
+                "Respect client feedback",
+                "Listen to concerns and direct complaints through the agency's approved process. Never discourage honest feedback.",
+              )}
+              `,
+
+                "CLIENT FEEDBACK",
+              ),
+
+              // CARD 2
+
+              card(
+                "Client Record Reviews",
+
+                `
+              <p>
+                The agency reviews randomly selected
+                records from active and inactive
+                client cases.
+              </p>
+
+              <p>
+                Reviews help determine whether:
+              </p>
+
+              ${bullets([
+                "Care plans adequately address client needs.",
+
+                "Records contain reliable, valid and accurate information.",
+              ])}
+
+              ${fact(
+                "5%",
+                "The 2021 Quality Management Plan specifies a review sample of 5% of the agency's client census. The current target should be confirmed with management.",
+              )}
+
+              ${info(
+                "Independent review",
+                "The original plan states that staff directly involved in a client's care do not conduct that client's formal record review.",
+              )}
+
+              ${responsibility(
+                "Keep your documentation accurate",
+                "Record the services you actually provide and follow approved correction procedures when an error is found.",
+              )}
+              `,
+
+                "RECORD QUALITY",
+              ),
+
+              // CARD 3
+
+              card(
+                "Complaints & Concerns",
+
+                `
+              <p>
+                Client complaints are another
+                important source of information
+                about service quality.
+              </p>
+
+              ${bullets([
+                "The agency responds to concerns according to its complaint policy.",
+
+                "Complaint logs help management identify recurring issues.",
+
+                "The 2021 plan describes periodic reviews of complaint information and trends.",
+              ])}
+
+              ${info(
+                "Remember",
+                "A complaint is not something to hide. Reporting it helps the agency recognize problems and improve care.",
+              )}
+
+              <p>
+                The separate Client Complaint
+                Resolution guide explains how staff
+                should receive and report concerns.
+              </p>
+              `,
+
+                "CUSTOMER CONCERNS",
+              ),
+            ],
+
+            "QUALITY INDICATORS",
+          ),
+
+          // ========================================
+          // SCREEN 3 — IMPROVEMENT
+          // ========================================
+
+          page(
+            "When Problems Are Found",
+
+            "The purpose of reviewing quality is to recognize issues and take action.",
+
+            [
+              // CARD 1
+
+              card(
+                "Incidents & Adverse Events",
+
+                `
+              <p>
+                The Quality Management Plan includes
+                reports of adverse events and
+                reportable incidents.
+              </p>
+
+              ${bullets([
+                "Incidents are reviewed to identify concerns affecting client health or safety.",
+
+                "The agency is responsible for applicable regulatory reporting and management follow-up.",
+
+                "Additional reporting requirements may apply depending on the incident and program.",
+              ])}
+
+              ${info(
+                "Your responsibility",
+                "Protect client safety and promptly follow the agency's incident-reporting process. Do not wait for a quality review to raise an urgent concern.",
+              )}
+
+              <p>
+                Refer to the Critical Incident
+                Reporting guide for additional
+                employee reporting responsibilities.
+              </p>
+              `,
+
+                "PATIENT SAFETY",
+              ),
+
+              // CARD 2
+
+              card(
+                "Turning Findings Into Improvements",
+
+                `
+              <p>
+                Quality Management is not just about
+                collecting information. Findings can
+                lead to improvements in the way
+                care is delivered.
+              </p>
+
+              ${steps([
+                [
+                  "Identify the problem",
+                  "Review feedback, care records or incident trends.",
+                ],
+
+                [
+                  "Take corrective action",
+                  "Management determines appropriate changes to agency practices.",
+                ],
+
+                [
+                  "Educate staff",
+                  "Share relevant updates through training, discussion or in-service education.",
+                ],
+
+                [
+                  "Review the results",
+                  "Continue evaluating whether services have improved.",
+                ],
+              ])}
+
+              ${info(
+                "Management oversight",
+                "The 2021 plan assigns the Executive Director responsibility for monitoring key quality areas, summarizing results annually and initiating program improvements.",
+              )}
+              `,
+
+                "PERFORMANCE IMPROVEMENT",
+              ),
+            ],
+
+            "CONTINUOUS IMPROVEMENT",
+          ),
+
+          // ========================================
+          // SCREEN 4 — YOUR ROLE
+          // ========================================
+
+          page(
+            "Your Role in Quality",
+
+            "Every caregiver contributes to quality, even when management conducts the formal reviews.",
+
+            [
+              card(
+                "Small Actions Make a Difference",
+
+                `
+              ${bullets([
+                "<strong>Follow the care plan.</strong> Provide authorized services according to the client's needs.",
+
+                "<strong>Document honestly.</strong> Record accurate visits and care activities.",
+
+                "<strong>Report concerns.</strong> Communicate changes in condition, safety incidents and client complaints.",
+
+                "<strong>Respect feedback.</strong> Listen to clients and families without dismissing their concerns.",
+
+                "<strong>Keep learning.</strong> Follow updated procedures and participate in required training.",
+              ])}
+
+              ${responsibility(
+                "Your records matter",
+                "Quality reviews depend on accurate information from the people providing care.",
+              )}
+              `,
+
+                "EVERYDAY RESPONSIBILITIES",
+
+                quiz(
+                  1,
+
+                  "You notice that your own visit record is missing information. What should you do?",
+
+                  [
+                    "Ignore it because management handles quality reviews.",
+
+                    "Correct the record using the approved documentation process and report any relevant concern.",
+
+                    "Invent the missing details so the record appears complete.",
+                  ],
+
+                  1,
+
+                  "Accurate records are essential to quality care. Follow approved correction procedures and never fabricate information.",
+                ),
+              ),
+            ],
+
+            "YOUR CONTRIBUTION",
+          ),
+
+          // ========================================
+          // SCREEN 5 — FINAL REVIEW
+          // ========================================
+
+          page(
+            "Better Care, Every Day",
+
+            "You've reached the end of the Quality Management overview.",
+
+            [
+              card(
+                "Five Things to Remember",
+
+                `
+              ${bullets([
+                "<strong>Quality Management</strong> helps the agency evaluate and improve services.",
+
+                "<strong>Feedback matters.</strong> Clients and families help identify care needs and concerns.",
+
+                "<strong>Accurate records matter.</strong> Documentation supports meaningful quality reviews.",
+
+                "<strong>Incidents and complaints</strong> must be communicated through the appropriate reporting process.",
+
+                "<strong>Improvement is ongoing.</strong> Staff training, corrective actions and reviews help strengthen care.",
+              ])}
+
+              ${info(
+                "Your biggest contribution",
+                "Provide appropriate care, keep accurate records, communicate concerns and follow updated agency procedures.",
+              )}
+
+              <p>
+                Use <strong>Back</strong> to review
+                or <strong>Start over</strong>
+                to revisit the guide.
+              </p>
+
+              <p>
+                Continue to the assessment using
+                Gimbal's own questionnaire controls.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ==========================================
+        // NAVIGATION STATE
+        // ==========================================
+
+        let currentPage = 0;
+        let skipped = false;
+        let touchStart = null;
+
+        const slidePositions = Array(pages.length).fill(0);
+
+        const quizAnswers = {};
+
+        const quizKey = () => `${currentPage}:${slidePositions[currentPage]}`;
+
+        // ==========================================
+        // RENDER PRACTICE QUESTION
+        // ==========================================
+
+        function renderQuiz(q) {
+          const selected = quizAnswers[quizKey()];
+          const answered = selected !== undefined;
+
+          const options = q.options
+            .map((option, i) => {
+              let cls = "";
+              let mark = "";
+
+              if (answered) {
+                if (i === q.correct) {
+                  cls = "qm-correct";
+                  mark = "✓";
+                } else if (i === selected) {
+                  cls = "qm-wrong";
+                  mark = "✕";
+                } else {
+                  cls = "qm-muted";
+                }
+              }
+
+              return `
+            <button
+              type="button"
+              class="qm-choice ${cls}"
+              data-action="choose"
+              data-choice="${i}"
+              ${answered ? "disabled" : ""}
+            >
+
+              <span class="qm-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="qm-choice-text">
+                ${option}
+              </span>
+
+              <span class="qm-choice-mark">
+                ${mark}
+              </span>
+
+            </button>
+          `;
+            })
+            .join("");
+
+          const feedback = !answered
+            ? ""
+            : `
+          <div
+            class="qm-feedback ${selected === q.correct ? "good" : "bad"}"
+            role="status"
+          >
+
+            <strong>
+              ${
+                selected === q.correct
+                  ? "✓ Correct!"
+                  : "✕ Not quite — the correct answer is green."
+              }
+            </strong>
+
+            <div style="margin-top:6px;">
+              ${q.explanation}
+            </div>
+
+          </div>
+
+          <button
+            type="button"
+            class="qm-retry"
+            data-action="retry"
+          >
+            Try again ↻
+          </button>
+        `;
+
+          return `
+          <div class="qm-quiz">
+
+            <span class="qm-quiz-tag">
+              PRACTICE CHECK ${q.number} OF 1
+            </span>
+
+            <div class="qm-question">
+              ${q.question}
+            </div>
+
+            <div class="qm-choices">
+              ${options}
+            </div>
+
+            ${feedback}
+
+          </div>
+        `;
+        }
+
+        // ==========================================
+        // RENDER CURRENT SCREEN
+        // ==========================================
+
+        function render() {
+          const p = pages[currentPage];
+          const slideIndex = slidePositions[currentPage];
+          const active = p.cards[slideIndex];
+
+          const total = pages.length;
+          const remaining = total - currentPage - 1;
+
+          // Header
+
+          $("qm-eyebrow").textContent = p.eyebrow;
+          $("qm-heading").textContent = p.title;
+
+          $("qm-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. Return to review the training before your assessment."
+              : p.lead;
+
+          // Main progress
+
+          $("qm-count").textContent = `Screen ${currentPage + 1} of ${total}`;
+
+          $("qm-remaining").textContent =
+            remaining === 0
+              ? "Final screen"
+              : `${remaining} screen${remaining === 1 ? "" : "s"} left`;
+
+          $("qm-fill").style.width = `${((currentPage + 1) / total) * 100}%`;
+
+          $("qm-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          // Active content card
+
+          $("qm-card").innerHTML = `
+          <div class="qm-kicker">
+            ${active.label}
+          </div>
+
+          <h2>${active.title}</h2>
+
+          ${active.content}
+
+          ${active.practice ? renderQuiz(active.practice) : ""}
+        `;
+
+          // ========================================
+          // INNER CAROUSEL
+          // ========================================
+
+          const count = p.cards.length;
+
+          if (count > 1) {
+            $("qm-carousel-host").innerHTML = `
+            <nav
+              class="qm-carousel"
+              aria-label="Content slides"
+            >
+
+              <button
+                type="button"
+                class="qm-arrow"
+                data-action="slide-back"
+                aria-label="Previous slide"
+                ${slideIndex === 0 ? "disabled" : ""}
+              >
+                ‹
+              </button>
+
+              <div class="qm-carousel-middle">
+
+                <strong>
+                  Slide ${slideIndex + 1} of ${count}
+                </strong>
+
+                <small>
+                  Swipe or use arrows
+                </small>
+
+                <div class="qm-dots">
+
+                  ${p.cards
+                    .map(
+                      (_, i) => `
+                    <button
+                      type="button"
+                      class="qm-dot"
+                      data-action="slide-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === slideIndex}"
+                    ></button>
+                  `,
+                    )
+                    .join("")}
+
+                </div>
+
+              </div>
+
+              <button
+                type="button"
+                class="qm-arrow"
+                data-action="slide-next"
+                aria-label="Next slide"
+                ${slideIndex === count - 1 ? "disabled" : ""}
+              >
+                ›
+              </button>
+
+            </nav>
+          `;
+          } else {
+            $("qm-carousel-host").innerHTML = "";
+          }
+
+          // Main navigation
+
+          $("qm-back").disabled = currentPage === 0;
+
+          $("qm-next").textContent =
+            currentPage === total - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === total - 1;
+        }
+
+        // ==========================================
+        // MAIN PAGE NAVIGATION
+        // ==========================================
+
+        function goPage(index) {
+          if (index < 0 || index >= pages.length) {
+            return;
+          }
+
+          currentPage = index;
+          render();
+
+          root.scrollIntoView({
+            behavior: "auto",
+            block: "start",
+          });
+        }
+
+        // ==========================================
+        // INNER SLIDE NAVIGATION
+        // ==========================================
+
+        function goSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          slidePositions[currentPage] = index;
+          render();
+        }
+
+        // ==========================================
+        // BUTTON EVENTS
+        // ==========================================
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-action]");
+
+          if (!btn || !root.contains(btn) || btn.disabled) {
+            return;
+          }
+
+          switch (btn.dataset.action) {
+            // Skip to final screen
+
+            case "skip":
+              skipped = true;
+              goPage(pages.length - 1);
+              break;
+
+            // Previous main screen
+
+            case "back":
+              goPage(currentPage - 1);
+              break;
+
+            // Next main screen / Restart
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+                slidePositions.fill(0);
+
+                Object.keys(quizAnswers).forEach(
+                  (key) => delete quizAnswers[key],
+                );
+
+                goPage(0);
+              } else {
+                goPage(currentPage + 1);
+              }
+              break;
+
+            // Previous inner slide
+
+            case "slide-back":
+              goSlide(slidePositions[currentPage] - 1);
+              break;
+
+            // Next inner slide
+
+            case "slide-next":
+              goSlide(slidePositions[currentPage] + 1);
+              break;
+
+            // Jump to selected slide
+
+            case "slide-jump":
+              goSlide(Number(btn.dataset.index));
+              break;
+
+            // ====================================
+            // PRACTICE ANSWER
+            // ====================================
+
+            case "choose": {
+              const key = quizKey();
+
+              if (quizAnswers[key] !== undefined) {
+                return;
+              }
+
+              quizAnswers[key] = Number(btn.dataset.choice);
+
+              render();
+              break;
+            }
+
+            // Retry practice question
+
+            case "retry":
+              delete quizAnswers[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        // ==========================================
+        // MOBILE SWIPE SUPPORT
+        // ==========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".qm-card")) {
+              return;
+            }
+
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart || !event.target.closest(".qm-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore ordinary vertical scrolling
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              goSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ==========================================
+        // INITIALIZE
+        // ==========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

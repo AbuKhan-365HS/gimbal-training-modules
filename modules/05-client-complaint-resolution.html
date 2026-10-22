@@ -1,0 +1,1987 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Client Complaint Resolution | 365 Health Services</title>
+
+    <style>
+      /* =========================================
+       BASE & BRANDING
+    ========================================= */
+
+      #complaint-guide,
+      #complaint-guide * {
+        box-sizing: border-box;
+      }
+
+      #complaint-guide {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        background: #ffffff;
+        color: var(--ink);
+        border: 1px solid #d8e9f0;
+        border-radius: 25px;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+      }
+
+      #complaint-guide button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #complaint-guide button:focus-visible,
+      #complaint-guide a:focus-visible,
+      #complaint-guide summary:focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+       HEADER
+    ========================================= */
+
+      #complaint-guide .cg-header {
+        background: var(--teal);
+        padding: 22px 22px 26px;
+      }
+
+      #complaint-guide .cg-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      #complaint-guide .cg-logo {
+        display: block;
+        width: min(180px, 43vw);
+        max-height: 58px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #complaint-guide .cg-logo-fallback {
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      #complaint-guide .cg-skip {
+        border: 0;
+        background: #ffffff;
+        color: var(--blue);
+        border-radius: 999px;
+        padding: 11px 17px;
+        font-weight: 700;
+      }
+
+      #complaint-guide .cg-eyebrow {
+        margin: 25px 0 10px;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      #complaint-guide h1 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(28px, 7vw, 42px);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      #complaint-guide .cg-lead {
+        margin: 15px 0 0;
+        color: #284967;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      /* =========================================
+       PROGRESS
+    ========================================= */
+
+      #complaint-guide .cg-main {
+        padding: 20px 20px 8px;
+      }
+
+      #complaint-guide .cg-status {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      #complaint-guide .cg-status strong {
+        color: var(--blue);
+      }
+
+      #complaint-guide .cg-progress {
+        height: 6px;
+        background: #e7eff4;
+        border-radius: 99px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      #complaint-guide .cg-fill {
+        height: 100%;
+        width: 0%;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* =========================================
+       CONTENT CARD
+    ========================================= */
+
+      #complaint-guide .cg-card {
+        background: #f7fbfd;
+        border: 1px solid #d5e8ee;
+        border-radius: 19px;
+        padding: 20px;
+        min-height: 210px;
+      }
+
+      #complaint-guide .cg-kicker {
+        margin-bottom: 9px;
+        color: #0089c5;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      #complaint-guide .cg-card h2 {
+        margin: 0 0 14px;
+        color: var(--blue);
+        font-size: clamp(21px, 5vw, 26px);
+        line-height: 1.2;
+      }
+
+      #complaint-guide .cg-card h3 {
+        margin: 15px 0 8px;
+        color: var(--blue);
+        font-size: 16px;
+      }
+
+      #complaint-guide .cg-card p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0 0 12px;
+      }
+
+      #complaint-guide .cg-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #complaint-guide .cg-list {
+        padding-left: 20px;
+        margin: 10px 0 0;
+      }
+
+      #complaint-guide .cg-list li {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        padding-left: 3px;
+      }
+
+      #complaint-guide .cg-list li::marker {
+        color: var(--sky);
+      }
+
+      /* =========================================
+       INFORMATION BOXES
+    ========================================= */
+
+      #complaint-guide .cg-info {
+        padding: 14px;
+        margin-top: 14px;
+        background: #e7f5fb;
+        border-left: 4px solid var(--sky);
+        border-radius: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #complaint-guide .cg-info strong {
+        color: var(--blue);
+      }
+
+      #complaint-guide .cg-alert {
+        margin-top: 14px;
+        padding: 14px;
+        background: #fff1f3;
+        border-left: 4px solid var(--pink);
+        border-radius: 9px;
+        color: #743342;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #complaint-guide .cg-alert strong {
+        color: #ae2442;
+      }
+
+      #complaint-guide .cg-principle {
+        padding: 16px;
+        margin: 14px 0;
+        background: #ffffff;
+        border: 1px solid #cae6ea;
+        border-radius: 14px;
+      }
+
+      #complaint-guide .cg-principle-tag {
+        margin-bottom: 8px;
+        color: #008ac7;
+        font-weight: 800;
+        font-size: 10px;
+        letter-spacing: 0.09em;
+      }
+
+      #complaint-guide .cg-principle strong {
+        display: block;
+        color: var(--blue);
+        font-size: 17px;
+        margin-bottom: 7px;
+      }
+
+      #complaint-guide .cg-principle p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       FIVE-STEP RESPONSE FLOW
+    ========================================= */
+
+      #complaint-guide .cg-steps {
+        margin: 18px 0;
+      }
+
+      #complaint-guide .cg-step {
+        display: flex;
+        gap: 13px;
+        align-items: stretch;
+      }
+
+      #complaint-guide .cg-step-rail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 0 0 34px;
+      }
+
+      #complaint-guide .cg-step-number {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--blue);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      #complaint-guide .cg-step-line {
+        width: 2px;
+        min-height: 17px;
+        flex: 1;
+        background: #a6d9e7;
+        margin: 5px 0;
+      }
+
+      #complaint-guide .cg-step-body {
+        flex: 1;
+        min-width: 0;
+        padding: 5px 0 19px;
+      }
+
+      #complaint-guide .cg-step-body strong {
+        display: block;
+        color: var(--blue);
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+
+      #complaint-guide .cg-step-body p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       EXAMPLE RESPONSES
+    ========================================= */
+
+      #complaint-guide .cg-example {
+        margin: 12px 0;
+        border: 1px solid #d2e5ec;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 14px;
+      }
+
+      #complaint-guide .cg-example.good {
+        border-left: 4px solid #188653;
+      }
+
+      #complaint-guide .cg-example.bad {
+        border-left: 4px solid var(--pink);
+      }
+
+      #complaint-guide .cg-example-label {
+        font-size: 11px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      #complaint-guide .cg-example.good .cg-example-label {
+        color: #167246;
+      }
+
+      #complaint-guide .cg-example.bad .cg-example-label {
+        color: #b02946;
+      }
+
+      #complaint-guide .cg-example p {
+        margin: 0;
+      }
+
+      /* =========================================
+       EXPANDABLE CONTACTS
+    ========================================= */
+
+      #complaint-guide .cg-contact {
+        margin-top: 10px;
+        border: 1px solid #cce2eb;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      #complaint-guide .cg-contact summary {
+        cursor: pointer;
+        padding: 15px;
+        color: var(--blue);
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      #complaint-guide .cg-contact[open] summary {
+        border-bottom: 1px solid #dcebf0;
+      }
+
+      #complaint-guide .cg-contact-body {
+        padding: 14px 15px 16px;
+      }
+
+      #complaint-guide .cg-contact-body p {
+        font-size: 13px;
+      }
+
+      #complaint-guide .cg-phone {
+        display: inline-block;
+        margin: 5px 0 10px;
+        padding: 10px 15px;
+        border-radius: 999px;
+        background: var(--blue);
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 14px;
+        text-decoration: none;
+      }
+
+      #complaint-guide .cg-source {
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: underline;
+        overflow-wrap: anywhere;
+      }
+
+      /* =========================================
+       TIMELINE
+    ========================================= */
+
+      #complaint-guide .cg-timeline {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin: 16px 0;
+      }
+
+      #complaint-guide .cg-time-item {
+        background: #ffffff;
+        border: 1px solid #cce2eb;
+        border-radius: 13px;
+        padding: 14px;
+      }
+
+      #complaint-guide .cg-time-item strong {
+        display: block;
+        color: var(--blue);
+        font-size: 24px;
+        line-height: 1.1;
+        margin-bottom: 7px;
+      }
+
+      #complaint-guide .cg-time-item span {
+        font-size: 12px;
+        line-height: 1.45;
+        display: block;
+      }
+
+      /* =========================================
+       PRACTICE QUESTIONS
+    ========================================= */
+
+      #complaint-guide .cg-quiz {
+        margin-top: 21px;
+        border-top: 1px solid #d0e4eb;
+        padding-top: 19px;
+      }
+
+      #complaint-guide .cg-quiz-label {
+        display: inline-block;
+        background: var(--teal);
+        color: var(--blue);
+        border-radius: 999px;
+        padding: 6px 11px;
+        margin-bottom: 12px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      #complaint-guide .cg-question {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-bottom: 14px;
+        color: var(--blue);
+      }
+
+      #complaint-guide .cg-choices {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      #complaint-guide .cg-choice {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 13px;
+        border: 1.5px solid #cbdfe8;
+        border-radius: 12px;
+        background: #ffffff;
+        color: var(--ink);
+        text-align: left;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      #complaint-guide .cg-letter {
+        width: 25px;
+        height: 25px;
+        flex: 0 0 25px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #eaf1f7;
+        color: var(--blue);
+        font-weight: 800;
+        font-size: 11px;
+      }
+
+      #complaint-guide .cg-choice-text {
+        flex: 1;
+      }
+
+      #complaint-guide .cg-choice-icon {
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      #complaint-guide .cg-choice.cg-correct {
+        background: #e1f5e9;
+        border-color: #188653;
+        color: #155c3b;
+      }
+
+      #complaint-guide .cg-correct .cg-letter {
+        background: #188653;
+        color: #ffffff;
+      }
+
+      #complaint-guide .cg-choice.cg-wrong {
+        background: #ffeaed;
+        border-color: #d23954;
+        color: #a5233a;
+      }
+
+      #complaint-guide .cg-wrong .cg-letter {
+        background: #d23954;
+        color: #ffffff;
+      }
+
+      #complaint-guide .cg-choice.cg-muted {
+        opacity: 0.6;
+      }
+
+      #complaint-guide .cg-choice:disabled {
+        cursor: default;
+      }
+
+      #complaint-guide .cg-feedback {
+        margin-top: 13px;
+        border-radius: 10px;
+        padding: 13px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #complaint-guide .cg-feedback.good {
+        background: #e1f5e9;
+        color: #155c3b;
+      }
+
+      #complaint-guide .cg-feedback.bad {
+        background: #ffeaed;
+        color: #a5233a;
+      }
+
+      #complaint-guide .cg-retry {
+        margin-top: 11px;
+        padding: 9px 15px;
+        border: 1px solid #bdd6e3;
+        border-radius: 999px;
+        background: #ffffff;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* =========================================
+       CAROUSEL
+    ========================================= */
+
+      #complaint-guide .cg-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 11px;
+        margin: 15px 0 9px;
+        background: #eef7fb;
+        border-radius: 16px;
+      }
+
+      #complaint-guide .cg-arrow {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        border: 1px solid #bfd9e5;
+        background: #ffffff;
+        color: var(--blue);
+        border-radius: 50%;
+        font-size: 24px;
+      }
+
+      #complaint-guide .cg-arrow:disabled,
+      #complaint-guide .cg-nav-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #complaint-guide .cg-carousel-center {
+        text-align: center;
+        min-width: 0;
+      }
+
+      #complaint-guide .cg-carousel-center strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #complaint-guide .cg-carousel-center small {
+        display: block;
+        margin-top: 3px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      #complaint-guide .cg-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #complaint-guide .cg-dot {
+        width: 8px;
+        height: 8px;
+        border: 0;
+        padding: 0;
+        border-radius: 999px;
+        background: #bad5e3;
+      }
+
+      #complaint-guide .cg-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* =========================================
+       MAIN NAVIGATION
+    ========================================= */
+
+      #complaint-guide .cg-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 19px;
+        border-top: 1px solid #e5edf2;
+        background: #ffffff;
+      }
+
+      #complaint-guide .cg-nav-btn {
+        min-height: 52px;
+        border: 0;
+        border-radius: 999px;
+        padding: 14px 18px;
+        font-weight: 800;
+      }
+
+      #complaint-guide .cg-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+
+      #complaint-guide .cg-next {
+        flex: 1;
+        background: var(--blue);
+        color: #ffffff;
+      }
+
+      #complaint-guide .cg-footer {
+        padding: 0 20px 15px;
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       MOBILE
+    ========================================= */
+
+      @media (max-width: 390px) {
+        #complaint-guide {
+          border-radius: 15px;
+        }
+
+        #complaint-guide .cg-header {
+          padding: 18px 17px 23px;
+        }
+
+        #complaint-guide .cg-main {
+          padding: 16px 14px 8px;
+        }
+
+        #complaint-guide .cg-card {
+          padding: 16px;
+        }
+
+        #complaint-guide .cg-actions {
+          padding: 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #complaint-guide .cg-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="complaint-guide"
+      role="region"
+      aria-label="Client and Participant Complaint Resolution Training"
+    >
+      <!-- HEADER -->
+
+      <header class="cg-header">
+        <div class="cg-top">
+          <div>
+            <img
+              class="cg-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+
+            <span class="cg-logo-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button type="button" class="cg-skip" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="cg-eyebrow" id="cg-eyebrow"></div>
+
+        <h1 id="cg-heading"></h1>
+
+        <p id="cg-lead" class="cg-lead"></p>
+      </header>
+
+      <!-- CONTENT -->
+
+      <main class="cg-main">
+        <div class="cg-status" aria-live="polite">
+          <strong id="cg-page-count"></strong>
+          <span id="cg-remaining"></span>
+        </div>
+
+        <div
+          class="cg-progress"
+          id="cg-progress"
+          role="progressbar"
+          aria-label="Current screen position"
+          aria-valuemin="1"
+          aria-valuemax="6"
+        >
+          <div id="cg-fill" class="cg-fill"></div>
+        </div>
+
+        <section id="cg-card" class="cg-card" aria-live="polite"></section>
+
+        <div id="cg-carousel-host"></div>
+      </main>
+
+      <!-- MAIN NAVIGATION -->
+
+      <footer class="cg-actions">
+        <button
+          type="button"
+          class="cg-nav-btn cg-back"
+          id="cg-back"
+          data-action="back"
+        >
+          ← Back
+        </button>
+
+        <button
+          type="button"
+          class="cg-nav-btn cg-next"
+          id="cg-next"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="cg-footer">
+        Swipe cards or use the arrows to explore each topic. Practice questions
+        are ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ==========================================
+        // HELPERS
+        // ==========================================
+
+        const root = document.getElementById("complaint-guide");
+
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        const bullets = (items) => `
+        <ul class="cg-list">
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (heading, content) => `
+        <div class="cg-info">
+          <strong>${heading}</strong>
+          <div>${content}</div>
+        </div>
+      `;
+
+        const alertBox = (heading, content) => `
+        <div class="cg-alert">
+          <strong>${heading}</strong>
+          <div>${content}</div>
+        </div>
+      `;
+
+        const principle = (heading, content) => `
+        <div class="cg-principle">
+          <div class="cg-principle-tag">
+            KEY PRINCIPLE
+          </div>
+
+          <strong>${heading}</strong>
+          <p>${content}</p>
+        </div>
+      `;
+
+        const steps = (items) => `
+        <div class="cg-steps">
+          ${items
+            .map(
+              (item, index) => `
+            <div class="cg-step">
+
+              <div class="cg-step-rail">
+                <span class="cg-step-number">
+                  ${index + 1}
+                </span>
+
+                ${
+                  index < items.length - 1
+                    ? '<span class="cg-step-line"></span>'
+                    : ""
+                }
+              </div>
+
+              <div class="cg-step-body">
+                <strong>${item.title}</strong>
+                <p>${item.description}</p>
+              </div>
+
+            </div>
+          `,
+            )
+            .join("")}
+        </div>
+      `;
+
+        const example = (good, content) => `
+        <div class="cg-example ${good ? "good" : "bad"}">
+          <div class="cg-example-label">
+            ${good ? "✓ SAY THIS" : "✕ AVOID THIS"}
+          </div>
+          <p>${content}</p>
+        </div>
+      `;
+
+        const quiz = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          content,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          content,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ==========================================
+        // TRAINING CONTENT
+        //
+        // Based on:
+        // 365 Health Services
+        // Client/Participant Complaint Resolution
+        // September 2021 presentation.
+        //
+        // Internal contacts and deadlines should
+        // be checked against current agency policy.
+        // ==========================================
+
+        const pages = [
+          // ========================================
+          // SCREEN 1 — EVERY COMPLAINT MATTERS
+          // ========================================
+
+          page(
+            "Every Complaint Matters",
+
+            "A client should never feel afraid or ignored when raising a concern about their care.",
+
+            [
+              card(
+                "What counts as a complaint?",
+
+                `
+              <p>
+                A complaint is an expression of
+                <strong>dissatisfaction with any
+                aspect of services or program
+                operations</strong>, including
+                services that were not received.
+              </p>
+
+              ${bullets([
+                "A missed or incomplete visit",
+                "A concern about a caregiver's behavior",
+                "Dissatisfaction with service quality",
+                "Discrimination or unfair treatment",
+                "Problems that the client believes have not been resolved",
+              ])}
+
+              ${principle(
+                "A complaint doesn't have to be written",
+                "A client may tell a staff member verbally or submit a written concern.",
+              )}
+              `,
+
+                "UNDERSTANDING COMPLAINTS",
+              ),
+
+              card(
+                "The right to speak up",
+
+                `
+              <p>
+                Clients have the right to raise concerns
+                about their services without fear
+                of punishment.
+              </p>
+
+              ${bullets([
+                "A complaint must not lead to retaliation.",
+                "The agency must not discriminate against a client for complaining.",
+                "A client may use the agency's complaint process or contact an appropriate external organization.",
+                "Staff must take concerns seriously, even if they believe the problem is minor.",
+              ])}
+
+              ${alertBox(
+                "Never discourage a complaint",
+                "Do not pressure a client to withdraw a complaint or suggest that speaking up could result in losing services.",
+              )}
+              `,
+
+                "CLIENT RIGHTS",
+              ),
+            ],
+
+            "COMPLAINT RESOLUTION",
+          ),
+
+          // ========================================
+          // SCREEN 2 — WHEN A CLIENT COMPLAINS
+          // ========================================
+
+          page(
+            "When a Client Complains",
+
+            "Your first response matters. Listen respectfully, check safety, and make sure the concern reaches the right people.",
+
+            [
+              card(
+                "Follow these five steps",
+
+                `
+              ${steps([
+                {
+                  title: "Listen carefully",
+                  description:
+                    "Let the client explain the concern. Do not argue, interrupt, or dismiss what they say.",
+                },
+                {
+                  title: "Check immediate safety",
+                  description:
+                    "If someone is in danger, follow emergency or critical-incident procedures immediately.",
+                },
+                {
+                  title: "Respect their rights",
+                  description:
+                    "Reassure the client that they may raise a complaint without retaliation.",
+                },
+                {
+                  title: "Report promptly",
+                  description:
+                    "Follow the agency's complaint-reporting process. The 2021 training directs staff to report complaints immediately to the Executive Director.",
+                },
+                {
+                  title: "Document and follow through",
+                  description:
+                    "Provide accurate details for the complaint record and cooperate with the agency's follow-up process.",
+                },
+              ])}
+
+              ${info(
+                "Important",
+                "A staff member may address an immediate service concern, but that does not eliminate the client's right to file a formal complaint.",
+              )}
+              `,
+
+                "YOUR RESPONSE",
+              ),
+
+              card(
+                "What should you say?",
+
+                `
+              <p>
+                When a client is upset, use calm,
+                respectful language and explain
+                what you can do next.
+              </p>
+
+              ${example(
+                true,
+                '"Thank you for telling me. I understand this is important, and I will report your concern through the agency\'s process."',
+              )}
+
+              ${example(
+                false,
+                '"That is not a big deal. I am sure nobody meant anything by it."',
+              )}
+
+              ${example(
+                false,
+                '"Please do not tell the office. I can keep this between us."',
+              )}
+
+              ${info(
+                "Remember",
+                "You can protect a client's privacy, but do not promise absolute secrecy or conceal a reportable concern.",
+              )}
+              `,
+
+                "COMMUNICATION",
+
+                quiz(
+                  1,
+
+                  "A client says another caregiver was disrespectful but asks you not to tell the office. What should you do?",
+
+                  [
+                    "Promise not to tell anyone.",
+                    "Tell the client the complaint is not important.",
+                    "Listen respectfully and explain that you must follow the agency's reporting process.",
+                  ],
+
+                  2,
+
+                  "Listen without judgment, avoid promising secrecy, and ensure the concern is reported through the required process.",
+                ),
+              ),
+            ],
+
+            "STAFF RESPONSIBILITIES",
+          ),
+
+          // ========================================
+          // SCREEN 3 — CLIENT RIGHTS & PROTECTION
+          // ========================================
+
+          page(
+            "Client Rights & Protection",
+
+            "Every client must have a meaningful opportunity to raise a complaint without fear or unnecessary barriers.",
+
+            [
+              card(
+                "No retaliation. No discrimination.",
+
+                `
+              <p>
+                365 Health Services' complaint policy
+                states that filing a complaint must
+                not result in:
+              </p>
+
+              ${bullets([
+                "Disruption of services as retaliation",
+                "Reprisal or punishment",
+                "Discriminatory treatment",
+              ])}
+
+              ${principle(
+                "Protect the client's voice",
+                "Clients should feel safe reporting missed visits, poor treatment, discrimination, and other concerns.",
+              )}
+              `,
+
+                "CLIENT PROTECTION",
+
+                quiz(
+                  2,
+
+                  "A client wants to complain about missed visits but worries their services will be stopped. What should you explain?",
+
+                  [
+                    "The agency's policy prohibits retaliation for filing a complaint, and you can help direct the concern appropriately.",
+                    "Complaining may cause the agency to stop their visits.",
+                    "They should stay quiet unless the problem happens again.",
+                  ],
+
+                  0,
+
+                  "Clients have the right to raise complaints without retaliation, discrimination, or retaliatory disruption of their services.",
+                ),
+              ),
+
+              card(
+                "Accessible complaint options",
+
+                `
+              <p>
+                The agency must make appropriate
+                arrangements so that clients with
+                disabilities can participate in
+                the complaint process.
+              </p>
+
+              ${bullets([
+                "Communication assistance, such as qualified interpreters when needed",
+                "Accessible written or audio information",
+                "Accessible locations and other reasonable accommodations",
+              ])}
+
+              <h3>External complaint contacts</h3>
+
+              <p>
+                Clients may also have the option
+                to contact outside agencies.
+                Tap a contact below to view details.
+              </p>
+
+              <details class="cg-contact">
+                <summary>
+                  PA Department of Health — Home Health Complaints
+                </summary>
+
+                <div class="cg-contact-body">
+                  <p>
+                    For concerns about home health agencies
+                    regulated by the Pennsylvania
+                    Department of Health.
+                  </p>
+
+                  <a class="cg-phone" href="tel:+18002545164">
+                    Call 1-800-254-5164
+                  </a>
+
+                  <p>
+                    This is a complaint contact number.
+                    Do not assume a live representative
+                    is available 24 hours a day.
+                  </p>
+
+                  <a
+                    class="cg-source"
+                    href="https://www.pa.gov/agencies/health/contact-us/customer-service"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Official PA Department of Health information
+                  </a>
+                </div>
+              </details>
+
+              <details class="cg-contact">
+                <summary>
+                  HHS Office for Civil Rights
+                </summary>
+
+                <div class="cg-contact-body">
+                  <p>
+                    For applicable federal civil rights
+                    and discrimination complaints.
+                  </p>
+
+                  <a class="cg-phone" href="tel:+18003681019">
+                    Call 1-800-368-1019
+                  </a>
+
+                  <p>
+                    TDD: 1-800-537-7697
+                  </p>
+
+                  <a
+                    class="cg-source"
+                    href="https://www.hhs.gov/civil-rights/filing-a-complaint/index.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Official HHS complaint information
+                  </a>
+                </div>
+              </details>
+
+              <details class="cg-contact">
+                <summary>
+                  PA OLTL Participant Helpline
+                </summary>
+
+                <div class="cg-contact-body">
+                  <p>
+                    Enrolled Office of Long-Term Living
+                    participants may contact this helpline
+                    about concerns involving their services.
+                  </p>
+
+                  <a class="cg-phone" href="tel:+18007575042">
+                    Call 1-800-757-5042
+                  </a>
+
+                  <p>
+                    Published hours: Monday–Friday,
+                    9 AM–12 PM and 1–3 PM.
+                  </p>
+
+                  <a
+                    class="cg-source"
+                    href="https://www.pa.gov/agencies/dhs/departments-offices/oltl-info/oltl-bureau-coordinated-integrated-services"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Official PA OLTL information
+                  </a>
+                </div>
+              </details>
+
+              ${info(
+                "Your role",
+                "Do not prevent or discourage a client from using an appropriate external complaint process.",
+              )}
+              `,
+
+                "ACCESSIBILITY & RESOURCES",
+              ),
+            ],
+
+            "CLIENT RIGHTS",
+          ),
+
+          // ========================================
+          // SCREEN 4 — REPORTING & DOCUMENTATION
+          // ========================================
+
+          page(
+            "Reporting & Documentation",
+
+            "Complaints must be communicated promptly and accurately recorded using agency procedures.",
+
+            [
+              card(
+                "Report and record the concern",
+
+                `
+              <p>
+                The agency's 2021 training directs
+                employees to report complaints
+                immediately to the Executive Director.
+                Follow the current agency-approved
+                reporting contact and procedure.
+              </p>
+
+              <h3>Complaint documentation includes:</h3>
+
+              ${bullets([
+                "Name of the client",
+                "Date of the complaint",
+                "Nature of the concern",
+                "Actions taken by the agency",
+                "Whether the client was satisfied with the resolution",
+              ])}
+
+              ${info(
+                "Agency record",
+                "The presentation identifies the Customer Concern/Complaint Report Form. Give accurate information to the person responsible for completing and maintaining it.",
+              )}
+
+              ${alertBox(
+                "Do not invent or dismiss details",
+                "Describe what was reported and what you observed. Do not guess about whether a complaint is valid or promise a particular outcome.",
+              )}
+              `,
+
+                "COMPLAINT REPORTING",
+              ),
+
+              card(
+                "When safety is at risk",
+
+                `
+              <p>
+                Some concerns may also involve
+                abuse, neglect, injury, or immediate danger.
+              </p>
+
+              ${bullets([
+                "Prioritize the client's immediate safety.",
+                "Follow emergency procedures if urgent assistance is needed.",
+                "Follow applicable abuse, neglect, and critical-incident reporting requirements.",
+                "Make sure the complaint is also communicated through the correct agency process.",
+              ])}
+
+              ${alertBox(
+                "Safety comes first",
+                "Do not delay emergency assistance while completing routine complaint paperwork.",
+              )}
+              `,
+
+                "URGENT CONCERNS",
+
+                quiz(
+                  3,
+
+                  "A client says another caregiver left them unattended in an unsafe situation. What should you do?",
+
+                  [
+                    "Wait until the next scheduled office meeting.",
+                    "Check for immediate danger, follow emergency or incident procedures as needed, and promptly report the concern.",
+                    "Tell the client to discuss it directly with the other caregiver.",
+                  ],
+
+                  1,
+
+                  "Safety concerns may require urgent action and incident reporting in addition to the normal complaint process.",
+                ),
+              ),
+            ],
+
+            "ACCOUNTABILITY",
+          ),
+
+          // ========================================
+          // SCREEN 5 — RESOLUTION & FOLLOW-UP
+          // ========================================
+
+          page(
+            "Resolution & Follow-Up",
+
+            "The agency is responsible for investigating complaints, responding appropriately, and improving services.",
+
+            [
+              card(
+                "Formal grievance process",
+
+                `
+              <p>
+                The 2021 presentation describes an
+                internal timeline for grievances
+                alleging discrimination.
+              </p>
+
+              <div class="cg-timeline">
+
+                <div class="cg-time-item">
+                  <strong>30 days</strong>
+                  <span>
+                    File the internal discrimination
+                    grievance after becoming aware
+                    of the alleged action.
+                  </span>
+                </div>
+
+                <div class="cg-time-item">
+                  <strong>30 days</strong>
+                  <span>
+                    Agency issues an initial written
+                    grievance decision after filing.
+                  </span>
+                </div>
+
+                <div class="cg-time-item">
+                  <strong>15 days</strong>
+                  <span>
+                    Client or family may file a written
+                    appeal after receiving the decision.
+                  </span>
+                </div>
+
+                <div class="cg-time-item">
+                  <strong>30 days</strong>
+                  <span>
+                    Agency issues a written appeal
+                    decision after filing.
+                  </span>
+                </div>
+
+              </div>
+
+              ${info(
+                "Important distinction",
+                "These timeframes come from the September 2021 internal discrimination-grievance procedure and require current agency confirmation. They are not universal deadlines for every complaint.",
+              )}
+
+              <p>
+                The Executive Director is identified
+                in the presentation as responsible
+                for investigation, written decisions,
+                and maintaining grievance records.
+              </p>
+
+              ${alertBox(
+                "Never turn away a complaint",
+                "Employees should still receive and report concerns even if a person raises them after an internal filing period. External complaint processes may have different deadlines.",
+              )}
+              `,
+
+                "AGENCY GRIEVANCE PROCESS",
+              ),
+
+              card(
+                "Complaints help improve care",
+
+                `
+              <p>
+                365 Health Services' presentation
+                describes regular review of complaints
+                as part of its Quality Management process.
+              </p>
+
+              ${bullets([
+                "Track how many complaints are received and resolved.",
+                "Review whether clients are satisfied with outcomes.",
+                "Identify recurring service problems.",
+                "Use findings to support improvements.",
+                "Maintain complaint records for appropriate review.",
+              ])}
+
+              ${principle(
+                "Every concern is useful information",
+                "Accurate complaint records can help the agency identify problems and prevent them from happening again.",
+              )}
+
+              <p>
+                As a DCW, your responsibility is to
+                listen, report, and cooperate with
+                appropriate follow-up—not to decide
+                independently whether a complaint
+                is justified.
+              </p>
+              `,
+
+                "QUALITY IMPROVEMENT",
+              ),
+            ],
+
+            "RESOLVING CONCERNS",
+          ),
+
+          // ========================================
+          // SCREEN 6 — FINAL REVIEW
+          // ========================================
+
+          page(
+            "Protect Their Voice",
+
+            "You've reached the end of the Client/Participant Complaint Resolution guide.",
+
+            [
+              card(
+                "Five things to remember",
+
+                `
+              ${bullets([
+                "<strong>Listen.</strong> Take every complaint seriously, whether verbal or written.",
+
+                "<strong>Protect.</strong> Prioritize safety and respect the client's right to complain without retaliation.",
+
+                "<strong>Report.</strong> Promptly follow the agency's complaint and incident reporting procedures.",
+
+                "<strong>Document.</strong> Ensure accurate information reaches the designated complaint record.",
+
+                "<strong>Follow through.</strong> Cooperate with the agency's investigation and resolution process.",
+              ])}
+
+              ${principle(
+                "Every client has the right to be heard.",
+                "Every employee has the responsibility to take concerns seriously.",
+              )}
+
+              ${info(
+                "When unsure",
+                "Contact the appropriate agency supervisor or designated complaint contact. Do not conceal or dismiss a concern.",
+              )}
+
+              <p style="margin-top:16px;">
+                Select <strong>Back</strong> to review
+                the previous screen or
+                <strong>Start over</strong> to revisit
+                the guide.
+              </p>
+
+              <p>
+                Continue to the assessment using
+                Gimbal's own questionnaire controls.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ==========================================
+        // NAVIGATION STATE
+        // ==========================================
+
+        let currentPage = 0;
+        let skipped = false;
+
+        const slidePositions = Array(pages.length).fill(0);
+
+        const quizAnswers = {};
+
+        let touchStart = null;
+
+        function quizKey() {
+          return `${currentPage}:${slidePositions[currentPage]}`;
+        }
+
+        // ==========================================
+        // PRACTICE QUESTION RENDERING
+        // ==========================================
+
+        function renderQuiz(q) {
+          const selected = quizAnswers[quizKey()];
+          const answered = selected !== undefined;
+
+          const options = q.options
+            .map((option, i) => {
+              let cls = "";
+              let mark = "";
+
+              if (answered) {
+                if (i === q.correct) {
+                  cls = "cg-correct";
+                  mark = "✓";
+                } else if (i === selected) {
+                  cls = "cg-wrong";
+                  mark = "✕";
+                } else {
+                  cls = "cg-muted";
+                }
+              }
+
+              return `
+            <button
+              type="button"
+              class="cg-choice ${cls}"
+              data-action="choose"
+              data-choice="${i}"
+              ${answered ? "disabled" : ""}
+            >
+              <span class="cg-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="cg-choice-text">
+                ${option}
+              </span>
+
+              <span class="cg-choice-icon">
+                ${mark}
+              </span>
+            </button>
+          `;
+            })
+            .join("");
+
+          const feedback = !answered
+            ? ""
+            : `
+          <div
+            class="cg-feedback ${selected === q.correct ? "good" : "bad"}"
+            role="status"
+          >
+            <strong>
+              ${
+                selected === q.correct
+                  ? "✓ Correct!"
+                  : "✕ Not quite — the correct answer is green."
+              }
+            </strong>
+
+            <div style="margin-top:6px;">
+              ${q.explanation}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="cg-retry"
+            data-action="retry"
+          >
+            Try again ↻
+          </button>
+        `;
+
+          return `
+          <div class="cg-quiz">
+
+            <div class="cg-quiz-label">
+              PRACTICE CHECK ${q.number} OF 3
+            </div>
+
+            <div class="cg-question">
+              ${q.question}
+            </div>
+
+            <div class="cg-choices">
+              ${options}
+            </div>
+
+            ${feedback}
+
+          </div>
+        `;
+        }
+
+        // ==========================================
+        // RENDER CURRENT SCREEN
+        // ==========================================
+
+        function render() {
+          const p = pages[currentPage];
+          const slideIndex = slidePositions[currentPage];
+          const active = p.cards[slideIndex];
+
+          const total = pages.length;
+          const remaining = total - currentPage - 1;
+
+          // Header
+
+          $("cg-eyebrow").textContent = p.eyebrow;
+          $("cg-heading").textContent = p.title;
+
+          $("cg-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. You can return to review the guide before the assessment."
+              : p.lead;
+
+          // Screen progress
+
+          $("cg-page-count").textContent =
+            `Screen ${currentPage + 1} of ${total}`;
+
+          $("cg-remaining").textContent =
+            remaining === 0
+              ? "Final screen"
+              : `${remaining} screen${remaining === 1 ? "" : "s"} left`;
+
+          $("cg-fill").style.width = `${((currentPage + 1) / total) * 100}%`;
+
+          $("cg-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          $("cg-progress").setAttribute("aria-valuemax", String(total));
+
+          // Active card
+
+          $("cg-card").innerHTML = `
+          <div class="cg-kicker">
+            ${active.label}
+          </div>
+
+          <h2>${active.title}</h2>
+
+          ${active.content}
+
+          ${active.practice ? renderQuiz(active.practice) : ""}
+        `;
+
+          // ========================================
+          // INNER CAROUSEL
+          // ========================================
+
+          const count = p.cards.length;
+
+          if (count > 1) {
+            $("cg-carousel-host").innerHTML = `
+            <nav
+              class="cg-carousel"
+              aria-label="Content slides"
+            >
+
+              <button
+                type="button"
+                class="cg-arrow"
+                data-action="slide-back"
+                aria-label="Previous slide"
+                ${slideIndex === 0 ? "disabled" : ""}
+              >
+                ‹
+              </button>
+
+              <div class="cg-carousel-center">
+
+                <strong>
+                  Slide ${slideIndex + 1} of ${count}
+                </strong>
+
+                <small>
+                  Swipe or use arrows
+                </small>
+
+                <div class="cg-dots">
+                  ${p.cards
+                    .map(
+                      (_, i) => `
+                    <button
+                      type="button"
+                      class="cg-dot"
+                      data-action="slide-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === slideIndex}"
+                    ></button>
+                  `,
+                    )
+                    .join("")}
+                </div>
+
+              </div>
+
+              <button
+                type="button"
+                class="cg-arrow"
+                data-action="slide-next"
+                aria-label="Next slide"
+                ${slideIndex === count - 1 ? "disabled" : ""}
+              >
+                ›
+              </button>
+
+            </nav>
+          `;
+          } else {
+            $("cg-carousel-host").innerHTML = "";
+          }
+
+          // Main buttons
+
+          $("cg-back").disabled = currentPage === 0;
+
+          $("cg-next").textContent =
+            currentPage === total - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === total - 1;
+        }
+
+        // ==========================================
+        // SCREEN NAVIGATION
+        // ==========================================
+
+        function changePage(index) {
+          if (index < 0 || index >= pages.length) {
+            return;
+          }
+
+          currentPage = index;
+
+          render();
+
+          root.scrollIntoView({
+            block: "start",
+            behavior: "auto",
+          });
+        }
+
+        // ==========================================
+        // CAROUSEL NAVIGATION
+        // ==========================================
+
+        function changeSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          slidePositions[currentPage] = index;
+          render();
+        }
+
+        // ==========================================
+        // CLICK HANDLERS
+        // ==========================================
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-action]");
+
+          if (!btn || !root.contains(btn) || btn.disabled) {
+            return;
+          }
+
+          switch (btn.dataset.action) {
+            // Skip to final screen
+
+            case "skip":
+              skipped = true;
+              changePage(pages.length - 1);
+              break;
+
+            // Previous main screen
+
+            case "back":
+              changePage(currentPage - 1);
+              break;
+
+            // Next main screen or restart
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+                slidePositions.fill(0);
+
+                Object.keys(quizAnswers).forEach(
+                  (key) => delete quizAnswers[key],
+                );
+
+                changePage(0);
+              } else {
+                changePage(currentPage + 1);
+              }
+              break;
+
+            // Previous inner slide
+
+            case "slide-back":
+              changeSlide(slidePositions[currentPage] - 1);
+              break;
+
+            // Next inner slide
+
+            case "slide-next":
+              changeSlide(slidePositions[currentPage] + 1);
+              break;
+
+            // Jump to inner slide
+
+            case "slide-jump":
+              changeSlide(Number(btn.dataset.index));
+              break;
+
+            // ====================================
+            // SELECT PRACTICE ANSWER
+            // ====================================
+
+            case "choose": {
+              const key = quizKey();
+
+              if (quizAnswers[key] !== undefined) {
+                return;
+              }
+
+              quizAnswers[key] = Number(btn.dataset.choice);
+
+              render();
+              break;
+            }
+
+            // Retry practice question
+
+            case "retry":
+              delete quizAnswers[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        // ==========================================
+        // MOBILE SWIPE SUPPORT
+        // ==========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".cg-card")) {
+              return;
+            }
+
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart || !event.target.closest(".cg-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore vertical scrolling.
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              changeSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ==========================================
+        // INITIALIZE
+        // ==========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

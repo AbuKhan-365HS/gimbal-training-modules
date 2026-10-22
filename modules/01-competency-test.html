@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>DCW Competency Essentials | 365 Health Services</title>
+
+    <style>
+      #competency-training,
+      #competency-training * {
+        box-sizing: border-box;
+      }
+
+      #competency-training {
+        --blue: #175199;
+        --cyan: #00a4ef;
+        --aqua: #cae6ea;
+        --pink: #ef2852;
+        --ink: #193752;
+        --muted: #51667e;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        background: white;
+        border: 1px solid #dceaf0;
+        border-radius: 26px;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        box-shadow: 0 14px 38px rgba(23, 81, 153, 0.1);
+      }
+
+      #competency-training button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #competency-training button:focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* HEADER */
+
+      #competency-training .ce-header {
+        padding: 22px 22px 26px;
+        background: var(--aqua);
+      }
+
+      #competency-training .ce-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #competency-training .ce-logo {
+        width: min(177px, 43vw);
+        max-height: 58px;
+        object-fit: contain;
+      }
+
+      #competency-training .ce-skip {
+        border: none;
+        border-radius: 999px;
+        background: white;
+        color: var(--blue);
+        padding: 11px 16px;
+        font-weight: 700;
+      }
+
+      #competency-training .ce-eyebrow {
+        margin: 25px 0 10px;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        color: var(--blue);
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      #competency-training h1 {
+        margin: 0;
+        font-size: clamp(28px, 7vw, 42px);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+        font-weight: 800;
+        color: var(--blue);
+      }
+
+      #competency-training .ce-lead {
+        margin: 15px 0 0;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #2a4b69;
+      }
+
+      /* PROGRESS */
+
+      #competency-training .ce-main {
+        padding: 20px 20px 8px;
+      }
+
+      #competency-training .ce-status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      #competency-training .ce-status strong {
+        color: var(--blue);
+      }
+
+      #competency-training .ce-progress {
+        height: 6px;
+        background: #e5eff4;
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      #competency-training .ce-progress-fill {
+        height: 100%;
+        background: var(--cyan);
+        border-radius: inherit;
+        transition: width 0.25s ease;
+      }
+
+      /* CONTENT CARD */
+
+      #competency-training .ce-card {
+        border: 1px solid #d6e9f0;
+        border-radius: 19px;
+        background: #f7fbfd;
+        padding: 20px;
+        min-height: 190px;
+      }
+
+      #competency-training .ce-card-label {
+        color: var(--cyan);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+
+      #competency-training .ce-card h2 {
+        margin: 0 0 13px;
+        color: var(--blue);
+        font-size: clamp(21px, 5vw, 26px);
+        line-height: 1.2;
+      }
+
+      #competency-training .ce-card h3 {
+        color: var(--blue);
+        margin: 16px 0 8px;
+        font-size: 16px;
+      }
+
+      #competency-training .ce-card p {
+        margin: 0 0 12px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      #competency-training .ce-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #competency-training .ce-list {
+        padding-left: 20px;
+        margin: 10px 0 0;
+      }
+
+      #competency-training .ce-list li {
+        margin-bottom: 10px;
+        padding-left: 3px;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      #competency-training .ce-list li::marker {
+        color: var(--cyan);
+      }
+
+      /* INFO CALLOUT */
+
+      #competency-training .ce-info {
+        margin-top: 14px;
+        padding: 14px;
+        background: #e7f5fb;
+        border-left: 4px solid var(--cyan);
+        border-radius: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #competency-training .ce-info strong {
+        color: var(--blue);
+      }
+
+      /* INTERACTIVE QUIZ */
+
+      #competency-training .ce-quiz {
+        margin-top: 22px;
+        padding-top: 20px;
+        border-top: 1px solid #cfe4ec;
+      }
+
+      #competency-training .ce-quiz-tag {
+        display: inline-block;
+        padding: 6px 11px;
+        background: var(--aqua);
+        color: var(--blue);
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        margin-bottom: 13px;
+      }
+
+      #competency-training .ce-question {
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 15px;
+      }
+
+      #competency-training .ce-choices {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      #competency-training .ce-choice {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+        padding: 14px 13px;
+        border-radius: 12px;
+        border: 1.5px solid #cbdde7;
+        background: #ffffff;
+        text-align: left;
+        color: var(--ink);
+        font-size: 13px;
+        line-height: 1.5;
+        transition: background 0.15s ease;
+      }
+
+      #competency-training .ce-choice:not(:disabled):active {
+        transform: scale(0.99);
+      }
+
+      #competency-training .ce-choice-letter {
+        display: flex;
+        flex: 0 0 25px;
+        width: 25px;
+        height: 25px;
+        align-items: center;
+        justify-content: center;
+        background: #eaf1f7;
+        color: var(--blue);
+        border-radius: 50%;
+        font-weight: 800;
+        font-size: 11px;
+      }
+
+      #competency-training .ce-choice-text {
+        flex: 1;
+        align-self: center;
+      }
+
+      #competency-training .ce-choice-icon {
+        font-weight: 800;
+        font-size: 20px;
+        align-self: center;
+      }
+
+      /* CORRECT ANSWER — GREEN */
+
+      #competency-training .ce-choice.ce-correct {
+        background: #e1f5e9;
+        border-color: #188653;
+        color: #145c3c;
+      }
+
+      #competency-training .ce-correct .ce-choice-letter {
+        background: #188653;
+        color: white;
+      }
+
+      /* INCORRECT SELECTED ANSWER — RED */
+
+      #competency-training .ce-choice.ce-incorrect {
+        background: #fde8ec;
+        border-color: #da3552;
+        color: #a7223b;
+      }
+
+      #competency-training .ce-incorrect .ce-choice-letter {
+        background: #da3552;
+        color: white;
+      }
+
+      /* UNSELECTED ANSWERS AFTER CHOICE */
+
+      #competency-training .ce-choice.ce-muted {
+        opacity: 0.62;
+      }
+
+      #competency-training .ce-choice:disabled {
+        cursor: default;
+      }
+
+      /* QUIZ FEEDBACK */
+
+      #competency-training .ce-feedback {
+        margin-top: 14px;
+        border-radius: 11px;
+        padding: 13px 14px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #competency-training .ce-feedback.good {
+        background: #e1f5e9;
+        color: #145c3c;
+      }
+
+      #competency-training .ce-feedback.bad {
+        background: #fff0f1;
+        color: #9f233b;
+      }
+
+      #competency-training .ce-retry {
+        margin-top: 12px;
+        border: 1px solid #bcd4e0;
+        background: #ffffff;
+        color: var(--blue);
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* INNER SLIDE CAROUSEL */
+
+      #competency-training .ce-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 15px 0 9px;
+        padding: 11px;
+        background: #edf7fa;
+        border-radius: 16px;
+      }
+
+      #competency-training .ce-arrow {
+        flex: 0 0 42px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid #bdd6e3;
+        background: white;
+        color: var(--blue);
+        font-size: 23px;
+      }
+
+      #competency-training .ce-arrow:disabled,
+      #competency-training .ce-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #competency-training .ce-carousel-middle {
+        text-align: center;
+      }
+
+      #competency-training .ce-carousel-middle strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #competency-training .ce-carousel-middle small {
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      #competency-training .ce-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #competency-training .ce-dot {
+        padding: 0;
+        width: 8px;
+        height: 8px;
+        border: 0;
+        border-radius: 999px;
+        background: #b9d5e3;
+      }
+
+      #competency-training .ce-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* MAIN NAVIGATION */
+
+      #competency-training .ce-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 19px;
+        border-top: 1px solid #e5edf2;
+        background: white;
+      }
+
+      #competency-training .ce-btn {
+        min-height: 52px;
+        border: 0;
+        border-radius: 999px;
+        padding: 14px 17px;
+        font-weight: 800;
+      }
+
+      #competency-training .ce-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+
+      #competency-training .ce-next {
+        flex: 1;
+        background: var(--blue);
+        color: white;
+      }
+
+      #competency-training .ce-hint {
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.5;
+        text-align: center;
+        padding: 0 18px 15px;
+        margin: 0;
+      }
+
+      @media (max-width: 390px) {
+        #competency-training {
+          border-radius: 15px;
+        }
+
+        #competency-training .ce-header {
+          padding: 18px 17px 23px;
+        }
+
+        #competency-training .ce-main {
+          padding: 16px 14px 8px;
+        }
+
+        #competency-training .ce-card {
+          padding: 16px;
+        }
+
+        #competency-training .ce-actions {
+          padding: 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #competency-training .ce-progress-fill,
+        #competency-training .ce-choice {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="competency-training"
+      role="region"
+      aria-label="DCW Competency Essentials Training"
+    >
+      <!-- HEADER -->
+
+      <header class="ce-header">
+        <div class="ce-top">
+          <img
+            class="ce-logo"
+            src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+            alt="365 Health Services"
+          />
+
+          <button type="button" class="ce-skip" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="ce-eyebrow" id="ce-eyebrow"></div>
+
+        <h1 id="ce-heading"></h1>
+
+        <p class="ce-lead" id="ce-lead"></p>
+      </header>
+
+      <!-- CONTENT -->
+
+      <main class="ce-main">
+        <div class="ce-status" aria-live="polite">
+          <strong id="ce-page-count"></strong>
+
+          <span id="ce-remaining"></span>
+        </div>
+
+        <div
+          id="ce-progress"
+          class="ce-progress"
+          role="progressbar"
+          aria-label="Training progress"
+          aria-valuemin="1"
+          aria-valuemax="8"
+        >
+          <div id="ce-progress-fill" class="ce-progress-fill"></div>
+        </div>
+
+        <section id="ce-card" class="ce-card" aria-live="polite"></section>
+
+        <div id="ce-carousel-host"></div>
+      </main>
+
+      <!-- NAVIGATION -->
+
+      <footer class="ce-actions">
+        <button
+          class="ce-btn ce-back"
+          type="button"
+          data-action="back"
+          id="ce-back"
+        >
+          ← Back
+        </button>
+
+        <button
+          class="ce-btn ce-next"
+          type="button"
+          data-action="next"
+          id="ce-next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <p class="ce-hint">
+        Use the arrows or swipe cards to explore each topic. Practice questions
+        are not part of the graded test.
+      </p>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ==========================================
+        // HELPERS
+        // ==========================================
+
+        const root = document.getElementById("competency-training");
+
+        const $ = (id) => document.getElementById(id);
+
+        const bullets = (items) => `
+        <ul class="ce-list">
+          ${items.map((x) => `<li>${x}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (title, body) => `
+        <div class="ce-info">
+          <strong>${title}</strong>
+          <div>${body}</div>
+        </div>
+      `;
+
+        const quiz = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          body,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          body,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ==========================================
+        // TRAINING SCREENS
+        // ==========================================
+
+        const pages = [
+          // ========================================
+          // SCREEN 1: WELCOME
+          // ========================================
+
+          page(
+            "DCW Competency Essentials",
+
+            "A quick refresher on safe, respectful, and effective home care before your competency assessment.",
+
+            [
+              card(
+                "Before you begin",
+
+                `
+              <p>
+                Your competency assessment evaluates
+                essential knowledge and judgment for
+                providing home care.
+              </p>
+
+              ${info(
+                "Assessment requirements",
+                "The competency test contains 65 questions across 16 subject areas. A passing score of 80% is required by the agency.",
+              )}
+
+              <p style="margin-top:16px;">
+                This guide reviews important principles
+                and includes short practice scenarios.
+              </p>
+
+              <p>
+                <strong>
+                  Read carefully, think about patient
+                  safety, and follow agency procedures.
+                </strong>
+              </p>
+              `,
+
+                "WELCOME",
+              ),
+            ],
+
+            "GETTING STARTED",
+          ),
+
+          // ========================================
+          // SCREEN 2: PATIENT RIGHTS
+          // ========================================
+
+          page(
+            "Respect, Privacy & Boundaries",
+
+            "Good home care begins with respecting the person receiving it.",
+
+            [
+              card(
+                "Respect patient choices",
+
+                `
+              <p>
+                Clients have the right to make decisions
+                about their daily lives and personal care.
+              </p>
+
+              ${bullets([
+                "Listen to what the client wants.",
+                "Respect clothing, food, routines, cultural and spiritual preferences.",
+                "Explain care before providing assistance.",
+                "Encourage independence whenever it is safe and appropriate.",
+                "Follow the care plan and ask for guidance when needed.",
+              ])}
+
+              ${info(
+                "Remember",
+                "Your job is to support the client's choices, not replace them with your own.",
+              )}
+              `,
+
+                "PATIENT DIGNITY",
+              ),
+
+              card(
+                "Confidentiality & HIPAA",
+
+                `
+              <p>
+                A client's health and personal information
+                must be treated as confidential.
+              </p>
+
+              ${bullets([
+                "Do not discuss client information with friends, neighbors, or unauthorized individuals.",
+                "Only share information with authorized people who need it for their role.",
+                "Protect written and electronic client records.",
+                "Follow HIPAA and agency privacy procedures.",
+              ])}
+              `,
+
+                "PRIVACY",
+
+                quiz(
+                  1,
+
+                  "A neighbor asks about a client's medical condition. What should you do?",
+
+                  [
+                    "Tell the neighbor because they know the client.",
+                    "Politely decline to share private information.",
+                    "Share only the most interesting details.",
+                  ],
+
+                  1,
+
+                  "Client information must only be shared when authorized and appropriate.",
+                ),
+              ),
+
+              card(
+                "Professional boundaries",
+
+                `
+              <p>
+                Maintain a professional relationship
+                with clients and their families.
+              </p>
+
+              ${bullets([
+                "Politely refuse money, tips, or personal gifts when prohibited by agency policy.",
+                "Never take advantage of a client's finances or belongings.",
+                "Do not volunteer to become a client's power of attorney or guardian.",
+                "Respect personal beliefs without imposing your own.",
+                "Communicate calmly and respectfully, including when a client is upset.",
+              ])}
+              `,
+
+                "PROFESSIONALISM",
+              ),
+            ],
+
+            "PATIENT RIGHTS",
+          ),
+
+          // ========================================
+          // SCREEN 3: OBSERVE AND REPORT
+          // ========================================
+
+          page(
+            "Observe, Document & Report",
+
+            "A DCW may be the first person to notice a change in a client's condition.",
+
+            [
+              card(
+                "Notice changes early",
+
+                `
+              <p>
+                Pay attention to changes in the client's
+                health, behavior, mobility, and comfort.
+              </p>
+
+              ${bullets([
+                "New or worsening pain",
+                "Unusual confusion, agitation, or distress",
+                "Weakness, unsteadiness, or difficulty moving",
+                "Changes in eating, drinking, or daily activities",
+                "Accidents, injuries, or safety concerns",
+              ])}
+
+              ${info(
+                "Safety",
+                "Sudden one-sided weakness, facial drooping, or speech changes may indicate stroke and require immediate emergency medical assistance. Follow emergency and agency reporting procedures.",
+              )}
+              `,
+
+                "OBSERVATION",
+              ),
+
+              card(
+                "Accurate reporting & documentation",
+
+                `
+              <p>
+                Document the services you actually
+                performed and report significant
+                observations promptly.
+              </p>
+
+              ${bullets([
+                "Record care accurately and according to agency procedures.",
+                "Never invent or backfill another worker's documentation.",
+                "Report patient complaints and possible neglect.",
+                "Notify the supervisor promptly about critical incidents.",
+                "Follow emergency procedures when the situation is urgent.",
+              ])}
+
+              ${info(
+                "Remember",
+                "Incomplete documentation makes it difficult to verify the care provided.",
+              )}
+              `,
+
+                "DOCUMENTATION",
+
+                quiz(
+                  2,
+
+                  "You notice a client has become unusually confused since your last visit. What is the best response?",
+
+                  [
+                    "Ignore it because the client may be tired.",
+                    "Wait until your next scheduled visit.",
+                    "Make sure the client is safe, promptly report the change, and follow urgent-response procedures if necessary.",
+                  ],
+
+                  2,
+
+                  "New changes in condition must not be ignored. Report promptly, document accurately, and seek urgent help when indicated.",
+                ),
+              ),
+            ],
+
+            "COMMUNICATION",
+          ),
+
+          // ========================================
+          // SCREEN 4: SAFETY
+          // ========================================
+
+          page(
+            "Safety & Emergency Awareness",
+
+            "Recognize dangerous situations and respond according to your training and agency procedures.",
+
+            [
+              card(
+                "Abuse & neglect",
+
+                `
+              <p>
+                Abuse and neglect can threaten a client's
+                physical and emotional well-being.
+              </p>
+
+              ${bullets([
+                "Physical abuse may include hitting, slapping, or causing injury.",
+                "Abuse can also involve intimidation, unreasonable confinement, or withholding necessary care.",
+                "Take complaints or suspected neglect seriously.",
+                "Follow agency and applicable Pennsylvania reporting requirements.",
+                "Do not dismiss concerns or attempt to investigate them yourself.",
+              ])}
+
+              ${info(
+                "Reporting",
+                "The assessment references Pennsylvania's Area Agencies on Aging and Child Abuse Hotline. Follow the applicable reporting procedures for the person receiving care.",
+              )}
+              `,
+
+                "RECOGNIZE & REPORT",
+              ),
+
+              card(
+                "Emergency response",
+
+                `
+              <p>
+                Protect the client and yourself.
+                Recognize when emergency medical
+                assistance is needed.
+              </p>
+
+              ${bullets([
+                "In a fire, move yourself and the client away from immediate danger if safe to do so and activate emergency response.",
+                "If a client has fallen and may have a serious injury, avoid unnecessary movement and seek medical assistance.",
+                "Recognize possible stroke symptoms and other sudden medical emergencies.",
+                "Follow your training and emergency procedures for choking.",
+                "Never attempt tasks or emergency techniques for which you are not trained.",
+              ])}
+              `,
+
+                "EMERGENCIES",
+
+                quiz(
+                  3,
+
+                  "You notice smoke and a small fire near a client. What should be your priority?",
+
+                  [
+                    "Continue your normal work.",
+                    "Move the client away from danger if safe and activate emergency response.",
+                    "Open a window and ignore the fire.",
+                  ],
+
+                  1,
+
+                  "Prioritize immediate safety and emergency response. Do not put yourself or the client at further risk.",
+                ),
+              ),
+
+              card(
+                "Infection prevention",
+
+                `
+              <p>
+                Preventing infection is part of every
+                home care visit.
+              </p>
+
+              ${bullets([
+                "Perform hand hygiene before and after appropriate care activities and whenever contamination occurs.",
+                "Use standard precautions with every client.",
+                "Avoid direct exposure to blood and potentially infectious body fluids.",
+                "Use gloves and other PPE when appropriate.",
+                "Follow safe handling and cleaning procedures for contaminated items.",
+              ])}
+
+              ${info(
+                "Key principle",
+                "Hand hygiene is one of the most important ways to reduce infection transmission.",
+              )}
+              `,
+
+                "STANDARD PRECAUTIONS",
+              ),
+            ],
+
+            "PROTECTIVE CARE",
+          ),
+
+          // ========================================
+          // SCREEN 5: MOBILITY
+          // ========================================
+
+          page(
+            "Mobility & Fall Prevention",
+
+            "Support safe movement while encouraging independence within the client's abilities.",
+
+            [
+              card(
+                "Safe transfers & walking",
+
+                `
+              <p>
+                Follow the client's care plan and
+                your training when assisting with movement.
+              </p>
+
+              ${bullets([
+                "Assess the client's ability to participate.",
+                "Explain the movement before beginning.",
+                "Use mobility equipment correctly.",
+                "Lock wheelchair brakes before appropriate transfers.",
+                "Allow time for a client to adjust after standing.",
+                "Do not attempt an unsafe transfer without appropriate help or equipment.",
+              ])}
+              `,
+
+                "SAFE MOVEMENT",
+
+                quiz(
+                  4,
+
+                  "A client feels dizzy immediately after standing. What should you do?",
+
+                  [
+                    "Encourage the client to walk faster.",
+                    "Pause movement, support the client safely, and follow the care plan and reporting procedures.",
+                    "Leave the client standing alone.",
+                  ],
+
+                  1,
+
+                  "Dizziness increases fall risk. Keep the client safe and avoid continuing an unsafe transfer or walk.",
+                ),
+              ),
+
+              card(
+                "Preventing falls at home",
+
+                `
+              <p>
+                Look for hazards that could cause
+                slips, trips, or falls.
+              </p>
+
+              ${bullets([
+                "Keep walkways clear of clutter and loose cords.",
+                "Check that lighting is adequate.",
+                "Watch for loose rugs, slippery surfaces, and pets underfoot.",
+                "Encourage safe, supportive footwear.",
+                "Follow care-plan instructions for walkers or other assistive devices.",
+                "Report unsafe conditions and new mobility problems.",
+              ])}
+              `,
+
+                "FALL PREVENTION",
+              ),
+            ],
+
+            "MOBILITY",
+          ),
+
+          // ========================================
+          // SCREEN 6: PERSONAL CARE
+          // ========================================
+
+          page(
+            "Personal Care Essentials",
+
+            "Provide assistance with dignity, comfort, hygiene, and safety.",
+
+            [
+              card(
+                "Bathing, dressing & grooming",
+
+                `
+              <p>
+                Tell the client what you are going to
+                do before starting care.
+              </p>
+
+              ${bullets([
+                "Provide privacy and keep the client appropriately covered.",
+                "Check that bathing water is safe and comfortable.",
+                "Assist with hair care, shaving, oral hygiene, and dressing as authorized.",
+                "Encourage the client to do what they can independently.",
+                "Respect clothing preferences and use safe footwear.",
+              ])}
+              `,
+
+                "DAILY PERSONAL CARE",
+              ),
+
+              card(
+                "Toileting & personal hygiene",
+
+                `
+              <p>
+                Support toileting with respect for
+                the client's dignity.
+              </p>
+
+              ${bullets([
+                "Provide privacy while remaining available when assistance or supervision is required.",
+                "Help position approved toileting equipment correctly and comfortably.",
+                "Assist with hand hygiene after toileting.",
+                "Clean, remove, and store equipment safely.",
+                "Store dentures in an appropriate denture container.",
+              ])}
+              `,
+
+                "COMFORT & PRIVACY",
+              ),
+
+              card(
+                "Skin protection & bedding",
+
+                `
+              <p>
+                Observe the client's skin during
+                routine personal care.
+              </p>
+
+              ${bullets([
+                "Watch for redness, skin breakdown, or pressure-related concerns.",
+                "Common pressure areas include the heels, ankles, hips, buttocks, sacrum, elbows, and shoulders.",
+                "Keep bedding clean, dry, and free from uncomfortable wrinkles.",
+                "Follow approved care plans for positioning and bed changes.",
+                "Report concerning skin changes promptly.",
+              ])}
+
+              ${info(
+                "Remember",
+                "Repositioning and specialized care must follow the individual care plan and the worker's training.",
+              )}
+              `,
+
+                "SKIN INTEGRITY",
+              ),
+            ],
+
+            "ACTIVITIES OF DAILY LIVING",
+          ),
+
+          // ========================================
+          // SCREEN 7: MEDICATIONS & FOOD
+          // ========================================
+
+          page(
+            "Medication & Meal Safety",
+
+            "Help clients with everyday needs while respecting medication rules, dietary instructions, and swallowing precautions.",
+
+            [
+              card(
+                "Medication awareness",
+
+                `
+              <p>
+                Medication assistance must stay within
+                your authorized responsibilities and
+                the client's care plan.
+              </p>
+
+              ${bullets([
+                "Never independently change medication doses or schedules.",
+                "Follow agency rules when reminding or assisting clients with self-administration.",
+                "Report found, dropped, missing, or questionable medication.",
+                "Do not put unidentified medication back into a container.",
+                "Report suspected side effects or other medication concerns.",
+              ])}
+
+              ${info(
+                "Important",
+                "When unsure whether an action is permitted, contact your supervisor before proceeding.",
+              )}
+              `,
+
+                "MEDICATION SAFETY",
+              ),
+
+              card(
+                "Meals, nutrition & swallowing",
+
+                `
+              <p>
+                Meal preparation should consider
+                the client's preferences, dietary
+                restrictions, and ability to eat safely.
+              </p>
+
+              ${bullets([
+                "Respect food preferences when consistent with the prescribed diet.",
+                "Follow dietary restrictions, such as low-sodium meal instructions.",
+                "Understand that foods vary in nutritional content; for example, leafy greens may supply iron.",
+                "Follow care-plan instructions for clients who have chewing or swallowing difficulty.",
+                "Use authorized supervision and assistance during meals.",
+              ])}
+              `,
+
+                "NUTRITION",
+
+                quiz(
+                  5,
+
+                  "A client with swallowing difficulties begins coughing repeatedly while eating. What should you do?",
+
+                  [
+                    "Continue feeding at the same speed.",
+                    "Stop offering food, assess immediate safety, and follow the client's care plan and emergency procedures.",
+                    "Give larger bites to help finish the meal.",
+                  ],
+
+                  1,
+
+                  "Coughing during eating may signal swallowing difficulty. Stop feeding and follow the safety and emergency procedures for the situation.",
+                ),
+              ),
+            ],
+
+            "SAFE DAILY ASSISTANCE",
+          ),
+
+          // ========================================
+          // SCREEN 8: FINISH
+          // ========================================
+
+          page(
+            "Ready for Your Competency Test?",
+
+            "You've completed the overview of essential DCW care principles.",
+
+            [
+              card(
+                "Before you begin the assessment",
+
+                `
+              <p>
+                Keep these five principles in mind:
+              </p>
+
+              ${bullets([
+                "<strong>Respect:</strong> Protect the client's dignity, choices, and privacy.",
+                "<strong>Observe:</strong> Notice changes in condition and communicate concerns.",
+                "<strong>Protect:</strong> Follow safety and infection prevention procedures.",
+                "<strong>Assist:</strong> Provide care within your training, authorization, and the care plan.",
+                "<strong>Document:</strong> Record services accurately and report incidents promptly.",
+              ])}
+
+              ${info(
+                "Assessment reminder",
+                "The agency requires an 80% passing score. Review any topic you are unsure about before proceeding to the Gimbal competency test.",
+              )}
+
+              <p style="margin-top:15px;">
+                Select <strong>Back</strong> to review,
+                or <strong>Start over</strong>
+                to revisit the entire guide.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ==========================================
+        // STATE
+        // ==========================================
+
+        let currentPage = 0;
+        let skipped = false;
+
+        // Save each inner carousel position.
+        const slidePositions = Array(pages.length).fill(0);
+
+        // Remember quiz answers between pages.
+        const quizAnswers = {};
+
+        let startX = null;
+        let startY = null;
+
+        function quizKey() {
+          return `${currentPage}:${slidePositions[currentPage]}`;
+        }
+
+        // ==========================================
+        // RENDER PRACTICE QUESTION
+        // ==========================================
+
+        function renderQuiz(q) {
+          const key = quizKey();
+          const selected = quizAnswers[key];
+          const answered = selected !== undefined;
+
+          const optionsHtml = q.options
+            .map((option, i) => {
+              let cls = "";
+              let icon = "";
+
+              if (answered) {
+                if (i === q.correct) {
+                  cls = "ce-correct";
+                  icon = "✓";
+                } else if (i === selected) {
+                  cls = "ce-incorrect";
+                  icon = "✕";
+                } else {
+                  cls = "ce-muted";
+                }
+              }
+
+              return `
+            <button
+              type="button"
+              class="ce-choice ${cls}"
+              data-action="choose"
+              data-choice="${i}"
+              ${answered ? "disabled" : ""}
+            >
+              <span class="ce-choice-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="ce-choice-text">
+                ${option}
+              </span>
+
+              <span class="ce-choice-icon">
+                ${icon}
+              </span>
+            </button>
+          `;
+            })
+            .join("");
+
+          let feedback = "";
+
+          if (answered) {
+            const correct = selected === q.correct;
+
+            feedback = `
+            <div
+              class="ce-feedback ${correct ? "good" : "bad"}"
+              role="status"
+            >
+              <strong>
+                ${
+                  correct
+                    ? "✓ Correct!"
+                    : "✕ Not quite — the correct answer is green."
+                }
+              </strong>
+
+              <div style="margin-top:6px;">
+                ${q.explanation}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="ce-retry"
+              data-action="retry"
+            >
+              Try again ↻
+            </button>
+          `;
+          }
+
+          return `
+          <div class="ce-quiz">
+
+            <div class="ce-quiz-tag">
+              PRACTICE CHECK ${q.number} OF 5
+            </div>
+
+            <div class="ce-question">
+              ${q.question}
+            </div>
+
+            <div class="ce-choices">
+              ${optionsHtml}
+            </div>
+
+            ${feedback}
+
+          </div>
+        `;
+        }
+
+        // ==========================================
+        // RENDER CURRENT PAGE
+        // ==========================================
+
+        function render() {
+          const current = pages[currentPage];
+          const slideIndex = slidePositions[currentPage];
+          const activeCard = current.cards[slideIndex];
+
+          const totalPages = pages.length;
+          const remaining = totalPages - currentPage - 1;
+
+          $("ce-eyebrow").textContent = current.eyebrow;
+          $("ce-heading").textContent = current.title;
+
+          $("ce-lead").textContent =
+            skipped && currentPage === totalPages - 1
+              ? "You skipped ahead. You can return to review the training before taking the assessment."
+              : current.lead;
+
+          $("ce-page-count").textContent =
+            `Screen ${currentPage + 1} of ${totalPages}`;
+
+          $("ce-remaining").textContent =
+            remaining === 0
+              ? "Final screen"
+              : `${remaining} screen${remaining === 1 ? "" : "s"} left`;
+
+          $("ce-progress-fill").style.width =
+            `${((currentPage + 1) / totalPages) * 100}%`;
+
+          $("ce-progress").setAttribute("aria-valuenow", currentPage + 1);
+
+          // Build content and quiz.
+
+          $("ce-card").innerHTML = `
+          <div class="ce-card-label">
+            ${activeCard.label}
+          </div>
+
+          <h2>${activeCard.title}</h2>
+
+          ${activeCard.body}
+
+          ${activeCard.practice ? renderQuiz(activeCard.practice) : ""}
+        `;
+
+          // ========================================
+          // INNER CAROUSEL
+          // ========================================
+
+          const count = current.cards.length;
+
+          if (count > 1) {
+            $("ce-carousel-host").innerHTML = `
+            <nav
+              class="ce-carousel"
+              aria-label="Content slides"
+            >
+
+              <button
+                class="ce-arrow"
+                type="button"
+                data-action="slide-back"
+                aria-label="Previous slide"
+                ${slideIndex === 0 ? "disabled" : ""}
+              >
+                ‹
+              </button>
+
+              <div class="ce-carousel-middle">
+
+                <strong>
+                  Slide ${slideIndex + 1} of ${count}
+                </strong>
+
+                <small>
+                  Swipe or use arrows
+                </small>
+
+                <div class="ce-dots">
+                  ${current.cards
+                    .map(
+                      (_, i) => `
+                    <button
+                      type="button"
+                      class="ce-dot"
+                      data-action="slide-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === slideIndex}"
+                    ></button>
+                  `,
+                    )
+                    .join("")}
+                </div>
+
+              </div>
+
+              <button
+                class="ce-arrow"
+                type="button"
+                data-action="slide-next"
+                aria-label="Next slide"
+                ${slideIndex === count - 1 ? "disabled" : ""}
+              >
+                ›
+              </button>
+
+            </nav>
+          `;
+          } else {
+            $("ce-carousel-host").innerHTML = "";
+          }
+
+          // ========================================
+          // MAIN BUTTONS
+          // ========================================
+
+          $("ce-back").disabled = currentPage === 0;
+
+          $("ce-next").textContent =
+            currentPage === totalPages - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === totalPages - 1;
+        }
+
+        // ==========================================
+        // NAVIGATE MAIN PAGES
+        // ==========================================
+
+        function changePage(index) {
+          if (index < 0 || index >= pages.length) {
+            return;
+          }
+
+          currentPage = index;
+          render();
+
+          root.scrollIntoView({
+            block: "start",
+            behavior: "auto",
+          });
+        }
+
+        // ==========================================
+        // NAVIGATE CAROUSEL
+        // ==========================================
+
+        function changeSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          slidePositions[currentPage] = index;
+          render();
+        }
+
+        // ==========================================
+        // BUTTON EVENTS
+        // ==========================================
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-action]");
+
+          if (!btn || !root.contains(btn) || btn.disabled) {
+            return;
+          }
+
+          const action = btn.dataset.action;
+
+          switch (action) {
+            case "skip":
+              skipped = true;
+              changePage(pages.length - 1);
+              break;
+
+            case "back":
+              changePage(currentPage - 1);
+              break;
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+                slidePositions.fill(0);
+
+                // Reset practice questions.
+                Object.keys(quizAnswers).forEach(
+                  (key) => delete quizAnswers[key],
+                );
+
+                changePage(0);
+              } else {
+                changePage(currentPage + 1);
+              }
+              break;
+
+            case "slide-back":
+              changeSlide(slidePositions[currentPage] - 1);
+              break;
+
+            case "slide-next":
+              changeSlide(slidePositions[currentPage] + 1);
+              break;
+
+            case "slide-jump":
+              changeSlide(Number(btn.dataset.index));
+              break;
+
+            // ====================================
+            // ANSWER PRACTICE QUESTION
+            // ====================================
+
+            case "choose": {
+              const key = quizKey();
+
+              if (quizAnswers[key] !== undefined) {
+                return;
+              }
+
+              quizAnswers[key] = Number(btn.dataset.choice);
+
+              // Re-render to reveal green/red states.
+              render();
+              break;
+            }
+
+            // ====================================
+            // RETRY PRACTICE QUESTION
+            // ====================================
+
+            case "retry":
+              delete quizAnswers[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        // ==========================================
+        // MOBILE SWIPE SUPPORT
+        // ==========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".ce-card")) {
+              return;
+            }
+
+            startX = event.changedTouches[0].screenX;
+            startY = event.changedTouches[0].screenY;
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (startX === null || !event.target.closest(".ce-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - startX;
+
+            const dy = event.changedTouches[0].screenY - startY;
+
+            startX = null;
+            startY = null;
+
+            // Ignore vertical scrolling.
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              changeSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ==========================================
+        // INITIALIZE
+        // ==========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

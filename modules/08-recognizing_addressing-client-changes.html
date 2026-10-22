@@ -1,0 +1,2189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Recognizing Client Changes | 365 Health Services</title>
+
+    <style>
+      /* =========================================
+       BASE & BRANDING
+    ========================================= */
+
+      #client-changes,
+      #client-changes * {
+        box-sizing: border-box;
+      }
+
+      #client-changes {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        overflow: hidden;
+
+        background: #ffffff;
+        color: var(--ink);
+        border: 1px solid #d6e8ee;
+        border-radius: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+      }
+
+      #client-changes button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #client-changes :is(button, a):focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+       HEADER
+    ========================================= */
+
+      #client-changes .rc-header {
+        background: var(--teal);
+        padding: 22px 22px 25px;
+      }
+
+      #client-changes .rc-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #client-changes .rc-logo {
+        display: block;
+        width: min(176px, 43vw);
+        max-height: 58px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #client-changes .rc-logo-fallback {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      #client-changes .rc-skip {
+        border: 0;
+        background: #ffffff;
+        color: var(--blue);
+        padding: 11px 16px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      #client-changes .rc-eyebrow {
+        margin: 23px 0 9px;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      #client-changes h1 {
+        margin: 0;
+        color: var(--blue);
+        font-size: clamp(25px, 6vw, 34px);
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+      }
+
+      #client-changes .rc-lead {
+        margin: 13px 0 0;
+        color: #294967;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      /* =========================================
+       PROGRESS
+    ========================================= */
+
+      #client-changes .rc-main {
+        padding: 19px 19px 8px;
+      }
+
+      #client-changes .rc-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      #client-changes .rc-status strong {
+        color: var(--blue);
+      }
+
+      #client-changes .rc-progress {
+        height: 6px;
+        background: #e7eff4;
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 19px;
+      }
+
+      #client-changes .rc-progress-fill {
+        height: 100%;
+        width: 0;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* =========================================
+       CONTENT
+    ========================================= */
+
+      #client-changes .rc-card {
+        background: #f7fbfd;
+        border: 1px solid #d4e9f0;
+        border-radius: 19px;
+        padding: 20px;
+        min-height: 190px;
+      }
+
+      #client-changes .rc-kicker {
+        color: #0086c0;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+
+      #client-changes .rc-card h2 {
+        margin: 0 0 14px;
+        color: var(--blue);
+        font-size: clamp(21px, 5vw, 25px);
+        line-height: 1.2;
+      }
+
+      #client-changes .rc-card h3 {
+        margin: 16px 0 8px;
+        font-size: 15px;
+        color: var(--blue);
+      }
+
+      #client-changes .rc-card p {
+        margin: 0 0 12px;
+        font-size: 14px;
+        line-height: 1.56;
+      }
+
+      #client-changes .rc-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #client-changes .rc-list {
+        margin: 10px 0 0;
+        padding-left: 20px;
+      }
+
+      #client-changes .rc-list li {
+        font-size: 13.5px;
+        line-height: 1.52;
+        margin-bottom: 9px;
+        padding-left: 3px;
+      }
+
+      #client-changes .rc-list li::marker {
+        color: var(--sky);
+      }
+
+      /* =========================================
+       INFORMATION / SAFETY CALLOUTS
+    ========================================= */
+
+      #client-changes .rc-info {
+        padding: 13px 14px;
+        margin: 14px 0;
+        border-radius: 9px;
+        background: #e7f5fb;
+        border-left: 4px solid var(--sky);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #client-changes .rc-info strong {
+        color: var(--blue);
+      }
+
+      #client-changes .rc-urgent {
+        background: #fff0f3;
+        border-left-color: var(--pink);
+        color: #713343;
+      }
+
+      #client-changes .rc-urgent strong {
+        color: #ab2543;
+      }
+
+      /* =========================================
+       DEFINITION COMPONENT
+    ========================================= */
+
+      #client-changes .rc-definition {
+        background: #ffffff;
+        border: 1px solid #cbe4ed;
+        border-radius: 14px;
+        padding: 15px;
+        margin: 12px 0;
+      }
+
+      #client-changes .rc-definition small {
+        display: block;
+        color: #0087c3;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        margin-bottom: 8px;
+      }
+
+      #client-changes .rc-definition strong {
+        display: block;
+        color: var(--blue);
+        font-size: 18px;
+        margin-bottom: 7px;
+      }
+
+      #client-changes .rc-definition p {
+        margin: 0;
+        font-size: 13px;
+      }
+
+      /* =========================================
+       SYMPTOM COMPARISON COMPONENT
+    ========================================= */
+
+      #client-changes .rc-compare {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin: 14px 0;
+      }
+
+      #client-changes .rc-compare-box {
+        min-width: 0;
+        background: white;
+        border: 1px solid #cfe4ed;
+        border-radius: 13px;
+        padding: 13px;
+      }
+
+      #client-changes .rc-compare-box.active {
+        border: 2px solid var(--blue);
+        background: #eaf5fb;
+      }
+
+      #client-changes .rc-compare-icon {
+        color: var(--sky);
+        font-size: 23px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      #client-changes .rc-compare-box strong {
+        display: block;
+        color: var(--blue);
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      #client-changes .rc-compare-box small {
+        display: block;
+        color: var(--muted);
+        margin-top: 5px;
+        line-height: 1.4;
+        font-size: 11px;
+      }
+
+      /* =========================================
+       STROKE RECOGNITION
+    ========================================= */
+
+      #client-changes .rc-befast {
+        margin: 15px 0;
+        display: grid;
+        gap: 8px;
+      }
+
+      #client-changes .rc-befast-item {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: white;
+        border: 1px solid #d1e5ed;
+        border-radius: 12px;
+        padding: 11px;
+      }
+
+      #client-changes .rc-befast-letter {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+        display: grid;
+        place-items: center;
+        background: var(--blue);
+        color: white;
+        border-radius: 10px;
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      #client-changes .rc-befast-item:last-child .rc-befast-letter {
+        background: var(--pink);
+      }
+
+      #client-changes .rc-befast-item strong {
+        display: block;
+        font-size: 13px;
+        color: var(--blue);
+      }
+
+      #client-changes .rc-befast-item small {
+        display: block;
+        font-size: 12px;
+        line-height: 1.45;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+
+      /* =========================================
+       ACTION FLOW
+    ========================================= */
+
+      #client-changes .rc-steps {
+        margin: 14px 0;
+      }
+
+      #client-changes .rc-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 15px;
+      }
+
+      #client-changes .rc-step-num {
+        width: 32px;
+        height: 32px;
+        flex: 0 0 32px;
+        display: grid;
+        place-items: center;
+        background: var(--blue);
+        color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      #client-changes .rc-step strong {
+        display: block;
+        color: var(--blue);
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      #client-changes .rc-step p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       DOCUMENTATION EXAMPLES
+    ========================================= */
+
+      #client-changes .rc-example {
+        background: white;
+        border: 1px solid #d0e5ed;
+        border-radius: 12px;
+        padding: 14px;
+        margin: 12px 0;
+      }
+
+      #client-changes .rc-example.good {
+        border-left: 4px solid #168653;
+      }
+
+      #client-changes .rc-example.bad {
+        border-left: 4px solid var(--pink);
+      }
+
+      #client-changes .rc-example-label {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        margin-bottom: 7px;
+      }
+
+      #client-changes .rc-example.good .rc-example-label {
+        color: #167246;
+      }
+
+      #client-changes .rc-example.bad .rc-example-label {
+        color: #b02b48;
+      }
+
+      #client-changes .rc-example p {
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* =========================================
+       INTERACTIVE PRACTICE
+    ========================================= */
+
+      #client-changes .rc-quiz {
+        margin-top: 21px;
+        border-top: 1px solid #d0e4ec;
+        padding-top: 19px;
+      }
+
+      #client-changes .rc-quiz-tag {
+        display: inline-block;
+        padding: 6px 11px;
+        background: var(--teal);
+        color: var(--blue);
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        margin-bottom: 12px;
+      }
+
+      #client-changes .rc-question {
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+
+      #client-changes .rc-choices {
+        display: grid;
+        gap: 9px;
+      }
+
+      #client-changes .rc-choice {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        width: 100%;
+        padding: 13px;
+        text-align: left;
+        background: white;
+        color: var(--ink);
+        border: 1.5px solid #cbdee8;
+        border-radius: 12px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      #client-changes .rc-choice-letter {
+        width: 25px;
+        height: 25px;
+        flex: 0 0 25px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #eaf1f7;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      #client-changes .rc-choice-text {
+        flex: 1;
+      }
+
+      #client-changes .rc-choice-mark {
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      /* Correct = green */
+
+      #client-changes .rc-choice.rc-correct {
+        background: #e1f5e9;
+        border-color: #168653;
+        color: #155c3b;
+      }
+
+      #client-changes .rc-correct .rc-choice-letter {
+        background: #168653;
+        color: white;
+      }
+
+      /* Incorrect = red */
+
+      #client-changes .rc-choice.rc-wrong {
+        background: #ffeaed;
+        border-color: #d23954;
+        color: #a5233a;
+      }
+
+      #client-changes .rc-wrong .rc-choice-letter {
+        background: #d23954;
+        color: white;
+      }
+
+      #client-changes .rc-choice.rc-muted {
+        opacity: 0.6;
+      }
+
+      #client-changes .rc-choice:disabled {
+        cursor: default;
+      }
+
+      #client-changes .rc-feedback {
+        padding: 13px;
+        margin-top: 13px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #client-changes .rc-feedback.good {
+        background: #e1f5e9;
+        color: #155c3b;
+      }
+
+      #client-changes .rc-feedback.bad {
+        background: #ffeaed;
+        color: #a5233a;
+      }
+
+      #client-changes .rc-retry {
+        margin-top: 11px;
+        padding: 9px 15px;
+        background: white;
+        color: var(--blue);
+        border: 1px solid #bdd6e3;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* =========================================
+       INNER CAROUSEL
+    ========================================= */
+
+      #client-changes .rc-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 11px;
+        margin: 15px 0 9px;
+        background: #eef7fb;
+        border-radius: 16px;
+      }
+
+      #client-changes .rc-arrow {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        border: 1px solid #bdd7e4;
+        border-radius: 50%;
+        background: white;
+        color: var(--blue);
+        font-size: 24px;
+      }
+
+      #client-changes .rc-arrow:disabled,
+      #client-changes .rc-nav-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #client-changes .rc-carousel-middle {
+        text-align: center;
+        min-width: 0;
+      }
+
+      #client-changes .rc-carousel-middle strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #client-changes .rc-carousel-middle small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        margin-top: 3px;
+      }
+
+      #client-changes .rc-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #client-changes .rc-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 0;
+        background: #b9d5e2;
+        border-radius: 999px;
+      }
+
+      #client-changes .rc-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* =========================================
+       MAIN NAVIGATION
+    ========================================= */
+
+      #client-changes .rc-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 19px;
+        background: white;
+        border-top: 1px solid #e6eef3;
+      }
+
+      #client-changes .rc-nav-btn {
+        min-height: 52px;
+        border: 0;
+        border-radius: 999px;
+        padding: 14px 18px;
+        font-weight: 800;
+      }
+
+      #client-changes .rc-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+
+      #client-changes .rc-next {
+        flex: 1;
+        background: var(--blue);
+        color: white;
+      }
+
+      #client-changes .rc-footer {
+        padding: 0 20px 15px;
+        color: var(--muted);
+        font-size: 11px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       MOBILE RESPONSIVENESS
+    ========================================= */
+
+      @media (max-width: 390px) {
+        #client-changes {
+          border-radius: 15px;
+        }
+
+        #client-changes .rc-header {
+          padding: 17px 16px 22px;
+        }
+
+        #client-changes .rc-main {
+          padding: 16px 14px 8px;
+        }
+
+        #client-changes .rc-card {
+          padding: 16px;
+        }
+
+        #client-changes .rc-actions {
+          padding: 14px;
+        }
+
+        #client-changes .rc-compare-box {
+          padding: 10px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #client-changes .rc-progress-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="client-changes"
+      role="region"
+      aria-label="Recognizing and Addressing Client Changes"
+    >
+      <!-- HEADER -->
+
+      <header class="rc-header">
+        <div class="rc-top">
+          <div>
+            <img
+              class="rc-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+
+            <span class="rc-logo-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button class="rc-skip" type="button" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="rc-eyebrow" id="rc-eyebrow"></div>
+
+        <h1 id="rc-heading"></h1>
+
+        <p id="rc-lead" class="rc-lead"></p>
+      </header>
+
+      <!-- CONTENT -->
+
+      <main class="rc-main">
+        <div class="rc-status" aria-live="polite">
+          <strong id="rc-count"></strong>
+          <span id="rc-remaining"></span>
+        </div>
+
+        <div
+          class="rc-progress"
+          id="rc-progress"
+          role="progressbar"
+          aria-label="Training screen position"
+          aria-valuemin="1"
+          aria-valuemax="8"
+        >
+          <div class="rc-progress-fill" id="rc-fill"></div>
+        </div>
+
+        <section id="rc-card" class="rc-card" aria-live="polite"></section>
+
+        <div id="rc-carousel-host"></div>
+      </main>
+
+      <!-- NAVIGATION -->
+
+      <footer class="rc-actions">
+        <button
+          class="rc-nav-btn rc-back"
+          id="rc-back"
+          data-action="back"
+          type="button"
+        >
+          ← Back
+        </button>
+
+        <button
+          class="rc-nav-btn rc-next"
+          id="rc-next"
+          data-action="next"
+          type="button"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="rc-footer">
+        Swipe cards or use the arrows to explore each topic. Practice questions
+        are ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ========================================
+        // HELPERS
+        // ========================================
+
+        const root = document.getElementById("client-changes");
+
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        const bullets = (items) => `
+        <ul class="rc-list">
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (heading, text, urgent = false) => `
+        <div class="rc-info ${urgent ? "rc-urgent" : ""}">
+          <strong>${heading}</strong>
+          <div>${text}</div>
+        </div>
+      `;
+
+        const definition = (term, text) => `
+        <div class="rc-definition">
+          <small>KEY DEFINITION</small>
+          <strong>${term}</strong>
+          <p>${text}</p>
+        </div>
+      `;
+
+        const compare = (
+          leftTitle,
+          leftText,
+          rightTitle,
+          rightText,
+          active,
+        ) => `
+        <div class="rc-compare">
+
+          <div class="rc-compare-box ${active === 0 ? "active" : ""}">
+            <div class="rc-compare-icon">↑</div>
+            <strong>${leftTitle}</strong>
+            <small>${leftText}</small>
+          </div>
+
+          <div class="rc-compare-box ${active === 1 ? "active" : ""}">
+            <div class="rc-compare-icon">↓</div>
+            <strong>${rightTitle}</strong>
+            <small>${rightText}</small>
+          </div>
+
+        </div>
+      `;
+
+        const befast = () => {
+          const items = [
+            ["B", "Balance", "Sudden loss of balance or coordination"],
+            ["E", "Eyes", "Sudden changes or trouble with vision"],
+            ["F", "Face", "One side of the face droops"],
+            ["A", "Arms", "One arm becomes weak or drifts down"],
+            ["S", "Speech", "Slurred or unusual speech"],
+            ["T", "Time", "Call 911 immediately"],
+          ];
+
+          return `
+          <div class="rc-befast">
+            ${items
+              .map(
+                (item) => `
+              <div class="rc-befast-item">
+                <span class="rc-befast-letter">
+                  ${item[0]}
+                </span>
+
+                <div>
+                  <strong>${item[1]}</strong>
+                  <small>${item[2]}</small>
+                </div>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+        `;
+        };
+
+        const steps = (items) => `
+        <div class="rc-steps">
+          ${items
+            .map(
+              (item, i) => `
+            <div class="rc-step">
+              <span class="rc-step-num">
+                ${i + 1}
+              </span>
+
+              <div>
+                <strong>${item[0]}</strong>
+                <p>${item[1]}</p>
+              </div>
+            </div>
+          `,
+            )
+            .join("")}
+        </div>
+      `;
+
+        const example = (good, text) => `
+        <div class="rc-example ${good ? "good" : "bad"}">
+          <div class="rc-example-label">
+            ${good ? "✓ FACTUAL DOCUMENTATION" : "✕ AVOID ASSUMPTIONS"}
+          </div>
+          <p>${text}</p>
+        </div>
+      `;
+
+        const quiz = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          content,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          content,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ========================================
+        // TRAINING CONTENT
+        //
+        // Source: 365 Health Services
+        // Recognizing & Addressing Client Changes
+        // 20-page presentation.
+        //
+        // Additional emergency-response guidance
+        // is based on CDC and NHS information.
+        //
+        // Clinical approval required before use.
+        // ========================================
+
+        const pages = [
+          // ======================================
+          // SCREEN 1 — INTRODUCTION
+          // ======================================
+
+          page(
+            "Spot the Change",
+
+            "Changes in a client's health or behavior can be early signs that additional care is needed.",
+
+            [
+              card(
+                "Notice What's Different",
+
+                `
+              <p>
+                As a Direct Care Worker, you may notice
+                changes before anyone else.
+              </p>
+
+              ${bullets([
+                "Know the client's usual condition, abilities and behavior.",
+
+                "Review relevant care notes and instructions at the start of your shift.",
+
+                "Watch for changes in eating, drinking, movement, thinking, energy and comfort.",
+
+                "Report important changes promptly and document what you observed.",
+              ])}
+
+              ${info(
+                "The most important principle",
+                "You do not need to diagnose a condition. You need to notice what has changed and respond appropriately.",
+              )}
+              `,
+
+                "GETTING STARTED",
+              ),
+            ],
+
+            "RECOGNITION",
+          ),
+
+          // ======================================
+          // SCREEN 2 — EATING & NUTRITION
+          // ======================================
+
+          page(
+            "Eating & Nutrition",
+
+            "Changes in appetite, weight or eating habits may indicate a nutritional problem.",
+
+            [
+              card(
+                "Common Nutrition Problems",
+
+                `
+              <p>
+                A client's ability to eat well may
+                be affected by several factors.
+              </p>
+
+              ${bullets([
+                "Difficulty following a prescribed diet or changing lifelong food habits",
+
+                "Eating alone, depression or reduced appetite",
+
+                "Mobility or sensory limitations that make shopping and cooking difficult",
+
+                "Limited income or access to food",
+
+                "Changes in taste, smell, metabolism or digestion",
+
+                "Poor dental health or uncomfortable dentures",
+              ])}
+
+              ${info(
+                "Remember",
+                "Eating less does not always mean someone dislikes the food. Pay attention to possible barriers.",
+              )}
+              `,
+
+                "NUTRITIONAL RISKS",
+              ),
+
+              card(
+                "Recognizing Malnutrition",
+
+                `
+              ${definition(
+                "Malnutrition",
+                "A condition in which the body does not receive or properly use enough essential nutrients to meet its needs.",
+              )}
+
+              ${bullets([
+                "Unintentional weight loss or loss of body fat",
+
+                "Loss of muscle mass or strength",
+
+                "Poorly healing wounds or pressure injuries",
+
+                "Cracks at the corners of the mouth or changes in the tongue",
+
+                "Poor dental condition",
+
+                "Swelling or signs of dehydration",
+              ])}
+
+              ${info(
+                "Important",
+                "These signs can have multiple causes. Report observations rather than diagnosing malnutrition.",
+              )}
+              `,
+
+                "WARNING SIGNS",
+              ),
+
+              card(
+                "Supporting Better Nutrition",
+
+                `
+              <p>
+                Follow the client's prescribed diet
+                and individual care plan.
+              </p>
+
+              ${bullets([
+                "Observe and document food and fluid intake when required.",
+
+                "Record weight as directed by the care plan, and report significant changes.",
+
+                "Create a pleasant, unhurried eating environment.",
+
+                "Offer familiar foods and appropriate finger foods when allowed.",
+
+                "Use approved adaptive utensils when needed.",
+
+                "Assist with mouth care and dentures.",
+
+                "Offer high-protein snacks or supplements only when appropriate to the prescribed diet and authorized care.",
+              ])}
+
+              ${info(
+                "Your role",
+                "Do not independently change a diet, supplement routine or food texture. Report concerns to the clinical team.",
+              )}
+              `,
+
+                "SUPPORTIVE CARE",
+              ),
+            ],
+
+            "NUTRITION",
+          ),
+
+          // ======================================
+          // SCREEN 3 — SWALLOWING
+          // ======================================
+
+          page(
+            "Swallowing Safety",
+
+            "Difficulty swallowing can increase the risk of choking, aspiration and other complications.",
+
+            [
+              card(
+                "Recognizing Dysphagia",
+
+                `
+              ${definition(
+                "Dysphagia",
+                "Difficulty swallowing food, liquids or saliva.",
+              )}
+
+              <p>
+                Watch for changes while the client
+                eats or drinks.
+              </p>
+
+              ${bullets([
+                "Coughing, choking or throat clearing",
+
+                "Wet or gurgling voice during or after eating",
+
+                "Increased chest congestion or breathing changes",
+
+                "Needing several swallows for one mouthful",
+
+                "Unusual effort or difficulty chewing or swallowing",
+              ])}
+
+              ${info(
+                "Key warning",
+                "A wet-sounding voice or repeated coughing during meals should not be ignored.",
+              )}
+              `,
+
+                "RECOGNITION",
+              ),
+
+              card(
+                "What Should You Do?",
+
+                `
+              ${steps([
+                [
+                  "Stop offering food or drink",
+                  "Pause feeding when coughing, choking or swallowing difficulty occurs.",
+                ],
+
+                [
+                  "Check immediate safety",
+                  "If the airway is obstructed or breathing is severely impaired, activate emergency response and follow your training.",
+                ],
+
+                [
+                  "Report promptly",
+                  "Tell the supervisor or clinical team about the observed changes.",
+                ],
+
+                [
+                  "Follow the care plan",
+                  "Resume feeding only when safe and consistent with appropriate clinical guidance.",
+                ],
+              ])}
+
+              ${info(
+                "Avoid",
+                "Do not force more food, give additional liquids to push food down, or independently change food textures.",
+                true,
+              )}
+              `,
+
+                "SAFE RESPONSE",
+
+                quiz(
+                  1,
+
+                  "A client repeatedly coughs and develops a wet-sounding voice while eating. What should you do?",
+
+                  [
+                    "Offer more water to help the food go down.",
+
+                    "Continue feeding slowly and wait for the next visit.",
+
+                    "Stop feeding, check immediate safety, and follow the care plan, emergency and reporting procedures.",
+                  ],
+
+                  2,
+
+                  "Coughing and wet-sounding speech may indicate swallowing problems. Pause feeding, protect the client and obtain appropriate help.",
+                ),
+              ),
+            ],
+
+            "SWALLOWING",
+          ),
+
+          // ======================================
+          // SCREEN 4 — BLOOD SUGAR
+          // ======================================
+
+          page(
+            "Blood Sugar Changes",
+
+            "Learn to recognize symptoms associated with high and low blood glucose.",
+
+            [
+              card(
+                "High Blood Sugar",
+
+                `
+              ${definition(
+                "Hyperglycemia",
+                "A blood glucose level that is higher than the person's target range.",
+              )}
+
+              ${compare(
+                "High Blood Sugar",
+                "Thirst, frequent urination, fatigue",
+                "Low Blood Sugar",
+                "Sweating, hunger, shakiness",
+                0,
+              )}
+
+              <h3>Possible symptoms</h3>
+
+              ${bullets([
+                "Frequent, large-volume urination",
+
+                "Constant thirst or persistent hunger",
+
+                "Dry or flushed skin",
+
+                "Weakness, fatigue or drowsiness",
+              ])}
+
+              ${info(
+                "Emergency warning signs",
+                "Fruity breath, deep or labored breathing, vomiting or altered consciousness can indicate a serious diabetic emergency. Seek emergency help immediately.",
+                true,
+              )}
+              `,
+
+                "HYPERGLYCEMIA",
+              ),
+
+              card(
+                "Low Blood Sugar",
+
+                `
+              ${definition(
+                "Hypoglycemia",
+                "A blood glucose level that is too low; generally below 70 mg/dL.",
+              )}
+
+              ${compare(
+                "High Blood Sugar",
+                "Thirst, frequent urination, fatigue",
+                "Low Blood Sugar",
+                "Sweating, hunger, shakiness",
+                1,
+              )}
+
+              <h3>Possible symptoms</h3>
+
+              ${bullets([
+                "Sudden hunger",
+
+                "Sweating or pale, moist skin",
+
+                "Shakiness or dizziness",
+
+                "Fast or pounding heartbeat (palpitations)",
+
+                "Confusion, weakness or unusual behavior",
+              ])}
+
+              ${info(
+                "Respond promptly",
+                "Follow the client's diabetes emergency plan and your authorized duties. If the person is unresponsive, having a seizure or unable to swallow safely, call 911. Never give anything by mouth to someone who cannot swallow safely.",
+                true,
+              )}
+              `,
+
+                "HYPOGLYCEMIA",
+
+                quiz(
+                  2,
+
+                  "A client with diabetes becomes sweaty, shaky and unusually confused. What is the best response?",
+
+                  [
+                    "Ignore the symptoms because they will pass.",
+
+                    "Ensure immediate safety, follow the client's diabetes plan and your authorized duties, and seek emergency help when indicated.",
+
+                    "Change the client's insulin dose yourself.",
+                  ],
+
+                  1,
+
+                  "These may be signs of low blood sugar. Act promptly according to the care plan; severe symptoms require emergency assistance.",
+                ),
+              ),
+            ],
+
+            "DIABETES AWARENESS",
+          ),
+
+          // ======================================
+          // SCREEN 5 — FLUID BALANCE
+          // ======================================
+
+          page(
+            "Fluid Balance",
+
+            "Both too little and too much body fluid can affect a client's health.",
+
+            [
+              card(
+                "Dehydration & Fluid Deficit",
+
+                `
+              ${definition(
+                "Fluid deficit",
+                "A condition in which the body does not have enough fluid for its needs.",
+              )}
+
+              ${compare(
+                "Fluid Excess",
+                "Swelling and breathing changes",
+                "Fluid Deficit",
+                "Dryness and possible dehydration",
+                1,
+              )}
+
+              <h3>Possible warning signs</h3>
+
+              ${bullets([
+                "Dry eyes or decreased tearing",
+
+                "Dry mouth and mucous membranes",
+
+                "Thick saliva",
+
+                "Dry or cracked tongue",
+
+                "Reduced skin elasticity",
+              ])}
+
+              ${info(
+                "Remember",
+                "These findings are not enough to diagnose dehydration. Report concerns, especially when accompanied by weakness or changes in alertness.",
+              )}
+              `,
+
+                "FLUID DEFICIT",
+              ),
+
+              card(
+                "Excess Fluid",
+
+                `
+              ${definition(
+                "Fluid excess",
+                "An excessive amount of fluid in the body, which can contribute to swelling and breathing problems.",
+              )}
+
+              ${compare(
+                "Fluid Excess",
+                "Swelling and breathing changes",
+                "Fluid Deficit",
+                "Dryness and possible dehydration",
+                0,
+              )}
+
+              <h3>Possible warning signs</h3>
+
+              ${bullets([
+                "Swelling around the eyes",
+
+                "Swelling in dependent areas, such as ankles or legs",
+
+                "Prominent neck veins or unusually strong pulse",
+
+                "Faster breathing or difficulty breathing",
+
+                "Warm, moist skin",
+              ])}
+
+              ${info(
+                "Safety",
+                "New severe breathing difficulty is an emergency. Call 911 and follow agency procedures.",
+                true,
+              )}
+
+              <p>
+                Do not independently restrict or increase
+                fluids outside the client's care plan.
+              </p>
+              `,
+
+                "FLUID EXCESS",
+              ),
+            ],
+
+            "HYDRATION",
+          ),
+
+          // ======================================
+          // SCREEN 6 — MIND & BODY
+          // ======================================
+
+          page(
+            "Mind & Body Changes",
+
+            "Changes in thinking, sensation and energy may point to an underlying health problem.",
+
+            [
+              card(
+                "Cognitive Changes",
+
+                `
+              <p>
+                Watch for changes from the client's
+                usual memory, thinking and behavior.
+              </p>
+
+              ${bullets([
+                "Repeating statements or questions more often",
+
+                "Misplacing familiar items",
+
+                "Forgetting ordinary routines or information",
+
+                "Unusual mood or behavior changes",
+
+                "New confusion or trouble following instructions",
+              ])}
+
+              ${info(
+                "Important distinction",
+                "Long-term memory problems and sudden confusion are not the same. Sudden confusion may signal an urgent medical problem and requires prompt assessment.",
+              )}
+
+              <p>
+                Changes can have different causes,
+                including illness, medication effects,
+                dementia or other health conditions.
+                DCWs should not attempt to diagnose them.
+              </p>
+              `,
+
+                "COGNITIVE IMPAIRMENT",
+              ),
+
+              card(
+                "Sudden Numbness & Stroke",
+
+                `
+              <p>
+                Sudden numbness or weakness,
+                especially on one side of the body,
+                may be a warning sign of stroke.
+              </p>
+
+              <h3>Remember B.E. F.A.S.T.</h3>
+
+              ${befast()}
+
+              ${info(
+                "Call 911 immediately",
+                "Do not wait for a supervisor to return your call. Note the time symptoms started, if known. Even if symptoms disappear, emergency evaluation is necessary.",
+                true,
+              )}
+              `,
+
+                "EMERGENCY RECOGNITION",
+
+                quiz(
+                  3,
+
+                  "A client suddenly develops numbness on one side and begins speaking with slurred words. What is your priority?",
+
+                  [
+                    "Call 911 immediately and then notify the agency.",
+
+                    "Wait 30 minutes to see if the symptoms disappear.",
+
+                    "Write it in the visit notes and mention it at the next shift.",
+                  ],
+
+                  0,
+
+                  "Sudden one-sided weakness or numbness and speech changes may indicate stroke. Every minute matters.",
+                ),
+              ),
+
+              card(
+                "Decreased Energy & Mood",
+
+                `
+              <p>
+                A sudden drop in energy can have
+                many possible causes.
+              </p>
+
+              ${bullets([
+                "New fatigue or reduced activity",
+
+                "Reduced interest in usual activities",
+
+                "Changes in mood, motivation or sleep",
+
+                "Withdrawal, sadness or unusual behavior",
+              ])}
+
+              ${info(
+                "Mental health matters",
+                "Depression can occur at any age and is one possible explanation for changes in mood and energy. It should not be assumed to be the cause without assessment.",
+              )}
+
+              <p>
+                Observe the change, document what
+                you notice, and report concerns through
+                the agency's clinical process.
+              </p>
+              `,
+
+                "ENERGY & BEHAVIOR",
+              ),
+            ],
+
+            "HEALTH CHANGES",
+          ),
+
+          // ======================================
+          // SCREEN 7 — REPORT & DOCUMENT
+          // ======================================
+
+          page(
+            "Report & Document",
+
+            "Some changes need a verbal report immediately. Written documentation must also be accurate and timely.",
+
+            [
+              card(
+                "When to Report Verbally",
+
+                `
+              <p>
+                Do not rely on documentation alone
+                when a change needs prompt attention.
+              </p>
+
+              ${bullets([
+                "Changes in the client's condition",
+
+                "Abnormal observations or findings",
+
+                "New problems affecting safe care delivery",
+
+                "Significant changes in eating, movement, thinking or behavior",
+              ])}
+
+              ${info(
+                "Emergency exception",
+                "Activate emergency response first for life-threatening symptoms such as suspected stroke, unresponsiveness or severe breathing difficulty. Then notify the agency.",
+                true,
+              )}
+
+              ${info(
+                "Document the report",
+                "Record what you reported, who received it, the date and time, and any instructions provided.",
+              )}
+              `,
+
+                "VERBAL REPORTING",
+
+                quiz(
+                  4,
+
+                  "You notice a significant new change in a client's condition. What should you do?",
+
+                  [
+                    "Wait until the end of the week to submit paperwork.",
+
+                    "Tell the next caregiver only.",
+
+                    "Promptly report the change through the appropriate clinical or emergency process and document the communication.",
+                  ],
+
+                  2,
+
+                  "Important changes should be reported promptly. Written documentation supports the report but does not replace timely verbal or emergency communication.",
+                ),
+              ),
+
+              card(
+                "Writing Accurate Care Notes",
+
+                `
+              <p>
+                Complete required documentation
+                promptly after each visit, following
+                the agency's procedure.
+              </p>
+
+              ${bullets([
+                "Document before leaving the home when required by agency policy.",
+
+                "Write facts, not guesses or personal opinions.",
+
+                "Record what you saw, heard or did.",
+
+                "Use quotation marks for a client's exact words.",
+
+                "Use clear, ordinary language rather than trying to diagnose a condition.",
+
+                "Record the person notified, time, date and instructions received.",
+              ])}
+
+              ${example(
+                true,
+                "\"Client stated, 'I feel dizzy when I stand.' Notified supervisor at 10:20 AM and documented instructions received.\"",
+              )}
+
+              ${example(
+                false,
+                '"The client is probably sick and always has problems."',
+              )}
+              `,
+
+                "WRITTEN DOCUMENTATION",
+              ),
+
+              card(
+                "Correcting Documentation Errors",
+
+                `
+              <h3>Paper documentation</h3>
+
+              ${bullets([
+                "Do not erase or conceal the original entry.",
+
+                "For corrections, follow agency rules—traditionally a single line through the error, initials and a corrected entry.",
+
+                "Keep handwriting legible.",
+
+                "Sign, date and include your role or title as required.",
+              ])}
+
+              <h3>Electronic documentation</h3>
+
+              ${bullets([
+                "Use the system's approved correction or amendment process.",
+
+                "Do not falsify timestamps or replace another worker's documentation.",
+
+                "Follow agency requirements for electronic signatures and audit trails.",
+              ])}
+
+              ${info(
+                "Remember",
+                "Accurate documentation should preserve what happened and when. Never invent details to complete a record.",
+              )}
+              `,
+
+                "RECORD ACCURACY",
+              ),
+            ],
+
+            "COMMUNICATION",
+          ),
+
+          // ======================================
+          // SCREEN 8 — FINAL REVIEW
+          // ======================================
+
+          page(
+            "Notice. Act. Report.",
+
+            "You've reached the end of Recognizing Client Changes.",
+
+            [
+              card(
+                "Four Things to Remember",
+
+                `
+              ${steps([
+                [
+                  "Know the client",
+                  "Understand their usual behavior, abilities and care needs.",
+                ],
+
+                [
+                  "Recognize changes",
+                  "Pay attention to eating, swallowing, blood sugar warning signs, fluids, thinking and movement.",
+                ],
+
+                [
+                  "Act appropriately",
+                  "Protect immediate safety and activate emergency response when needed.",
+                ],
+
+                [
+                  "Report and document",
+                  "Communicate significant findings promptly and maintain accurate records.",
+                ],
+              ])}
+
+              ${info(
+                "When in doubt, report",
+                "Do not diagnose, independently change treatment, or delay emergency help while waiting for routine instructions.",
+              )}
+
+              <p>
+                Use <strong>Back</strong> to review
+                or <strong>Start over</strong>
+                to revisit the guide.
+              </p>
+
+              <p>
+                Continue to the questionnaire through
+                Gimbal's own controls.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ========================================
+        // NAVIGATION STATE
+        // ========================================
+
+        let currentPage = 0;
+        let skipped = false;
+        let touchStart = null;
+
+        const slidePositions = Array(pages.length).fill(0);
+
+        const quizAnswers = {};
+
+        const quizKey = () => `${currentPage}:${slidePositions[currentPage]}`;
+
+        // ========================================
+        // RENDER PRACTICE QUESTIONS
+        // ========================================
+
+        function renderQuiz(q) {
+          const selected = quizAnswers[quizKey()];
+          const answered = selected !== undefined;
+
+          const choices = q.options
+            .map((option, i) => {
+              let cls = "";
+              let mark = "";
+
+              if (answered) {
+                if (i === q.correct) {
+                  cls = "rc-correct";
+                  mark = "✓";
+                } else if (i === selected) {
+                  cls = "rc-wrong";
+                  mark = "✕";
+                } else {
+                  cls = "rc-muted";
+                }
+              }
+
+              return `
+            <button
+              type="button"
+              class="rc-choice ${cls}"
+              data-action="choose"
+              data-choice="${i}"
+              ${answered ? "disabled" : ""}
+            >
+
+              <span class="rc-choice-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="rc-choice-text">
+                ${option}
+              </span>
+
+              <span class="rc-choice-mark">
+                ${mark}
+              </span>
+
+            </button>
+          `;
+            })
+            .join("");
+
+          const feedback = !answered
+            ? ""
+            : `
+          <div
+            class="rc-feedback ${selected === q.correct ? "good" : "bad"}"
+            role="status"
+          >
+            <strong>
+              ${
+                selected === q.correct
+                  ? "✓ Correct!"
+                  : "✕ Not quite — the correct answer is green."
+              }
+            </strong>
+
+            <div style="margin-top:6px;">
+              ${q.explanation}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="rc-retry"
+            data-action="retry"
+          >
+            Try again ↻
+          </button>
+        `;
+
+          return `
+          <div class="rc-quiz">
+
+            <span class="rc-quiz-tag">
+              PRACTICE CHECK ${q.number} OF 4
+            </span>
+
+            <div class="rc-question">
+              ${q.question}
+            </div>
+
+            <div class="rc-choices">
+              ${choices}
+            </div>
+
+            ${feedback}
+
+          </div>
+        `;
+        }
+
+        // ========================================
+        // RENDER CURRENT SCREEN
+        // ========================================
+
+        function render() {
+          const p = pages[currentPage];
+          const slideIndex = slidePositions[currentPage];
+          const active = p.cards[slideIndex];
+
+          const total = pages.length;
+          const remaining = total - currentPage - 1;
+
+          // Header
+
+          $("rc-eyebrow").textContent = p.eyebrow;
+          $("rc-heading").textContent = p.title;
+
+          $("rc-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. You can return to review the training before the assessment."
+              : p.lead;
+
+          // Progress
+
+          $("rc-count").textContent = `Screen ${currentPage + 1} of ${total}`;
+
+          $("rc-remaining").textContent =
+            remaining === 0
+              ? "Final screen"
+              : `${remaining} screen${remaining === 1 ? "" : "s"} left`;
+
+          $("rc-fill").style.width = `${((currentPage + 1) / total) * 100}%`;
+
+          $("rc-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          $("rc-progress").setAttribute("aria-valuemax", String(total));
+
+          // Active content card
+
+          $("rc-card").innerHTML = `
+          <div class="rc-kicker">
+            ${active.label}
+          </div>
+
+          <h2>${active.title}</h2>
+
+          ${active.content}
+
+          ${active.practice ? renderQuiz(active.practice) : ""}
+        `;
+
+          // ====================================
+          // INNER CAROUSEL
+          // ====================================
+
+          const count = p.cards.length;
+
+          $("rc-carousel-host").innerHTML =
+            count < 2
+              ? ""
+              : `
+            <nav
+              class="rc-carousel"
+              aria-label="Content slides"
+            >
+
+              <button
+                class="rc-arrow"
+                type="button"
+                data-action="slide-back"
+                aria-label="Previous slide"
+                ${slideIndex === 0 ? "disabled" : ""}
+              >
+                ‹
+              </button>
+
+              <div class="rc-carousel-middle">
+
+                <strong>
+                  Slide ${slideIndex + 1} of ${count}
+                </strong>
+
+                <small>
+                  Swipe or use arrows
+                </small>
+
+                <div class="rc-dots">
+                  ${p.cards
+                    .map(
+                      (_, i) => `
+                    <button
+                      class="rc-dot"
+                      type="button"
+                      data-action="slide-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === slideIndex}"
+                    ></button>
+                  `,
+                    )
+                    .join("")}
+                </div>
+
+              </div>
+
+              <button
+                class="rc-arrow"
+                type="button"
+                data-action="slide-next"
+                aria-label="Next slide"
+                ${slideIndex === count - 1 ? "disabled" : ""}
+              >
+                ›
+              </button>
+
+            </nav>
+          `;
+
+          // Main navigation
+
+          $("rc-back").disabled = currentPage === 0;
+
+          $("rc-next").textContent =
+            currentPage === total - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === total - 1;
+        }
+
+        // ========================================
+        // MAIN PAGE NAVIGATION
+        // ========================================
+
+        function goPage(index) {
+          if (index < 0 || index >= pages.length) {
+            return;
+          }
+
+          currentPage = index;
+          render();
+
+          root.scrollIntoView({
+            block: "start",
+            behavior: "auto",
+          });
+        }
+
+        // ========================================
+        // INNER SLIDE NAVIGATION
+        // ========================================
+
+        function goSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          slidePositions[currentPage] = index;
+          render();
+        }
+
+        // ========================================
+        // BUTTON HANDLERS
+        // ========================================
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-action]");
+
+          if (!btn || !root.contains(btn) || btn.disabled) {
+            return;
+          }
+
+          switch (btn.dataset.action) {
+            // Skip to final screen
+
+            case "skip":
+              skipped = true;
+              goPage(pages.length - 1);
+              break;
+
+            // Previous main screen
+
+            case "back":
+              goPage(currentPage - 1);
+              break;
+
+            // Next main screen / Restart
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+                slidePositions.fill(0);
+
+                Object.keys(quizAnswers).forEach(
+                  (key) => delete quizAnswers[key],
+                );
+
+                goPage(0);
+              } else {
+                goPage(currentPage + 1);
+              }
+              break;
+
+            // Previous inner slide
+
+            case "slide-back":
+              goSlide(slidePositions[currentPage] - 1);
+              break;
+
+            // Next inner slide
+
+            case "slide-next":
+              goSlide(slidePositions[currentPage] + 1);
+              break;
+
+            // Jump to selected slide
+
+            case "slide-jump":
+              goSlide(Number(btn.dataset.index));
+              break;
+
+            // ====================================
+            // PRACTICE ANSWER
+            // ====================================
+
+            case "choose": {
+              const key = quizKey();
+
+              if (quizAnswers[key] !== undefined) {
+                return;
+              }
+
+              quizAnswers[key] = Number(btn.dataset.choice);
+
+              render();
+              break;
+            }
+
+            // Retry practice
+
+            case "retry":
+              delete quizAnswers[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        // ========================================
+        // MOBILE SWIPE SUPPORT
+        // ========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".rc-card")) {
+              return;
+            }
+
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart || !event.target.closest(".rc-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore ordinary vertical scrolling
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              goSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ========================================
+        // INITIALIZE
+        // ========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

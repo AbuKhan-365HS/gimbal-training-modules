@@ -1,0 +1,1549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Agency Policies & Procedures | 365 Health Services</title>
+
+    <style>
+      /* =========================================
+       BASE
+    ========================================= */
+
+      #policy-training,
+      #policy-training * {
+        box-sizing: border-box;
+      }
+
+      #policy-training {
+        --blue: #175199;
+        --sky: #00a4ef;
+        --teal: #cae6ea;
+        --pink: #ef2852;
+        --ink: #173252;
+        --muted: #526780;
+
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        border: 1px solid #d8e9f0;
+        border-radius: 25px;
+        overflow: hidden;
+
+        background: white;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+
+        box-shadow: 0 14px 36px rgba(23, 81, 153, 0.1);
+      }
+
+      #policy-training button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #policy-training button:focus-visible {
+        outline: 3px solid var(--pink);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+       HEADER
+    ========================================= */
+
+      #policy-training .pt-header {
+        padding: 22px 22px 26px;
+        background: var(--teal);
+      }
+
+      #policy-training .pt-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #policy-training .pt-logo {
+        display: block;
+        width: min(180px, 43vw);
+        max-height: 58px;
+        object-fit: contain;
+        object-position: left;
+      }
+
+      #policy-training .pt-logo-fallback {
+        font-size: 13px;
+        color: var(--blue);
+        font-weight: 800;
+      }
+
+      #policy-training .pt-skip {
+        background: white;
+        color: var(--blue);
+        border: none;
+        border-radius: 999px;
+        padding: 11px 17px;
+        font-weight: 700;
+      }
+
+      #policy-training .pt-eyebrow {
+        margin: 25px 0 10px;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        color: var(--blue);
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      #policy-training h1 {
+        font-size: clamp(28px, 7vw, 42px);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+        color: var(--blue);
+        margin: 0;
+        font-weight: 800;
+      }
+
+      #policy-training .pt-lead {
+        font-size: 15px;
+        line-height: 1.55;
+        color: #294967;
+        margin: 15px 0 0;
+      }
+
+      /* =========================================
+       PROGRESS
+    ========================================= */
+
+      #policy-training .pt-main {
+        padding: 20px 20px 8px;
+      }
+
+      #policy-training .pt-status {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      #policy-training .pt-status strong {
+        color: var(--blue);
+      }
+
+      #policy-training .pt-progress {
+        height: 6px;
+        background: #e7eff4;
+        border-radius: 99px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      #policy-training .pt-fill {
+        height: 100%;
+        background: var(--sky);
+        border-radius: inherit;
+        transition: width 0.2s ease;
+      }
+
+      /* =========================================
+       CONTENT CARDS
+    ========================================= */
+
+      #policy-training .pt-card {
+        padding: 20px;
+        border-radius: 19px;
+        border: 1px solid #d5e8ee;
+        background: #f7fbfd;
+        min-height: 200px;
+      }
+
+      #policy-training .pt-kicker {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        color: #008ac7;
+        text-transform: uppercase;
+        margin-bottom: 9px;
+      }
+
+      #policy-training .pt-card h2 {
+        margin: 0 0 14px;
+        font-size: clamp(21px, 5vw, 26px);
+        line-height: 1.2;
+        color: var(--blue);
+      }
+
+      #policy-training .pt-card h3 {
+        margin: 15px 0 8px;
+        font-size: 16px;
+        color: var(--blue);
+      }
+
+      #policy-training .pt-card p {
+        margin: 0 0 12px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      #policy-training .pt-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      #policy-training .pt-list {
+        padding-left: 20px;
+        margin: 10px 0 0;
+      }
+
+      #policy-training .pt-list li {
+        padding-left: 3px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      #policy-training .pt-list li::marker {
+        color: var(--sky);
+      }
+
+      /* =========================================
+       INFO CALLOUT
+    ========================================= */
+
+      #policy-training .pt-info {
+        margin-top: 14px;
+        padding: 14px;
+        background: #e7f5fb;
+        border-left: 4px solid var(--sky);
+        border-radius: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #policy-training .pt-info strong {
+        color: var(--blue);
+      }
+
+      /* =========================================
+       YOUR RESPONSIBILITY COMPONENT
+    ========================================= */
+
+      #policy-training .pt-responsibility {
+        background: white;
+        border: 1px solid #c9e3ec;
+        border-radius: 14px;
+        padding: 15px;
+        margin: 15px 0;
+      }
+
+      #policy-training .pt-responsibility-tag {
+        color: #0089c5;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        margin-bottom: 8px;
+      }
+
+      #policy-training .pt-responsibility strong {
+        display: block;
+        font-size: 17px;
+        color: var(--blue);
+        margin-bottom: 7px;
+      }
+
+      #policy-training .pt-responsibility p {
+        font-size: 13px;
+        margin: 0;
+        line-height: 1.55;
+      }
+
+      /* =========================================
+       PRACTICE QUESTIONS
+    ========================================= */
+
+      #policy-training .pt-quiz {
+        margin-top: 20px;
+        border-top: 1px solid #d1e4ec;
+        padding-top: 19px;
+      }
+
+      #policy-training .pt-quiz-label {
+        display: inline-block;
+        background: var(--teal);
+        color: var(--blue);
+        border-radius: 99px;
+        padding: 6px 11px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+      }
+
+      #policy-training .pt-question {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: var(--blue);
+        margin-bottom: 14px;
+      }
+
+      #policy-training .pt-choices {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      #policy-training .pt-choice {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        width: 100%;
+        padding: 13px;
+        border: 1.5px solid #cbdfe8;
+        border-radius: 12px;
+        background: white;
+        color: var(--ink);
+        text-align: left;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      #policy-training .pt-choice-letter {
+        display: flex;
+        flex: 0 0 25px;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #eaf1f7;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      #policy-training .pt-choice-text {
+        flex: 1;
+      }
+
+      #policy-training .pt-choice-icon {
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      /* Correct = Green */
+
+      #policy-training .pt-choice.pt-correct {
+        background: #e1f5e9;
+        color: #155c3b;
+        border-color: #16834e;
+      }
+
+      #policy-training .pt-correct .pt-choice-letter {
+        background: #16834e;
+        color: white;
+      }
+
+      /* Incorrect = Red */
+
+      #policy-training .pt-choice.pt-wrong {
+        background: #ffeaed;
+        color: #a5233a;
+        border-color: #d23954;
+      }
+
+      #policy-training .pt-wrong .pt-choice-letter {
+        background: #d23954;
+        color: white;
+      }
+
+      #policy-training .pt-choice.pt-muted {
+        opacity: 0.6;
+      }
+
+      #policy-training .pt-choice:disabled {
+        cursor: default;
+      }
+
+      #policy-training .pt-feedback {
+        margin-top: 13px;
+        padding: 13px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      #policy-training .pt-feedback.good {
+        background: #e1f5e9;
+        color: #155c3b;
+      }
+
+      #policy-training .pt-feedback.bad {
+        background: #ffeaed;
+        color: #a5233a;
+      }
+
+      #policy-training .pt-retry {
+        margin-top: 11px;
+        padding: 9px 15px;
+        border: 1px solid #bdd6e3;
+        border-radius: 99px;
+        background: white;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* =========================================
+       INNER CAROUSELS
+    ========================================= */
+
+      #policy-training .pt-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 11px;
+        margin: 15px 0 9px;
+        border-radius: 16px;
+        background: #eef7fb;
+      }
+
+      #policy-training .pt-arrow {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        border: 1px solid #bfd9e5;
+        border-radius: 50%;
+        background: white;
+        color: var(--blue);
+        font-size: 24px;
+      }
+
+      #policy-training .pt-arrow:disabled,
+      #policy-training .pt-nav-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      #policy-training .pt-carousel-middle {
+        text-align: center;
+        min-width: 0;
+      }
+
+      #policy-training .pt-carousel-middle strong {
+        display: block;
+        color: var(--blue);
+        font-size: 12px;
+      }
+
+      #policy-training .pt-carousel-middle small {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      #policy-training .pt-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 7px;
+      }
+
+      #policy-training .pt-dot {
+        border: 0;
+        background: #b9d5e2;
+        border-radius: 99px;
+        width: 8px;
+        height: 8px;
+        padding: 0;
+      }
+
+      #policy-training .pt-dot[aria-current="true"] {
+        width: 23px;
+        background: var(--blue);
+      }
+
+      /* =========================================
+       MAIN NAVIGATION
+    ========================================= */
+
+      #policy-training .pt-actions {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 19px;
+        border-top: 1px solid #e5edf2;
+        background: white;
+      }
+
+      #policy-training .pt-nav-btn {
+        min-height: 52px;
+        border: 0;
+        border-radius: 99px;
+        padding: 14px 18px;
+        font-weight: 800;
+      }
+
+      #policy-training .pt-back {
+        width: 39%;
+        background: #e8eff6;
+        color: var(--blue);
+      }
+
+      #policy-training .pt-next {
+        flex: 1;
+        background: var(--blue);
+        color: white;
+      }
+
+      #policy-training .pt-footer-note {
+        padding: 0 20px 15px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      /* =========================================
+       MOBILE RESPONSIVENESS
+    ========================================= */
+
+      @media (max-width: 390px) {
+        #policy-training {
+          border-radius: 15px;
+        }
+
+        #policy-training .pt-header {
+          padding: 18px 17px 23px;
+        }
+
+        #policy-training .pt-main {
+          padding: 16px 14px 8px;
+        }
+
+        #policy-training .pt-card {
+          padding: 16px;
+        }
+
+        #policy-training .pt-actions {
+          padding: 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #policy-training .pt-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background: #f3f7fb">
+    <div
+      id="policy-training"
+      role="region"
+      aria-label="Agency Policies and Procedures Training"
+    >
+      <!-- HEADER -->
+
+      <header class="pt-header">
+        <div class="pt-top">
+          <div>
+            <img
+              class="pt-logo"
+              src="https://365healthservices.com/wp-content/uploads/2022/10/logo.svg"
+              alt="365 Health Services"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.hidden = false;
+              "
+            />
+
+            <span class="pt-logo-fallback" hidden> 365 HEALTH SERVICES </span>
+          </div>
+
+          <button type="button" class="pt-skip" data-action="skip">
+            Skip →
+          </button>
+        </div>
+
+        <div class="pt-eyebrow" id="pt-eyebrow"></div>
+
+        <h1 id="pt-heading"></h1>
+
+        <p class="pt-lead" id="pt-lead"></p>
+      </header>
+
+      <!-- MAIN CONTENT -->
+
+      <main class="pt-main">
+        <div class="pt-status" aria-live="polite">
+          <strong id="pt-page-count"></strong>
+
+          <span id="pt-remaining"></span>
+        </div>
+
+        <div
+          class="pt-progress"
+          id="pt-progress"
+          role="progressbar"
+          aria-label="Training progress"
+          aria-valuemin="1"
+          aria-valuemax="6"
+        >
+          <div class="pt-fill" id="pt-fill"></div>
+        </div>
+
+        <section id="pt-card" class="pt-card" aria-live="polite"></section>
+
+        <div id="pt-carousel-host"></div>
+      </main>
+
+      <!-- MAIN NAVIGATION -->
+
+      <footer class="pt-actions">
+        <button
+          type="button"
+          class="pt-nav-btn pt-back"
+          id="pt-back"
+          data-action="back"
+        >
+          ← Back
+        </button>
+
+        <button
+          type="button"
+          class="pt-nav-btn pt-next"
+          id="pt-next"
+          data-action="next"
+        >
+          Next →
+        </button>
+      </footer>
+
+      <div class="pt-footer-note">
+        Use the arrows or swipe to explore each topic. Practice questions are
+        ungraded.
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // ==========================================
+        // HELPERS
+        // ==========================================
+
+        const root = document.getElementById("policy-training");
+
+        const $ = (id) => root.querySelector(`#${id}`);
+
+        const bullets = (items) => `
+        <ul class="pt-list">
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+
+        const info = (heading, text) => `
+        <div class="pt-info">
+          <strong>${heading}</strong>
+          <div>${text}</div>
+        </div>
+      `;
+
+        const responsibility = (heading, text) => `
+        <div class="pt-responsibility">
+
+          <div class="pt-responsibility-tag">
+            YOUR RESPONSIBILITY
+          </div>
+
+          <strong>${heading}</strong>
+
+          <p>${text}</p>
+
+        </div>
+      `;
+
+        const quiz = (number, question, options, correct, explanation) => ({
+          number,
+          question,
+          options,
+          correct,
+          explanation,
+        });
+
+        const card = (
+          title,
+          content,
+          label = "KEY INFORMATION",
+          practice = null,
+        ) => ({
+          title,
+          content,
+          label,
+          practice,
+        });
+
+        const page = (title, lead, cards, eyebrow) => ({
+          title,
+          lead,
+          cards,
+          eyebrow,
+        });
+
+        // ==========================================
+        // TRAINING CONTENT
+        //
+        // Based on the 365 Health Services
+        // Policies & Procedures Overview (2021).
+        //
+        // This is an orientation summary, not a
+        // replacement for the current handbook.
+        // ==========================================
+
+        const pages = [
+          // ========================================
+          // SCREEN 1 — WELCOME
+          // ========================================
+
+          page(
+            "Agency Policies & Procedures",
+
+            "Understand the rules that guide your work, protect clients, and support quality home care.",
+
+            [
+              card(
+                "Why policies matter",
+
+                `
+              <p>
+                <strong>Policies</strong> explain the
+                agency's rules, expectations, and
+                responsibilities.
+              </p>
+
+              <p>
+                <strong>Procedures</strong> explain
+                how those requirements are carried out.
+              </p>
+
+              ${responsibility(
+                "Know what applies to your role",
+                "Follow the current agency handbook, your job responsibilities, the authorized care plan, and instructions from appropriate supervisors.",
+              )}
+
+              <p>
+                This guide highlights the policies
+                most relevant to your daily work.
+              </p>
+              `,
+
+                "WELCOME",
+              ),
+            ],
+
+            "GETTING STARTED",
+          ),
+
+          // ========================================
+          // SCREEN 2 — CLIENT CARE
+          // ========================================
+
+          page(
+            "Providing Client Care",
+
+            "Understand what care you are authorized to provide and how services must be recorded.",
+
+            [
+              // CARD 1
+
+              card(
+                "Follow the Authorized Care Plan",
+
+                `
+              <p>
+                Each client's services are guided
+                by an authorized care plan and
+                the agency's service policies.
+              </p>
+
+              ${bullets([
+                "Provide care within the authorized plan and your assigned responsibilities.",
+                "Respect the client's rights, preferences, and service agreement.",
+                "Report requests for changes in care or service delivery through the agency's process.",
+                "Follow agency instructions if services are interrupted, changed, or discontinued.",
+              ])}
+
+              ${responsibility(
+                "Don't independently change authorized services",
+                "Listen to the client's request, but involve the appropriate agency staff when a change requires approval.",
+              )}
+              `,
+
+                "SERVICE DELIVERY",
+
+                quiz(
+                  1,
+
+                  "A client asks you to permanently add two hours to their daily care schedule. What should you do?",
+
+                  [
+                    "Agree and change the schedule yourself.",
+
+                    "Respect the request and contact the agency about the required approval or care-plan change.",
+
+                    "Ignore the request because the schedule is already set.",
+                  ],
+
+                  1,
+
+                  "A client may request changes, but authorized services must be updated through the appropriate agency process.",
+                ),
+              ),
+
+              // CARD 2
+
+              card(
+                "Document Every Visit",
+
+                `
+              <p>
+                The agency uses visit records and
+                <strong>Electronic Visit Verification
+                (EVV)</strong> to document services.
+              </p>
+
+              ${bullets([
+                "Record the services provided using the agency's required system or records.",
+                "Follow the agency's procedures for visit documentation.",
+                "If EVV is unavailable, use the approved alternative record process.",
+                "Obtain required client validation or signatures when applicable.",
+              ])}
+
+              ${info(
+                "Remember",
+                "Accurate visit records support continuity of care and the agency's billing and payroll processes.",
+              )}
+              `,
+
+                "VISIT DOCUMENTATION",
+              ),
+            ],
+
+            "CLIENT SERVICES",
+          ),
+
+          // ========================================
+          // SCREEN 3 — STAFF RESPONSIBILITIES
+          // ========================================
+
+          page(
+            "Your Responsibilities",
+
+            "Understand the employment expectations that help the agency provide consistent care.",
+
+            [
+              // CARD 1
+
+              card(
+                "Attendance & Shift Accountability",
+
+                `
+              <p>
+                Reliable staffing helps clients
+                receive the services they need.
+              </p>
+
+              ${bullets([
+                "Follow the agency's attendance and absenteeism policies.",
+                "Notify the appropriate agency contact about schedule or attendance problems.",
+                "Follow night-shift accountability requirements when applicable.",
+                "Cooperate with approved backup staffing arrangements.",
+              ])}
+
+              ${responsibility(
+                "Communicate staffing problems",
+                "If you cannot provide a scheduled visit, follow the agency's notification process rather than making arrangements outside its procedures.",
+              )}
+              `,
+
+                "WORK EXPECTATIONS",
+              ),
+
+              // CARD 2
+
+              card(
+                "Training & Professional Standards",
+
+                `
+              <p>
+                Staff must follow applicable personnel
+                policies and maintain the training and
+                competencies required for their role.
+              </p>
+
+              ${bullets([
+                "Complete orientation and required competency assessments.",
+                "Participate in required in-service education, supervision, and performance evaluations.",
+                "Follow policies concerning professional conduct and sexual harassment.",
+                "Follow applicable reporting requirements for changes affecting employment eligibility.",
+                "Review and acknowledge the Employee Handbook as required.",
+              ])}
+
+              ${info(
+                "Remember",
+                "Refer to the current handbook or HR for specific training, screening, and reporting requirements.",
+              )}
+              `,
+
+                "PERSONNEL POLICIES",
+              ),
+            ],
+
+            "EMPLOYEE EXPECTATIONS",
+          ),
+
+          // ========================================
+          // SCREEN 4 — SAFETY & CONDUCT
+          // ========================================
+
+          page(
+            "Safety & Professional Conduct",
+
+            "Protect client rights, maintain professionalism, and know when to raise a concern.",
+
+            [
+              // CARD 1
+
+              card(
+                "Respect Client Rights",
+
+                `
+              <p>
+                Agency policies address confidentiality,
+                nondiscrimination, professional conduct,
+                and communication with clients.
+              </p>
+
+              ${bullets([
+                "Protect confidential client information.",
+                "Treat clients fairly and respectfully.",
+                "Follow nondiscrimination and grievance policies.",
+                "Use approved support for clients with limited English proficiency or communication needs.",
+                "Avoid conflicts of interest and prohibited conduct.",
+              ])}
+
+              ${responsibility(
+                "Provide respectful, accessible care",
+                "Follow agency procedures when a client has a communication need or raises a concern about how they are treated.",
+              )}
+              `,
+
+                "CLIENT RIGHTS",
+              ),
+
+              // CARD 2
+
+              card(
+                "Safety & Incident Awareness",
+
+                `
+              <p>
+                The agency maintains policies for
+                client safety, emergency response,
+                infection prevention, and abuse reporting.
+              </p>
+
+              ${bullets([
+                "Recognize and report suspected abuse or neglect.",
+                "Follow incident-reporting procedures.",
+                "Use appropriate infection prevention and standard precautions.",
+                "Recognize and report safety risks, including fall hazards.",
+                "Follow the agency's emergency management instructions.",
+              ])}
+
+              ${info(
+                "Important",
+                "If there is immediate danger or a medical emergency, follow emergency-response procedures. Report incidents through the agency's required channels.",
+              )}
+              `,
+
+                "SAFE CARE",
+              ),
+            ],
+
+            "SAFETY POLICIES",
+          ),
+
+          // ========================================
+          // SCREEN 5 — QUALITY & ACCOUNTABILITY
+          // ========================================
+
+          page(
+            "Quality & Accountability",
+
+            "Accurate records, timely reporting, and client feedback help the agency maintain quality services.",
+
+            [
+              // CARD 1
+
+              card(
+                "Complaints & Quality Improvement",
+
+                `
+              <p>
+                The agency's quality management
+                policies cover:
+              </p>
+
+              ${bullets([
+                "Client satisfaction surveys",
+                "Customer concerns and complaints",
+                "Incident reporting",
+                "Risk management",
+                "Client record reviews",
+                "Required critical incident reporting",
+              ])}
+
+              ${responsibility(
+                "Report concerns through the agency",
+                "Listen to client complaints and follow the approved reporting process. The agency also has regulatory reporting responsibilities.",
+              )}
+              `,
+
+                "QUALITY MANAGEMENT",
+              ),
+
+              // CARD 2
+
+              card(
+                "Documentation & Financial Integrity",
+
+                `
+              <p>
+                Service records support accurate
+                care documentation, billing,
+                and payroll processing.
+              </p>
+
+              ${bullets([
+                "Document services actually performed.",
+                "Follow the required visit verification process.",
+                "Use the approved backup process if electronic verification is unavailable.",
+                "Follow agency requirements for signatures and client validation when applicable.",
+              ])}
+
+              ${info(
+                "Remember",
+                "If a record is missing or a visit cannot be verified, follow the agency's correction or reporting procedure. Do not invent visit details.",
+              )}
+              `,
+
+                "ACCURATE RECORDS",
+
+                quiz(
+                  2,
+
+                  "Your EVV system is not working during a scheduled visit. What should you do?",
+
+                  [
+                    "Leave the visit undocumented because the system is down.",
+
+                    "Enter an estimated time later without following the agency's process.",
+
+                    "Follow the approved backup documentation process and notify the appropriate agency staff.",
+                  ],
+
+                  2,
+
+                  "When EVV is unavailable, follow the agency's approved alternative documentation and reporting process, including any required client validation.",
+                ),
+              ),
+            ],
+
+            "SERVICE QUALITY",
+          ),
+
+          // ========================================
+          // SCREEN 6 — FINAL REVIEW
+          // ========================================
+
+          page(
+            "Ready to Continue?",
+
+            "You've reached the end of the Agency Policies & Procedures overview.",
+
+            [
+              card(
+                "Five responsibilities to remember",
+
+                `
+              ${bullets([
+                "<strong>Follow the care plan.</strong> Provide authorized services and report requested changes.",
+
+                "<strong>Document accurately.</strong> Use EVV or approved visit documentation procedures.",
+
+                "<strong>Be accountable.</strong> Follow attendance, training, and workplace requirements.",
+
+                "<strong>Protect clients.</strong> Respect their rights, privacy, and safety.",
+
+                "<strong>Report concerns.</strong> Follow agency procedures for complaints, incidents, and safety issues.",
+              ])}
+
+              ${responsibility(
+                "When unsure, ask",
+                "Consult your supervisor, HR, or the appropriate agency contact rather than guessing about a policy.",
+              )}
+
+              <p>
+                Select <strong>Back</strong> to review
+                the previous screen or
+                <strong>Start over</strong> to revisit
+                the guide.
+              </p>
+
+              <p>
+                Continue to the questionnaire using
+                Gimbal's own controls.
+              </p>
+              `,
+
+                "FINAL REVIEW",
+              ),
+            ],
+
+            "FINISH",
+          ),
+        ];
+
+        // ==========================================
+        // STATE
+        // ==========================================
+
+        let currentPage = 0;
+        let skipped = false;
+
+        const slidePositions = Array(pages.length).fill(0);
+
+        const quizAnswers = {};
+
+        let touchStart = null;
+
+        function quizKey() {
+          return `${currentPage}:${slidePositions[currentPage]}`;
+        }
+
+        // ==========================================
+        // RENDER PRACTICE QUESTIONS
+        // ==========================================
+
+        function renderQuiz(q) {
+          const selected = quizAnswers[quizKey()];
+          const answered = selected !== undefined;
+
+          const options = q.options
+            .map((option, i) => {
+              let cls = "";
+              let icon = "";
+
+              if (answered) {
+                if (i === q.correct) {
+                  cls = "pt-correct";
+                  icon = "✓";
+                } else if (i === selected) {
+                  cls = "pt-wrong";
+                  icon = "✕";
+                } else {
+                  cls = "pt-muted";
+                }
+              }
+
+              return `
+            <button
+              type="button"
+              class="pt-choice ${cls}"
+              data-action="choose"
+              data-choice="${i}"
+              ${answered ? "disabled" : ""}
+            >
+              <span class="pt-choice-letter">
+                ${String.fromCharCode(65 + i)}
+              </span>
+
+              <span class="pt-choice-text">
+                ${option}
+              </span>
+
+              <span class="pt-choice-icon">
+                ${icon}
+              </span>
+            </button>
+          `;
+            })
+            .join("");
+
+          let feedback = "";
+
+          if (answered) {
+            const correct = selected === q.correct;
+
+            feedback = `
+            <div
+              class="pt-feedback ${correct ? "good" : "bad"}"
+              role="status"
+            >
+
+              <strong>
+                ${
+                  correct
+                    ? "✓ Correct!"
+                    : "✕ Not quite — the correct answer is green."
+                }
+              </strong>
+
+              <div style="margin-top:6px;">
+                ${q.explanation}
+              </div>
+
+            </div>
+
+            <button
+              type="button"
+              class="pt-retry"
+              data-action="retry"
+            >
+              Try again ↻
+            </button>
+          `;
+          }
+
+          return `
+          <div class="pt-quiz">
+
+            <span class="pt-quiz-label">
+              PRACTICE CHECK ${q.number} OF 2
+            </span>
+
+            <div class="pt-question">
+              ${q.question}
+            </div>
+
+            <div class="pt-choices">
+              ${options}
+            </div>
+
+            ${feedback}
+
+          </div>
+        `;
+        }
+
+        // ==========================================
+        // RENDER SCREEN
+        // ==========================================
+
+        function render() {
+          const p = pages[currentPage];
+          const slideIndex = slidePositions[currentPage];
+          const active = p.cards[slideIndex];
+
+          const total = pages.length;
+          const remaining = total - currentPage - 1;
+
+          // Header
+
+          $("pt-eyebrow").textContent = p.eyebrow;
+          $("pt-heading").textContent = p.title;
+
+          $("pt-lead").textContent =
+            skipped && remaining === 0
+              ? "You skipped ahead. You can return to review the training before the assessment."
+              : p.lead;
+
+          // Progress
+
+          $("pt-page-count").textContent =
+            `Screen ${currentPage + 1} of ${total}`;
+
+          $("pt-remaining").textContent =
+            remaining === 0
+              ? "Final screen"
+              : `${remaining} screen${remaining === 1 ? "" : "s"} left`;
+
+          $("pt-fill").style.width = `${((currentPage + 1) / total) * 100}%`;
+
+          $("pt-progress").setAttribute(
+            "aria-valuenow",
+            String(currentPage + 1),
+          );
+
+          $("pt-progress").setAttribute("aria-valuemax", String(total));
+
+          // Content card
+
+          $("pt-card").innerHTML = `
+          <div class="pt-kicker">
+            ${active.label}
+          </div>
+
+          <h2>${active.title}</h2>
+
+          ${active.content}
+
+          ${active.practice ? renderQuiz(active.practice) : ""}
+        `;
+
+          // ========================================
+          // INNER CAROUSEL
+          // ========================================
+
+          const count = p.cards.length;
+
+          if (count > 1) {
+            $("pt-carousel-host").innerHTML = `
+            <nav
+              class="pt-carousel"
+              aria-label="Content slides"
+            >
+
+              <button
+                type="button"
+                class="pt-arrow"
+                data-action="slide-back"
+                aria-label="Previous slide"
+                ${slideIndex === 0 ? "disabled" : ""}
+              >
+                ‹
+              </button>
+
+              <div class="pt-carousel-middle">
+
+                <strong>
+                  Slide ${slideIndex + 1} of ${count}
+                </strong>
+
+                <small>
+                  Swipe or use arrows
+                </small>
+
+                <div class="pt-dots">
+
+                  ${p.cards
+                    .map(
+                      (_, i) => `
+                    <button
+                      type="button"
+                      class="pt-dot"
+                      data-action="slide-jump"
+                      data-index="${i}"
+                      aria-label="Go to slide ${i + 1}"
+                      aria-current="${i === slideIndex}"
+                    ></button>
+                  `,
+                    )
+                    .join("")}
+
+                </div>
+
+              </div>
+
+              <button
+                type="button"
+                class="pt-arrow"
+                data-action="slide-next"
+                aria-label="Next slide"
+                ${slideIndex === count - 1 ? "disabled" : ""}
+              >
+                ›
+              </button>
+
+            </nav>
+          `;
+          } else {
+            $("pt-carousel-host").innerHTML = "";
+          }
+
+          // Main buttons
+
+          $("pt-back").disabled = currentPage === 0;
+
+          $("pt-next").textContent =
+            currentPage === total - 1 ? "Start over ↻" : "Next →";
+
+          root.querySelector('[data-action="skip"]').hidden =
+            currentPage === total - 1;
+        }
+
+        // ==========================================
+        // PAGE NAVIGATION
+        // ==========================================
+
+        function changePage(index) {
+          if (index < 0 || index >= pages.length) {
+            return;
+          }
+
+          currentPage = index;
+          render();
+
+          root.scrollIntoView({
+            block: "start",
+            behavior: "auto",
+          });
+        }
+
+        // ==========================================
+        // CAROUSEL NAVIGATION
+        // ==========================================
+
+        function changeSlide(index) {
+          if (index < 0 || index >= pages[currentPage].cards.length) {
+            return;
+          }
+
+          slidePositions[currentPage] = index;
+          render();
+        }
+
+        // ==========================================
+        // BUTTON HANDLERS
+        // ==========================================
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-action]");
+
+          if (!btn || !root.contains(btn) || btn.disabled) {
+            return;
+          }
+
+          switch (btn.dataset.action) {
+            // SKIP
+
+            case "skip":
+              skipped = true;
+              changePage(pages.length - 1);
+              break;
+
+            // BACK
+
+            case "back":
+              changePage(currentPage - 1);
+              break;
+
+            // NEXT / RESTART
+
+            case "next":
+              if (currentPage === pages.length - 1) {
+                skipped = false;
+
+                slidePositions.fill(0);
+
+                Object.keys(quizAnswers).forEach(
+                  (key) => delete quizAnswers[key],
+                );
+
+                changePage(0);
+              } else {
+                changePage(currentPage + 1);
+              }
+              break;
+
+            // PREVIOUS INNER SLIDE
+
+            case "slide-back":
+              changeSlide(slidePositions[currentPage] - 1);
+              break;
+
+            // NEXT INNER SLIDE
+
+            case "slide-next":
+              changeSlide(slidePositions[currentPage] + 1);
+              break;
+
+            // JUMP TO INNER SLIDE
+
+            case "slide-jump":
+              changeSlide(Number(btn.dataset.index));
+              break;
+
+            // ====================================
+            // PRACTICE ANSWER
+            // ====================================
+
+            case "choose": {
+              const key = quizKey();
+
+              if (quizAnswers[key] !== undefined) {
+                return;
+              }
+
+              quizAnswers[key] = Number(btn.dataset.choice);
+
+              render();
+              break;
+            }
+
+            // RETRY QUESTION
+
+            case "retry":
+              delete quizAnswers[quizKey()];
+              render();
+              break;
+          }
+        });
+
+        // ==========================================
+        // MOBILE SWIPE SUPPORT
+        // ==========================================
+
+        root.addEventListener(
+          "touchstart",
+          (event) => {
+            if (!event.target.closest(".pt-card")) {
+              return;
+            }
+
+            touchStart = {
+              x: event.changedTouches[0].screenX,
+              y: event.changedTouches[0].screenY,
+            };
+          },
+          { passive: true },
+        );
+
+        root.addEventListener(
+          "touchend",
+          (event) => {
+            if (!touchStart || !event.target.closest(".pt-card")) {
+              return;
+            }
+
+            const dx = event.changedTouches[0].screenX - touchStart.x;
+
+            const dy = event.changedTouches[0].screenY - touchStart.y;
+
+            touchStart = null;
+
+            // Ignore vertical scrolling.
+
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              changeSlide(slidePositions[currentPage] + (dx < 0 ? 1 : -1));
+            }
+          },
+          { passive: true },
+        );
+
+        // ==========================================
+        // INITIALIZE
+        // ==========================================
+
+        render();
+      })();
+    </script>
+  </body>
+</html>
